@@ -181,13 +181,13 @@ header.site-header {
     background:
         linear-gradient(135deg, var(--color-primary), var(--color-primary-soft));
     color: #fff;
-    box-shadow: 0 18px 45px rgba(79, 70, 229, 0.7);
+    box-shadow: 0 12px 28px rgba(79, 70, 229, 0.55);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
     transform: translateY(-1px);
-    box-shadow: 0 22px 60px rgba(79, 70, 229, 0.9);
+    box-shadow: 0 16px 40px rgba(79, 70, 229, 0.75);
 }
 
 .btn-secondary {
@@ -224,6 +224,25 @@ section.section {
     position: relative;
 }
 
+/* Delimitatoare vizuale între secțiuni */
+.section:not(.hero)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 960px;
+    height: 1px;
+    background:
+        linear-gradient(to right,
+            rgba(15, 23, 42, 0),
+            rgba(148, 163, 184, 0.6),
+            rgba(15, 23, 42, 0));
+    opacity: 0.7;
+    pointer-events: none;
+}
+
 .section-header {
     text-align: left;
     margin-bottom: 2rem;
@@ -250,6 +269,12 @@ section.section {
     max-width: 32rem;
 }
 
+.section-note {
+    margin-top: 1.4rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
 /* Consistent content width inside sections (desktop / tablet) */
 .section .container > .section-header,
 .section .container > .section-card,
@@ -257,6 +282,7 @@ section.section {
 .section .container > .screenshots-grid,
 .section .container > .reports-layout,
 .section .container > .safety-grid,
+.section .container > .section-note,
 .section .container > .website-section,
 .section .container > .faq-list,
 .section .container > .final-cta,
@@ -287,11 +313,13 @@ section.section {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.3rem 0.75rem 0.3rem 0.35rem;
+    padding: 0.35rem 0.9rem 0.35rem 0.45rem;
     border-radius: 999px;
-    border: 1px solid rgba(224, 215, 243, 0.9);
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 8px 22px rgba(24, 8, 62, 0.04);
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    background:
+        radial-gradient(circle at 0 0, rgba(34, 211, 238, 0.22), transparent 65%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96));
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
     margin-bottom: 0.75rem;
 }
 
@@ -303,8 +331,8 @@ section.section {
 }
 
 .hero-badge-text {
-    font-size: 0.8rem;
-    color: var(--color-muted);
+    font-size: 0.82rem;
+    color: #e5e7eb;
 }
 
 .hero-title {
@@ -342,16 +370,17 @@ section.section {
 }
 
 .hero-bullet-icon {
-    width: 20px;
-    height: 20px;
-    border-radius: 999px;
-    background-color: rgba(51, 65, 85, 0.8);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.9), rgba(79, 70, 229, 0.9));
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 0.8rem;
-    color: var(--color-primary);
+    color: #e5e7eb;
     margin-top: 0.1rem;
+    flex-shrink: 0;
 }
 
 .hero-ctas {
@@ -359,7 +388,7 @@ section.section {
     flex-wrap: wrap;
     gap: 0.7rem;
     align-items: center;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.9rem;
 }
 
 .hero-note {
