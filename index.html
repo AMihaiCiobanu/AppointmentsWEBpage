@@ -8,7 +8,7 @@
 
     <meta name="description"
         content="Appointments &amp; Reports este o aplicație modernă pentru saloane și freelanceri care lucrează pe bază de programări – calendar inteligent, clienți, încasări, cheltuieli și rapoarte vizuale." />
-    <meta name="theme-color" content="#020617" />
+    <meta name="theme-color" content="#ffe4e0" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Appointments &amp; Reports – Programări și rapoarte financiare" />
@@ -21,6 +21,9 @@
     <meta name="twitter:description"
         content="Calendar de programări, clienți, încasări, cheltuieli și rapoarte – totul într-o aplicație nativă pentru iPhone, iPad și Mac." />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -31,58 +34,26 @@
                 <div class="brand-mark">AR</div>
                 <div>
                     <div class="brand-text-title">Appointments &amp; Reports</div>
-                    <div class="brand-text-sub">Programări + rapoarte financiare</div>
+                    <div class="brand-text-sub">Aplicație pentru saloane și freelanceri</div>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero -->
+        <!-- Hero – stil CalendarulMeu: un titlu, un subtitlu, un CTA -->
         <section class="section hero" id="acasa">
             <div class="container">
                 <div class="hero-inner">
                     <div class="hero-content">
-                        <div class="hero-badge">
-                            <div class="hero-badge-dot"></div>
-                            <span class="hero-badge-text">Creată special pentru saloane, freelanceri și servicii pe bază
-                                de
-                                programări</span>
-                        </div>
-                        <h1 class="hero-title">
-                            Ține toate
-                            <span>programările și banii salonului</span>
-                            într-o singură aplicație.
-                        </h1>
-                        <p class="hero-subtitle">
-                            „Appointments &amp; Reports” te ajută să vezi clar cine vine, când vine, cât
-                            încasezi și cât cheltuiești – fără agende rupte, mesaje împrăștiate sau calcule
-                            făcute pe fugă.
+                        <h1 class="hero-title">Programări și bani, într-o singură aplicație.</h1>
+                        <p class="hero-sub">Din respect pentru timpul tău.</p>
+                        <p class="hero-desc">
+                            Pentru saloane, freelanceri și oricine lucrează cu programări. Calendar clar, clienți, încasări și rapoarte – pe iPhone, iPad și Mac. Datele rămân la tine.
                         </p>
-                        <ul class="hero-bullets">
-                            <li>
-                                <div class="hero-bullet-icon">✓</div>
-                                <span>Calendar clar de programări, cu sugestii de interval liber și avertizări la
-                                    suprapuneri.</span>
-                            </li>
-                            <li>
-                                <div class="hero-bullet-icon">✓</div>
-                                <span>Clienți, servicii, încasări, cheltuieli și profit în același loc.</span>
-                            </li>
-                            <li>
-                                <div class="hero-bullet-icon">✓</div>
-                                <span>Mesaje rapide către clienți (confirmări, remindere, „La mulți ani”) și rapoarte
-                                    care te ajută să iei decizii mai bune.</span>
-                            </li>
-                        </ul>
                         <div class="hero-ctas">
-                            <button class="btn btn-primary" type="button">Descarcă pentru iPhone</button>
-                            <button class="btn btn-secondary" type="button" aria-disabled="true">
-                                Android – în lucru
-                            </button>
-                        </div>
-                        <div class="hero-note">
-                            Aplicație nativă pentru iPhone, iPad și Mac · datele rămân la tine pe dispozitiv.
+                            <a class="btn btn-primary" href="#descarca">Descarcă pentru iPhone</a>
+                            <span class="hero-cta-note">Android – în lucru</span>
                         </div>
                     </div>
 
@@ -139,6 +110,59 @@
             </div>
         </section>
 
+        <!-- Ce poate face – domenii, ca pe CalendarulMeu -->
+        <section class="section" id="ce-poate-face">
+            <div class="container">
+                <div class="section-header section-header--center">
+                    <div class="section-kicker">Ce poate face</div>
+                    <h2 class="section-title">Aplicația potrivită pentru domeniul tău</h2>
+                    <p class="section-subtitle section-subtitle--center">
+                        Saloane, freelanceri, servicii pe bază de programări – chiar și consultanță sau servicii la adresa clientului.
+                    </p>
+                </div>
+                <div class="domains-wrap">
+                    <p class="domains-intro">Iată câteva domenii pentru care se potrivește:</p>
+                    <div class="chips chips--domains">
+                        <span class="chip">Salon de înfrumusețare</span>
+                        <span class="chip">Coafor / frizerie</span>
+                        <span class="chip">Manichiură / pedichiură</span>
+                        <span class="chip">Barber shop</span>
+                        <span class="chip">Masaj &amp; terapii</span>
+                        <span class="chip">Make-up artist</span>
+                        <span class="chip">Cosmetică / skin care</span>
+                        <span class="chip">Alte servicii pe programări</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ce îți aduce – bloc beneficii ca pe CalendarulMeu -->
+        <section class="section benefits-block" id="beneficii">
+            <div class="container">
+                <div class="section-header section-header--center">
+                    <div class="section-kicker">Ce îți aduce</div>
+                    <h2 class="section-title">Aplicația care îți aduce</h2>
+                </div>
+                <div class="benefits-three">
+                    <div class="benefit-item">
+                        <h3 class="benefit-title">Claritate</h3>
+                        <p class="benefit-text">Calendar clar de programări, intervale libere la vedere, avertizări la suprapuneri. Știi cine vine, când și pentru ce.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3 class="benefit-title">Control</h3>
+                        <p class="benefit-text">Clienți, servicii, încasări, cheltuieli și profit în același loc. Rapoarte pe zile, luni și ani – totul la un click.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3 class="benefit-title">Liniște</h3>
+                        <p class="benefit-text">Mesaje rapide către clienți (confirmări, remindere), backup în iCloud, export al datelor. Mai puțin haos, mai multă ordine.</p>
+                    </div>
+                </div>
+                <div class="benefits-cta">
+                    <a class="btn btn-primary" href="#descarca">Descarcă pentru iPhone</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Galerie vizuală aplicație -->
         <section class="section" id="galerie">
             <div class="container">
@@ -154,8 +178,14 @@
                 <div class="screenshots-grid">
                     <figure class="screenshot-card">
                         <div class="screenshot-frame">
+                            <div class="screenshot-frame-placeholder" aria-hidden="true">
+                                <span class="screenshot-placeholder-icon">📅</span>
+                                <span class="screenshot-placeholder-title">Calendar programări</span>
+                                <span class="screenshot-placeholder-desc">Zile, ore, intervale libere</span>
+                            </div>
                             <img src="images/ar-calendar.png"
-                                alt="Ecran cu calendarul de programări în aplicația Appointments &amp; Reports" />
+                                alt="Ecran: calendar programări"
+                                onerror="this.style.display='none'" />
                         </div>
                         <figcaption>
                             <div class="screenshot-label">Calendar de programări</div>
@@ -167,8 +197,14 @@
 
                     <figure class="screenshot-card">
                         <div class="screenshot-frame">
+                            <div class="screenshot-frame-placeholder" aria-hidden="true">
+                                <span class="screenshot-placeholder-icon">👥</span>
+                                <span class="screenshot-placeholder-title">Clienți și istoric</span>
+                                <span class="screenshot-placeholder-desc">Contact, notițe, programări</span>
+                            </div>
                             <img src="images/ar-clients.png"
-                                alt="Ecran cu lista de clienți și detalii de contact în aplicație" />
+                                alt="Ecran: clienți și istoric"
+                                onerror="this.style.display='none'" />
                         </div>
                         <figcaption>
                             <div class="screenshot-label">Clienți și istoricul lor</div>
@@ -181,8 +217,14 @@
 
                     <figure class="screenshot-card">
                         <div class="screenshot-frame">
+                            <div class="screenshot-frame-placeholder" aria-hidden="true">
+                                <span class="screenshot-placeholder-icon">💰</span>
+                                <span class="screenshot-placeholder-title">Rapoarte și bani</span>
+                                <span class="screenshot-placeholder-desc">Încasări, cheltuieli, profit</span>
+                            </div>
                             <img src="images/ar-reports.png"
-                                alt="Ecran cu rapoarte de încasări, cheltuieli și profit în aplicație" />
+                                alt="Ecran: rapoarte și bani"
+                                onerror="this.style.display='none'" />
                         </div>
                         <figcaption>
                             <div class="screenshot-label">Rapoarte și bani la vedere</div>
@@ -203,14 +245,13 @@
                     <div class="section-kicker">Pentru cine este</div>
                     <h2 class="section-title">Pentru saloane, freelanceri și oricine lucrează cu programări</h2>
                     <p class="section-subtitle">
-                        Dacă ziua ta se învârte între clienți, servicii și bani care intră și ies, „Appointments
-                        &amp; Reports” este construită exact pentru tine.
+                        Dacă ziua ta se învârte între clienți, servicii și bani care intră și ies, aplicația este făcută pentru tine.
                     </p>
                 </div>
 
                 <div class="section-card">
-                    <p style="margin-top: 0; margin-bottom: 0.7rem; font-size: 0.94rem;">
-                        Aplicația se potrivește perfect pentru:
+                    <p class="section-card-lead">
+                        Se potrivește perfect pentru:
                     </p>
                     <div class="chips">
                         <span class="chip">Salon de înfrumusețare</span>
@@ -222,10 +263,8 @@
                         <span class="chip">Cosmetică / skin care</span>
                         <span class="chip">Alte servicii pe bază de programări</span>
                     </div>
-                    <p style="margin: 0; font-size: 0.94rem; color: var(--color-muted);">
-                        Este gândită în special pentru freelanceri și mici antreprenori care fac totul singuri:
-                        răspund la mesaje, notează programări, fac poze, țin evidența banilor. Scopul aplicației
-                        este să îți aducă ordine și claritate, fără să te complice.
+                    <p class="section-card-note">
+                        Gândită pentru cei care fac totul singuri: mesaje, programări, evidența banilor. Scopul: ordine și claritate, fără complicații.
                     </p>
                 </div>
             </div>
@@ -466,36 +505,21 @@
             </div>
         </section>
 
-        <!-- Nu ai încă un website? Te ajut eu -->
-        <section class="section" id="website">
+        <!-- Hai să discutăm – contact ca pe CalendarulMeu -->
+        <section class="section" id="contact">
             <div class="container">
-                <div class="website-section">
-                    <div class="website-main">
-                        <h2 class="website-title">Nu ai încă un website pentru salon? Te ajut eu.</h2>
-                        <p class="website-text">
-                            Pe lângă aplicația „Appointments &amp; Reports”, te pot ajuta și cu o pagină web
-                            simplă, curată, în care clienții să vadă rapid cine ești și cum te pot contacta.
-                        </p>
-                        <ul class="website-list">
-                            <li>programul salonului și date de contact;</li>
-                            <li>lista de servicii și prețuri de bază;</li>
-                            <li>câteva poze relevante sau portofoliu;</li>
-                            <li>butoane clare de contact (telefon, WhatsApp, email);</li>
-                            <li>link-uri către Instagram și Facebook.</li>
-                        </ul>
-                        <p class="website-text">
-                            Tonul este unul uman, fără limbaj corporatist, astfel încât clienții tăi să simtă că
-                            vorbesc direct cu tine, nu cu un formular rece.
-                        </p>
+                <div class="talk-section">
+                    <div class="section-header section-header--center">
+                        <h2 class="talk-title">Hai să discutăm</h2>
+                        <p class="talk-sub">Vrei să vezi cum funcționează aplicația, specific pentru cazul tău?</p>
                     </div>
-                    <div class="website-cta">
-                        <a class="btn btn-outline" href="mailto:c_mihail@icloud.com">
-                            Scrie-mi pe email
-                        </a>
-                        <div class="website-cta-note">
-                            Spune-mi câteva cuvinte despre salonul tău și vedem împreună de ce ai nevoie. Fără
-                            presiune, fără termeni complicați – doar o discuție om-la-om.
-                        </div>
+                    <div class="talk-ctas">
+                        <a class="btn btn-primary talk-cta-main" href="mailto:c_mihail@icloud.com">Trimite un mesaj</a>
+                        <p class="talk-note">Spune-mi câteva cuvinte despre salonul tău sau despre site-ul pe care îl dorești. Îți răspund rapid, fără obligații.</p>
+                    </div>
+                    <div class="talk-extra">
+                        <p class="talk-extra-title">Nu ai încă un website pentru salon?</p>
+                        <p class="talk-extra-text">Te pot ajuta și cu o pagină web simplă: program, servicii, prețuri, contact. <a href="mailto:c_mihail@icloud.com">Scrie-mi pe email</a> și povestim.</p>
                     </div>
                 </div>
             </div>
