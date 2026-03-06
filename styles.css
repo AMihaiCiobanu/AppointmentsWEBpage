@@ -545,9 +545,32 @@ ul.check-list li::before {
   margin-bottom: 1.75rem;
 }
 
+.devices-text .check-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.devices-text .check-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-left: 0;
+  text-align: center;
+}
+
+.devices-text .check-list li::before {
+  position: static;
+  flex-shrink: 0;
+}
+
 .devices-mockup {
-  width: 100%;
-  max-width: 760px;
+  width: 90%;
+  max-width: 90vw;
   margin: 0 auto;
 }
 
@@ -567,10 +590,10 @@ ul.check-list li::before {
   max-width: 260px;
 }
 
-/* Tablet mockup – cadru tip iPad */
+/* Tablet mockup – cadru tip iPad, 90% lățime ecran */
 .tablet-mockup {
   width: 100%;
-  max-width: 720px;
+  max-width: none;
   margin: 0 auto;
   background: var(--primary);
   border-radius: 28px;
@@ -808,10 +831,7 @@ footer {
     font-size: 3.5rem;
   }
 
-  .devices-grid {
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-    gap: 3rem;
-  }
+  /* Dispozitive: secțiunile rămân una sub alta, tableta 90vw */
 }
 
 /* SVGs in buttons */
