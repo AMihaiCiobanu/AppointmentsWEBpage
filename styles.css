@@ -685,6 +685,33 @@ ul.check-list li::before {
   color: #f1f5f9;
 }
 
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid rgba(46, 16, 101, 0.35);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  background-color: rgba(46, 16, 101, 0.04);
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+  background-color: var(--primary);
+}
+
+.btn-outline:disabled:hover {
+  background-color: transparent;
+  border-color: rgba(46, 16, 101, 0.35);
+}
+
 .btn-secondary {
   background-color: white;
   color: var(--primary);
@@ -693,6 +720,20 @@ ul.check-list li::before {
 .btn-secondary:hover {
   background-color: var(--bg-color);
   transform: translateY(-2px);
+}
+
+.tag-inline {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--accent-light);
+  color: var(--accent-hover);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  vertical-align: middle;
+  margin-left: 0.3rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 /* ========== FAQ ========== */
