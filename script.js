@@ -1,3 +1,47 @@
+// Scroll Animations
+const animateObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            animateObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('[data-animate]').forEach(el => {
+    // stagger siblings in the same grid
+    const siblings = Array.from(el.parentElement.querySelectorAll('[data-animate]'));
+    const index = siblings.indexOf(el);
+    if (index > 0) el.style.transitionDelay = `${index * 0.1}s`;
+    animateObserver.observe(el);
+});
+
+// Count-up animation for stats
+function countUp(el, target, suffix) {
+    if (target === 0) { el.textContent = '0' + suffix; return; }
+    const duration = 1400;
+    const start = performance.now();
+    const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+}
+
+const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            countUp(el, parseInt(el.dataset.count), el.dataset.suffix || '');
+            countObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+
 // Hamburger Menu
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
