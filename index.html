@@ -4,8 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments & Reports | The app for your salon</title>
+    <title>Appointments & Reports | Appointments and finances for any professional</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/appIcon.png">
+
+    <!-- SEO -->
+    <meta name="description" content="Manage appointments, clients and finances in one app. Built for any professional who works by appointment — doctors, mechanics, trainers, beauticians and more. Available on Android.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
+    <!-- TODO: Replace YOUR_DOMAIN with your actual domain -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Appointments & Reports — Appointments and finances for any professional">
+    <meta property="og:description" content="Manage appointments, clients and finances in one app. Available on Android. Built for doctors, mechanics, trainers, beauticians and any appointment-based professional.">
+    <meta property="og:image" content="https://YOUR_DOMAIN/assets/appIcon.png">
+    <meta property="og:url" content="https://YOUR_DOMAIN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Appointments & Reports — Appointments and finances for any professional">
+    <meta name="twitter:description" content="Manage appointments, clients and finances in one app. Available on Android.">
+    <meta name="twitter:image" content="https://YOUR_DOMAIN/assets/appIcon.png">
+
+    <!-- Schema.org: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Appointments & Reports",
+        "operatingSystem": "Android",
+        "applicationCategory": "BusinessApplication",
+        "description": "Manage appointments, clients and finances in one app. Built for any professional who works by appointment — doctors, mechanics, coaches, beauticians and more.",
+        "author": {
+            "@type": "Person",
+            "email": "c_mihail@icloud.com"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+
+    <!-- Google Analytics — TODO: Add your Measurement ID to script.js (GA_ID variable) -->
+
 </head>
 
 <body>
@@ -15,13 +58,7 @@
         <div class="container nav-container">
             <div class="logo">
                 <div class="logo-icon">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
+                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32" style="border-radius: 7px; display: block;">
                 </div>
                 Appointments & Reports
             </div>
@@ -32,9 +69,9 @@
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-content">
-                <h1>Your salon's appointments and finances — always in your pocket</h1>
-                <p>Built specifically for beauty professionals and appointment-based services. Take control of your
-                    business: from calendar and clients, to profit and revenue.</p>
+                <h1>Your appointments, your clients, your finances — always under control</h1>
+                <p>Built for any professional who works by appointment. Whether you're a doctor, mechanic, trainer,
+                    or beautician — take control of your schedule and finally see what you're actually earning.</p>
 
                 <div class="hero-questions">
                     <p class="hero-questions-intro">Do you actually know how your business is doing — in numbers?</p>
@@ -48,14 +85,15 @@
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" disabled>
+                    <!-- TODO: Replace # with the Google Play Store URL -->
+                    <a href="#" class="btn btn-primary">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                             <line x1="12" y1="18" x2="12.01" y2="18"></line>
                         </svg>
-                        Android — Coming Soon
-                    </button>
+                        Download on Google Play
+                    </a>
                     <button class="btn btn-outline" disabled>
                         <svg viewBox="0 0 384 512" width="16" height="16">
                             <path
@@ -190,12 +228,12 @@
     <section class="section-padding bg-surface devices-section">
         <div class="container devices-grid">
             <div class="devices-text">
-                <h2 class="section-title">Android coming soon. iPhone, iPad and Mac in the works.</h2>
-                <p class="section-subtitle">The Android version is currently in testing and will be available on the
-                    Play Store shortly. The native Apple experience for iPhone, iPad and Mac is actively in
-                    development.</p>
+                <h2 class="section-title">Available on Android phones and tablets. iPhone, iPad and Mac coming soon.</h2>
+                <p class="section-subtitle">The Android app is live on Google Play and works great on both phones and
+                    tablets. The native Apple experience for iPhone, iPad and Mac is actively in development and
+                    awaiting Apple approval.</p>
                 <ul class="check-list">
-                    <li>Android version in final testing — launching soon on Google Play.</li>
+                    <li>Android phones and tablets — available now on Google Play.</li>
                     <li>Cloud backup and sync keep your appointments and reports always safe.</li>
                     <li>Native iPhone, iPad and Mac experience coming — including Live Activities on your lock screen.</li>
                 </ul>
@@ -215,15 +253,32 @@
     <section class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">Who is it for?</h2>
-            <p class="section-subtitle">Perfect for freelancers and small business owners who run everything themselves
-                and need clarity — without unnecessary complexity.</p>
+            <p class="section-subtitle">If you work by appointment and want to know your numbers — this app is for
+                you. No matter the industry.</p>
 
             <div class="tags-container">
                 <span class="tag">Beauty Salon</span>
-                <span class="tag">Hair & Barbershop</span>
-                <span class="tag">Nails & Pedicure</span>
-                <span class="tag">Massage & Therapy</span>
-                <span class="tag">Barber Shop</span>
+                <span class="tag">Barbershop</span>
+                <span class="tag">Nail & Pedicure</span>
+                <span class="tag">Tattoo Artist</span>
+                <span class="tag">Makeup Artist</span>
+                <span class="tag">Massage Therapist</span>
+                <span class="tag">Dentist</span>
+                <span class="tag">Doctor's Office</span>
+                <span class="tag">Psychologist</span>
+                <span class="tag">Physiotherapist</span>
+                <span class="tag">Nutritionist</span>
+                <span class="tag">Veterinarian</span>
+                <span class="tag">Personal Trainer</span>
+                <span class="tag">Yoga & Pilates</span>
+                <span class="tag">Auto Service</span>
+                <span class="tag">Car Detailing</span>
+                <span class="tag">Driving School</span>
+                <span class="tag">Music Teacher</span>
+                <span class="tag">Private Tutor</span>
+                <span class="tag">Medical Laboratory</span>
+                <span class="tag">Photographer</span>
+                <span class="tag">Consultant</span>
             </div>
         </div>
     </section>
@@ -241,8 +296,8 @@
                     <li>You have no clear picture of who your loyal clients are and who always cancels last minute.</li>
                 </ul>
                 <div class="solution-highlight">
-                    Appointments & Reports brings all of this into one place. Your salon's agenda and finances —
-                    always in your pocket.
+                    Appointments & Reports brings all of this into one place. Your schedule, your clients, and your
+                    finances — always in your pocket.
                 </div>
             </div>
         </div>
@@ -337,11 +392,11 @@
             <div class="faq-container">
 
                 <div class="faq-item">
-                    <button class="faq-question">What devices will the app be available on?</button>
+                    <button class="faq-question">What devices is the app available on?</button>
                     <div class="faq-answer">
-                        <p>The <strong>Android</strong> version is currently in testing and will be available on
-                            Google Play very soon. The native version for <strong>iPhone, iPad and Mac</strong> is
-                            actively in development and will follow.</p>
+                        <p>The <strong>Android</strong> app is available now on Google Play. The native version for
+                            <strong>iPhone, iPad and Mac</strong> is actively in development and is currently awaiting
+                            Apple approval — it will follow soon.</p>
                     </div>
                 </div>
 
@@ -357,9 +412,11 @@
                 <div class="faq-item">
                     <button class="faq-question">What type of business is it designed for?</button>
                     <div class="faq-answer">
-                        <p>It's built for any business that runs on fixed-duration appointments: beauty salons (hair,
-                            nails, barbershops), massage and therapy practices, make-up artists, and similar service
-                            providers.</p>
+                        <p>Any professional or small business that works by appointment. This includes beauty and
+                            wellness (salons, barbershops, massage, tattoo), healthcare (doctors, dentists,
+                            physiotherapists, psychologists), fitness (personal trainers, yoga instructors), auto
+                            services, driving schools, private tutors, consultants, photographers — and many more.
+                            If you take appointments and want to understand your finances, this app is for you.</p>
                     </div>
                 </div>
 
@@ -372,10 +429,10 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">Can I manage multiple salons?</button>
+                    <button class="faq-question">Can I manage multiple locations or businesses?</button>
                     <div class="faq-answer">
-                        <p>The current version is optimised for managing a single salon or freelance business, to keep
-                            everything as simple and clear as possible.</p>
+                        <p>The current version is optimised for managing a single location or freelance practice, to
+                            keep everything as simple and clear as possible.</p>
                     </div>
                 </div>
 
@@ -387,19 +444,20 @@
     <section class="final-cta">
         <div class="container">
             <h2>Less chaos in appointments and finances.<br>More clarity.</h2>
-            <p>Appointments & Reports is coming soon. Stay tuned.</p>
+            <p>Available now on Android. iPhone & Mac coming soon.</p>
 
             <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                <button class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.125rem;" disabled>
+                <!-- TODO: Replace # with the Google Play Store URL -->
+                <a href="#" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.125rem;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
                         <line x1="12" y1="18" x2="12.01" y2="18"></line>
                     </svg>
-                    Android — Coming Soon
-                </button>
+                    Download on Google Play
+                </a>
                 <div style="font-size: 0.9rem; color: var(--text-muted);">
-                    iPhone & Mac — In Development
+                    iPhone & Mac — Work in Progress
                 </div>
             </div>
         </div>
@@ -409,12 +467,25 @@
     <footer>
         <div class="container">
             <p>
-                &copy; 2026 Appointments & Reports. All rights reserved.
+                &copy; 2026 Appointments &amp; Reports. All rights reserved.
+                &nbsp;|&nbsp;
+                <a href="privacy-policy.html">Privacy Policy</a>
+                &nbsp;|&nbsp;
+                <a href="terms.html">Terms &amp; Conditions</a>
                 &nbsp;|&nbsp;
                 <a href="privacy-policy-android.html">Privacy Policy – Android</a>
             </p>
         </div>
     </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display:none;">
+        <p>We use analytics cookies to understand how visitors use this site and improve the experience. You can decline and the site works exactly the same.</p>
+        <div class="cookie-actions">
+            <button id="cookie-decline" class="btn btn-outline">Decline</button>
+            <button id="cookie-accept" class="btn btn-primary">Accept</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
