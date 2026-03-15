@@ -182,7 +182,7 @@ header {
 .hero {
   background: linear-gradient(135deg, var(--bg-alt) 0%, #dde1fa 100%);
   overflow: hidden;
-  padding: 4rem 0 6rem 0;
+  padding: 3rem 0;
 }
 
 .hero-container {
@@ -256,7 +256,7 @@ header {
 
 .features-questions {
   max-width: 800px;
-  margin: 0 auto 3rem auto;
+  margin: 1.75rem auto 0 auto;
   background-color: var(--surface);
   border-radius: var(--radius-md);
   padding: 1.5rem 1.75rem;
@@ -355,7 +355,7 @@ header {
   text-align: center;
   color: var(--text-muted);
   max-width: 700px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 1.75rem auto;
   font-size: 1.125rem;
 }
 
@@ -478,9 +478,14 @@ header {
 .split-section {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
+}
+
+.split-content h2 {
+  font-size: 1.375rem;
+  margin-bottom: 0.75rem;
 }
 
 ul.check-list li {
@@ -523,8 +528,7 @@ ul.check-list li::before {
 
 /* ========== DISPOZITIVE APPLE (iPhone, iPad, Mac) ========== */
 .devices-section {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  /* padding handled by .section-padding */
 }
 
 .devices-grid {
@@ -957,8 +961,30 @@ footer {
     font-size: 2rem;
   }
 
+  .section-subtitle {
+    margin-bottom: 3rem;
+  }
+
+  .hero {
+    padding: 4rem 0 6rem 0;
+  }
+
   .hero h1 {
     font-size: 3.5rem;
+  }
+
+  .split-section {
+    gap: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .split-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .features-questions {
+    margin-top: 3rem;
   }
 
   .final-cta {
