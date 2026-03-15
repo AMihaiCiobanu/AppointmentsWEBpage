@@ -8,8 +8,8 @@ Marketing landing page for **"Appointments & Reports"** — an iOS/iPadOS/Mac ap
 
 There are two companion apps:
 
-- **Android** → `/Users/mihai/Sites/AppointmenstReports` (Kotlin/Gradle). In Google Play testing; will be live at site launch. Play Store URL not yet available — placeholder `#` in the HTML.
-- **iOS** → `/Users/mihai/Sites/Appointments&Reports` (SwiftUI/SwiftData, iOS 16.2+). Pending Apple approval — shown as "Work in Progress" on the site. iOS is missing some Android features; will be updated after approval.
+- **Android** → `/Users/mihai/Sites/AppointmenstReports` (Kotlin/Gradle). In Google Play testing; will be live at site launch. Play Store URL not yet available — placeholder `#` in the HTML. Supports 8 languages: Romanian, English, Spanish, French, Italian, Portuguese (Brazil), Bulgarian, Polish.
+- **iOS** → `/Users/mihai/Sites/Appointments&Reports` (SwiftUI/SwiftData, iOS 16.2+). Pending Apple approval — shown as "Work in Progress" on the site. Supports 6 languages (missing Bulgarian and Polish vs Android).
 
 When updating landing page content, the **Android app is the source of truth** for current features. Do not present iOS as feature-complete until it receives Apple approval.
 
