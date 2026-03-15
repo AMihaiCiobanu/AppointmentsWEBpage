@@ -1,3 +1,72 @@
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+});
+
+navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+    });
+});
+
+// Hide header on scroll down, show on scroll up (mobile only)
+const header = document.querySelector('header');
+let lastScrollY = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile && currentScrollY > 80) {
+        if (currentScrollY > lastScrollY) {
+            // scrolling down — hide header and close menu
+            header.classList.add('header-hidden');
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('open');
+        } else {
+            // scrolling up — show header
+            header.classList.remove('header-hidden');
+        }
+    } else {
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+}, { passive: true });
+
+// Scroll to Top
+const scrollTopBtn = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+}, { passive: true });
+
+scrollTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scroll for nav anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    });
+});
+
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {

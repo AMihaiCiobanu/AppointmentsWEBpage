@@ -62,6 +62,20 @@
                 </div>
                 Appointments & Reports
             </a>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#features">Features</a>
+                <a href="#audience">Who it's for</a>
+                <a href="#reports">Reports</a>
+                <a href="#faq">FAQ</a>
+                <a href="#download" class="nav-cta">Download</a>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -114,7 +128,7 @@
     </section>
 
     <!-- Features / How it helps -->
-    <section class="section-padding bg-alt">
+    <section id="features" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title">Everything you need, built for how you actually work</h2>
             <p class="section-subtitle">All your tools in one place, easy to reach even when you're with a client.
@@ -223,34 +237,8 @@
         </div>
     </section>
 
-
-    <!-- Devices Section -->
-    <section class="section-padding bg-surface devices-section">
-        <div class="container devices-grid">
-            <div class="devices-text">
-                <h2 class="section-title">Available on Android phones and tablets. iPhone, iPad and Mac coming soon.</h2>
-                <p class="section-subtitle">The Android app is live on Google Play and works great on both phones and
-                    tablets. The native Apple experience for iPhone, iPad and Mac is actively in development and
-                    awaiting Apple approval.</p>
-                <ul class="check-list">
-                    <li>Android phones and tablets — available now on Google Play.</li>
-                    <li>Cloud backup and sync keep your appointments and reports always safe.</li>
-                    <li>Native iPhone, iPad and Mac experience coming — including Live Activities on your lock screen.</li>
-                </ul>
-            </div>
-            <div class="devices-mockup">
-                <div class="tablet-mockup">
-                    <div class="tablet-screen">
-                        <img src="assets/tablet&mac.png" alt="App on iPad and Mac" class="tablet-screenshot">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
     <!-- Who it's for -->
-    <section class="section-padding bg-light">
+    <section id="audience" class="section-padding bg-light">
         <div class="container">
             <h2 class="section-title">Who is it for?</h2>
             <p class="section-subtitle">If you work by appointment and want to know your numbers — this app is for
@@ -283,6 +271,30 @@
         </div>
     </section>
 
+    <!-- Devices Section -->
+    <section class="section-padding bg-surface devices-section">
+        <div class="container devices-grid">
+            <div class="devices-text">
+                <h2 class="section-title">Available on Android phones and tablets. iPhone, iPad and Mac coming soon.</h2>
+                <p class="section-subtitle">The Android app is live on Google Play and works great on both phones and
+                    tablets. The native Apple experience for iPhone, iPad and Mac is actively in development and
+                    awaiting Apple approval.</p>
+                <ul class="check-list">
+                    <li>Android phones and tablets — available now on Google Play.</li>
+                    <li>Cloud backup and sync keep your appointments and reports always safe.</li>
+                    <li>Native iPhone, iPad and Mac experience coming — including Live Activities on your lock screen.</li>
+                </ul>
+            </div>
+            <div class="devices-mockup">
+                <div class="tablet-mockup">
+                    <div class="tablet-screen">
+                        <img src="assets/tablet&mac.png" alt="App on iPad and Mac" class="tablet-screenshot">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- The problem it solves -->
     <section class="section-padding bg-surface">
         <div class="container">
@@ -304,7 +316,7 @@
     </section>
 
     <!-- Reports & Security -->
-    <section class="section-padding bg-surface">
+    <section id="reports" class="section-padding bg-surface">
         <div class="container">
 
             <!-- Split: Reports -->
@@ -366,7 +378,7 @@
                 <p style="margin-bottom: 1rem; font-size: 1rem; font-weight: 500;">A modern, clean online presence
                     that convinces clients before they even walk through your door.</p>
 
-                <p class="website-examples-intro">A few examples of sites I've built:</p>
+                <p class="website-examples-intro">A few examples of sites we've built:</p>
                 <ul class="website-examples-list">
                     <li><a href="https://www.silviaskinstudio.co.uk" target="_blank" rel="noopener noreferrer">Silvia
                             Skin Studio</a> – skincare &amp; massage, UK</li>
@@ -382,7 +394,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section-padding bg-alt">
+    <section id="faq" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title">Frequently asked questions</h2>
             <p class="section-subtitle">Learn more about how Appointments &amp; Reports works.</p>
@@ -439,7 +451,7 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta">
+    <section id="download" class="final-cta">
         <div class="container">
             <h2>Less chaos in appointments and finances.<br>More clarity.</h2>
             <p>Available now on Android. iPhone & Mac coming soon.</p>
@@ -475,6 +487,13 @@
             </p>
         </div>
     </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" class="scroll-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
