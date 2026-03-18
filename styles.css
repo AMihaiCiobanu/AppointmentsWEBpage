@@ -639,6 +639,65 @@ ul.check-list li::before {
   display: block;
 }
 
+/* ========== DEMO OFFER ========== */
+.demo-offer {
+  background: linear-gradient(135deg, #ede9fe 0%, #e0e7ff 100%);
+  border: 1px solid #c4b5fd;
+  border-radius: var(--radius-lg);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.demo-offer-icon {
+  width: 64px;
+  height: 64px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+  color: white;
+}
+
+.demo-offer h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.demo-offer p {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.125rem;
+}
+
+.demo-offer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.demo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: white;
+  color: var(--primary);
+  border: 1px solid #c4b5fd;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.demo-badge svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
 /* ========== WEBSITE OFFER ========== */
 .website-offer {
   background-color: var(--primary);
