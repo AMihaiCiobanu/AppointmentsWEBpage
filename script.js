@@ -1,3 +1,27 @@
+const MOBILE_BREAKPOINT = 768;
+
+// Dark Mode Toggle
+const MOON_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+const SUN_ICON  = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+const themeToggle = document.getElementById('theme-toggle');
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    if (themeToggle) {
+        themeToggle.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
+        themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+}
+
+applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
+
+themeToggle?.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', next); } catch (_) {}
+    applyTheme(next);
+});
+
 // Scroll Animations
 const animateObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -58,22 +82,21 @@ navLinks?.querySelectorAll('a').forEach(link => {
     });
 });
 
-// Hide header on scroll down, show on scroll up (mobile only)
+// Hide header on scroll down / show on scroll up (mobile only) + Scroll-to-top button
 const header = document.querySelector('header');
+const scrollTopBtn = document.getElementById('scroll-top');
 let lastScrollY = 0;
 
 window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
-    const isMobile = window.innerWidth < 768;
+    const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
 
     if (isMobile && currentScrollY > 80) {
         if (currentScrollY > lastScrollY) {
-            // scrolling down — hide header and close menu
             header.classList.add('header-hidden');
             hamburger.classList.remove('open');
             navLinks.classList.remove('open');
         } else {
-            // scrolling up — show header
             header.classList.remove('header-hidden');
         }
     } else {
@@ -81,16 +104,9 @@ window.addEventListener('scroll', () => {
     }
 
     lastScrollY = currentScrollY;
-}, { passive: true });
 
-// Scroll to Top
-const scrollTopBtn = document.getElementById('scroll-top');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
+    if (scrollTopBtn) {
+        scrollTopBtn.classList.toggle('visible', currentScrollY > 300);
     }
 }, { passive: true });
 
@@ -119,10 +135,12 @@ document.querySelectorAll('.faq-question').forEach(button => {
 
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
+            item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
         });
 
         if (!isActive) {
             faqItem.classList.add('active');
+            button.setAttribute('aria-expanded', 'true');
         }
     });
 });
@@ -145,7 +163,9 @@ function loadGA() {
 }
 
 // Cookie Consent
-const consent = localStorage.getItem('cookieConsent');
+let consent;
+try { consent = localStorage.getItem('cookieConsent'); } catch (_) {}
+
 if (consent === 'accepted') {
     loadGA();
 } else if (!consent) {
@@ -154,12 +174,12 @@ if (consent === 'accepted') {
 }
 
 document.getElementById('cookie-accept')?.addEventListener('click', () => {
-    localStorage.setItem('cookieConsent', 'accepted');
+    try { localStorage.setItem('cookieConsent', 'accepted'); } catch (_) {}
     document.getElementById('cookie-banner').style.display = 'none';
     loadGA();
 });
 
 document.getElementById('cookie-decline')?.addEventListener('click', () => {
-    localStorage.setItem('cookieConsent', 'declined');
+    try { localStorage.setItem('cookieConsent', 'declined'); } catch (_) {}
     document.getElementById('cookie-banner').style.display = 'none';
 });

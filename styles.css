@@ -5,24 +5,24 @@
  */
 
 :root {
-  /* Paletă profesională: violet profund + indigo accent */
-  --primary: #2e1065;
-  /* Violet 900 */
-  --primary-light: #4c1d95;
-  /* Violet 800 */
-  --accent: #4f46e5;
-  /* Indigo 600 */
-  --accent-hover: #4338ca;
-  /* Indigo 700 */
-  --accent-light: #e0e7ff;
-  /* Indigo 100 */
-  --bg-color: #f5f5ff;
-  /* Fundal general */
-  --bg-alt: #f0f0ff;
-  /* Fundal alternativ */
+  /* Paletă profesională: slate/charcoal + albastru accent */
+  --primary: #0f172a;
+  /* Slate 900 */
+  --primary-light: #1e293b;
+  /* Slate 800 */
+  --accent: #2563eb;
+  /* Blue 600 */
+  --accent-hover: #1d4ed8;
+  /* Blue 700 */
+  --accent-light: #e0eeff;
+  /* Blue 100 */
+  --bg-color: #f8fafc;
+  /* Slate 50 — fundal neutru */
+  --bg-alt: #f1f5f9;
+  /* Slate 100 — fundal alternativ */
   --surface: #ffffff;
   /* Alb pur pentru carduri */
-  --text-main: #1e293b;
+  --text-main: #0f172a;
   /* Text principal */
   --text-muted: #475569;
   /* Text secundar */
@@ -32,6 +32,29 @@
   --radius-md: 16px;
   --radius-lg: 24px;
   --transition: all 0.3s ease;
+}
+
+/* ========== DARK MODE ========== */
+[data-theme="dark"] {
+  --primary: #93c5fd;
+  --primary-light: #bfdbfe;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: #1e3a5f;
+  --bg-color: #0f172a;
+  --bg-alt: #1e293b;
+  --surface: #1e293b;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border: #334155;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #1e293b 0%, #1e3a5f 100%);
+}
+
+[data-theme="dark"] .hero-questions {
+  background-color: rgba(15, 23, 42, 0.95);
 }
 
 * {
@@ -134,7 +157,7 @@ p {
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid var(--border);
   cursor: default;
 }
 
@@ -205,9 +228,87 @@ header.header-hidden {
   justify-content: center;
 }
 
+/* ========== UTILITY CLASSES ========== */
+.logo-img {
+  border-radius: 7px;
+  display: block;
+}
+
+.btn-icon {
+  margin-right: 0.5rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.pricing-save-badge {
+  background: var(--accent);
+  color: white;
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+}
+
+.pricing-footer-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.website-offer-tagline {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.cta-download-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cta-badge-main {
+  transform: scale(1.1);
+}
+
+.cta-wip-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ========== THEME TOGGLE ========== */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-alt);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
 /* ========== HERO SECTION ========== */
 .hero {
-  background: linear-gradient(135deg, var(--bg-alt) 0%, #dde1fa 100%);
+  background: linear-gradient(135deg, var(--bg-alt) 0%, #e0eeff 100%);
   overflow: hidden;
   padding: 3rem 0;
 }
@@ -540,7 +641,7 @@ ul.check-list li::before {
 
 .placeholder-box {
   background: var(--surface);
-  border: 1px dashed #cbd5e1;
+  border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
   aspect-ratio: 4/3;
   display: flex;
@@ -605,7 +706,7 @@ ul.check-list li::before {
 .devices-placeholder {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  border: 1px dashed #cbd5e1;
+  border: 1px dashed var(--border);
   padding: 2.5rem 2rem;
   text-align: center;
   color: var(--text-muted);
@@ -663,8 +764,8 @@ ul.check-list li::before {
 
 /* ========== DEMO OFFER ========== */
 .demo-offer {
-  background: linear-gradient(135deg, #ede9fe 0%, #e0e7ff 100%);
-  border: 1px solid #c4b5fd;
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-alt) 100%);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 4rem 2rem;
   text-align: center;
@@ -706,9 +807,9 @@ ul.check-list li::before {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background-color: white;
+  background-color: var(--surface);
   color: var(--primary);
-  border: 1px solid #c4b5fd;
+  border: 1px solid var(--border);
   border-radius: 999px;
   padding: 0.4rem 1rem;
   font-size: 0.9rem;
@@ -736,7 +837,7 @@ ul.check-list li::before {
 }
 
 .website-offer p {
-  color: #cbd5e1;
+  color: var(--border);
   max-width: 600px;
   margin: 0 auto 2rem auto;
   font-size: 1.125rem;
@@ -775,12 +876,12 @@ ul.check-list li::before {
 .btn-outline {
   background-color: transparent;
   color: var(--primary);
-  border: 2px solid rgba(46, 16, 101, 0.35);
+  border: 2px solid var(--border);
 }
 
 .btn-outline:hover {
   border-color: var(--primary);
-  background-color: rgba(46, 16, 101, 0.04);
+  background-color: var(--bg-alt);
 }
 
 .btn:disabled {
@@ -796,7 +897,7 @@ ul.check-list li::before {
 
 .btn-outline:disabled:hover {
   background-color: transparent;
-  border-color: rgba(46, 16, 101, 0.35);
+  border-color: var(--border);
 }
 
 .btn-secondary {
@@ -866,7 +967,7 @@ ul.check-list li::before {
   transition:
     max-height 0.3s ease,
     padding 0.3s ease;
-  background-color: #fafbfc;
+  background-color: var(--bg-color);
 }
 
 .faq-answer p {
@@ -884,15 +985,14 @@ ul.check-list li::before {
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px;
-  /* Valoare arbitrară suficient de mare pentru animație */
+  max-height: 1000px;
 }
 
 /* ========== FINAL CTA & FOOTER ========== */
 .final-cta {
   text-align: center;
   padding: 3.5rem 0;
-  background: linear-gradient(135deg, #dde1fa 0%, var(--bg-alt) 100%);
+  background: linear-gradient(135deg, #e0eeff 0%, var(--bg-alt) 100%);
 }
 
 .final-cta h2 {
@@ -1601,7 +1701,7 @@ footer {
 .waitlist-privacy {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.45);
-  margin-top: 0.75rem;
+  margin-top: 1.25rem;
 }
 
 @media (min-width: 768px) {

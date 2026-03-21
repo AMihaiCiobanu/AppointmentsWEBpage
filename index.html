@@ -49,6 +49,17 @@
 
     <!-- Google Analytics — TODO: Add your Measurement ID to script.js (GA_ID variable) -->
 
+    <!-- Dark mode: apply saved theme before first paint to avoid flash -->
+    <script>
+        (function() {
+            var saved;
+            try { saved = localStorage.getItem('theme'); } catch (_) {}
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
 </head>
 
 <body>
@@ -58,7 +69,7 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
-                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32" style="border-radius: 7px; display: block;">
+                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32" class="logo-img">
                 </div>
                 Appointments & Reports
             </a>
@@ -72,6 +83,8 @@
                 <a href="#demo">Get in touch</a>
                 <a href="#download" class="nav-cta">Download</a>
             </nav>
+
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
 
             <button class="hamburger" id="hamburger" aria-label="Open menu">
                 <span></span>
@@ -127,7 +140,7 @@
                         </div>
                     </a>
                     <button class="btn btn-outline" disabled>
-                        <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="margin-right:0.5rem">
+                        <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" class="btn-icon">
                             <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
                         </svg>
                         iOS — Work in Progress
@@ -137,7 +150,7 @@
 
             <div class="iphone-mockup">
                 <div class="screen">
-                    <img src="assets/approintments.jpeg" alt="App screenshot - Appointment calendar"
+                    <img src="assets/appointments.jpeg" alt="App screenshot - Appointment calendar"
                         class="iphone-screenshot">
                 </div>
             </div>
@@ -383,7 +396,7 @@
             <div class="devices-mockup">
                 <div class="tablet-mockup">
                     <div class="tablet-screen">
-                        <img src="assets/tablet&mac.png" alt="App on iPad and Mac" class="tablet-screenshot">
+                        <img src="assets/tablet&mac.png" alt="App on iPad and Mac" class="tablet-screenshot" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -430,7 +443,7 @@
                 <div class="iphone-mockup iphone-mockup-report">
                     <div class="screen">
                         <img src="assets/report.jpeg" alt="App screenshot - Monthly financial reports"
-                            class="iphone-screenshot">
+                            class="iphone-screenshot" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -453,7 +466,7 @@
                 <div class="iphone-mockup iphone-mockup-settings">
                     <div class="screen">
                         <img src="assets/settings.jpeg" alt="App screenshot - Settings and Face ID"
-                            class="iphone-screenshot">
+                            class="iphone-screenshot" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -470,7 +483,7 @@
                     <strong>business presentation page</strong>. A clean online space with your schedule, services,
                     photos, links to Instagram/Facebook, and quick contact buttons.
                 </p>
-                <p style="margin-bottom: 1rem; font-size: 1rem; font-weight: 500;">A modern, clean online presence
+                <p class="website-offer-tagline">A modern, clean online presence
                     that convinces clients before they even walk through your door.</p>
 
                 <p class="website-examples-intro">A few examples of sites we've built:</p>
@@ -518,7 +531,7 @@
                         <li class="unavailable">Price list sharing</li>
                     </ul>
                     <!-- TODO: Replace # with Google Play URL -->
-                    <div style="display:flex; justify-content:center;">
+                    <div class="flex-center">
                         <a href="#" class="google-play-badge">
                             <svg width="22" height="24" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                             <div class="google-play-badge-text">
@@ -536,7 +549,7 @@
                     <div class="pricing-price">
                         <span class="amount">€5.99</span><span class="period">/month</span>
                     </div>
-                    <div class="pricing-trial">or €60 / year <span style="background:var(--accent);color:white;border-radius:4px;padding:0.1rem 0.45rem;font-size:0.72rem;font-weight:700;letter-spacing:0.04em;vertical-align:middle;margin-left:0.25rem;">SAVE 17%</span> &nbsp;·&nbsp; 7-day free trial</div>
+                    <div class="pricing-trial">or €60 / year <span class="pricing-save-badge">SAVE 17%</span> &nbsp;·&nbsp; 7-day free trial</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
                         <li>Everything in Free, plus:</li>
@@ -550,7 +563,7 @@
                         <li>Top client rankings by revenue</li>
                     </ul>
                     <!-- TODO: Replace # with Google Play URL -->
-                    <div style="display:flex; justify-content:center;">
+                    <div class="flex-center">
                         <a href="#" class="google-play-badge">
                             <svg width="22" height="24" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
                             <div class="google-play-badge-text">
@@ -563,7 +576,7 @@
 
             </div>
 
-            <p style="text-align:center; margin-top:1.5rem; color:var(--text-muted); font-size:0.9rem;">
+            <p class="pricing-footer-note">
                 No hidden fees &nbsp;·&nbsp; 0% commission on bookings &nbsp;·&nbsp; Cancel anytime
             </p>
 
@@ -581,7 +594,7 @@
                     <input type="email" name="email" placeholder="your@email.com" required autocomplete="email">
                     <button type="submit" class="btn-waitlist">Notify me</button>
                 </form>
-                <p class="waitlist-privacy" style="margin-top: 1.25rem;">No spam. One email when we launch, that's it.</p>
+                <p class="waitlist-privacy">No spam. One email when we launch, that's it.</p>
             </div>
         </div>
     </section>
@@ -595,7 +608,7 @@
             <div class="faq-container">
 
                 <div class="faq-item">
-                    <button class="faq-question">What devices is the app available on?</button>
+                    <button class="faq-question" aria-expanded="false">What devices is the app available on?</button>
                     <div class="faq-answer">
                         <p>The <strong>Android</strong> app is available now on Google Play. The native version for
                             <strong>iPhone, iPad and Mac</strong> is actively in development and is currently awaiting
@@ -604,7 +617,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">Do I need an internet connection to use it?</button>
+                    <button class="faq-question" aria-expanded="false">Do I need an internet connection to use it?</button>
                     <div class="faq-answer">
                         <p>No. Appointments & Reports is a native app — all your data is stored locally on your
                             device. You can view, add, and edit appointments and reports even without an internet
@@ -613,7 +626,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">What type of business is it designed for?</button>
+                    <button class="faq-question" aria-expanded="false">What type of business is it designed for?</button>
                     <div class="faq-answer">
                         <p>Any professional or small business that works by appointment. This includes beauty and
                             wellness (salons, barbershops, massage, tattoo), healthcare (doctors, dentists,
@@ -624,7 +637,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">Can I export my data?</button>
+                    <button class="faq-question" aria-expanded="false">Can I export my data?</button>
                     <div class="faq-answer">
                         <p>Yes! From the app menu you can export a complete backup of all your data as a JSON file at
                             any time. You can also import it back — useful when switching phones.</p>
@@ -632,14 +645,14 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">Can I offer subscriptions or session passes to my clients?</button>
+                    <button class="faq-question" aria-expanded="false">Can I offer subscriptions or session passes to my clients?</button>
                     <div class="faq-answer">
                         <p>Yes. You can add subscription services of two types: <strong>session-based</strong> (a fixed number of sessions that get consumed automatically with each appointment) or <strong>monthly</strong> (a flat price covering a full calendar month). The app tracks usage and shows you and your client exactly how many sessions remain.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">Can I manage multiple locations or businesses?</button>
+                    <button class="faq-question" aria-expanded="false">Can I manage multiple locations or businesses?</button>
                     <div class="faq-answer">
                         <p>The current version is optimised for managing a single location or freelance practice, to
                             keep everything as simple and clear as possible.</p>
@@ -691,9 +704,9 @@
             <h2>Less chaos in appointments and finances.<br>More clarity.</h2>
             <p>Available now on Android. iPhone & Mac coming soon.</p>
 
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+            <div class="cta-download-group">
                 <!-- TODO: Replace # with the Google Play Store URL -->
-                <a href="#" class="google-play-badge btn-pulse" style="transform: scale(1.1);">
+                <a href="#" class="google-play-badge btn-pulse cta-badge-main">
                     <svg width="22" height="24" viewBox="0 0 512 512">
                         <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
                     </svg>
@@ -702,9 +715,7 @@
                         <span>Google Play</span>
                     </div>
                 </a>
-                <div style="font-size: 0.9rem; color: var(--text-muted);">
-                    iPhone & Mac — Work in Progress
-                </div>
+                <div class="cta-wip-note">iPhone & Mac — Work in Progress</div>
             </div>
         </div>
     </section>
