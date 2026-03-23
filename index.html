@@ -9,21 +9,24 @@
     <link rel="icon" type="image/png" href="assets/appIcon.png">
 
     <!-- SEO -->
-    <meta name="description" content="Manage appointments, clients and finances in one app. Built for any professional who works by appointment — doctors, mechanics, trainers, beauticians and more. Available on Android.">
+    <meta name="description"
+        content="Manage appointments, clients and finances in one app. Built for any professional who works by appointment — doctors, mechanics, trainers, beauticians and more. Available on Android.">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
     <!-- TODO: Replace YOUR_DOMAIN with your actual domain -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Appointments & Reports — Appointments and finances for any professional">
-    <meta property="og:description" content="Manage appointments, clients and finances in one app. Available on Android. Built for doctors, mechanics, trainers, beauticians and any appointment-based professional.">
+    <meta property="og:description"
+        content="Manage appointments, clients and finances in one app. Available on Android. Built for doctors, mechanics, trainers, beauticians and any appointment-based professional.">
     <meta property="og:image" content="https://YOUR_DOMAIN/assets/appIcon.png">
     <meta property="og:url" content="https://YOUR_DOMAIN">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Appointments & Reports — Appointments and finances for any professional">
-    <meta name="twitter:description" content="Manage appointments, clients and finances in one app. Available on Android.">
+    <meta name="twitter:description"
+        content="Manage appointments, clients and finances in one app. Available on Android.">
     <meta name="twitter:image" content="https://YOUR_DOMAIN/assets/appIcon.png">
 
     <!-- Schema.org: SoftwareApplication -->
@@ -51,9 +54,9 @@
 
     <!-- Dark mode: apply saved theme before first paint to avoid flash -->
     <script>
-        (function() {
+        (function () {
             var saved;
-            try { saved = localStorage.getItem('theme'); } catch (_) {}
+            try { saved = localStorage.getItem('theme'); } catch (_) { }
             var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             var theme = saved || 'dark';
             document.documentElement.setAttribute('data-theme', theme);
@@ -69,7 +72,8 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
-                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32" class="logo-img">
+                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32"
+                        class="logo-img">
                 </div>
                 Appointments & Reports
             </a>
@@ -102,21 +106,33 @@
                     <span class="badge">Free to start</span>
                 </div>
 
-                <h1>Do you know how much you made last month?<br><span class="gradient-text">Most appointment professionals don't.</span></h1>
+                <h1>Do you know how much you made last month?<br><span class="gradient-text">Most appointment
+                        professionals don't.</span></h1>
 
-                <p>Appointments & Reports tracks your schedule, clients, and finances automatically — so you always know exactly where your business stands. For barbers, doctors, mechanics, trainers, and anyone else who works by appointment.</p>
+                <p>Appointments & Reports tracks your schedule, clients, and finances automatically — so you always know
+                    exactly where your business stands. For barbers, doctors, mechanics, trainers, and anyone else who
+                    works by appointment.</p>
 
                 <div class="hero-trust">
                     <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         No hidden fees
                     </span>
                     <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         0% commission on bookings
                     </span>
                     <span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         Cancel anytime
                     </span>
                 </div>
@@ -125,7 +141,8 @@
                     <!-- TODO: Replace # with the Google Play Store URL -->
                     <a href="#" class="google-play-badge btn-pulse">
                         <svg width="22" height="24" viewBox="0 0 512 512">
-                            <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                            <path
+                                d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
                         </svg>
                         <div class="google-play-badge-text">
                             <span>Get it on</span>
@@ -138,7 +155,11 @@
 
             <div class="iphone-mockup">
                 <div class="screen">
-                    <img src="assets/appointments.jpeg" alt="App screenshot - Appointment calendar" class="iphone-screenshot">
+                    <img src="assets/appointmentDark.png" alt="App screenshot - Appointment calendar"
+                        class="iphone-screenshot theme-img-dark">
+                    <!-- TODO: add appointmentLight.png -->
+                    <img src="assets/appointmentDark.png" alt="App screenshot - Appointment calendar"
+                        class="iphone-screenshot theme-img-light">
                 </div>
             </div>
         </div>
@@ -171,14 +192,21 @@
     <!-- Pain section — 4 questions -->
     <section class="pain-section">
         <div class="container">
-            <p class="pain-intro" data-animate>Most professionals who work by appointment run their business by feel.</p>
+            <p class="pain-intro" data-animate>Most professionals who work by appointment run their business by feel.
+            </p>
             <h2 class="pain-title" data-animate>Four questions you should be able to answer — but probably can't.</h2>
 
             <div class="pain-grid">
                 <div class="pain-card" data-animate>
                     <span class="pain-num">01</span>
                     <div class="pain-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <line x1="19" y1="8" x2="19" y2="14"></line>
+                            <line x1="22" y1="11" x2="16" y2="11"></line>
+                        </svg>
                     </div>
                     <h3>How many no-shows did you have last month?</h3>
                     <p>And how much revenue did those missed appointments actually cost you?</p>
@@ -188,7 +216,11 @@
                 <div class="pain-card" data-animate>
                     <span class="pain-num">02</span>
                     <div class="pain-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
                     </div>
                     <h3>What was your net profit last month?</h3>
                     <p>After rent, supplies, and all expenses — what did you actually take home?</p>
@@ -198,7 +230,11 @@
                 <div class="pain-card" data-animate>
                     <span class="pain-num">03</span>
                     <div class="pain-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
                     </div>
                     <h3>Are you earning more or less than 6 months ago?</h3>
                     <p>Is your business growing? Shrinking? Staying flat? Do you actually know?</p>
@@ -208,7 +244,12 @@
                 <div class="pain-card" data-animate>
                     <span class="pain-num">04</span>
                     <div class="pain-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                            </polygon>
+                        </svg>
                     </div>
                     <h3>Which client generates the most revenue for you?</h3>
                     <p>Who are the top 5? Who always cancels? Who should you prioritize?</p>
@@ -232,17 +273,20 @@
                 <div class="step" data-animate>
                     <div class="step-number">1</div>
                     <h3>Download and sign in</h3>
-                    <p>Get the app from Google Play. Sign in with your Google account in one tap — no password to create.</p>
+                    <p>Get the app from Google Play. Sign in with your Google account in one tap — no password to
+                        create.</p>
                 </div>
                 <div class="step" data-animate>
                     <div class="step-number">2</div>
                     <h3>Add your services and clients</h3>
-                    <p>Set up the services you offer with prices and durations. Import clients from your contacts in one tap.</p>
+                    <p>Set up the services you offer with prices and durations. Import clients from your contacts in one
+                        tap.</p>
                 </div>
                 <div class="step" data-animate>
                     <div class="step-number">3</div>
                     <h3>Book, track, and grow</h3>
-                    <p>Start booking appointments. Revenue is tracked automatically. Check your profit at any time, in seconds.</p>
+                    <p>Start booking appointments. Revenue is tracked automatically. Check your profit at any time, in
+                        seconds.</p>
                 </div>
             </div>
         </div>
@@ -252,71 +296,115 @@
     <section id="features" class="section-padding bg-surface">
         <div class="container">
             <h2 class="section-title">Everything you need, built for how you actually work</h2>
-            <p class="section-subtitle">All your tools in one place — easy to reach even when you're with a client. Sign in instantly with <strong>Google</strong>, no passwords to remember.</p>
+            <p class="section-subtitle">All your tools in one place — easy to reach even when you're with a client. Sign
+                in instantly with <strong>Google</strong>, no passwords to remember.</p>
 
             <div class="features-grid">
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
                     </div>
                     <h3>Smart appointment calendar</h3>
-                    <p>See who's coming, when, and for what service. Suggests your next free slot automatically, prevents double-bookings, handles recurring days off and vacations.</p>
+                    <p>See who's coming, when, and for what service. Suggests your next free slot automatically,
+                        prevents double-bookings, handles recurring days off and vacations.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </div>
                     <h3>Full client history at a glance</h3>
-                    <p>All contact info and visit history in one place. Add notes, flag unreliable clients, and get automatic birthday reminders so you never miss a personal touch.</p>
+                    <p>All contact info and visit history in one place. Add notes, flag unreliable clients, and get
+                        automatic birthday reminders so you never miss a personal touch.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
                     </div>
                     <h3>Revenue tracked automatically</h3>
-                    <p>Every appointment creates an income entry. Add expenses in one tap. Your daily profit is calculated instantly — no spreadsheets, no guessing.</p>
+                    <p>Every appointment creates an income entry. Add expenses in one tap. Your daily profit is
+                        calculated instantly — no spreadsheets, no guessing.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
                     </div>
                     <h3>4-mode calendar view</h3>
-                    <p>Switch the same calendar between four views: availability, income, expenses, and profit. See your business performance day by day at a glance.</p>
+                    <p>Switch the same calendar between four views: availability, income, expenses, and profit. See your
+                        business performance day by day at a glance.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path>
+                        </svg>
                     </div>
                     <h3>Confirmations via SMS & WhatsApp</h3>
-                    <p>Send appointment confirmations in one tap. Templates ready to go — date, time, and your social links inserted automatically.</p>
+                    <p>Send appointment confirmations in one tap. Templates ready to go — date, time, and your social
+                        links inserted automatically.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 4v6h-6"></path>
+                            <path d="M1 20v-6h6"></path>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
                     </div>
                     <h3>Client subscriptions & passes</h3>
-                    <p>Offer session-based or monthly subscriptions. Each appointment deducts a session automatically — no manual counting, no guesswork.</p>
+                    <p>Offer session-based or monthly subscriptions. Each appointment deducts a session automatically —
+                        no manual counting, no guesswork.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
                     </div>
                     <h3>Smart reminders</h3>
-                    <p>Set custom reminders for anything — follow-ups, stock orders, tasks. Choose date, time, and repeat pattern. Notifications arrive even when the app is closed.</p>
+                    <p>Set custom reminders for anything — follow-ups, stock orders, tasks. Choose date, time, and
+                        repeat pattern. Notifications arrive even when the app is closed.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
                     </div>
                     <h3>Lock screen widget <span class="tag-inline">iOS</span></h3>
-                    <p>Your next appointment on your iPhone lock screen via Live Activities — client name, service, and time, without even unlocking your phone.</p>
+                    <p>Your next appointment on your iPhone lock screen via Live Activities — client name, service, and
+                        time, without even unlocking your phone.</p>
                 </div>
             </div>
         </div>
@@ -330,9 +418,11 @@
                 <div class="split-content">
                     <span class="section-eyebrow">Financial reports</span>
                     <h2>Know your numbers. Make better decisions.</h2>
-                    <p>The app works like a <strong>personal financial analyst</strong> for your business — without the cost or complexity.</p>
+                    <p>The app works like a <strong>personal financial analyst</strong> for your business — without the
+                        cost or complexity.</p>
                     <ul class="check-list">
-                        <li>Monthly and yearly breakdown: revenue (estimated vs actual), expenses, and net profit.</li>
+                        <li>Monthly and yearly breakdown: revenue (estimated vs actual), expenses, and net profit — with
+                            comparisons vs. last month and the same month last year.</li>
                         <li>Track how many hours and days you've actually worked.</li>
                         <li>Identify your top clients by revenue and visit frequency.</li>
                         <li>See exactly how many no-shows you've had and how much income they've cost you.</li>
@@ -340,7 +430,11 @@
                 </div>
                 <div class="iphone-mockup iphone-mockup-report">
                     <div class="screen">
-                        <img src="assets/report.jpeg" alt="App screenshot - Monthly financial reports" class="iphone-screenshot" loading="lazy">
+                        <img src="assets/reportMonthDark.png" alt="App screenshot - Monthly financial reports"
+                            class="iphone-screenshot theme-img-dark" loading="lazy">
+                        <!-- TODO: add reportMonthLight.png -->
+                        <img src="assets/reportMonthDark.png" alt="App screenshot - Monthly financial reports"
+                            class="iphone-screenshot theme-img-light" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -349,16 +443,25 @@
                 <div class="split-content">
                     <span class="section-eyebrow">Security & privacy</span>
                     <h2>Your data stays yours. Always.</h2>
-                    <p>Your client list and financial records are sensitive. Everything is designed to give you complete peace of mind.</p>
+                    <p>Your client list and financial records are sensitive. Everything is designed to give you complete
+                        peace of mind.</p>
                     <ul class="check-list">
-                        <li><strong>Face ID & Fingerprint:</strong> Nobody can access your reports or client list if you leave your phone on the table.</li>
-                        <li><strong>Cloud backup & sync:</strong> Your data is automatically backed up. Export or import everything as a secure JSON file anytime.</li>
-                        <li><strong>Fully localised:</strong> Available in English, Romanian, Spanish, Portuguese (Brazil), French, Italian, Bulgarian and Polish — with support for RON, EUR, GBP, USD, BRL, CHF and HUF.</li>
+                        <li><strong>Face ID & Fingerprint:</strong> Nobody can access your reports or client list if you
+                            leave your phone on the table.</li>
+                        <li><strong>Cloud backup & sync:</strong> Your data is automatically backed up. Export or import
+                            everything as a secure JSON file anytime.</li>
+                        <li><strong>Fully localised:</strong> Available in English, Romanian, Spanish, Portuguese
+                            (Brazil), French, Italian, Bulgarian and Polish — with support for RON, EUR, GBP, USD, BRL,
+                            CHF and HUF.</li>
                     </ul>
                 </div>
                 <div class="iphone-mockup iphone-mockup-settings">
                     <div class="screen">
-                        <img src="assets/settings.jpeg" alt="App screenshot - Settings and Face ID" class="iphone-screenshot" loading="lazy">
+                        <img src="assets/settingsDark.png" alt="App screenshot - Settings and Face ID"
+                            class="iphone-screenshot theme-img-dark" loading="lazy">
+                        <!-- TODO: add settingsLight.png -->
+                        <img src="assets/settingsDark.png" alt="App screenshot - Settings and Face ID"
+                            class="iphone-screenshot theme-img-light" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -371,17 +474,22 @@
         <div class="container devices-grid">
             <div class="devices-text">
                 <h2 class="section-title">Android now. iPhone, iPad & Mac coming soon.</h2>
-                <p class="section-subtitle">The Android app is live on Google Play and works great on both phones and tablets. The native Apple experience is actively in development and awaiting Apple approval.</p>
+                <p class="section-subtitle">The Android app is live on Google Play and works great on both phones and
+                    tablets. The native Apple experience is actively in development and awaiting Apple approval.</p>
                 <ul class="check-list">
                     <li>Android phones and tablets — available now on Google Play.</li>
                     <li>Cloud backup and sync keep your appointments and reports always safe.</li>
-                    <li>Native iPhone, iPad and Mac experience coming — including Live Activities on your lock screen.</li>
+                    <li>Native iPhone, iPad and Mac experience coming — including Live Activities on your lock screen.
+                    </li>
                 </ul>
             </div>
             <div class="devices-mockup">
                 <div class="tablet-mockup">
                     <div class="tablet-screen">
-                        <img src="assets/tablet&mac.png" alt="App on iPad and Mac" class="tablet-screenshot" loading="lazy">
+                        <img src="assets/appointmentDarkTablet.png" alt="App on Android tablet"
+                            class="tablet-screenshot theme-img-dark" loading="lazy">
+                        <img src="assets/appointmentLightTablet.png" alt="App on Android tablet"
+                            class="tablet-screenshot theme-img-light" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -392,7 +500,8 @@
     <section id="audience" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title">If you take appointments, this app is for you.</h2>
-            <p class="section-subtitle">No matter the industry. If you work by appointment and want to understand your finances, this app was built for you.</p>
+            <p class="section-subtitle">No matter the industry. If you work by appointment and want to understand your
+                finances, this app was built for you.</p>
 
             <div class="tags-container" data-animate>
                 <span class="tag">Beauty Salon</span>
@@ -425,12 +534,14 @@
     <section class="section-padding bg-surface">
         <div class="container">
             <h2 class="section-title" data-animate>What professionals say</h2>
-            <p class="section-subtitle" data-animate>Real feedback from people who use Appointments & Reports every day.</p>
+            <p class="section-subtitle" data-animate>Real feedback from people who use Appointments & Reports every day.
+            </p>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote">I had no idea how many no-shows I was actually getting every month. After one month with the app, I saw the number and the money I was losing. Eye-opening.</p>
+                    <p class="testimonial-quote">I had no idea how many no-shows I was actually getting every month.
+                        After one month with the app, I saw the number and the money I was losing. Eye-opening.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
                         <div class="testimonial-author">
@@ -442,7 +553,8 @@
 
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote">I was using a paper diary and WhatsApp for years. Switched to this and in 3 days I had a complete picture of my monthly revenue. I wished I had started sooner.</p>
+                    <p class="testimonial-quote">I was using a paper diary and WhatsApp for years. Switched to this and
+                        in 3 days I had a complete picture of my monthly revenue. I wished I had started sooner.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
                         <div class="testimonial-author">
@@ -454,7 +566,9 @@
 
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote">The financial reports alone are worth it. I finally know which services are actually profitable and which ones I should drop. My income went up just by looking at the data.</p>
+                    <p class="testimonial-quote">The financial reports alone are worth it. I finally know which services
+                        are actually profitable and which ones I should drop. My income went up just by looking at the
+                        data.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
                         <div class="testimonial-author">
@@ -471,7 +585,8 @@
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate>Simple, transparent pricing</h2>
-            <p class="section-subtitle" data-animate>Start free for 7 days with everything unlocked. Then choose what fits you.</p>
+            <p class="section-subtitle" data-animate>Start free for 7 days with everything unlocked. Then choose what
+                fits you.</p>
 
             <div class="pricing-grid">
 
@@ -499,7 +614,10 @@
                     <!-- TODO: Replace # with Google Play URL -->
                     <div class="flex-center">
                         <a href="#" class="google-play-badge">
-                            <svg width="22" height="24" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                            <svg width="22" height="24" viewBox="0 0 512 512">
+                                <path
+                                    d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+                            </svg>
                             <div class="google-play-badge-text">
                                 <span>Get it on</span>
                                 <span>Google Play</span>
@@ -515,7 +633,8 @@
                     <div class="pricing-price">
                         <span class="amount">€5.99</span><span class="period">/month</span>
                     </div>
-                    <div class="pricing-trial">or €60 / year <span class="pricing-save-badge">SAVE 17%</span> &nbsp;·&nbsp; 7-day free trial</div>
+                    <div class="pricing-trial">or €60 / year <span class="pricing-save-badge">SAVE 17%</span>
+                        &nbsp;·&nbsp; 7-day free trial</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
                         <li>Everything in Free, plus:</li>
@@ -531,7 +650,10 @@
                     <!-- TODO: Replace # with Google Play URL -->
                     <div class="flex-center">
                         <a href="#" class="google-play-badge">
-                            <svg width="22" height="24" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                            <svg width="22" height="24" viewBox="0 0 512 512">
+                                <path
+                                    d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
+                            </svg>
                             <div class="google-play-badge-text">
                                 <span>Get it on</span>
                                 <span>Google Play</span>
@@ -575,42 +697,62 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">What devices is the app available on?</button>
                     <div class="faq-answer">
-                        <p>The <strong>Android</strong> app is available now on Google Play. The native version for <strong>iPhone, iPad and Mac</strong> is actively in development and is currently awaiting Apple approval — it will follow soon.</p>
+                        <p>The <strong>Android</strong> app is available now on Google Play. The native version for
+                            <strong>iPhone, iPad and Mac</strong> is actively in development and is currently awaiting
+                            Apple approval — it will follow soon.
+                        </p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Do I need an internet connection to use it?</button>
+                    <button class="faq-question" aria-expanded="false">Do I need an internet connection to use
+                        it?</button>
                     <div class="faq-answer">
-                        <p>No. Appointments & Reports is a native app — all your data is stored locally on your device. You can view, add, and edit appointments and reports even without an internet connection. Cloud sync kicks in automatically when you're back online.</p>
+                        <p>No. Appointments & Reports is a native app — all your data is stored locally on your device.
+                            You can view, add, and edit appointments and reports even without an internet connection.
+                            Cloud sync kicks in automatically when you're back online.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">What type of business is it designed for?</button>
+                    <button class="faq-question" aria-expanded="false">What type of business is it designed
+                        for?</button>
                     <div class="faq-answer">
-                        <p>Any professional or small business that works by appointment. This includes beauty and wellness (salons, barbershops, massage, tattoo), healthcare (doctors, dentists, physiotherapists, psychologists), fitness (personal trainers, yoga instructors), auto services, driving schools, private tutors, consultants, photographers — and many more. If you take appointments and want to understand your finances, this app is for you.</p>
+                        <p>Any professional or small business that works by appointment. This includes beauty and
+                            wellness (salons, barbershops, massage, tattoo), healthcare (doctors, dentists,
+                            physiotherapists, psychologists), fitness (personal trainers, yoga instructors), auto
+                            services, driving schools, private tutors, consultants, photographers — and many more. If
+                            you take appointments and want to understand your finances, this app is for you.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">Is my data safe? Who can see it?</button>
                     <div class="faq-answer">
-                        <p>Your data is stored locally on your device and backed up to your private Google account. Nobody else has access to your client list or financial records. Face ID and fingerprint lock prevent anyone from opening the app on your phone. You can export a full backup at any time and delete everything whenever you want.</p>
+                        <p>Your data is stored locally on your device and backed up to your private Google account.
+                            Nobody else has access to your client list or financial records. Face ID and fingerprint
+                            lock prevent anyone from opening the app on your phone. You can export a full backup at any
+                            time and delete everything whenever you want.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Can I offer subscriptions or session passes to my clients?</button>
+                    <button class="faq-question" aria-expanded="false">Can I offer subscriptions or session passes to my
+                        clients?</button>
                     <div class="faq-answer">
-                        <p>Yes. You can add subscription services of two types: <strong>session-based</strong> (a fixed number of sessions that get consumed automatically with each appointment) or <strong>monthly</strong> (a flat price covering a full calendar month). The app tracks usage and shows you and your client exactly how many sessions remain.</p>
+                        <p>Yes. You can add subscription services of two types: <strong>session-based</strong> (a fixed
+                            number of sessions that get consumed automatically with each appointment) or
+                            <strong>monthly</strong> (a flat price covering a full calendar month). The app tracks usage
+                            and shows you and your client exactly how many sessions remain.
+                        </p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">Can I export my data?</button>
                     <div class="faq-answer">
-                        <p>Yes. From the app menu you can export a complete backup of all your data as a JSON file at any time. You can also import it back — useful when switching phones.</p>
+                        <p>Yes. From the app menu you can export a complete backup of all your data as a JSON file at
+                            any time. You can also import it back — useful when switching phones.</p>
                     </div>
                 </div>
 
@@ -623,30 +765,47 @@
         <div class="container">
             <div class="demo-offer" data-animate>
                 <div class="demo-offer-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" width="32" height="32">
                         <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                         <line x1="8" y1="21" x2="16" y2="21"></line>
                         <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
                 </div>
                 <h2>Want to see the app in action?</h2>
-                <p>I offer free online demo sessions where I walk you through everything — how to set up your services, book appointments, and read your reports. Send me an email and I'll get back to you within 24 hours to schedule a time that works for you.</p>
+                <p>I offer free online demo sessions where I walk you through everything — how to set up your services,
+                    book appointments, and read your reports. Send me an email and I'll get back to you within 24 hours
+                    to schedule a time that works for you.</p>
                 <div class="demo-offer-badges">
                     <span class="demo-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                         100% free
                     </span>
                     <span class="demo-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
                         Reply within 24h
                     </span>
                     <span class="demo-badge">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
                         Personalised session
                     </span>
                 </div>
                 <a href="mailto:c_mihail@icloud.com?subject=Demo%20session%20request" class="btn btn-primary">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" width="16" height="16">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
                     Request a free demo session
                 </a>
             </div>
@@ -658,13 +817,18 @@
         <div class="container">
             <div class="website-offer" data-animate>
                 <h2>Don't have a website for your business yet? I can help.</h2>
-                <p>The app handles your internal organisation — but I can also help you build a simple <strong>business presentation page</strong>. A clean online space with your schedule, services, photos, links to Instagram/Facebook, and quick contact buttons.</p>
-                <p class="website-offer-tagline">A modern, clean online presence that convinces clients before they even walk through your door.</p>
+                <p>The app handles your internal organisation — but I can also help you build a simple <strong>business
+                        presentation page</strong>. A clean online space with your schedule, services, photos, links to
+                    Instagram/Facebook, and quick contact buttons.</p>
+                <p class="website-offer-tagline">A modern, clean online presence that convinces clients before they even
+                    walk through your door.</p>
 
                 <p class="website-examples-intro">A few examples of sites we've built:</p>
                 <ul class="website-examples-list">
-                    <li><a href="https://www.silviaskinstudio.co.uk" target="_blank" rel="noopener noreferrer">Silvia Skin Studio</a> – skincare &amp; massage, UK</li>
-                    <li><a href="https://popasuldrumetuluibucovina.ro" target="_blank" rel="noopener noreferrer">Popasul Drumețului</a> – traditional restaurant, Bucovina</li>
+                    <li><a href="https://www.silviaskinstudio.co.uk" target="_blank" rel="noopener noreferrer">Silvia
+                            Skin Studio</a> – skincare &amp; massage, UK</li>
+                    <li><a href="https://popasuldrumetuluibucovina.ro" target="_blank" rel="noopener noreferrer">Popasul
+                            Drumețului</a> – traditional restaurant, Bucovina</li>
                 </ul>
 
                 <a href="mailto:c_mihail@icloud.com" class="btn btn-secondary">
@@ -678,13 +842,15 @@
     <section id="download" class="final-cta">
         <div class="container">
             <h2>Less chaos. More clarity.<br>Start free today.</h2>
-            <p>Join professionals across multiple countries who use Appointments & Reports every day. Free to download, no credit card required.</p>
+            <p>Join professionals across multiple countries who use Appointments & Reports every day. Free to download,
+                no credit card required.</p>
 
             <div class="cta-download-group">
                 <!-- TODO: Replace # with the Google Play Store URL -->
                 <a href="#" class="google-play-badge btn-pulse cta-badge-main">
                     <svg width="22" height="24" viewBox="0 0 512 512">
-                        <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/>
+                        <path
+                            d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l2.7 1.5 247.2-247v-5.8L47 0zm425 222.9l-58.1-33.6-65.2 65.2 65.2 65.2 58.5-33.6c16.7-9.3 16.7-24.5-.4-33.2zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
                     </svg>
                     <div class="google-play-badge-text">
                         <span>Get it on</span>
@@ -713,14 +879,16 @@
 
     <!-- Scroll to Top -->
     <button id="scroll-top" class="scroll-top" aria-label="Back to top">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p>We use analytics cookies to understand how visitors use this site and improve the experience. You can decline and the site works exactly the same.</p>
+        <p>We use analytics cookies to understand how visitors use this site and improve the experience. You can decline
+            and the site works exactly the same.</p>
         <div class="cookie-actions">
             <button id="cookie-decline" class="btn btn-outline">Decline</button>
             <button id="cookie-accept" class="btn btn-primary">Accept</button>
