@@ -36,14 +36,14 @@
 
 /* ========== DARK MODE ========== */
 [data-theme="dark"] {
-  --primary: #f0f6ff;        /* near-white for headings */
+  --primary: #f0f6ff; /* near-white for headings */
   --primary-light: #ffffff;
-  --accent: #58a6ff;         /* GitHub blue */
+  --accent: #58a6ff; /* GitHub blue */
   --accent-hover: #388bfd;
-  --accent-light: #0c2d6b;   /* dark blue container */
-  --bg-color: #0d1117;       /* canvas */
-  --bg-alt: #161b22;         /* canvas subtle */
-  --surface: #21262d;        /* surface — distinct from bg */
+  --accent-light: #0c2d6b; /* dark blue container */
+  --bg-color: #0d1117; /* canvas */
+  --bg-alt: #161b22; /* canvas subtle */
+  --surface: #21262d; /* surface — distinct from bg */
   --text-main: #e6edf3;
   --text-muted: #8b949e;
   --border: #30363d;
@@ -117,7 +117,6 @@
   color: rgba(88, 166, 255, 0.12);
 }
 
-
 [data-theme="dark"] .tablet-mockup {
   background: #0d1117;
 }
@@ -144,7 +143,11 @@
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.07) 0%,
+    transparent 65%
+  );
   top: -250px;
   left: 50%;
   transform: translateX(-50%);
@@ -295,7 +298,7 @@ p {
   justify-content: center;
 }
 
-.hero-trust span {
+.trust span {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -312,6 +315,7 @@ p {
 .btn-group {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
   margin-top: 2rem;
 }
@@ -448,7 +452,11 @@ header.header-hidden {
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.07) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.07) 0%,
+    transparent 65%
+  );
   top: -200px;
   right: -150px;
   pointer-events: none;
@@ -460,7 +468,11 @@ header.header-hidden {
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgxba(37, 99, 235, 0.05) 0%,
+    transparent 65%
+  );
   bottom: -100px;
   left: -50px;
   pointer-events: none;
@@ -604,11 +616,19 @@ header.header-hidden {
 }
 
 /* Theme-aware image switching */
-img.theme-img-dark { display: none; }
-img.theme-img-light { display: block; }
+img.theme-img-dark {
+  display: none;
+}
+img.theme-img-light {
+  display: block;
+}
 
-[data-theme="dark"] img.theme-img-dark { display: block; }
-[data-theme="dark"] img.theme-img-light { display: none; }
+[data-theme="dark"] img.theme-img-dark {
+  display: block;
+}
+[data-theme="dark"] img.theme-img-light {
+  display: none;
+}
 
 .device-availability {
   margin-top: 1rem;
@@ -825,24 +845,28 @@ ul.check-list li::before {
 .devices-text .check-list {
   list-style: none;
   padding-left: 0;
-  text-align: center;
+  text-align: left;
   max-width: 42rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .devices-text .check-list li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: start;
+  justify-content: start;
+  column-gap: 0.75rem;
+  margin-bottom: 1rem;
   padding-left: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .devices-text .check-list li::before {
   position: static;
   flex-shrink: 0;
+  align-self: start;
+  margin-top: 0.15rem;
 }
 
 .devices-mockup {
@@ -874,13 +898,15 @@ ul.check-list li::before {
   background: #1a1a2e;
   border-radius: 28px;
   padding: 18px 22px;
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   position: relative;
 }
 
 /* camera dot — dreapta, centrat vertical (landscape) */
 .tablet-mockup::before {
-  content: '';
+  content: "";
   position: absolute;
   right: 10px;
   top: 50%;
@@ -907,7 +933,11 @@ ul.check-list li::before {
 
 /* ========== DEMO OFFER ========== */
 .demo-offer {
-  background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-alt) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--bg-alt) 100%
+  );
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 4rem 2rem;
@@ -1146,7 +1176,11 @@ ul.check-list li::before {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.2) 0%,
+    transparent 65%
+  );
   top: -200px;
   left: 50%;
   transform: translateX(-50%);
@@ -1186,7 +1220,9 @@ footer {
 [data-animate] {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 [data-animate].in-view {
@@ -1196,8 +1232,13 @@ footer {
 
 /* ========== HERO FLOAT + GRADIENT + PULSE ========== */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
 
 .hero .iphone-mockup {
@@ -1212,8 +1253,15 @@ footer {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2); }
-  50%       { box-shadow: 0 4px 24px rgba(79, 70, 229, 0.5), 0 0 0 7px rgba(79, 70, 229, 0.12); }
+  0%,
+  100% {
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 4px 24px rgba(79, 70, 229, 0.5),
+      0 0 0 7px rgba(79, 70, 229, 0.12);
+  }
 }
 
 .btn-pulse {
@@ -1234,7 +1282,11 @@ footer {
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.18) 0%,
+    transparent 65%
+  );
   top: -350px;
   left: 50%;
   transform: translateX(-50%);
@@ -1414,7 +1466,9 @@ footer {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
   z-index: 998;
 }
 
@@ -1641,14 +1695,18 @@ footer {
 .google-play-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   background: #000;
   color: #fff;
   border-radius: 10px;
   padding: 10px 20px;
   text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   border: 1px solid #333;
+  width: fit-content;
 }
 
 .google-play-badge:hover {
@@ -1840,7 +1898,11 @@ footer {
 
 /* ========== WAITLIST SECTION ========== */
 .waitlist-card {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-light) 100%
+  );
   border-radius: var(--radius-lg);
   padding: 3rem 2rem;
   text-align: center;
@@ -1855,7 +1917,11 @@ footer {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 65%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.2) 0%,
+    transparent 65%
+  );
   top: -250px;
   left: 50%;
   transform: translateX(-50%);
@@ -1890,7 +1956,9 @@ footer {
   color: white;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
   width: 100%;
 }
 
@@ -1941,7 +2009,11 @@ footer {
   width: 800px;
   height: 800px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.13) 0%, transparent 60%);
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.13) 0%,
+    transparent 60%
+  );
   top: -300px;
   right: -150px;
   pointer-events: none;
@@ -1953,7 +2025,11 @@ footer {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(88, 101, 242, 0.08) 0%, transparent 60%);
+  background: radial-gradient(
+    circle,
+    rgba(88, 101, 242, 0.08) 0%,
+    transparent 60%
+  );
   bottom: -200px;
   left: -80px;
   pointer-events: none;
@@ -2083,6 +2159,7 @@ footer {
 /* ========== HERO ADDITIONS ========== */
 .hero-badge-row {
   display: flex;
+  justify-content: center;
   gap: 0.5rem;
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
@@ -2307,7 +2384,12 @@ footer {
     left: calc(100% / 6);
     right: calc(100% / 6);
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-light), var(--accent));
+    background: linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-light),
+      var(--accent)
+    );
     opacity: 0.3;
     z-index: 0;
   }
