@@ -2182,7 +2182,7 @@ document.addEventListener('DOMContentLoaded', () => {
       applyLang(opt.dataset.lang);
       // Language selector UI may not exist on all pages.
       const langDropdown = document.querySelector('.lang-dropdown');
-      const langBtn = document.querySelector('.lang-btn');
+      const langBtn = document.querySelector('.lang-toggle');
       langDropdown?.classList.remove('open');
       langBtn?.classList.remove('open');
     });

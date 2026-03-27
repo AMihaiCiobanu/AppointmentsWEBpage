@@ -76,9 +76,21 @@ navMenuToggle?.addEventListener('click', e => {
     navMenuToggle.classList.toggle('open');
 });
 
+// Lang dropdown (terms/privacy pages)
+const langToggle = document.getElementById('lang-toggle');
+const langDropdown = document.getElementById('lang-dropdown');
+
+langToggle?.addEventListener('click', e => {
+    e.stopPropagation();
+    langDropdown.classList.toggle('open');
+    langToggle.classList.toggle('open');
+});
+
 document.addEventListener('click', () => {
     navMenuDropdown?.classList.remove('open');
     navMenuToggle?.classList.remove('open');
+    langDropdown?.classList.remove('open');
+    langToggle?.classList.remove('open');
 });
 
 navMenuDropdown?.querySelectorAll('a').forEach(link => {
