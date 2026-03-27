@@ -240,7 +240,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Changes to these terms",
     tc_10_p: "We may update these Terms & Conditions from time to time. The updated version will be posted on this page with a revised date. Continued use of the app after changes constitutes acceptance of the new terms.",
     tc_11_h: "11. Contact",
-    tc_11_p: "For any questions about these terms, please contact us at:",
+    tc_11_p: "For any questions about these terms, please contact us by ",
+    tc_11_link: "email",
     e404_page_title: "Page not found – Appointments & Reports",
     e404_title: "Page not found",
     e404_p: "The page you're looking for doesn't exist or has been moved.",
@@ -504,7 +505,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Modificări ale termenilor",
     tc_10_p: "Putem actualiza acești Termeni și condiții din când în când. Versiunea actualizată va fi publicată pe această pagină cu o dată revizuită. Utilizarea continuă a aplicației după modificări constituie acceptarea noilor termeni.",
     tc_11_h: "11. Contact",
-    tc_11_p: "Pentru orice întrebări despre acești termeni, te rugăm să ne contactezi la:",
+    tc_11_p: "Pentru orice întrebări despre acești termeni, te rugăm să ne contactezi pe ",
+    tc_11_link: "mail",
     e404_page_title: "Pagina nu a fost găsită – Appointments & Reports",
     e404_title: "Pagina nu a fost găsită",
     e404_p: "Pagina pe care o cauți nu există sau a fost mutată.",
@@ -768,7 +770,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Cambios en estos términos",
     tc_10_p: "Podemos actualizar estos Términos y condiciones de vez en cuando. La versión actualizada se publicará en esta página con una fecha revisada. El uso continuado de la aplicación tras los cambios constituye la aceptación de los nuevos términos.",
     tc_11_h: "11. Contacto",
-    tc_11_p: "Para cualquier pregunta sobre estos términos, contáctanos en:",
+    tc_11_p: "Para cualquier pregunta sobre estos términos, contáctanos por ",
+    tc_11_link: "correo electrónico",
     e404_page_title: "Página no encontrada – Appointments & Reports",
     e404_title: "Página no encontrada",
     e404_p: "La página que buscas no existe o ha sido movida.",
@@ -1032,7 +1035,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Modifications de ces conditions",
     tc_10_p: "Nous pouvons mettre à jour ces Conditions générales d'utilisation de temps en temps. La version mise à jour sera publiée sur cette page avec une date révisée. L'utilisation continue de l'application après les modifications constitue l'acceptation des nouvelles conditions.",
     tc_11_h: "11. Contact",
-    tc_11_p: "Pour toute question concernant ces conditions, veuillez nous contacter à :",
+    tc_11_p: "Pour toute question concernant ces conditions, veuillez nous contacter par ",
+    tc_11_link: "e-mail",
     e404_page_title: "Page introuvable – Appointments & Reports",
     e404_title: "Page introuvable",
     e404_p: "La page que vous recherchez n'existe pas ou a été déplacée.",
@@ -1296,7 +1300,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Modifiche ai termini",
     tc_10_p: "Potremmo aggiornare questi Termini e condizioni di tanto in tanto. La versione aggiornata sarà pubblicata su questa pagina con una data rivista. L'uso continuato dell'app dopo le modifiche costituisce accettazione dei nuovi termini.",
     tc_11_h: "11. Contatti",
-    tc_11_p: "Per qualsiasi domanda su questi termini, contattaci a:",
+    tc_11_p: "Per qualsiasi domanda su questi termini, contattaci via ",
+    tc_11_link: "e-mail",
     e404_page_title: "Pagina non trovata – Appointments & Reports",
     e404_title: "Pagina non trovata",
     e404_p: "La pagina che stai cercando non esiste o è stata spostata.",
@@ -1560,7 +1565,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Alterações nestes termos",
     tc_10_p: "Podemos atualizar estes Termos e Condições de tempos em tempos. A versão atualizada será publicada nesta página com uma data revisada. O uso contínuo do aplicativo após as alterações constitui aceitação dos novos termos.",
     tc_11_h: "11. Contato",
-    tc_11_p: "Para qualquer dúvida sobre estes termos, entre em contato conosco em:",
+    tc_11_p: "Para qualquer dúvida sobre estes termos, entre em contato conosco por ",
+    tc_11_link: "e-mail",
     e404_page_title: "Página não encontrada – Appointments & Reports",
     e404_title: "Página não encontrada",
     e404_p: "A página que você está procurando não existe ou foi movida.",
@@ -1824,7 +1830,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Промени в тези условия",
     tc_10_p: "Можем да актуализираме тези Общи условия от време на време. Актуализираната версия ще бъде публикувана на тази страница с преработена дата. Продължаването на използването на приложението след промените представлява приемане на новите условия.",
     tc_11_h: "11. Контакт",
-    tc_11_p: "За въпроси относно тези условия, моля, свържете се с нас на:",
+    tc_11_p: "За въпроси относно тези условия, моля, свържете се с нас по ",
+    tc_11_link: "имейл",
     e404_page_title: "Страницата не е намерена – Appointments & Reports",
     e404_title: "Страницата не е намерена",
     e404_p: "Страницата, която търсите, не съществува или е преместена.",
@@ -2088,7 +2095,8 @@ const TRANSLATIONS = {
     tc_10_h: "10. Zmiany w regulaminie",
     tc_10_p: "Od czasu do czasu możemy aktualizować niniejszy Regulamin. Zaktualizowana wersja zostanie opublikowana na tej stronie z nową datą. Dalsze korzystanie z aplikacji po zmianach oznacza akceptację nowych warunków.",
     tc_11_h: "11. Kontakt",
-    tc_11_p: "W przypadku pytań dotyczących niniejszego Regulaminu prosimy o kontakt:",
+    tc_11_p: "W przypadku pytań dotyczących niniejszego Regulaminu prosimy o kontakt przez ",
+    tc_11_link: "e-mail",
     e404_page_title: "Strona nie znaleziona – Appointments & Reports",
     e404_title: "Strona nie znaleziona",
     e404_p: "Strona, której szukasz, nie istnieje lub została przeniesiona.",
@@ -2131,6 +2139,16 @@ function detectLang() {
 function applyLang(lang) {
   if (!TRANSLATIONS[lang]) lang = 'en';
   const t = TRANSLATIONS[lang];
+  const langShort = {
+    en: 'EN',
+    ro: 'RO',
+    es: 'ES',
+    fr: 'FR',
+    it: 'IT',
+    pt: 'PT',
+    bg: 'BG',
+    pl: 'PL',
+  };
 
   document.documentElement.lang = lang;
 
@@ -2165,6 +2183,10 @@ function applyLang(lang) {
 
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.dataset.lang === lang);
+  });
+
+  document.querySelectorAll('#lang-btn-label').forEach(el => {
+    el.textContent = langShort[lang] || 'EN';
   });
 
   try { localStorage.setItem('lang', lang); } catch (_) {}

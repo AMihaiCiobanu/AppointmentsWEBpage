@@ -1919,9 +1919,9 @@ footer {
   }
 }
 
-/* Home header: two rows on small screens */
+/* Header behavior under 550px: keep one row, move theme/lang into menu */
 @media (max-width: 550px) {
-  .home-header .nav-container {
+  .nav-container {
     height: 70px;
     flex-wrap: nowrap;
     row-gap: 0;
@@ -1929,24 +1929,24 @@ footer {
     padding-bottom: 0;
   }
 
-  .home-header .logo {
+  .logo {
     width: auto;
     font-size: 1.05rem;
     line-height: 1.2;
   }
 
-  .home-header .header-controls {
+  .header-controls {
     width: auto;
     margin-left: 0;
     justify-content: flex-end;
   }
 
-  .home-header .header-controls > #theme-toggle,
-  .home-header .header-controls > .lang-selector {
+  .header-controls > #theme-toggle,
+  .header-controls > .lang-selector {
     display: none;
   }
 
-  .home-header .nav-menu-mobile-only {
+  .nav-menu-mobile-only {
     display: block;
   }
 }

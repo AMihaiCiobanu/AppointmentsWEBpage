@@ -31,7 +31,7 @@
                 Appointments &amp; Reports
             </a>
 
-            <div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
+            <div class="header-controls">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
 
                 <!-- Language selector -->
@@ -81,6 +81,24 @@
                         <a href="index.html#pricing" class="nav-menu-item" data-i18n="nav_pricing">Pricing</a>
                         <a href="index.html#faq" class="nav-menu-item" data-i18n="nav_faq">FAQ</a>
                         <a href="index.html#demo" class="nav-menu-item" data-i18n="nav_contact">Contact</a>
+                        <div class="nav-menu-mobile-only">
+                            <div class="nav-menu-divider"></div>
+                            <div class="nav-menu-mobile-controls">
+                                <button class="nav-menu-theme-btn" id="menu-theme-toggle" type="button" aria-label="Toggle theme"></button>
+                                <span class="nav-menu-control-label">Theme</span>
+                            </div>
+                            <div class="nav-menu-divider"></div>
+                            <div class="nav-menu-lang-grid">
+                                <button class="lang-option nav-lang-chip" data-lang="en">EN</button>
+                                <button class="lang-option nav-lang-chip" data-lang="ro">RO</button>
+                                <button class="lang-option nav-lang-chip" data-lang="es">ES</button>
+                                <button class="lang-option nav-lang-chip" data-lang="fr">FR</button>
+                                <button class="lang-option nav-lang-chip" data-lang="it">IT</button>
+                                <button class="lang-option nav-lang-chip" data-lang="pt">PT</button>
+                                <button class="lang-option nav-lang-chip" data-lang="bg">BG</button>
+                                <button class="lang-option nav-lang-chip" data-lang="pl">PL</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -178,8 +196,8 @@
 
             <div class="text-block">
                 <h2 data-i18n="tc_11_h">11. Contact</h2>
-                <p><span data-i18n="tc_11_p">For any questions about these terms, please </span> <a href="#"
-                        data-contact="privacy" data-i18n="contact_link">contact us</a>.</p>
+                <p><span data-i18n="tc_11_p">For any questions about these terms, please contact us by </span> <a href="#"
+                        data-contact="privacy" data-i18n="tc_11_link">email</a>.</p>
             </div>
 
             <div class="text-block">
