@@ -440,12 +440,6 @@ header.header-hidden {
 }
 
 /* ========== LANGUAGE SELECTOR ========== */
-.lang-selector {
-  position: relative;
-  flex-shrink: 0;
-  margin-left: 0.5rem;
-}
-
 .lang-toggle {
   background: none;
   border: 1px solid var(--border);
@@ -470,32 +464,6 @@ header.header-hidden {
   border-color: var(--primary);
 }
 
-.lang-chevron {
-  transition: transform 0.2s ease;
-}
-
-.lang-toggle.open .lang-chevron {
-  transform: rotate(180deg);
-}
-
-.lang-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  min-width: 150px;
-  z-index: 200;
-  overflow: hidden;
-  padding: 4px;
-}
-
-.lang-dropdown.open {
-  display: block;
-}
 
 .lang-option {
   display: block;
@@ -1702,15 +1670,6 @@ footer {
   display: block;
 }
 
-@media (min-width: 768px) {
-  .nav-menu-lang-section {
-    display: none;
-  }
-}
-
-#lang-selector {
-  display: none;
-}
 
 .nav-menu-divider {
   height: 1px;
@@ -1724,9 +1683,6 @@ footer {
     display: inline-flex;
   }
 
-  #lang-selector {
-    display: flex;
-  }
   .stats-grid {
     grid-template-columns: repeat(4, 1fr);
   }

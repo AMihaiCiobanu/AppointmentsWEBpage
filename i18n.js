@@ -2163,9 +2163,6 @@ function applyLang(lang) {
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc && t.meta_description) metaDesc.setAttribute('content', t.meta_description);
 
-  const btnLabel = document.getElementById('lang-btn-label');
-  if (btnLabel) btnLabel.textContent = lang.toUpperCase();
-
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.classList.toggle('active', opt.dataset.lang === lang);
   });
@@ -2180,20 +2177,6 @@ applyLang(detectLang());
 // ─── Wire up selector on DOM ready ───────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
-  const langBtn      = document.getElementById('lang-toggle');
-  const langDropdown = document.getElementById('lang-dropdown');
-
-  langBtn?.addEventListener('click', e => {
-    e.stopPropagation();
-    langDropdown.classList.toggle('open');
-    langBtn.classList.toggle('open');
-  });
-
-  document.addEventListener('click', () => {
-    langDropdown?.classList.remove('open');
-    langBtn?.classList.remove('open');
-  });
-
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.addEventListener('click', () => {
       applyLang(opt.dataset.lang);
