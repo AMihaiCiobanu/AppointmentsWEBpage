@@ -2180,8 +2180,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.lang-option').forEach(opt => {
     opt.addEventListener('click', () => {
       applyLang(opt.dataset.lang);
-      langDropdown.classList.remove('open');
-      langBtn.classList.remove('open');
+      // Language selector UI may not exist on all pages.
+      const langDropdown = document.querySelector('.lang-dropdown');
+      const langBtn = document.querySelector('.lang-btn');
+      langDropdown?.classList.remove('open');
+      langBtn?.classList.remove('open');
     });
   });
 });
