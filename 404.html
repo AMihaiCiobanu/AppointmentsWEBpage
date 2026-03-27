@@ -31,7 +31,7 @@
             </a>
 
             <div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
-                <a href="index.html#download" class="btn btn-primary" style="font-size:0.85rem; padding:0.45rem 1.1rem;" data-i18n="nav_download">Download free</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
 
                 <!-- Language selector -->
                 <div class="lang-selector" id="lang-selector">
@@ -52,7 +52,20 @@
                     </div>
                 </div>
 
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+                <!-- Nav menu dropdown -->
+                <div class="nav-menu" id="nav-menu">
+                    <button class="lang-toggle" id="nav-menu-toggle" aria-label="Navigation menu">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                        <span data-i18n="nav_menu">Menu</span>
+                    </button>
+                    <div class="nav-menu-dropdown" id="nav-menu-dropdown">
+                        <a href="index.html#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">How it works</a>
+                        <a href="index.html#features" class="nav-menu-item" data-i18n="nav_features">Features</a>
+                        <a href="index.html#pricing" class="nav-menu-item" data-i18n="nav_pricing">Pricing</a>
+                        <a href="index.html#faq" class="nav-menu-item" data-i18n="nav_faq">FAQ</a>
+                        <a href="index.html#demo" class="nav-menu-item" data-i18n="nav_contact">Contact</a>
+                    </div>
+                </div>
             </div>
 
         </div>

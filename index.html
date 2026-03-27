@@ -15,14 +15,14 @@
 
     <!-- hreflang — TODO: replace https://YOUR_DOMAIN with the actual domain before launch -->
     <link rel="alternate" hreflang="x-default" href="https://YOUR_DOMAIN/?lang=en">
-    <link rel="alternate" hreflang="en"   href="https://YOUR_DOMAIN/?lang=en">
-    <link rel="alternate" hreflang="ro"   href="https://YOUR_DOMAIN/?lang=ro">
-    <link rel="alternate" hreflang="es"   href="https://YOUR_DOMAIN/?lang=es">
-    <link rel="alternate" hreflang="fr"   href="https://YOUR_DOMAIN/?lang=fr">
-    <link rel="alternate" hreflang="it"   href="https://YOUR_DOMAIN/?lang=it">
+    <link rel="alternate" hreflang="en" href="https://YOUR_DOMAIN/?lang=en">
+    <link rel="alternate" hreflang="ro" href="https://YOUR_DOMAIN/?lang=ro">
+    <link rel="alternate" hreflang="es" href="https://YOUR_DOMAIN/?lang=es">
+    <link rel="alternate" hreflang="fr" href="https://YOUR_DOMAIN/?lang=fr">
+    <link rel="alternate" hreflang="it" href="https://YOUR_DOMAIN/?lang=it">
     <link rel="alternate" hreflang="pt-BR" href="https://YOUR_DOMAIN/?lang=pt">
-    <link rel="alternate" hreflang="bg"   href="https://YOUR_DOMAIN/?lang=bg">
-    <link rel="alternate" hreflang="pl"   href="https://YOUR_DOMAIN/?lang=pl">
+    <link rel="alternate" hreflang="bg" href="https://YOUR_DOMAIN/?lang=bg">
+    <link rel="alternate" hreflang="pl" href="https://YOUR_DOMAIN/?lang=pl">
 
     <!-- Open Graph (WhatsApp, Facebook, LinkedIn previews) -->
     <!-- TODO: Replace YOUR_DOMAIN with your actual domain -->
@@ -79,25 +79,57 @@
 <body>
 
     <!-- Header -->
-    <header>
+    <header class="home-header">
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32"
                         class="logo-img">
                 </div>
-                Appointments & Reports
+                Appointments&Reports
             </a>
 
-            <div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
-                <a href="#download" class="btn btn-primary nav-download-btn" style="font-size:0.85rem; padding:0.45rem 1.1rem;" data-i18n="nav_download">Download free</a>
-
+            <div class="header-controls">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+
+                <!-- Language selector -->
+                <div class="lang-selector" id="lang-selector">
+                    <button class="lang-toggle" id="lang-toggle" aria-label="Select language"
+                        data-i18n-aria-label="lang_selector_label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        <span id="lang-btn-label">EN</span>
+                        <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="ro">🇷🇴 Română</button>
+                        <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="it">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="bg">🇧🇬 Български</button>
+                        <button class="lang-option" data-lang="pl">🇵🇱 Polski</button>
+                    </div>
+                </div>
 
                 <!-- Nav menu dropdown -->
                 <div class="nav-menu" id="nav-menu">
                     <button class="lang-toggle" id="nav-menu-toggle" aria-label="Navigation menu">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
                         <span data-i18n="nav_menu">Menu</span>
                     </button>
                     <div class="nav-menu-dropdown" id="nav-menu-dropdown">
@@ -106,16 +138,24 @@
                         <a href="#pricing" class="nav-menu-item" data-i18n="nav_pricing">Pricing</a>
                         <a href="#faq" class="nav-menu-item" data-i18n="nav_faq">FAQ</a>
                         <a href="#demo" class="nav-menu-item" data-i18n="nav_contact">Contact</a>
-                        <div class="nav-menu-lang-section">
+                        <div class="nav-menu-mobile-only">
                             <div class="nav-menu-divider"></div>
-                            <button class="lang-option" data-lang="en">🇬🇧 English</button>
-                            <button class="lang-option" data-lang="ro">🇷🇴 Română</button>
-                            <button class="lang-option" data-lang="es">🇪🇸 Español</button>
-                            <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
-                            <button class="lang-option" data-lang="it">🇮🇹 Italiano</button>
-                            <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
-                            <button class="lang-option" data-lang="bg">🇧🇬 Български</button>
-                            <button class="lang-option" data-lang="pl">🇵🇱 Polski</button>
+                            <div class="nav-menu-mobile-controls">
+                                <button class="nav-menu-theme-btn" id="menu-theme-toggle" type="button"
+                                    aria-label="Toggle theme"></button>
+                                <span class="nav-menu-control-label">Theme</span>
+                            </div>
+                            <div class="nav-menu-divider"></div>
+                            <div class="nav-menu-lang-grid">
+                                <button class="lang-option nav-lang-chip" data-lang="en">EN</button>
+                                <button class="lang-option nav-lang-chip" data-lang="ro">RO</button>
+                                <button class="lang-option nav-lang-chip" data-lang="es">ES</button>
+                                <button class="lang-option nav-lang-chip" data-lang="fr">FR</button>
+                                <button class="lang-option nav-lang-chip" data-lang="it">IT</button>
+                                <button class="lang-option nav-lang-chip" data-lang="pt">PT</button>
+                                <button class="lang-option nav-lang-chip" data-lang="bg">BG</button>
+                                <button class="lang-option nav-lang-chip" data-lang="pl">PL</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -132,10 +172,12 @@
                     <span class="badge" data-i18n="badge_free">Free to start</span>
                 </div>
 
-                <h1><span data-i18n="hero_h1_line1">Do you know how much you made last month?</span><br><span class="gradient-text" data-i18n="hero_h1_gradient">Most appointment
+                <h1><span data-i18n="hero_h1_line1">Do you know how much you made last month?</span><br><span
+                        class="gradient-text" data-i18n="hero_h1_gradient">Most appointment
                         professionals don't.</span></h1>
 
-                <p data-i18n="hero_p">Appointments & Reports tracks your schedule, clients, and finances automatically — so you always know
+                <p data-i18n="hero_p">Appointments & Reports tracks your schedule, clients, and finances automatically —
+                    so you always know
                     exactly where your business stands. For barbers, doctors, mechanics, trainers, and anyone else who
                     works by appointment.</p>
 
@@ -218,9 +260,11 @@
     <!-- Pain section — 4 questions -->
     <section class="pain-section">
         <div class="container">
-            <p class="pain-intro" data-animate data-i18n="pain_intro">Most professionals who work by appointment run their business by feel.
+            <p class="pain-intro" data-animate data-i18n="pain_intro">Most professionals who work by appointment run
+                their business by feel.
             </p>
-            <h2 class="pain-title" data-animate data-i18n="pain_title">Four questions you should be able to answer — but probably can't.</h2>
+            <h2 class="pain-title" data-animate data-i18n="pain_title">Four questions you should be able to answer — but
+                probably can't.</h2>
 
             <div class="pain-grid">
                 <div class="pain-card" data-animate>
@@ -249,7 +293,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="pain_02_h3">What was your net profit last month?</h3>
-                    <p data-i18n="pain_02_p">After rent, supplies, and all expenses — what did you actually take home?</p>
+                    <p data-i18n="pain_02_p">After rent, supplies, and all expenses — what did you actually take home?
+                    </p>
                     <div class="pain-blur-answer">€ <span>???</span></div>
                 </div>
 
@@ -263,7 +308,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="pain_03_h3">Are you earning more or less than 6 months ago?</h3>
-                    <p data-i18n="pain_03_p">Is your business growing? Shrinking? Staying flat? Do you actually know?</p>
+                    <p data-i18n="pain_03_p">Is your business growing? Shrinking? Staying flat? Do you actually know?
+                    </p>
                     <div class="pain-blur-answer">↑ ↓ <span>???</span></div>
                 </div>
 
@@ -284,7 +330,8 @@
             </div>
 
             <div class="pain-resolution" data-animate>
-                <p data-i18n="pain_resolution">Appointments &amp; Reports answers all of these. Every day, automatically, in seconds.</p>
+                <p data-i18n="pain_resolution">Appointments &amp; Reports answers all of these. Every day,
+                    automatically, in seconds.</p>
                 <a href="#download" class="btn btn-accent" data-i18n="pain_cta">Start for free</a>
             </div>
         </div>
@@ -294,24 +341,28 @@
     <section id="how-it-works" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="hiw_title">Up and running in minutes</h2>
-            <p class="section-subtitle" data-animate data-i18n="hiw_subtitle">No training. No complicated setup. Just download and start.</p>
+            <p class="section-subtitle" data-animate data-i18n="hiw_subtitle">No training. No complicated setup. Just
+                download and start.</p>
             <div class="steps-grid">
                 <div class="step" data-animate>
                     <div class="step-number">1</div>
                     <h3 data-i18n="step1_h3">Download and sign in</h3>
-                    <p data-i18n="step1_p">Get the app from Google Play. Sign in with your Google account in one tap — no password to
+                    <p data-i18n="step1_p">Get the app from Google Play. Sign in with your Google account in one tap —
+                        no password to
                         create.</p>
                 </div>
                 <div class="step" data-animate>
                     <div class="step-number">2</div>
                     <h3 data-i18n="step2_h3">Add your services and clients</h3>
-                    <p data-i18n="step2_p">Set up the services you offer with prices and durations. Import clients from your contacts in one
+                    <p data-i18n="step2_p">Set up the services you offer with prices and durations. Import clients from
+                        your contacts in one
                         tap.</p>
                 </div>
                 <div class="step" data-animate>
                     <div class="step-number">3</div>
                     <h3 data-i18n="step3_h3">Book, track, and grow</h3>
-                    <p data-i18n="step3_p">Start booking appointments. Revenue is tracked automatically. Check your profit at any time, in
+                    <p data-i18n="step3_p">Start booking appointments. Revenue is tracked automatically. Check your
+                        profit at any time, in
                         seconds.</p>
                 </div>
             </div>
@@ -322,7 +373,8 @@
     <section id="features" class="section-padding bg-surface">
         <div class="container">
             <h2 class="section-title" data-i18n="feat_title">Everything you need, built for how you actually work</h2>
-            <p class="section-subtitle" data-i18n-html="feat_subtitle">All your tools in one place — easy to reach even when you're with a client. Sign
+            <p class="section-subtitle" data-i18n-html="feat_subtitle">All your tools in one place — easy to reach even
+                when you're with a client. Sign
                 in instantly with <strong>Google</strong>, no passwords to remember.</p>
 
             <div class="features-grid">
@@ -337,7 +389,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feat1_h3">Smart appointment calendar</h3>
-                    <p data-i18n="feat1_p">See who's coming, when, and for what service. Suggests your next free slot automatically,
+                    <p data-i18n="feat1_p">See who's coming, when, and for what service. Suggests your next free slot
+                        automatically,
                         prevents double-bookings, handles recurring days off and vacations.</p>
                 </div>
 
@@ -352,7 +405,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feat2_h3">Full client history at a glance</h3>
-                    <p data-i18n="feat2_p">All contact info and visit history in one place. Add notes, flag unreliable clients, and get
+                    <p data-i18n="feat2_p">All contact info and visit history in one place. Add notes, flag unreliable
+                        clients, and get
                         automatic birthday reminders so you never miss a personal touch.</p>
                 </div>
 
@@ -365,7 +419,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feat3_h3">Revenue tracked automatically</h3>
-                    <p data-i18n="feat3_p">Every appointment creates an income entry. Add expenses in one tap. Your daily profit is
+                    <p data-i18n="feat3_p">Every appointment creates an income entry. Add expenses in one tap. Your
+                        daily profit is
                         calculated instantly — no spreadsheets, no guessing.</p>
                 </div>
 
@@ -377,7 +432,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feat4_h3">4-mode calendar view</h3>
-                    <p data-i18n="feat4_p">Switch the same calendar between four views: availability, income, expenses, and profit. See your
+                    <p data-i18n="feat4_p">Switch the same calendar between four views: availability, income, expenses,
+                        and profit. See your
                         business performance day by day at a glance.</p>
                 </div>
 
@@ -389,7 +445,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feat5_h3">Confirmations via SMS & WhatsApp</h3>
-                    <p data-i18n="feat5_p">Send appointment confirmations in one tap. Templates ready to go — date, time, and your social
+                    <p data-i18n="feat5_p">Send appointment confirmations in one tap. Templates ready to go — date,
+                        time, and your social
                         links inserted automatically.</p>
                 </div>
 
@@ -403,7 +460,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feat6_h3">Client subscriptions & passes</h3>
-                    <p data-i18n="feat6_p">Offer session-based or monthly subscriptions. Each appointment deducts a session automatically —
+                    <p data-i18n="feat6_p">Offer session-based or monthly subscriptions. Each appointment deducts a
+                        session automatically —
                         no manual counting, no guesswork.</p>
                 </div>
 
@@ -416,7 +474,8 @@
                         </svg>
                     </div>
                     <h3 data-i18n="feat7_h3">Smart reminders</h3>
-                    <p data-i18n="feat7_p">Set custom reminders for anything — follow-ups, stock orders, tasks. Choose date, time, and
+                    <p data-i18n="feat7_p">Set custom reminders for anything — follow-ups, stock orders, tasks. Choose
+                        date, time, and
                         repeat pattern. Notifications arrive even when the app is closed.</p>
                 </div>
 
@@ -429,7 +488,8 @@
                         </svg>
                     </div>
                     <h3><span data-i18n="feat8_h3">Lock screen widget</span> <span class="tag-inline">iOS</span></h3>
-                    <p data-i18n="feat8_p">Your next appointment on your iPhone lock screen via Live Activities — client name, service, and
+                    <p data-i18n="feat8_p">Your next appointment on your iPhone lock screen via Live Activities — client
+                        name, service, and
                         time, without even unlocking your phone.</p>
                 </div>
             </div>
@@ -444,14 +504,17 @@
                 <div class="split-content">
                     <span class="section-eyebrow" data-i18n="reports_eyebrow">Financial reports</span>
                     <h2 data-i18n="reports_h2">Know your numbers. Make better decisions.</h2>
-                    <p data-i18n-html="reports_p">The app works like a <strong>personal financial analyst</strong> for your business — without the
+                    <p data-i18n-html="reports_p">The app works like a <strong>personal financial analyst</strong> for
+                        your business — without the
                         cost or complexity.</p>
                     <ul class="check-list">
-                        <li data-i18n="reports_li1">Monthly and yearly breakdown: revenue (estimated vs actual), expenses, and net profit — with
+                        <li data-i18n="reports_li1">Monthly and yearly breakdown: revenue (estimated vs actual),
+                            expenses, and net profit — with
                             comparisons vs. last month and the same month last year.</li>
                         <li data-i18n="reports_li2">Track how many hours and days you've actually worked.</li>
                         <li data-i18n="reports_li3">Identify your top clients by revenue and visit frequency.</li>
-                        <li data-i18n="reports_li4">See exactly how many no-shows you've had and how much income they've cost you.</li>
+                        <li data-i18n="reports_li4">See exactly how many no-shows you've had and how much income they've
+                            cost you.</li>
                     </ul>
                 </div>
                 <div class="iphone-mockup iphone-mockup-report">
@@ -469,14 +532,18 @@
                 <div class="split-content">
                     <span class="section-eyebrow" data-i18n="security_eyebrow">Security & privacy</span>
                     <h2 data-i18n="security_h2">Your data stays yours. Always.</h2>
-                    <p data-i18n="security_p">Your client list and financial records are sensitive. Everything is designed to give you complete
+                    <p data-i18n="security_p">Your client list and financial records are sensitive. Everything is
+                        designed to give you complete
                         peace of mind.</p>
                     <ul class="check-list">
-                        <li data-i18n-html="security_li1"><strong>Face ID & Fingerprint:</strong> Nobody can access your reports or client list if you
+                        <li data-i18n-html="security_li1"><strong>Face ID & Fingerprint:</strong> Nobody can access your
+                            reports or client list if you
                             leave your phone on the table.</li>
-                        <li data-i18n-html="security_li2"><strong>Cloud backup & sync:</strong> Your data is automatically backed up. Export or import
+                        <li data-i18n-html="security_li2"><strong>Cloud backup & sync:</strong> Your data is
+                            automatically backed up. Export or import
                             everything as a secure JSON file anytime.</li>
-                        <li data-i18n-html="security_li3"><strong>Fully localised:</strong> Available in English, Romanian, Spanish, Portuguese
+                        <li data-i18n-html="security_li3"><strong>Fully localised:</strong> Available in English,
+                            Romanian, Spanish, Portuguese
                             (Brazil), French, Italian, Bulgarian and Polish — with support for RON, EUR, GBP, USD, BRL,
                             CHF and HUF.</li>
                     </ul>
@@ -500,12 +567,15 @@
         <div class="container devices-grid">
             <div class="devices-text">
                 <h2 class="section-title" data-i18n="devices_h2">Android now. iPhone, iPad & Mac coming soon.</h2>
-                <p class="section-subtitle" data-i18n="devices_p">The Android app is live on Google Play and works great on both phones and
+                <p class="section-subtitle" data-i18n="devices_p">The Android app is live on Google Play and works great
+                    on both phones and
                     tablets. The native Apple experience is actively in development and awaiting Apple approval.</p>
                 <ul class="check-list">
                     <li data-i18n="devices_li1">Android phones and tablets — available now on Google Play.</li>
-                    <li data-i18n="devices_li2">Cloud backup and sync keep your appointments and reports always safe.</li>
-                    <li data-i18n="devices_li3">Native iPhone, iPad and Mac experience coming — including Live Activities on your lock screen.
+                    <li data-i18n="devices_li2">Cloud backup and sync keep your appointments and reports always safe.
+                    </li>
+                    <li data-i18n="devices_li3">Native iPhone, iPad and Mac experience coming — including Live
+                        Activities on your lock screen.
                     </li>
                 </ul>
             </div>
@@ -526,7 +596,8 @@
     <section id="audience" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-i18n="audience_h2">If you take appointments, this app is for you.</h2>
-            <p class="section-subtitle" data-i18n="audience_p">No matter the industry. If you work by appointment and want to understand your
+            <p class="section-subtitle" data-i18n="audience_p">No matter the industry. If you work by appointment and
+                want to understand your
                 finances, this app was built for you.</p>
 
             <div class="tags-container" data-animate>
@@ -560,13 +631,15 @@
     <section class="section-padding bg-surface">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="test_h2">What professionals say</h2>
-            <p class="section-subtitle" data-animate data-i18n="test_p">Real feedback from people who use Appointments & Reports every day.
+            <p class="section-subtitle" data-animate data-i18n="test_p">Real feedback from people who use Appointments &
+                Reports every day.
             </p>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote" data-i18n="test1_quote">I had no idea how many no-shows I was actually getting every month.
+                    <p class="testimonial-quote" data-i18n="test1_quote">I had no idea how many no-shows I was actually
+                        getting every month.
                         After one month with the app, I saw the number and the money I was losing. Eye-opening.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
@@ -579,7 +652,8 @@
 
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote" data-i18n="test2_quote">I was using a paper diary and WhatsApp for years. Switched to this and
+                    <p class="testimonial-quote" data-i18n="test2_quote">I was using a paper diary and WhatsApp for
+                        years. Switched to this and
                         in 3 days I had a complete picture of my monthly revenue. I wished I had started sooner.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
@@ -592,7 +666,8 @@
 
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote" data-i18n="test3_quote">The financial reports alone are worth it. I finally know which services
+                    <p class="testimonial-quote" data-i18n="test3_quote">The financial reports alone are worth it. I
+                        finally know which services
                         are actually profitable and which ones I should drop. My income went up just by looking at the
                         data.</p>
                     <div class="testimonial-footer">
@@ -611,7 +686,8 @@
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="pricing_h2">Simple, transparent pricing</h2>
-            <p class="section-subtitle" data-animate data-i18n="pricing_p">Start free for 7 days with everything unlocked. Then choose what
+            <p class="section-subtitle" data-animate data-i18n="pricing_p">Start free for 7 days with everything
+                unlocked. Then choose what
                 fits you.</p>
 
             <div class="pricing-grid">
@@ -659,7 +735,8 @@
                     <div class="pricing-price">
                         <span class="amount">€5.99</span><span class="period" data-i18n="pro_monthly">/month</span>
                     </div>
-                    <div class="pricing-trial"><span data-i18n="pro_yearly">or €60 / year</span> <span class="pricing-save-badge" data-i18n="pro_yearly_save">SAVE 17%</span>
+                    <div class="pricing-trial"><span data-i18n="pro_yearly">or €60 / year</span> <span
+                            class="pricing-save-badge" data-i18n="pro_yearly_save">SAVE 17%</span>
                         &nbsp;·&nbsp; <span data-i18n="pro_trial">7-day free trial</span></div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
@@ -702,12 +779,15 @@
         <div class="container">
             <div class="waitlist-card" data-animate>
                 <h2 data-i18n="waitlist_h2">Be the first to know when the iOS app launches</h2>
-                <p data-i18n="waitlist_p">Leave your email and we'll notify you the moment the iPhone & iPad app is live on the App Store.</p>
+                <p data-i18n="waitlist_p">Leave your email and we'll notify you the moment the iPhone & iPad app is live
+                    on the App Store.</p>
                 <form class="waitlist-form" action="https://formspree.io/f/xojkyrjn" method="POST">
-                    <input type="email" name="email" placeholder="your@email.com" data-i18n-placeholder="waitlist_placeholder" required autocomplete="email">
+                    <input type="email" name="email" placeholder="your@email.com"
+                        data-i18n-placeholder="waitlist_placeholder" required autocomplete="email">
                     <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">Notify me</button>
                 </form>
-                <p class="waitlist-privacy" data-i18n="waitlist_privacy">No spam. One email when we launch, that's it.</p>
+                <p class="waitlist-privacy" data-i18n="waitlist_privacy">No spam. One email when we launch, that's it.
+                </p>
             </div>
         </div>
     </section>
@@ -721,9 +801,11 @@
             <div class="faq-container">
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">What devices is the app available on?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">What devices is the app
+                        available on?</button>
                     <div class="faq-answer">
-                        <p data-i18n-html="faq1_a">The <strong>Android</strong> app is available now on Google Play. The native version for
+                        <p data-i18n-html="faq1_a">The <strong>Android</strong> app is available now on Google Play. The
+                            native version for
                             <strong>iPhone, iPad and Mac</strong> is actively in development and is currently awaiting
                             Apple approval — it will follow soon.
                         </p>
@@ -731,20 +813,24 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq2_q">Do I need an internet connection to use
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq2_q">Do I need an internet
+                        connection to use
                         it?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq2_a">No. Appointments & Reports is a native app — all your data is stored locally on your device.
+                        <p data-i18n="faq2_a">No. Appointments & Reports is a native app — all your data is stored
+                            locally on your device.
                             You can view, add, and edit appointments and reports even without an internet connection.
                             Cloud sync kicks in automatically when you're back online.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq3_q">What type of business is it designed
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq3_q">What type of business is it
+                        designed
                         for?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq3_a">Any professional or small business that works by appointment. This includes beauty and
+                        <p data-i18n="faq3_a">Any professional or small business that works by appointment. This
+                            includes beauty and
                             wellness (salons, barbershops, massage, tattoo), healthcare (doctors, dentists,
                             physiotherapists, psychologists), fitness (personal trainers, yoga instructors), auto
                             services, driving schools, private tutors, consultants, photographers — and many more. If
@@ -753,9 +839,11 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq4_q">Is my data safe? Who can see it?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq4_q">Is my data safe? Who can see
+                        it?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq4_a">Your data is stored locally on your device and backed up to your private Google account.
+                        <p data-i18n="faq4_a">Your data is stored locally on your device and backed up to your private
+                            Google account.
                             Nobody else has access to your client list or financial records. Face ID and fingerprint
                             lock prevent anyone from opening the app on your phone. You can export a full backup at any
                             time and delete everything whenever you want.</p>
@@ -763,10 +851,12 @@
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq5_q">Can I offer subscriptions or session passes to my
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq5_q">Can I offer subscriptions or
+                        session passes to my
                         clients?</button>
                     <div class="faq-answer">
-                        <p data-i18n-html="faq5_a">Yes. You can create client packages of two types: <strong>session-based</strong> (a bundle of
+                        <p data-i18n-html="faq5_a">Yes. You can create client packages of two types:
+                            <strong>session-based</strong> (a bundle of
                             sessions you sell to a client — each appointment linked to that package deducts one session
                             automatically) or <strong>monthly</strong> (a flat price covering a full calendar month).
                             The app tracks usage so both you and your client always know how many sessions remain in
@@ -778,7 +868,8 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">Can I export my data?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq6_a">Yes. From the app menu you can export a complete backup of all your data as a JSON file at
+                        <p data-i18n="faq6_a">Yes. From the app menu you can export a complete backup of all your data
+                            as a JSON file at
                             any time. You can also import it back — useful when switching phones.</p>
                     </div>
                 </div>
@@ -800,7 +891,8 @@
                     </svg>
                 </div>
                 <h2 data-i18n="demo_h2">Want to see the app in action?</h2>
-                <p data-i18n="demo_p">I offer free online demo sessions where I walk you through everything — how to set up your services,
+                <p data-i18n="demo_p">I offer free online demo sessions where I walk you through everything — how to set
+                    up your services,
                     book appointments, and read your reports. Send me an email and I'll get back to you within 24 hours
                     to schedule a time that works for you.</p>
                 <div class="demo-offer-badges">
@@ -844,10 +936,12 @@
         <div class="container">
             <div class="website-offer" data-animate>
                 <h2 data-i18n="website_h2">Don't have a website for your business yet? I can help.</h2>
-                <p data-i18n-html="website_p1">The app handles your internal organisation — but I can also help you build a simple <strong>business
+                <p data-i18n-html="website_p1">The app handles your internal organisation — but I can also help you
+                    build a simple <strong>business
                         presentation page</strong>. A clean online space with your schedule, services, photos, links to
                     Instagram/Facebook, and quick contact buttons.</p>
-                <p class="website-offer-tagline" data-i18n="website_p2">A modern, clean online presence that convinces clients before they even
+                <p class="website-offer-tagline" data-i18n="website_p2">A modern, clean online presence that convinces
+                    clients before they even
                     walk through your door.</p>
 
                 <p class="website-examples-intro" data-i18n="website_examples">A few examples of sites we've built:</p>
@@ -869,7 +963,8 @@
     <section id="download" class="final-cta">
         <div class="container">
             <h2 data-i18n-html="cta_h2">Less chaos. More clarity.<br>Start free today.</h2>
-            <p data-i18n="cta_p">Join professionals across multiple countries who use Appointments & Reports every day. Free to download,
+            <p data-i18n="cta_p">Join professionals across multiple countries who use Appointments & Reports every day.
+                Free to download,
                 no credit card required.</p>
 
             <div class="cta-download-group">
@@ -912,7 +1007,8 @@
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p data-i18n="cookie_p">We use analytics cookies to understand how visitors use this site and improve the experience. You can decline
+        <p data-i18n="cookie_p">We use analytics cookies to understand how visitors use this site and improve the
+            experience. You can decline
             and the site works exactly the same.</p>
         <div class="cookie-actions">
             <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Decline</button>
