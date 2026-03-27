@@ -1,45 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page not found – Appointments &amp; Reports</title>
+    <title data-i18n="e404_page_title">Page not found – Appointments &amp; Reports</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/appIcon.png">
+
+    <!-- Dark mode: apply saved theme before first paint to avoid flash -->
+    <script>
+        (function () {
+            var saved;
+            try { saved = localStorage.getItem('theme'); } catch (_) { }
+            var theme = saved || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
+
 <body>
+
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
-                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32" style="border-radius: 7px; display: block;">
+                    <img src="assets/appIcon.png" alt="Appointments &amp; Reports icon" width="32" height="32" class="logo-img">
                 </div>
                 Appointments &amp; Reports
             </a>
+
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
+                <a href="index.html#download" class="btn btn-primary" style="font-size:0.85rem; padding:0.45rem 1.1rem;" data-i18n="nav_download">Download free</a>
+
+                <!-- Language selector -->
+                <div class="lang-selector" id="lang-selector">
+                    <button class="lang-toggle" id="lang-toggle" aria-label="Select language" data-i18n-aria-label="lang_selector_label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span id="lang-btn-label">EN</span>
+                        <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="ro">🇷🇴 Română</button>
+                        <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="it">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="bg">🇧🇬 Български</button>
+                        <button class="lang-option" data-lang="pl">🇵🇱 Polski</button>
+                    </div>
+                </div>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+            </div>
+
         </div>
     </header>
 
     <main class="section-padding" style="min-height: 60vh; display: flex; align-items: center;">
         <div class="container" style="text-align: center;">
-            <div style="font-size: 5rem; font-weight: 900; color: var(--accent); line-height: 1;">404</div>
-            <h1 style="margin: 1rem 0 0.5rem; font-size: 1.75rem;">Page not found</h1>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">The page you're looking for doesn't exist or has been moved.</p>
-            <a href="index.html" class="btn btn-primary">Back to homepage</a>
+            <div style="font-size: 8rem; font-weight: 900; line-height: 1; color: var(--accent); margin-bottom: 1rem;">404</div>
+            <h1 class="section-title" data-i18n="e404_title">Page not found</h1>
+            <p class="section-subtitle" data-i18n="e404_p">The page you're looking for doesn't exist or has been moved.</p>
+            <a href="index.html" class="btn btn-primary" data-i18n="e404_btn">Back to homepage</a>
         </div>
     </main>
 
     <footer>
         <div class="container">
             <p>
-                &copy; 2026 Appointments &amp; Reports. All rights reserved.
+                <span data-i18n="footer_rights">© 2026 Appointments &amp; Reports. All rights reserved.</span>
                 &nbsp;|&nbsp;
-                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy-android.html" data-i18n="footer_privacy">Privacy Policy</a>
                 &nbsp;|&nbsp;
-                <a href="terms.html">Terms &amp; Conditions</a>
-                &nbsp;|&nbsp;
-                <a href="privacy-policy-android.html">Privacy Policy – Android</a>
+                <a href="terms.html" data-i18n="footer_terms">Terms &amp; Conditions</a>
             </p>
         </div>
     </footer>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

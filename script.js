@@ -66,19 +66,25 @@ const countObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
 
-// Hamburger Menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+// Nav menu dropdown
+const navMenuToggle = document.getElementById('nav-menu-toggle');
+const navMenuDropdown = document.getElementById('nav-menu-dropdown');
 
-hamburger?.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
+navMenuToggle?.addEventListener('click', e => {
+    e.stopPropagation();
+    navMenuDropdown.classList.toggle('open');
+    navMenuToggle.classList.toggle('open');
 });
 
-navLinks?.querySelectorAll('a').forEach(link => {
+document.addEventListener('click', () => {
+    navMenuDropdown?.classList.remove('open');
+    navMenuToggle?.classList.remove('open');
+});
+
+navMenuDropdown?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('open');
+        navMenuDropdown.classList.remove('open');
+        navMenuToggle.classList.remove('open');
     });
 });
 
@@ -94,8 +100,8 @@ window.addEventListener('scroll', () => {
     if (isMobile && currentScrollY > 80) {
         if (currentScrollY > lastScrollY) {
             header.classList.add('header-hidden');
-            hamburger.classList.remove('open');
-            navLinks.classList.remove('open');
+            navMenuDropdown?.classList.remove('open');
+            navMenuToggle?.classList.remove('open');
         } else {
             header.classList.remove('header-hidden');
         }
@@ -113,6 +119,23 @@ window.addEventListener('scroll', () => {
 scrollTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// Contact links — assemble mailto at runtime so the address isn't in plain HTML
+(function () {
+    const u = atob('Y19taWhhaWw=');   // c_mihail
+    const d = atob('aWNsb3VkLmNvbQ=='); // icloud.com
+    const base = 'mailto:' + u + '@' + d;
+    document.querySelectorAll('a[data-contact]').forEach(a => {
+        const type = a.dataset.contact;
+        if (type === 'demo') {
+            a.href = base + '?subject=Demo%20session%20request&body=Hi%2C%0A%0AI%27d%20like%20to%20schedule%20a%20demo%20session%20for%20Appointments%20%26%20Reports.%0A%0AName%3A%20%0ABusiness%3A%20%0APhone%3A%20';
+        } else if (type === 'website') {
+            a.href = base + '?subject=Website%20collaboration%20inquiry&body=Hi%2C%0A%0AI%27d%20like%20to%20discuss%20a%20website%20project.%0A%0AName%3A%20%0ABusiness%3A%20%0AWebsite%3A%20';
+        } else {
+            a.href = base + '?subject=Appointments%20%26%20Reports%20%E2%80%93%20Contact&body=Hi%2C%0A%0A';
+        }
+    });
+})();
 
 // Smooth scroll for nav anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

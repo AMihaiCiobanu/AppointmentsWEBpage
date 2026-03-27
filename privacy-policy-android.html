@@ -1,85 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy – Appointments &amp; Reports (Android)</title>
+    <title data-i18n="pp_page_title">Privacy Policy – Appointments &amp; Reports</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/appIcon.png">
+
+    <!-- Dark mode: apply saved theme before first paint to avoid flash -->
+    <script>
+        (function () {
+            var saved;
+            try { saved = localStorage.getItem('theme'); } catch (_) { }
+            var theme = saved || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
+
 <body>
+
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
-                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32" style="border-radius: 7px; display: block;">
+                    <img src="assets/appIcon.png" alt="Appointments &amp; Reports icon" width="32" height="32" class="logo-img">
                 </div>
                 Appointments &amp; Reports
             </a>
+
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
+                <a href="index.html#download" class="btn btn-primary" style="font-size:0.85rem; padding:0.45rem 1.1rem;" data-i18n="nav_download">Download free</a>
+
+                <!-- Language selector -->
+                <div class="lang-selector" id="lang-selector">
+                    <button class="lang-toggle" id="lang-toggle" aria-label="Select language" data-i18n-aria-label="lang_selector_label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span id="lang-btn-label">EN</span>
+                        <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="ro">🇷🇴 Română</button>
+                        <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="it">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="bg">🇧🇬 Български</button>
+                        <button class="lang-option" data-lang="pl">🇵🇱 Polski</button>
+                    </div>
+                </div>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+            </div>
+
         </div>
     </header>
 
     <main class="section-padding">
         <div class="container">
-            <h1 class="section-title">Privacy Policy – Appointments &amp; Reports (Android)</h1>
-            <p class="section-subtitle" style="max-width: 720px;">
-                This Privacy Policy explains how Appointments &amp; Reports handles your data in the Android version of the app.
+            <h1 class="section-title" data-i18n="pp_page_title">Privacy Policy – Appointments &amp; Reports</h1>
+            <p class="section-subtitle" style="max-width: 720px;" data-i18n="pp_subtitle">
+                Last updated: March 2026. This policy covers the Appointments &amp; Reports app (Android) and this website.
             </p>
 
             <div class="text-block">
-                <h2>Developer</h2>
-                <p>This app is developed by Appointments &amp; Reports.</p>
+                <h2 data-i18n="pp_1_h">1. Developer</h2>
+                <p><span data-i18n="pp_1_p">Appointments &amp; Reports is an independent app developed by an individual developer. For any privacy-related questions,</span> <a href="#" data-contact="privacy" data-i18n="contact_link">contact us</a>.</p>
             </div>
 
             <div class="text-block">
-                <h2>Data we collect</h2>
+                <h2 data-i18n="pp_2_h">2. Data we collect</h2>
+                <p data-i18n="pp_2_intro">The app stores data you enter yourself:</p>
                 <ul>
-                    <li><strong>Clients</strong>: name, phone number, email, birthday and appointment details.</li>
-                    <li><strong>Appointments</strong>: date, time, service, notes, price.</li>
-                    <li><strong>Financial data</strong>: income and expenses you enter manually.</li>
-                    <li><strong>Other configuration</strong>: reminders and time-off information that you configure.</li>
+                    <li data-i18n="pp_2_li1">Clients: name, phone number, email address, birthday, and notes.</li>
+                    <li data-i18n="pp_2_li2">Appointments: date, time, duration, service, price, and notes.</li>
+                    <li data-i18n="pp_2_li3">Financial records: income entries and expenses you add manually.</li>
+                    <li data-i18n="pp_2_li4">Settings: your preferences, working hours, reminder configurations, and service catalogue.</li>
+                </ul>
+                <p data-i18n="pp_2_note">All of this data is created by you and belongs to you. We do not collect it, read it, or process it — it stays on your device.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_3_h">3. Contacts permission (READ_CONTACTS)</h2>
+                <ul>
+                    <li data-i18n="pp_3_li1">The app can access your device contacts only when you explicitly tap "Import from Contacts" to create a new client.</li>
+                    <li data-i18n="pp_3_li2">Only the selected contact's name, phone number, and email are used.</li>
+                    <li data-i18n="pp_3_li3">Your full contacts list is never uploaded, stored, or shared.</li>
                 </ul>
             </div>
 
             <div class="text-block">
-                <h2>Contacts permission (READ_CONTACTS)</h2>
+                <h2 data-i18n="pp_4_h">4. Where your data is stored</h2>
                 <ul>
-                    <li>On Android, the app can read your contacts only when you explicitly choose to import a client from the phone’s Contacts.</li>
-                    <li>We do <strong>NOT</strong> upload your entire contacts list anywhere.</li>
-                    <li>We only use the selected contact’s name, phone number and email to create a client in the app.</li>
+                    <li data-i18n="pp_4_li1">Locally on your device — all data is stored on your phone or tablet. The app works fully offline.</li>
+                    <li data-i18n="pp_4_li2">Firebase (Google Cloud) — optional: if you sign in with your Google account, your data is synced to your personal Firebase account under your own user ID. This keeps your data in sync across your own devices. You can disable this at any time from the app settings.</li>
                 </ul>
             </div>
 
             <div class="text-block">
-                <h2>Where data is stored</h2>
+                <h2 data-i18n="pp_5_h">5. Third-party services</h2>
+                <p data-i18n="pp_5_intro">The app uses the following services:</p>
                 <ul>
-                    <li>All data is stored locally on your device.</li>
-                    <li>If you sign in with Google, your data can also be synchronized with your personal Firebase account (Cloud Firestore) in the path <code>users/{your UID}</code>. This is used only to keep your data in sync across your own devices.</li>
+                    <li data-i18n="pp_5_li1">Google Sign-In / Firebase — for optional authentication and cloud sync. Subject to Google's Privacy Policy.</li>
+                </ul>
+                <p data-i18n="pp_5_note">No advertising SDKs or data brokers are used.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_6_h">6. What we do NOT do</h2>
+                <ul>
+                    <li data-i18n-html="pp_6_li1">We do <strong>NOT</strong> sell your data to anyone.</li>
+                    <li data-i18n-html="pp_6_li2">We do <strong>NOT</strong> show ads.</li>
+                    <li data-i18n-html="pp_6_li3">We do <strong>NOT</strong> share your data with third parties beyond Firebase, needed to run optional cloud sync.</li>
+                    <li data-i18n-html="pp_6_li4">We do <strong>NOT</strong> have access to your appointments, clients, or financial records.</li>
                 </ul>
             </div>
 
             <div class="text-block">
-                <h2>What we do NOT do</h2>
+                <h2 data-i18n="pp_7_h">7. Data collected by this website</h2>
+                <p data-i18n="pp_7_p">This website does not collect personal data directly. If analytics are enabled, only anonymous usage data (page views, referral source, device type) will be collected. You will be informed via the cookie banner before any tracking begins, and you can decline at any time.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_8_h">8. Cookies</h2>
+                <p data-i18n="pp_8_p">This website uses a single cookie to remember your analytics preference (accepted or declined). No tracking cookies are set without your explicit consent.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_9_h">9. Your rights</h2>
+                <p data-i18n="pp_9_intro">You have the right to:</p>
                 <ul>
-                    <li>We do <strong>NOT</strong> sell your data.</li>
-                    <li>We do <strong>NOT</strong> show ads.</li>
-                    <li>We do <strong>NOT</strong> share your data with third parties, except the infrastructure providers needed to run the app (Google / Firebase).</li>
+                    <li data-i18n="pp_9_li1">Access, edit, or delete any data you entered in the app at any time.</li>
+                    <li data-i18n="pp_9_li2">Export a full copy of your data from the app settings (JSON format).</li>
+                    <li data-i18n="pp_9_li3">Delete all local data from the app settings.</li>
+                    <li data-i18n="pp_9_li4">Delete cloud-synced data from within the app or by contacting us.</li>
+                    <li data-i18n="pp_9_li5">Request complete data deletion by contacting us at the email address below.</li>
                 </ul>
             </div>
 
             <div class="text-block">
-                <h2>Your choices</h2>
-                <ul>
-                    <li>You can edit or delete clients, appointments, income, expenses and reminders at any time inside the app.</li>
-                    <li>You can delete all local data from the app settings.</li>
-                    <li>If you use cloud sync, you can also delete your Firebase data from within the app or directly from your Firebase account.</li>
-                    <li>You can also request full deletion of your data by contacting us at the email address below.</li>
-                </ul>
+                <h2 data-i18n="pp_10_h">10. Data retention</h2>
+                <p data-i18n="pp_10_p">Your data is retained for as long as you use the app. If you delete the app, local data is removed from your device. Cloud data (if sync was enabled) can be deleted from within the app before uninstalling, or by contacting us.</p>
             </div>
 
             <div class="text-block">
-                <h2>Contact</h2>
-                <p>If you have any questions about this Privacy Policy or want to request deletion of your data, you can contact us at: <a href="mailto:c_mihail@icloud.com">c_mihail@icloud.com</a>.</p>
+                <h2 data-i18n="pp_11_h">11. Changes to this policy</h2>
+                <p data-i18n="pp_11_p">We may update this Privacy Policy occasionally. The updated version will be published on this page with a revised date.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_12_h">12. Contact</h2>
+                <p><span data-i18n="pp_12_p">For any privacy-related questions or data deletion requests:</span> <a href="#" data-contact="privacy" data-i18n="contact_link">contact us</a>.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_13_h">13. Legal basis for processing (GDPR)</h2>
+                <p data-i18n-html="pp_13_p">We process your personal data on the following legal bases under GDPR Art. 6: (a) <strong>Performance of a contract</strong> — the data you enter is necessary to provide the app's core functionality (managing appointments, clients, and financial records); (b) <strong>Legitimate interests</strong> — anonymous analytics (if enabled) help us improve the app. You can withdraw consent at any time via the cookie banner.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_14_h">14. International data transfers</h2>
+                <p data-i18n="pp_14_p">If you enable cloud sync, your data is stored in Firebase (Google Cloud), which may process data on servers outside the European Economic Area (EEA), including in the United States. Google complies with EU data transfer requirements through Standard Contractual Clauses (SCCs). For more information, see Google's Privacy Policy.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="pp_15_h">15. Supervisory authority &amp; age restriction</h2>
+                <ul>
+                    <li data-i18n="pp_15_li1">If you are located in the EU/EEA, you have the right to lodge a complaint with your local data protection authority (DPA).</li>
+                    <li data-i18n="pp_15_li2">This app is not intended for children under the age of 13. We do not knowingly collect data from children.</li>
+                </ul>
             </div>
         </div>
     </main>
@@ -87,14 +178,17 @@
     <footer>
         <div class="container">
             <p>
-                &copy; 2026 Appointments &amp; Reports. All rights reserved.
+                <span data-i18n="footer_rights">© 2026 Appointments &amp; Reports. All rights reserved.</span>
                 &nbsp;|&nbsp;
-                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy-android.html" data-i18n="footer_privacy">Privacy Policy</a>
                 &nbsp;|&nbsp;
-                <a href="terms.html">Terms &amp; Conditions</a>
+                <a href="terms.html" data-i18n="footer_terms">Terms &amp; Conditions</a>
             </p>
         </div>
     </footer>
-</body>
-</html>
 
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

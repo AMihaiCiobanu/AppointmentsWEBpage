@@ -1,93 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions – Appointments &amp; Reports</title>
+    <title data-i18n="tc_page_title">Terms &amp; Conditions – Appointments &amp; Reports</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/appIcon.png">
+
+    <!-- Dark mode: apply saved theme before first paint to avoid flash -->
+    <script>
+        (function () {
+            var saved;
+            try { saved = localStorage.getItem('theme'); } catch (_) { }
+            var theme = saved || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
+
 <body>
+
     <header>
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
-                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32" style="border-radius: 7px; display: block;">
+                    <img src="assets/appIcon.png" alt="Appointments &amp; Reports icon" width="32" height="32"
+                        class="logo-img">
                 </div>
                 Appointments &amp; Reports
             </a>
+
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
+                <a href="index.html#download" class="btn btn-primary" style="font-size:0.85rem; padding:0.45rem 1.1rem;"
+                    data-i18n="nav_download">Download free</a>
+
+                <!-- Language selector -->
+                <div class="lang-selector" id="lang-selector">
+                    <button class="lang-toggle" id="lang-toggle" aria-label="Select language"
+                        data-i18n-aria-label="lang_selector_label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        <span id="lang-btn-label">EN</span>
+                        <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <button class="lang-option" data-lang="en">🇬🇧 English</button>
+                        <button class="lang-option" data-lang="ro">🇷🇴 Română</button>
+                        <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                        <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+                        <button class="lang-option" data-lang="it">🇮🇹 Italiano</button>
+                        <button class="lang-option" data-lang="pt">🇧🇷 Português</button>
+                        <button class="lang-option" data-lang="bg">🇧🇬 Български</button>
+                        <button class="lang-option" data-lang="pl">🇵🇱 Polski</button>
+                    </div>
+                </div>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+            </div>
+
         </div>
     </header>
 
     <main class="section-padding">
         <div class="container">
-            <h1 class="section-title">Terms &amp; Conditions</h1>
-            <p class="section-subtitle" style="max-width: 720px;">
+            <h1 class="section-title" data-i18n="tc_page_title">Terms &amp; Conditions – Appointments &amp; Reports</h1>
+            <p class="section-subtitle" style="max-width: 720px;" data-i18n="tc_subtitle">
                 Last updated: March 2026. Please read these terms carefully before using the app or this website.
             </p>
 
             <div class="text-block">
-                <h2>1. Acceptance of terms</h2>
-                <p>By downloading, installing, or using Appointments &amp; Reports (the "App"), or by visiting this website, you agree to be bound by these Terms &amp; Conditions. If you do not agree, please do not use the App or this website.</p>
+                <h2 data-i18n="tc_1_h">1. Acceptance of terms</h2>
+                <p data-i18n="tc_1_p">By downloading, installing, or using Appointments &amp; Reports (the "App"), or by
+                    visiting this website, you agree to be bound by these Terms &amp; Conditions. If you do not agree,
+                    please do not use the App or this website.</p>
             </div>
 
             <div class="text-block">
-                <h2>2. What the app does</h2>
-                <p>Appointments &amp; Reports is a productivity application that helps professionals and small businesses manage appointments, clients, services, and financial records. It is designed for personal or internal business use by a single user or sole trader.</p>
+                <h2 data-i18n="tc_2_h">2. What the app does</h2>
+                <p data-i18n="tc_2_p">Appointments &amp; Reports is a productivity application that helps professionals
+                    and small businesses manage appointments, clients, services, and financial records. It is designed
+                    for personal or internal business use by a single user or sole trader.</p>
             </div>
 
             <div class="text-block">
-                <h2>3. Your responsibilities</h2>
+                <h2 data-i18n="tc_3_h">3. Your responsibilities</h2>
                 <ul>
-                    <li>You are responsible for the accuracy of the data you enter into the app (clients, appointments, financial records).</li>
-                    <li>You are responsible for keeping your device and, if used, your Google account secure.</li>
-                    <li>You must not use the app for any unlawful purpose or in violation of any applicable regulations.</li>
-                    <li>You must not attempt to reverse engineer, copy, or redistribute the app.</li>
+                    <li data-i18n="tc_3_li1">You are responsible for the accuracy of the data you enter into the app
+                        (clients, appointments, financial records).</li>
+                    <li data-i18n="tc_3_li2">You are responsible for keeping your device and, if used, your Google
+                        account secure.</li>
+                    <li data-i18n="tc_3_li3">You must not use the app for any unlawful purpose or in violation of any
+                        applicable regulations.</li>
+                    <li data-i18n="tc_3_li4">You must not attempt to reverse engineer, copy, or redistribute the app.
+                    </li>
                 </ul>
             </div>
 
             <div class="text-block">
-                <h2>4. Data ownership</h2>
-                <p>All data you create within the app (appointments, clients, financial records) belongs to you. We do not claim ownership of your data. You can export your data at any time from the app settings as a JSON file.</p>
+                <h2 data-i18n="tc_4_h">4. Data ownership</h2>
+                <p data-i18n="tc_4_p">All data you create within the app (appointments, clients, financial records)
+                    belongs to you. We do not claim ownership of your data. You can export your data at any time from
+                    the app settings as a JSON file.</p>
             </div>
 
             <div class="text-block">
-                <h2>5. Cloud sync (optional)</h2>
-                <p>If you choose to sign in with your Google account, your data will be synced to Firebase (Google Cloud) under your own account. This is optional. The app works fully without cloud sync — all data is stored locally on your device.</p>
+                <h2 data-i18n="tc_5_h">5. Cloud sync (optional)</h2>
+                <p data-i18n="tc_5_p">If you choose to sign in with your Google account, your data will be synced to
+                    Firebase (Google Cloud) under your own account. This is optional. The app works fully without cloud
+                    sync — all data is stored locally on your device.</p>
             </div>
 
             <div class="text-block">
-                <h2>6. Availability and updates</h2>
+                <h2 data-i18n="tc_6_h">6. Availability and updates</h2>
                 <ul>
-                    <li>The app is provided "as is". We do not guarantee uninterrupted availability.</li>
-                    <li>We may update, modify, or discontinue features of the app at any time.</li>
-                    <li>Updates may be required for continued access to certain features.</li>
+                    <li data-i18n="tc_6_li1">The app is provided "as is". We do not guarantee uninterrupted
+                        availability.</li>
+                    <li data-i18n="tc_6_li2">We may update, modify, or discontinue features of the app at any time.</li>
+                    <li data-i18n="tc_6_li3">Updates may be required for continued access to certain features.</li>
                 </ul>
             </div>
 
             <div class="text-block">
-                <h2>7. Disclaimer of warranties</h2>
-                <p>To the fullest extent permitted by law, Appointments &amp; Reports is provided without warranties of any kind. We are not liable for any loss of data, loss of income, or any other direct or indirect damages resulting from your use of the app. You are responsible for maintaining your own backups.</p>
+                <h2 data-i18n="tc_7_h">7. Disclaimer of warranties</h2>
+                <p data-i18n="tc_7_p">To the fullest extent permitted by law, Appointments &amp; Reports is provided
+                    without warranties of any kind. We are not liable for any loss of data, loss of income, or any other
+                    direct or indirect damages resulting from your use of the app. You are responsible for maintaining
+                    your own backups.</p>
             </div>
 
             <div class="text-block">
-                <h2>8. Limitation of liability</h2>
-                <p>The developer shall not be liable for any indirect, incidental, or consequential damages arising from the use or inability to use the app, including but not limited to loss of business data or profits.</p>
+                <h2 data-i18n="tc_8_h">8. Limitation of liability</h2>
+                <p data-i18n="tc_8_p">The developer shall not be liable for any indirect, incidental, or consequential
+                    damages arising from the use or inability to use the app, including but not limited to loss of
+                    business data or profits.</p>
             </div>
 
             <div class="text-block">
-                <h2>9. Intellectual property</h2>
-                <p>All rights to the app, including its design, code, and branding, are owned by the developer. You are granted a personal, non-exclusive, non-transferable licence to use the app for its intended purpose.</p>
+                <h2 data-i18n="tc_9_h">9. Intellectual property</h2>
+                <p data-i18n="tc_9_p">All rights to the app, including its design, code, and branding, are owned by the
+                    developer. You are granted a personal, non-exclusive, non-transferable licence to use the app for
+                    its intended purpose.</p>
             </div>
 
             <div class="text-block">
-                <h2>10. Changes to these terms</h2>
-                <p>We may update these Terms &amp; Conditions from time to time. The updated version will be posted on this page with a revised date. Continued use of the app after changes constitutes acceptance of the new terms.</p>
+                <h2 data-i18n="tc_10_h">10. Changes to these terms</h2>
+                <p data-i18n="tc_10_p">We may update these Terms &amp; Conditions from time to time. The updated version
+                    will be posted on this page with a revised date. Continued use of the app after changes constitutes
+                    acceptance of the new terms.</p>
             </div>
 
             <div class="text-block">
-                <h2>11. Contact</h2>
-                <p>For any questions about these terms, please contact us at: <a href="mailto:c_mihail@icloud.com">c_mihail@icloud.com</a>.</p>
+                <h2 data-i18n="tc_11_h">11. Contact</h2>
+                <p><span data-i18n="tc_11_p">For any questions about these terms, please </span> <a href="#"
+                        data-contact="privacy" data-i18n="contact_link">contact us</a>.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="tc_12_h">12. Age restriction</h2>
+                <p data-i18n="tc_12_p">This app is intended for use by adults and professionals. You must be at least 13
+                    years old to use the app. By using the app, you confirm that you meet this age requirement.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="tc_13_h">13. App store terms</h2>
+                <p data-i18n="tc_13_p">Use of the app is also subject to the terms of the platform through which you
+                    downloaded it (Google Play Store, Apple App Store). In case of any conflict between these Terms and
+                    the platform terms, the platform terms govern with respect to the platform relationship.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="tc_14_h">14. Governing law</h2>
+                <p data-i18n="tc_14_p">These Terms &amp; Conditions are governed by and construed in accordance with the
+                    laws of Romania. Any disputes arising from these terms shall be subject to the exclusive
+                    jurisdiction of the Romanian courts, without prejudice to your rights as a consumer under the laws
+                    of your country of residence.</p>
+            </div>
+
+            <div class="text-block">
+                <h2 data-i18n="tc_15_h">15. Severability</h2>
+                <p data-i18n="tc_15_p">If any provision of these Terms is found to be invalid or unenforceable, the
+                    remaining provisions shall continue in full force and effect.</p>
             </div>
         </div>
     </main>
@@ -95,13 +196,17 @@
     <footer>
         <div class="container">
             <p>
-                &copy; 2026 Appointments &amp; Reports. All rights reserved.
+                <span data-i18n="footer_rights">© 2026 Appointments &amp; Reports. All rights reserved.</span>
                 &nbsp;|&nbsp;
-                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-policy-android.html" data-i18n="footer_privacy">Privacy Policy</a>
                 &nbsp;|&nbsp;
-                <a href="privacy-policy-android.html">Privacy Policy – Android</a>
+                <a href="terms.html" data-i18n="footer_terms">Terms &amp; Conditions</a>
             </p>
         </div>
     </footer>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
