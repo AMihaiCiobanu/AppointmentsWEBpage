@@ -37,5 +37,5 @@ Assets in `assets/` are app screenshots used inside CSS-styled device mockups (i
 
 - SVG icons are inlined directly in HTML (not external files)
 - Device mockups (`.iphone-mockup`, `.tablet-mockup`) are CSS-only frames — no image assets for the frame itself
-- The contact email is `c_mihail@icloud.com` (used in mailto links)
+- The contact email is `contact@appointmentsapps.com` (used in mailto links)
 - `privacy-policy-android.html` is a standalone page linked from the footer

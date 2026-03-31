@@ -154,8 +154,8 @@ scrollTopBtn?.addEventListener('click', () => {
 
 // Contact links — assemble mailto at runtime so the address isn't in plain HTML
 (function () {
-    const u = atob('Y19taWhhaWw=');   // c_mihail
-    const d = atob('aWNsb3VkLmNvbQ=='); // icloud.com
+    const u = atob('Y29udGFjdA==');   // contact
+    const d = atob('YXBwb2ludG1lbnRzYXBwcy5jb20='); // appointmentsapps.com
     const base = 'mailto:' + u + '@' + d;
     document.querySelectorAll('a[data-contact]').forEach(a => {
         const type = a.dataset.contact;
