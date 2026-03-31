@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: Replace YOUR_DOMAIN with your actual domain throughout this file -->
+<!-- TODO: Replace appointmentsapps.com with your actual domain throughout this file -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://YOUR_DOMAIN/</loc>
+        <loc>https://appointmentsapps.com/</loc>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://YOUR_DOMAIN/privacy-policy.html</loc>
+        <loc>https://appointmentsapps.com/privacy-policy-android.html</loc>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
     </url>
     <url>
-        <loc>https://YOUR_DOMAIN/terms.html</loc>
+        <loc>https://appointmentsapps.com/terms.html</loc>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
-    </url>
-    <url>
-        <loc>https://YOUR_DOMAIN/privacy-policy-android.html</loc>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
     </url>
 </urlset>

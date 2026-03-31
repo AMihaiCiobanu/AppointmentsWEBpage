@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# TODO: Replace YOUR_DOMAIN with your actual domain
-Sitemap: https://YOUR_DOMAIN/sitemap.xml
+# TODO: Replace appointmentsapps.com with your actual domain
+Sitemap: https://appointmentsapps.com/sitemap.xml
