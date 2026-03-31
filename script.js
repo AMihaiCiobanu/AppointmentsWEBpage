@@ -202,7 +202,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
 
 // Google Analytics
 // TODO: Replace '' with your Measurement ID, e.g. 'G-XXXXXXXXXX'
-const GA_ID = '';
+const GA_ID = 'G-6JM3GTCVR4';
 
 function loadGA() {
     if (!GA_ID) return;
