@@ -2,7 +2,7 @@ const MOBILE_BREAKPOINT = 768;
 
 // Dark Mode Toggle
 const MOON_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-const SUN_ICON  = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+const SUN_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
 
 const themeToggle = document.getElementById('theme-toggle');
 const menuThemeToggle = document.getElementById('menu-theme-toggle');
@@ -23,13 +23,13 @@ applyTheme(document.documentElement.getAttribute('data-theme') || 'light');
 
 themeToggle?.addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem('theme', next); } catch (_) {}
+    try { localStorage.setItem('theme', next); } catch (_) { }
     applyTheme(next);
 });
 
 menuThemeToggle?.addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    try { localStorage.setItem('theme', next); } catch (_) {}
+    try { localStorage.setItem('theme', next); } catch (_) { }
     applyTheme(next);
     navMenuDropdown?.classList.remove('open');
     navMenuToggle?.classList.remove('open');
@@ -201,40 +201,65 @@ document.querySelectorAll('.faq-question').forEach(button => {
 });
 
 // Google Analytics
-// TODO: Replace '' with your Measurement ID, e.g. 'G-XXXXXXXXXX'
 const GA_ID = 'G-6JM3GTCVR4';
+let gaLoaded = false;
+
+function setConsentMode(consentGranted) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('consent', 'update', {
+        analytics_storage: consentGranted ? 'granted' : 'denied',
+        ad_storage: consentGranted ? 'granted' : 'denied',
+        ad_user_data: consentGranted ? 'granted' : 'denied',
+        ad_personalization: consentGranted ? 'granted' : 'denied'
+    });
+}
 
 function loadGA() {
-    if (!GA_ID) return;
+    if (!GA_ID || gaLoaded) return;
+    gaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+    });
     const s = document.createElement('script');
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     s.async = true;
     document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', GA_ID);
 }
 
 // Cookie Consent
 let consent;
-try { consent = localStorage.getItem('cookieConsent'); } catch (_) {}
+try { consent = localStorage.getItem('cookieConsent'); } catch (_) { }
 
 if (consent === 'accepted') {
     loadGA();
+    setConsentMode(true);
+} else if (consent === 'declined') {
+    loadGA();
+    setConsentMode(false);
 } else if (!consent) {
     const banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'flex';
 }
 
 document.getElementById('cookie-accept')?.addEventListener('click', () => {
-    try { localStorage.setItem('cookieConsent', 'accepted'); } catch (_) {}
+    try { localStorage.setItem('cookieConsent', 'accepted'); } catch (_) { }
     document.getElementById('cookie-banner').style.display = 'none';
     loadGA();
+    setConsentMode(true);
 });
 
 document.getElementById('cookie-decline')?.addEventListener('click', () => {
-    try { localStorage.setItem('cookieConsent', 'declined'); } catch (_) {}
+    try { localStorage.setItem('cookieConsent', 'declined'); } catch (_) { }
     document.getElementById('cookie-banner').style.display = 'none';
+    loadGA();
+    setConsentMode(false);
 });
