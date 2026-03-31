@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: Replace appointmentsapps.com with your actual domain
 Sitemap: https://appointmentsapps.com/sitemap.xml
