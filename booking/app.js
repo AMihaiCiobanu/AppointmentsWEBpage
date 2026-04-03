@@ -38,6 +38,7 @@ const state = {
   linkId: null,
   linkDoc: null,
   uid: null,
+  currency: '€',
   services: [],
   selectedService: null,
   selectedDate: null,
@@ -246,7 +247,7 @@ function renderServices() {
     btn.className = `service-btn ${state.selectedService?.id === svc.id ? 'active' : ''}`;
     btn.innerHTML = `
       <div class="service-main"><span>${svc.name}</span><span>${svc.durationMinutes} min</span></div>
-      <div class="service-sub">${svc.price > 0 ? `${svc.price.toFixed(2)} €` : 'Price set in app'}</div>
+      <div class="service-sub">${svc.price > 0 ? `${svc.price.toFixed(2)} ${state.currency}` : 'Price set in app'}</div>
     `;
     btn.addEventListener('click', () => {
       state.selectedService = svc;
@@ -281,6 +282,7 @@ async function loadWorkingRange(dateISO) {
   if (!snap.exists()) return { start: 0, end: 0 };
 
   const set = snap.data();
+  if (set.currency) state.currency = set.currency;
   const dow = localDateToWeekday(dateISO);
   const [startKey, endKey] = daySettingsKey(dow);
   const start = Number(set[startKey] || 0);
@@ -296,6 +298,37 @@ function toDayBoundary(dateISO, end = false) {
   return end
     ? new Date(y, m - 1, d, 23, 59, 59, 999)
     : new Date(y, m - 1, d, 0, 0, 0, 0);
+}
+
+async function loadTimeOffsForDate(dateISO) {
+  const dayStart = toDayBoundary(dateISO, false);
+  const dayEnd = toDayBoundary(dateISO, true);
+  const colRef = collection(db, `users/${state.uid}/perioadeConcediuPublic`);
+  const qy = query(colRef, where('dataEnd', '>=', Timestamp.fromDate(dayStart)));
+  const snap = await getDocs(qy);
+  return snap.docs
+    .map(d => d.data())
+    .filter(row => {
+      if (row.isDeleted === true) return false;
+      const start = row.dataStart?.toDate?.();
+      return start && start <= dayEnd;
+    });
+}
+
+function isFullDayTimeOff(rows) {
+  return rows.some(row => row.isFullDay === true);
+}
+
+function partialTimeOffBusySlots(rows) {
+  return rows
+    .filter(row => row.isFullDay !== true)
+    .map(row => {
+      const start = row.dataStart?.toDate?.();
+      const end = row.dataEnd?.toDate?.();
+      if (!start || !end) return null;
+      return { start, end };
+    })
+    .filter(Boolean);
 }
 
 async function loadBusySlots(dateISO) {
@@ -344,7 +377,18 @@ async function loadSlotsForSelectedDate() {
       return;
     }
 
-    const busy = await loadBusySlots(state.selectedDate);
+    const timeOffRows = await loadTimeOffsForDate(state.selectedDate);
+    if (isFullDayTimeOff(timeOffRows)) {
+      state.workingRange = { start: 0, end: 0 };
+      state.slots = [];
+      renderSlots();
+      return;
+    }
+
+    const busy = [
+      ...await loadBusySlots(state.selectedDate),
+      ...partialTimeOffBusySlots(timeOffRows)
+    ];
     const duration = state.selectedService.durationMinutes;
     const interval = 30;
 
