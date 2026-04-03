@@ -38,7 +38,7 @@ const state = {
   linkId: null,
   linkDoc: null,
   uid: null,
-  currency: '€',
+  currency: 'EUR',
   services: [],
   selectedService: null,
   selectedDate: null,
@@ -247,7 +247,7 @@ function renderServices() {
     btn.className = `service-btn ${state.selectedService?.id === svc.id ? 'active' : ''}`;
     btn.innerHTML = `
       <div class="service-main"><span>${svc.name}</span><span>${svc.durationMinutes} min</span></div>
-      <div class="service-sub">${svc.price > 0 ? `${svc.price.toFixed(2)} ${state.currency}` : 'Price set in app'}</div>
+      <div class="service-sub">${svc.price > 0 ? formatPrice(svc.price, state.currency) : 'Price set in app'}</div>
     `;
     btn.addEventListener('click', () => {
       state.selectedService = svc;
@@ -510,10 +510,27 @@ async function submitBooking(e) {
   }
 }
 
+const CURRENCY_SYMBOLS = {
+  RON: 'lei', EUR: '€', GBP: '£', USD: '$', BRL: 'R$', CHF: 'Fr', HUF: 'Ft'
+};
+
+function formatPrice(amount, currencyCode) {
+  const symbol = CURRENCY_SYMBOLS[currencyCode] || currencyCode;
+  const formatted = Number.isInteger(amount) ? String(amount) : amount.toFixed(2);
+  return `${formatted} ${symbol}`;
+}
+
 async function init() {
   try {
     const ok = await loadLink();
     if (!ok) return;
+
+    // Load currency before rendering services so prices show the correct symbol.
+    const bookingPublicSnap = await getDoc(doc(db, `users/${state.uid}/setari/bookingPublic`));
+    if (bookingPublicSnap.exists()) {
+      const bpData = bookingPublicSnap.data();
+      if (bpData.currency) state.currency = bpData.currency;
+    }
 
     await loadServices();
 
