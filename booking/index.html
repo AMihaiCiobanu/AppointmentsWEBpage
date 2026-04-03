@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Booking | Appointments & Reports</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Online booking</h1>
+      <p id="subtitle">Choose a service, pick a free slot, and send your request.</p>
+    </header>
+
+    <section id="state-loading" class="card state">Loading booking page...</section>
+    <section id="state-error" class="card state hidden"></section>
+
+    <section id="booking-flow" class="hidden">
+      <article class="card">
+        <h2>1. Service</h2>
+        <div id="services" class="service-list"></div>
+      </article>
+
+      <article class="card">
+        <h2>2. Date & time</h2>
+        <label class="field-label" for="booking-date">Date</label>
+        <input id="booking-date" class="input" type="date" />
+        <p class="muted" id="working-hours"></p>
+        <div id="slots" class="slots"></div>
+      </article>
+
+      <article class="card">
+        <h2>3. Your details</h2>
+        <form id="booking-form">
+          <label class="field-label" for="client-name">Name</label>
+          <input id="client-name" class="input" type="text" required maxlength="80" />
+
+          <label class="field-label" for="client-phone">Phone</label>
+          <input id="client-phone" class="input" type="tel" required maxlength="30" />
+
+          <label class="field-label" for="client-note">Note (optional)</label>
+          <textarea id="client-note" class="input" rows="3" maxlength="250"></textarea>
+
+          <button id="submit-btn" class="btn" type="submit" disabled>Send request</button>
+        </form>
+      </article>
+    </section>
+
+    <section id="state-success" class="card state hidden">
+      <h2>Request sent</h2>
+      <p>Your booking request was sent successfully.</p>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
