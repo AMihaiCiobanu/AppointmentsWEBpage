@@ -1,59 +1,116 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Online Booking | Appointments & Reports</title>
   <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
   <main class="container">
     <header class="header">
-      <h1>Online booking</h1>
-      <p id="subtitle">Choose a service, pick a free slot, and send your request.</p>
+      <h1>Online Booking</h1>
+      <p id="subtitle">Easy and fast appointments</p>
     </header>
 
-    <section id="state-loading" class="card state">Loading booking page...</section>
+    <div id="booking-steps" class="steps hidden">
+      <div class="step active" data-step="1">1</div>
+      <div class="step" data-step="2">2</div>
+      <div class="step" data-step="3">3</div>
+    </div>
+
+    <section id="state-loading" class="card state">
+      <p>Preparing your booking experience...</p>
+    </section>
+
     <section id="state-error" class="card state hidden"></section>
 
     <section id="booking-flow" class="hidden">
-      <article class="card">
-        <h2>1. Service</h2>
+      <!-- Step 1: Service Selection -->
+      <article id="step-1-content" class="card">
+        <h2>🏷️ Select Service</h2>
         <div id="services" class="service-list"></div>
       </article>
 
-      <article class="card">
-        <h2>2. Date & time</h2>
-        <label class="field-label" for="booking-date">Date</label>
-        <input id="booking-date" class="input" type="date" />
-        <p class="muted" id="working-hours"></p>
-        <div id="slots" class="slots"></div>
+      <!-- Step 2: Date & Time -->
+      <article id="step-2-content" class="card hidden">
+        <h2>📅 Date & Time</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="booking-date">Choose a date</label>
+          <div class="date-input-wrapper">
+            <input id="booking-date" class="input" type="date" />
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 8px;">
+          <span id="working-hours" class="working-hours-badge hidden"></span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Available slots</label>
+          <div id="slots-loader" class="slots-loader hidden">
+            <div class="spinner"></div>
+            <p>Checking availability...</p>
+          </div>
+          <div id="slots" class="slots"></div>
+          <div id="slots-empty-state" class="empty-slots-state hidden">
+            <p>No free slots available for this day.</p>
+          </div>
+        </div>
+
+        <button id="to-step-3" class="btn" style="margin-top: 24px;" disabled>Continue</button>
+        <button id="back-to-1" type="button" class="btn-link">Back to services</button>
       </article>
 
-      <article class="card">
-        <h2>3. Your details</h2>
+      <!-- Step 3: Client Details -->
+      <article id="step-3-content" class="card hidden">
+        <h2>👤 Your Details</h2>
         <form id="booking-form">
-          <label class="field-label" for="client-name">Name</label>
-          <input id="client-name" class="input" type="text" required maxlength="80" />
+          <div class="field-group">
+            <label class="field-label" for="client-name">Full Name</label>
+            <input id="client-name" class="input" type="text" placeholder="John Doe" required maxlength="80" />
+          </div>
 
-          <label class="field-label" for="client-phone">Phone</label>
-          <input id="client-phone" class="input" type="tel" required maxlength="30" />
+          <div style="margin-top: 16px;">
+            <label class="field-label" for="client-phone">Phone Number</label>
+            <input id="client-phone" class="input" type="tel" placeholder="07xx xxx xxx" required maxlength="20"
+              pattern="^[\+]?[0-9\s\-]{7,20}$"
+              title="Please enter a valid phone number (min 7 digits, may include + or spaces)" />
+            <p id="phone-error" class="error-msg hidden">Please enter a valid phone number.</p>
+          </div>
 
-          <label class="field-label" for="client-note">Note (optional)</label>
-          <textarea id="client-note" class="input" rows="3" maxlength="250"></textarea>
+          <div style="margin-top: 16px;">
+            <label class="field-label" for="client-note">Note (optional)</label>
+            <textarea id="client-note" class="input" rows="3" placeholder="Anything we should know?"
+              maxlength="250"></textarea>
+          </div>
 
-          <button id="submit-btn" class="btn" type="submit" disabled>Send request</button>
+          <button id="submit-btn" class="btn" type="submit" disabled style="margin-top: 24px;">Confirm
+            Appointment</button>
+          <button id="back-to-2" type="button" class="btn-link">Back to time selection</button>
         </form>
       </article>
     </section>
 
-    <section id="state-success" class="card state hidden">
-      <h2>Request sent</h2>
-      <p>Your booking request was sent successfully.</p>
+    <section id="state-success" class="card state hidden" style="text-align: center; padding: 48px 24px;">
+      <div class="state-success-icon">✓</div>
+      <h2 style="justify-content: center;">Request Sent!</h2>
+      <p style="color: var(--muted); font-size: 1.1rem;">Your booking request was sent successfully. We will contact you
+        shortly to confirm.</p>
+      <button onclick="location.reload()" class="btn" style="max-width: 200px; margin-top: 32px;">New Booking</button>
     </section>
   </main>
 
   <script type="module" src="./app.js"></script>
 </body>
+
 </html>

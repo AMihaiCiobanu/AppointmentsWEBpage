@@ -44,7 +44,8 @@ const state = {
   selectedSlotStart: null,
   selectedSlotEnd: null,
   workingRange: null,
-  slots: []
+  slots: [],
+  currentStep: 1
 };
 
 const el = {
@@ -52,20 +53,30 @@ const el = {
   error: document.getElementById('state-error'),
   success: document.getElementById('state-success'),
   flow: document.getElementById('booking-flow'),
+  stepsContainer: document.getElementById('booking-steps'),
+  step1: document.getElementById('step-1-content'),
+  step2: document.getElementById('step-2-content'),
+  step3: document.getElementById('step-3-content'),
   services: document.getElementById('services'),
   dateInput: document.getElementById('booking-date'),
   workingHours: document.getElementById('working-hours'),
   slots: document.getElementById('slots'),
+  slotsLoader: document.getElementById('slots-loader'),
+  slotsEmptyState: document.getElementById('slots-empty-state'),
   form: document.getElementById('booking-form'),
   name: document.getElementById('client-name'),
   phone: document.getElementById('client-phone'),
   note: document.getElementById('client-note'),
-  submit: document.getElementById('submit-btn')
+  submit: document.getElementById('submit-btn'),
+  toStep3: document.getElementById('to-step-3'),
+  backTo1: document.getElementById('back-to-1'),
+  backTo2: document.getElementById('back-to-2')
 };
 
 function showError(message) {
   el.loading.classList.add('hidden');
   el.flow.classList.add('hidden');
+  el.stepsContainer.classList.add('hidden');
   el.error.textContent = message;
   el.error.classList.remove('hidden');
 }
@@ -74,6 +85,26 @@ function showFlow() {
   el.loading.classList.add('hidden');
   el.error.classList.add('hidden');
   el.flow.classList.remove('hidden');
+  el.stepsContainer.classList.remove('hidden');
+  goToStep(1);
+}
+
+function goToStep(step) {
+  state.currentStep = step;
+  
+  // Update UI sections
+  el.step1.classList.toggle('hidden', step !== 1);
+  el.step2.classList.toggle('hidden', step !== 2);
+  el.step3.classList.toggle('hidden', step !== 3);
+  
+  // Update step indicators
+  document.querySelectorAll('.step').forEach(s => {
+    const sNum = parseInt(s.dataset.step);
+    s.classList.toggle('active', sNum === step);
+    s.classList.toggle('completed', sNum < step);
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function fmtHHmmFromMinutes(minutes) {
@@ -122,13 +153,28 @@ function parseLinkId() {
   return null;
 }
 
-function setSubmitEnabled() {
+const phoneRegex = /^[\+]?[0-9\s\-]{7,20}$/;
+
+function updateValidation() {
+  // Step 2 validation
+  el.toStep3.disabled = !state.selectedSlotStart;
+
+  // Step 3 validation
+  const phoneValue = el.phone.value.trim();
+  const isPhoneValid = phoneRegex.test(phoneValue);
+  
+  // Show error only after some input length or if it was invalid before
+  const phoneErrorEl = document.getElementById('phone-error');
+  if (phoneValue.length > 5) {
+    phoneErrorEl.classList.toggle('hidden', isPhoneValid);
+  }
+
   const ok =
     !!state.selectedService &&
     !!state.selectedDate &&
     !!state.selectedSlotStart &&
     el.name.value.trim().length > 1 &&
-    el.phone.value.trim().length >= 5;
+    isPhoneValid;
   el.submit.disabled = !ok;
 }
 
@@ -209,7 +255,9 @@ function renderServices() {
       renderServices();
       renderSlots();
       void loadSlotsForSelectedDate();
-      setSubmitEnabled();
+      updateValidation();
+      // Auto-advance to next step
+      setTimeout(() => goToStep(2), 300);
     });
     el.services.appendChild(btn);
   }
@@ -282,45 +330,58 @@ async function loadSlotsForSelectedDate() {
     return;
   }
 
-  const { start, end } = await loadWorkingRange(state.selectedDate);
-  state.workingRange = { start, end };
-  if (end <= start) {
-    state.slots = [];
-    renderSlots();
-    return;
-  }
+  // Show loader and hide old content
+  el.slotsLoader.classList.remove('hidden');
+  el.slots.classList.add('hidden');
+  el.slotsEmptyState.classList.add('hidden');
 
-  const busy = await loadBusySlots(state.selectedDate);
-  const duration = state.selectedService.durationMinutes;
-  const interval = 30;
-
-  const [y, m, d] = state.selectedDate.split('-').map(Number);
-  const dayBase = new Date(y, m - 1, d, 0, 0, 0, 0);
-  const now = new Date();
-
-  const slots = [];
-  for (let startMin = start; startMin + duration <= end; startMin += interval) {
-    const slotStart = new Date(dayBase.getTime() + startMin * 60000);
-    const slotEnd = new Date(slotStart.getTime() + duration * 60000);
-
-    if (slotStart <= now) continue;
-
-    const blocked = busy.some(b => slotOverlaps(slotStart, slotEnd, b.start, b.end));
-    if (!blocked) {
-      slots.push({
-        startDate: slotStart,
-        endDate: slotEnd,
-        label: `${String(slotStart.getHours()).padStart(2, '0')}:${String(slotStart.getMinutes()).padStart(2, '0')}`
-      });
+  try {
+    const { start, end } = await loadWorkingRange(state.selectedDate);
+    state.workingRange = { start, end };
+    if (end <= start) {
+      state.slots = [];
+      renderSlots();
+      return;
     }
-  }
 
-  state.slots = slots;
-  renderSlots();
+    const busy = await loadBusySlots(state.selectedDate);
+    const duration = state.selectedService.durationMinutes;
+    const interval = 30;
+
+    const [y, m, d] = state.selectedDate.split('-').map(Number);
+    const dayBase = new Date(y, m - 1, d, 0, 0, 0, 0);
+    const now = new Date();
+
+    const slots = [];
+    for (let startMin = start; startMin + duration <= end; startMin += interval) {
+      const slotStart = new Date(dayBase.getTime() + startMin * 60000);
+      const slotEnd = new Date(slotStart.getTime() + duration * 60000);
+
+      if (slotStart <= now) continue;
+
+      const blocked = busy.some(b => slotOverlaps(slotStart, slotEnd, b.start, b.end));
+      if (!blocked) {
+        slots.push({
+          startDate: slotStart,
+          endDate: slotEnd,
+          label: `${String(slotStart.getHours()).padStart(2, '0')}:${String(slotStart.getMinutes()).padStart(2, '0')}`
+        });
+      }
+    }
+
+    state.slots = slots;
+    renderSlots();
+  } finally {
+    // Hide loader and show slots (renderSlots handles empty state)
+    el.slotsLoader.classList.add('hidden');
+    el.slots.classList.remove('hidden');
+  }
 }
 
 function renderSlots() {
   el.slots.innerHTML = '';
+  el.slotsEmptyState.classList.add('hidden');
+  el.workingHours.classList.add('hidden');
 
   if (!state.selectedService) {
     el.slots.innerHTML = '<p class="muted">Select a service first.</p>';
@@ -335,13 +396,17 @@ function renderSlots() {
   }
 
   if (state.workingRange && state.workingRange.end > state.workingRange.start) {
-    el.workingHours.textContent = `Working hours: ${fmtHHmmFromMinutes(state.workingRange.start)} - ${fmtHHmmFromMinutes(state.workingRange.end)}`;
+    el.workingHours.textContent = `🕒 ${fmtHHmmFromMinutes(state.workingRange.start)} - ${fmtHHmmFromMinutes(state.workingRange.end)}`;
+    el.workingHours.classList.remove('hidden');
   } else {
     el.workingHours.textContent = 'Not available on this day.';
+    el.workingHours.classList.remove('hidden');
+    el.slotsEmptyState.classList.remove('hidden');
+    return;
   }
 
   if (state.slots.length === 0) {
-    el.slots.innerHTML = '<p class="muted">No free slots available for this day.</p>';
+    el.slotsEmptyState.classList.remove('hidden');
     return;
   }
 
@@ -355,7 +420,7 @@ function renderSlots() {
       state.selectedSlotStart = slot.startDate;
       state.selectedSlotEnd = slot.endDate;
       renderSlots();
-      setSubmitEnabled();
+      updateValidation();
     });
     el.slots.appendChild(btn);
   }
@@ -391,12 +456,13 @@ async function submitBooking(e) {
   try {
     await addDoc(collection(db, `users/${state.uid}/pendingBookings`), payload);
     el.flow.classList.add('hidden');
+    el.stepsContainer.classList.add('hidden');
     el.success.classList.remove('hidden');
   } catch (err) {
     console.error(err);
     showError('Could not send request. Please try again.');
   } finally {
-    setSubmitEnabled();
+    updateValidation();
   }
 }
 
@@ -411,21 +477,35 @@ async function init() {
     el.dateInput.value = getMinDateISO();
     state.selectedDate = el.dateInput.value;
 
+    // Trigger date picker when clicking anywhere on the input or wrapper
+    el.dateInput.parentElement.addEventListener('click', () => {
+      if ('showPicker' in HTMLInputElement.prototype) {
+        el.dateInput.showPicker();
+      } else {
+        el.dateInput.click();
+      }
+    });
+
     el.dateInput.addEventListener('change', async () => {
       state.selectedDate = el.dateInput.value;
       state.selectedSlotStart = null;
       state.selectedSlotEnd = null;
       await loadSlotsForSelectedDate();
-      setSubmitEnabled();
+      updateValidation();
     });
 
-    el.name.addEventListener('input', setSubmitEnabled);
-    el.phone.addEventListener('input', setSubmitEnabled);
+    el.name.addEventListener('input', updateValidation);
+    el.phone.addEventListener('input', updateValidation);
     el.form.addEventListener('submit', submitBooking);
+    
+    // Navigation buttons
+    el.toStep3.addEventListener('click', () => goToStep(3));
+    el.backTo1.addEventListener('click', () => goToStep(1));
+    el.backTo2.addEventListener('click', () => goToStep(2));
 
     await loadSlotsForSelectedDate();
     showFlow();
-    setSubmitEnabled();
+    updateValidation();
   } catch (err) {
     console.error(err);
     showError('Booking page failed to load.');
