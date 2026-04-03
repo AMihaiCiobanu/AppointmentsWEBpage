@@ -303,7 +303,7 @@ function toDayBoundary(dateISO, end = false) {
 async function loadTimeOffsForDate(dateISO) {
   const dayStart = toDayBoundary(dateISO, false);
   const dayEnd = toDayBoundary(dateISO, true);
-  const colRef = collection(db, `users/${state.uid}/perioadeConcediuPublic`);
+  const colRef = collection(db, `users/${state.uid}/perioadeConcediu`);
   const qy = query(colRef, where('dataEnd', '>=', Timestamp.fromDate(dayStart)));
   const snap = await getDocs(qy);
   return snap.docs

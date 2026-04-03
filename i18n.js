@@ -1887,6 +1887,9 @@ const TRANSLATIONS = {
     pain_04_p: "Kto jest w top 5? Kto zawsze odwołuje? Komu powinieneś dać priorytet?",
     pain_resolution: "Appointments & Reports odpowiada na to wszystko. Każdego dnia, automatycznie, w sekundy.",
     pain_cta: "Zacznij za darmo",
+    booking_soon_badge: "WKRÓTCE",
+    booking_soon_title: "Rezerwacje online dla Twoich klientów",
+    booking_soon_subtitle: "Pozwól swoim klientom rezerwować samodzielnie przez Twoją własną profesjonalną stronę. Oszczędzaj czas i ogranicz wiadomości.",
     hiw_title: "Gotowy do pracy w kilka minut",
     hiw_subtitle: "Bez szkoleń. Bez skomplikowanej konfiguracji. Pobierz i zacznij.",
     step1_h3: "Pobierz i zaloguj się",
@@ -2205,6 +2208,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Language selector UI may not exist on all pages.
       const langDropdown = document.querySelector('.lang-dropdown');
       const langBtn = document.querySelector('.lang-toggle');
+      langDropdown?.classList.remove('open');
+      langBtn?.classList.remove('open');
+    });
+  });
+});
+langBtn = document.querySelector('.lang-toggle');
       langDropdown?.classList.remove('open');
       langBtn?.classList.remove('open');
     });
