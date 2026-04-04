@@ -46,8 +46,15 @@ const state = {
   selectedSlotEnd: null,
   workingRange: null,
   slots: [],
-  currentStep: 1
+  currentStep: 1,
+  get lang() { return localStorage.getItem('lang') || 'en'; }
 };
+
+// Translation helper
+function t(key) {
+  const lang = state.lang;
+  return (window.TRANSLATIONS && window.TRANSLATIONS[lang] && window.TRANSLATIONS[lang][key]) || key;
+}
 
 const el = {
   loading: document.getElementById('state-loading'),
@@ -182,25 +189,25 @@ function updateValidation() {
 async function loadLink() {
   state.linkId = parseLinkId();
   if (!state.linkId) {
-    showError('Invalid booking link.');
+    showError(t('booking_error_link'));
     return false;
   }
 
   const linkRef = doc(db, 'bookingLinks', state.linkId);
   const linkSnap = await getDoc(linkRef);
   if (!linkSnap.exists()) {
-    showError('This booking link does not exist.');
+    showError(t('booking_error_link_not_exist'));
     return false;
   }
 
   const data = linkSnap.data();
   const expiresAt = data.expiresAt?.toDate?.() || null;
   if (data.isDeleted || data.active === false) {
-    showError('This booking link is disabled.');
+    showError(t('booking_error_link_disabled'));
     return false;
   }
   if (expiresAt && expiresAt.getTime() < Date.now()) {
-    showError('This booking link has expired.');
+    showError(t('booking_error_link_expired'));
     return false;
   }
 
@@ -208,7 +215,7 @@ async function loadLink() {
   state.uid = data.uid;
 
   if (!state.uid) {
-    showError('Invalid booking link owner.');
+    showError(t('booking_error_link_owner'));
     return false;
   }
   return true;
@@ -221,7 +228,6 @@ async function loadServices() {
   state.services = snap.docs
     .map(d => ({ id: d.id, ...d.data() }))
     .filter(s => s.isDeleted !== true)
-    .filter(s => (s.tipServiciu || 'STANDARD') !== 'SUBSCRIPTION')
     .map(s => ({
       id: s.id,
       name: s.nume || '',
@@ -232,7 +238,7 @@ async function loadServices() {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   if (state.services.length === 0) {
-    showError('No bookable services are available for this provider.');
+    showError(t('booking_error_no_services'));
     return;
   }
 
@@ -250,12 +256,12 @@ function renderServices() {
     const nameSpan = document.createElement('span');
     nameSpan.textContent = svc.name;
     const durSpan = document.createElement('span');
-    durSpan.textContent = `${svc.durationMinutes} min`;
+    durSpan.textContent = `${svc.durationMinutes} ${t('booking_minutes_suffix')}`;
     mainDiv.appendChild(nameSpan);
     mainDiv.appendChild(durSpan);
     const subDiv = document.createElement('div');
     subDiv.className = 'service-sub';
-    subDiv.textContent = svc.price > 0 ? formatPrice(svc.price, state.currency) : 'Price set in app';
+    subDiv.textContent = svc.price > 0 ? formatPrice(svc.price, state.currency) : t('booking_price_in_app');
     btn.appendChild(mainDiv);
     btn.appendChild(subDiv);
     btn.addEventListener('click', () => {
@@ -437,22 +443,22 @@ function renderSlots() {
   el.workingHours.classList.add('hidden');
 
   if (!state.selectedService) {
-    el.slots.innerHTML = '<p class="muted">Select a service first.</p>';
+    el.slots.innerHTML = `<p class="muted">${t('booking_select_service_first')}</p>`;
     el.workingHours.textContent = '';
     return;
   }
 
   if (!state.selectedDate) {
-    el.slots.innerHTML = '<p class="muted">Select a date to see available slots.</p>';
+    el.slots.innerHTML = `<p class="muted">${t('booking_select_date_first')}</p>`;
     el.workingHours.textContent = '';
     return;
   }
 
   if (state.workingRange && state.workingRange.end > state.workingRange.start) {
-    el.workingHours.textContent = `🕒 ${fmtHHmmFromMinutes(state.workingRange.start)} - ${fmtHHmmFromMinutes(state.workingRange.end)}`;
+    el.workingHours.textContent = `🕒 ${t('booking_working_hours')}: ${fmtHHmmFromMinutes(state.workingRange.start)} - ${fmtHHmmFromMinutes(state.workingRange.end)}`;
     el.workingHours.classList.remove('hidden');
   } else {
-    el.workingHours.textContent = 'Not available on this day.';
+    el.workingHours.textContent = t('booking_no_slots');
     el.workingHours.classList.remove('hidden');
     el.slotsEmptyState.classList.remove('hidden');
     return;
@@ -513,7 +519,7 @@ async function submitBooking(e) {
     el.success.classList.remove('hidden');
   } catch (err) {
     console.error(err);
-    showError('Could not send request. Please try again.');
+    showError(t('booking_error_submit'));
   } finally {
     updateValidation();
   }
@@ -530,6 +536,11 @@ function formatPrice(amount, currencyCode) {
 }
 
 async function init() {
+  // Ensure translations are loaded and applied
+  if (window.applyLang && window.detectLang) {
+    window.applyLang(window.detectLang());
+  }
+
   try {
     const ok = await loadLink();
     if (!ok) return;
@@ -573,12 +584,23 @@ async function init() {
     el.backTo1.addEventListener('click', () => goToStep(1));
     el.backTo2.addEventListener('click', () => goToStep(2));
 
+    // Listen for language changes to re-render dynamic parts
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        // Give i18n.js a moment to update localStorage
+        setTimeout(() => {
+          renderServices();
+          renderSlots();
+        }, 50);
+      });
+    });
+
     await loadSlotsForSelectedDate();
     showFlow();
     updateValidation();
   } catch (err) {
     console.error(err);
-    showError('Booking page failed to load.');
+    showError(t('booking_error_load'));
   }
 }
 

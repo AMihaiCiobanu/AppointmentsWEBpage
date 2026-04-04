@@ -88,7 +88,7 @@ const navMenuDropdown = document.getElementById('nav-menu-dropdown');
 
 navMenuToggle?.addEventListener('click', e => {
     e.stopPropagation();
-    navMenuDropdown.classList.toggle('open');
+    navMenuDropdown?.classList.toggle('open');
     navMenuToggle.classList.toggle('open');
 });
 
@@ -134,14 +134,14 @@ window.addEventListener('scroll', () => {
 
     if (isMobile && currentScrollY > 80) {
         if (currentScrollY > lastScrollY) {
-            header.classList.add('header-hidden');
+            header?.classList.add('header-hidden');
             navMenuDropdown?.classList.remove('open');
             navMenuToggle?.classList.remove('open');
         } else {
-            header.classList.remove('header-hidden');
+            header?.classList.remove('header-hidden');
         }
     } else {
-        header.classList.remove('header-hidden');
+        header?.classList.remove('header-hidden');
     }
 
     lastScrollY = currentScrollY;

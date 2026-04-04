@@ -4,21 +4,104 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Online Booking | Appointments & Reports</title>
+  <title id="booking-doc-title" data-i18n="booking_doc_title">Online booking | Appointments & Reports</title>
   <meta name="robots" content="noindex,nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
+  <script>
+    (function () {
+      var saved;
+      try { saved = localStorage.getItem('theme'); } catch (_) {}
+      var theme = saved || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./header-bar.css" />
 </head>
 
 <body>
+
+  <header class="booking-top-header">
+    <div class="container nav-container">
+      <a href="../" class="logo">
+        <span class="logo-icon">
+          <img src="../assets/appIcon.png" alt="" width="32" height="32" class="logo-img">
+        </span>
+        Appointments&Reports
+      </a>
+
+      <div class="header-controls">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
+
+        <div class="lang-selector" id="lang-selector">
+          <button class="lang-toggle" id="lang-toggle" aria-label="Select language"
+            data-i18n-aria-label="lang_selector_label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" width="16" height="16">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span id="lang-btn-label">EN</span>
+            <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="lang-dropdown">
+            <button type="button" class="lang-option" data-lang="en">🇬🇧 English</button>
+            <button type="button" class="lang-option" data-lang="ro">🇷🇴 Română</button>
+            <button type="button" class="lang-option" data-lang="es">🇪🇸 Español</button>
+            <button type="button" class="lang-option" data-lang="fr">🇫🇷 Français</button>
+            <button type="button" class="lang-option" data-lang="it">🇮🇹 Italiano</button>
+            <button type="button" class="lang-option" data-lang="pt">🇧🇷 Português</button>
+            <button type="button" class="lang-option" data-lang="bg">🇧🇬 Български</button>
+            <button type="button" class="lang-option" data-lang="pl">🇵🇱 Polski</button>
+          </div>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+          <button type="button" class="lang-toggle" id="nav-menu-toggle" aria-label="Navigation menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" width="16" height="16">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <span data-i18n="nav_menu">Menu</span>
+          </button>
+          <div class="nav-menu-dropdown" id="nav-menu-dropdown">
+            <div class="nav-menu-mobile-only">
+              <button type="button" class="nav-menu-theme-row" id="menu-theme-toggle" aria-label="Toggle theme">
+                <span class="nav-menu-theme-icon-slot" aria-hidden="true"></span>
+                <span class="nav-menu-control-label" data-i18n="nav_theme">Theme</span>
+              </button>
+              <div class="nav-menu-divider"></div>
+              <div class="nav-menu-lang-grid">
+                <button type="button" class="lang-option nav-lang-chip" data-lang="en">EN</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="ro">RO</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="es">ES</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="fr">FR</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="it">IT</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="pt">PT</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="bg">BG</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="pl">PL</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main class="container">
     <header class="header">
-      <h1>Online Booking</h1>
-      <p id="subtitle">Easy and fast appointments</p>
+      <h1 data-i18n="booking_h1">Online Booking</h1>
+      <p id="subtitle" data-i18n="booking_subtitle">Easy and fast appointments</p>
     </header>
 
     <div id="booking-steps" class="steps hidden">
@@ -28,7 +111,7 @@
     </div>
 
     <section id="state-loading" class="card state">
-      <p>Preparing your booking experience...</p>
+      <p data-i18n="booking_loading">Preparing your booking experience...</p>
     </section>
 
     <section id="state-error" class="card state hidden"></section>
@@ -36,16 +119,16 @@
     <section id="booking-flow" class="hidden">
       <!-- Step 1: Service Selection -->
       <article id="step-1-content" class="card">
-        <h2>🏷️ Select Service</h2>
+        <h2 data-i18n="booking_step_service">🏷️ Select Service</h2>
         <div id="services" class="service-list"></div>
       </article>
 
       <!-- Step 2: Date & Time -->
       <article id="step-2-content" class="card hidden">
-        <h2>📅 Date & Time</h2>
+        <h2 data-i18n="booking_step_date">📅 Date & Time</h2>
 
         <div class="field-group">
-          <label class="field-label" for="booking-date">Choose a date</label>
+          <label class="field-label" for="booking-date" data-i18n="booking_choose_date">Choose a date</label>
           <div class="date-input-wrapper">
             <input id="booking-date" class="input" type="date" />
           </div>
@@ -56,60 +139,61 @@
         </div>
 
         <div class="field-group">
-          <label class="field-label">Available slots</label>
+          <label class="field-label" data-i18n="booking_available_slots">Available slots</label>
           <div id="slots-loader" class="slots-loader hidden">
             <div class="spinner"></div>
-            <p>Checking availability...</p>
+            <p data-i18n="booking_checking_availability">Checking availability...</p>
           </div>
           <div id="slots" class="slots"></div>
           <div id="slots-empty-state" class="empty-slots-state hidden">
-            <p>No free slots available for this day.</p>
+            <p data-i18n="booking_no_slots">No free slots available for this day.</p>
           </div>
         </div>
 
-        <button id="to-step-3" class="btn" style="margin-top: 24px;" disabled>Continue</button>
-        <button id="back-to-1" type="button" class="btn-link">Back to services</button>
+        <button id="to-step-3" class="btn" style="margin-top: 24px;" disabled data-i18n="booking_continue">Continue</button>
+        <button id="back-to-1" type="button" class="btn-link" data-i18n="booking_back_services">Back to services</button>
       </article>
 
       <!-- Step 3: Client Details -->
       <article id="step-3-content" class="card hidden">
-        <h2>👤 Your Details</h2>
+        <h2 data-i18n="booking_step_details">👤 Your Details</h2>
         <form id="booking-form">
           <div class="field-group">
-            <label class="field-label" for="client-name">Full Name</label>
-            <input id="client-name" class="input" type="text" placeholder="John Doe" required maxlength="80" />
+            <label class="field-label" for="client-name" data-i18n="booking_full_name">Full Name</label>
+            <input id="client-name" class="input" type="text" placeholder="John Doe" data-i18n-placeholder="booking_full_name_placeholder" required maxlength="80" />
           </div>
 
           <div style="margin-top: 16px;">
-            <label class="field-label" for="client-phone">Phone Number</label>
-            <input id="client-phone" class="input" type="tel" placeholder="07xx xxx xxx" required maxlength="20"
+            <label class="field-label" for="client-phone" data-i18n="booking_phone_number">Phone Number</label>
+            <input id="client-phone" class="input" type="tel" placeholder="07xx xxx xxx" data-i18n-placeholder="booking_phone_number_placeholder" required maxlength="20"
               pattern="^[\+]?[0-9\s\-]{7,20}$"
               title="Please enter a valid phone number (min 7 digits, may include + or spaces)" />
-            <p id="phone-error" class="error-msg hidden">Please enter a valid phone number.</p>
+            <p id="phone-error" class="error-msg hidden" data-i18n="booking_invalid_phone">Please enter a valid phone number.</p>
           </div>
 
           <div style="margin-top: 16px;">
-            <label class="field-label" for="client-note">Note (optional)</label>
-            <textarea id="client-note" class="input" rows="3" placeholder="Anything we should know?"
+            <label class="field-label" for="client-note" data-i18n="booking_note">Note (optional)</label>
+            <textarea id="client-note" class="input" rows="3" placeholder="Anything we should know?" data-i18n-placeholder="booking_note_placeholder"
               maxlength="250"></textarea>
           </div>
 
-          <button id="submit-btn" class="btn" type="submit" disabled style="margin-top: 24px;">Confirm
-            Appointment</button>
-          <button id="back-to-2" type="button" class="btn-link">Back to time selection</button>
+          <button id="submit-btn" class="btn" type="submit" disabled style="margin-top: 24px;" data-i18n="booking_confirm">Confirm Appointment</button>
+          <button id="back-to-2" type="button" class="btn-link" data-i18n="booking_back_time">Back to time selection</button>
         </form>
       </article>
     </section>
 
     <section id="state-success" class="card state hidden" style="text-align: center; padding: 48px 24px;">
       <div class="state-success-icon">✓</div>
-      <h2 style="justify-content: center;">Request Sent!</h2>
-      <p style="color: var(--muted); font-size: 1.1rem;">Your booking request was sent successfully. We will contact you
+      <h2 style="justify-content: center;" data-i18n="booking_success_title">Request Sent!</h2>
+      <p style="color: var(--muted); font-size: 1.1rem;" data-i18n="booking_success_p">Your booking request was sent successfully. We will contact you
         shortly to confirm.</p>
-      <button onclick="location.reload()" class="btn" style="max-width: 200px; margin-top: 32px;">New Booking</button>
+      <button onclick="location.reload()" class="btn" style="max-width: 200px; margin-top: 32px;" data-i18n="booking_new">New Booking</button>
     </section>
   </main>
 
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
   <script type="module" src="./app.js"></script>
 </body>
 
