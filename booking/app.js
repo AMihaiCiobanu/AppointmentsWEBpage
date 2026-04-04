@@ -245,10 +245,19 @@ function renderServices() {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = `service-btn ${state.selectedService?.id === svc.id ? 'active' : ''}`;
-    btn.innerHTML = `
-      <div class="service-main"><span>${svc.name}</span><span>${svc.durationMinutes} min</span></div>
-      <div class="service-sub">${svc.price > 0 ? formatPrice(svc.price, state.currency) : 'Price set in app'}</div>
-    `;
+    const mainDiv = document.createElement('div');
+    mainDiv.className = 'service-main';
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = svc.name;
+    const durSpan = document.createElement('span');
+    durSpan.textContent = `${svc.durationMinutes} min`;
+    mainDiv.appendChild(nameSpan);
+    mainDiv.appendChild(durSpan);
+    const subDiv = document.createElement('div');
+    subDiv.className = 'service-sub';
+    subDiv.textContent = svc.price > 0 ? formatPrice(svc.price, state.currency) : 'Price set in app';
+    btn.appendChild(mainDiv);
+    btn.appendChild(subDiv);
     btn.addEventListener('click', () => {
       state.selectedService = svc;
       state.selectedSlotStart = null;

@@ -1831,29 +1831,47 @@ footer {
   display: none;
 }
 
-.nav-menu-theme-btn {
-  width: 36px;
-  height: 36px;
+.nav-menu-theme-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem 0.6rem;
   border: 1px solid var(--border);
+  border-radius: 10px;
   background: var(--bg-alt);
   color: var(--text-muted);
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.nav-menu-theme-btn:hover {
+.nav-menu-theme-row:hover {
   color: var(--primary);
   border-color: var(--primary);
 }
 
-.nav-menu-mobile-controls {
-  display: flex;
+.nav-menu-theme-row:hover .nav-menu-control-label {
+  color: var(--primary);
+}
+
+.nav-menu-theme-icon-slot {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  border-radius: 10px;
+  display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.4rem 0.5rem;
+  justify-content: center;
+}
+
+.nav-menu-theme-row:hover .nav-menu-theme-icon-slot {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .nav-menu-control-label {

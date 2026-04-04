@@ -7,6 +7,7 @@ const TRANSLATIONS = {
     nav_contact: "Contact",
     nav_download: "Download free",
     nav_menu: "Menu",
+    nav_theme: "Theme",
     badge_android: "Available on Android",
     badge_free: "Free to start",
     hero_h1_line1: "Do you know how much you made last month?",
@@ -272,6 +273,7 @@ const TRANSLATIONS = {
     nav_contact: "Contact",
     nav_download: "Descarcă gratuit",
     nav_menu: "Meniu",
+    nav_theme: "Temă",
     badge_android: "Disponibil pe Android",
     badge_free: "Gratuit pentru început",
     hero_h1_line1: "Știi cât ai câștigat luna trecută?",
@@ -537,6 +539,7 @@ const TRANSLATIONS = {
     nav_contact: "Contacto",
     nav_download: "Descargar gratis",
     nav_menu: "Menú",
+    nav_theme: "Tema",
     badge_android: "Disponible en Android",
     badge_free: "Gratis para empezar",
     hero_h1_line1: "¿Sabes cuánto ganaste el mes pasado?",
@@ -802,6 +805,7 @@ const TRANSLATIONS = {
     nav_contact: "Contact",
     nav_download: "Télécharger gratuitement",
     nav_menu: "Menu",
+    nav_theme: "Thème",
     badge_android: "Disponible sur Android",
     badge_free: "Gratuit pour commencer",
     hero_h1_line1: "Savez-vous combien vous avez gagné le mois dernier ?",
@@ -1067,6 +1071,7 @@ const TRANSLATIONS = {
     nav_contact: "Contatti",
     nav_download: "Scarica gratis",
     nav_menu: "Menu",
+    nav_theme: "Tema",
     badge_android: "Disponibile su Android",
     badge_free: "Gratis per iniziare",
     hero_h1_line1: "Sai quanto hai guadagnato il mese scorso?",
@@ -1332,6 +1337,7 @@ const TRANSLATIONS = {
     nav_contact: "Contato",
     nav_download: "Baixar grátis",
     nav_menu: "Menu",
+    nav_theme: "Tema",
     badge_android: "Disponível no Android",
     badge_free: "Grátis para começar",
     hero_h1_line1: "Você sabe quanto ganhou no mês passado?",
@@ -1597,6 +1603,7 @@ const TRANSLATIONS = {
     nav_contact: "Контакт",
     nav_download: "Изтегли безплатно",
     nav_menu: "Меню",
+    nav_theme: "Тема",
     badge_android: "Достъпно за Android",
     badge_free: "Безплатно начало",
     hero_h1_line1: "Знаете ли колко сте спечелили миналия месец?",
@@ -1862,6 +1869,7 @@ const TRANSLATIONS = {
     nav_contact: "Kontakt",
     nav_download: "Pobierz za darmo",
     nav_menu: "Menu",
+    nav_theme: "Motyw",
     badge_android: "Dostępne na Android",
     badge_free: "Zacznij za darmo",
     hero_h1_line1: "Czy wiesz, ile zarobiłeś w zeszłym miesiącu?",
@@ -2208,12 +2216,6 @@ document.addEventListener('DOMContentLoaded', () => {
       // Language selector UI may not exist on all pages.
       const langDropdown = document.querySelector('.lang-dropdown');
       const langBtn = document.querySelector('.lang-toggle');
-      langDropdown?.classList.remove('open');
-      langBtn?.classList.remove('open');
-    });
-  });
-});
-langBtn = document.querySelector('.lang-toggle');
       langDropdown?.classList.remove('open');
       langBtn?.classList.remove('open');
     });

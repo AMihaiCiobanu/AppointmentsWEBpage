@@ -9,12 +9,15 @@ const menuThemeToggle = document.getElementById('menu-theme-toggle');
 
 function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
+    const iconHtml = theme === 'dark' ? SUN_ICON : MOON_ICON;
     if (themeToggle) {
-        themeToggle.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
+        themeToggle.innerHTML = iconHtml;
         themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     }
     if (menuThemeToggle) {
-        menuThemeToggle.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
+        const slot = menuThemeToggle.querySelector('.nav-menu-theme-icon-slot');
+        if (slot) slot.innerHTML = iconHtml;
+        else menuThemeToggle.innerHTML = iconHtml;
         menuThemeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     }
 }
