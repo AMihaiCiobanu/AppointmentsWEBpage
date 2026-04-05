@@ -514,12 +514,13 @@ async function submitBooking(e) {
 
   el.submit.disabled = true;
   try {
-    const pendingRef = doc(collection(db, `users/${state.uid}/pendingBookings`));
-    payload.id = pendingRef.id;
-    await setDoc(pendingRef, payload);
-    await setDoc(doc(db, `users/${state.uid}/sloturiOcupate`, pendingRef.id), {
+    const newId = crypto.randomUUID().toLowerCase();
+    payload.id = newId;
+    await setDoc(doc(db, `users/${state.uid}/pendingBookings`, newId), payload);
+    await setDoc(doc(db, `users/${state.uid}/sloturiOcupate`, newId), {
       durataMinute: state.selectedService.durationMinutes,
       oraStart: Timestamp.fromDate(state.selectedSlotStart),
+      linkId: state.linkId,
       isDeleted: false,
       updatedAt: serverTimestamp()
     });
