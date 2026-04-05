@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
-import { initializeAppCheck, ReCaptchaV3Provider } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check.js';
+import { initializeAppCheck, ReCaptchaV3Provider, getToken } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check.js';
 import {
   getFirestore,
   doc,
@@ -28,7 +28,7 @@ const app = initializeApp(firebaseConfig);
 // App Check — blocks non-browser clients (curl, scripts, bots) from accessing Firestore.
 // Replace RECAPTCHA_V3_SITE_KEY with the key from:
 // Firebase Console → App Check → Web apps → Add provider → reCAPTCHA v3
-initializeAppCheck(app, {
+const appCheck = initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider('6LcieqUsAAAAAJi2J0k-aawVuqpArTNRx1iccCRr'),
   isTokenAutoRefreshEnabled: true
 });
@@ -514,6 +514,7 @@ async function submitBooking(e) {
 
   el.submit.disabled = true;
   try {
+    await getToken(appCheck, /* forceRefresh */ true);
     const newId = crypto.randomUUID().toLowerCase();
     payload.id = newId;
     await setDoc(doc(db, `users/${state.uid}/pendingBookings`, newId), payload);

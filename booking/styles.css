@@ -290,25 +290,23 @@ body {
 
 /* Date Input Wrapper */
 .date-input-wrapper {
-  position: relative;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
-  max-width: fit-content;
   margin: 0 auto;
 }
 
 .date-input-wrapper::after {
   content: "📅";
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
   pointer-events: none;
   font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
 .input[type="date"] {
   cursor: pointer;
-  padding-right: 1.5rem;
   background: var(--card);
   -webkit-appearance: none;
   min-height: 52px;
