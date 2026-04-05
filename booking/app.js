@@ -85,7 +85,7 @@ function showError(message) {
   el.loading.classList.add('hidden');
   el.flow.classList.add('hidden');
   el.stepsContainer.classList.add('hidden');
-  el.error.textContent = message;
+  el.error.innerHTML = `<p>${message}</p><p class="booking-error-contact">${t('booking_error_contact')}</p>`;
   el.error.classList.remove('hidden');
 }
 
@@ -600,7 +600,11 @@ async function init() {
     updateValidation();
   } catch (err) {
     console.error(err);
-    showError(t('booking_error_load'));
+    if (err?.code === 'permission-denied') {
+      showError(t('booking_error_link_disabled'));
+    } else {
+      showError(t('booking_error_load'));
+    }
   }
 }
 

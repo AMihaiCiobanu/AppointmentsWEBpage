@@ -491,6 +491,13 @@ body {
   }
 }
 
+/* Error contact sub-message */
+.booking-error-contact {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
 /* Success State */
 .state-success-icon {
   width: 64px;
