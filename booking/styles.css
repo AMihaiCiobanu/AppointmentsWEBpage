@@ -308,10 +308,14 @@ body {
 
 .input[type="date"] {
   cursor: pointer;
-  padding-right: 45px;
+  padding-right: 1.5rem;
   background: var(--card);
   -webkit-appearance: none;
   min-height: 52px;
+}
+
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
 }
 
 /* Slot Empty/Error States */
