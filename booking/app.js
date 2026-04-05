@@ -9,6 +9,7 @@ import {
   query,
   where,
   addDoc,
+  setDoc,
   Timestamp,
   serverTimestamp
 } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
@@ -513,7 +514,15 @@ async function submitBooking(e) {
 
   el.submit.disabled = true;
   try {
-    await addDoc(collection(db, `users/${state.uid}/pendingBookings`), payload);
+    const pendingRef = doc(collection(db, `users/${state.uid}/pendingBookings`));
+    payload.id = pendingRef.id;
+    await setDoc(pendingRef, payload);
+    await setDoc(doc(db, `users/${state.uid}/sloturiOcupate`, pendingRef.id), {
+      durataMinute: state.selectedService.durationMinutes,
+      oraStart: Timestamp.fromDate(state.selectedSlotStart),
+      isDeleted: false,
+      updatedAt: serverTimestamp()
+    });
     el.flow.classList.add('hidden');
     el.stepsContainer.classList.add('hidden');
     el.success.classList.remove('hidden');
