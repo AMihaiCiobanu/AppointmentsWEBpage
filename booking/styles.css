@@ -277,7 +277,7 @@ body {
 }
 
 .input {
-  width: 100%;
+  width: fit-content;
   border: 2px solid var(--line);
   border-radius: 10px;
   padding: 12px 16px;
@@ -310,10 +310,13 @@ body {
   background: var(--card);
   -webkit-appearance: none;
   min-height: 52px;
+  text-align: center;
 }
 
 .input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Slot Empty/Error States */
