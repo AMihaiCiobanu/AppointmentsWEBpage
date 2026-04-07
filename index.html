@@ -135,6 +135,7 @@
                     <div class="nav-menu-dropdown" id="nav-menu-dropdown">
                         <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">How it works</a>
                         <a href="#features" class="nav-menu-item" data-i18n="nav_features">Features</a>
+                        <a href="#online-booking" class="nav-menu-item" data-i18n="nav_online_booking">Online Booking</a>
                         <a href="#pricing" class="nav-menu-item" data-i18n="nav_pricing">Pricing</a>
                         <a href="#faq" class="nav-menu-item" data-i18n="nav_faq">FAQ</a>
                         <a href="#demo" class="nav-menu-item" data-i18n="nav_contact">Contact</a>
@@ -340,22 +341,37 @@
     <section id="online-booking" class="section-padding bg-accent-light">
         <div class="container text-center">
             <div class="booking-teaser-card" data-animate>
-                <span class="badge-soon" data-i18n="booking_soon_badge">SOON</span>
+                <span class="badge-new" data-i18n="booking_soon_badge">NEW</span>
                 <h2 class="section-title" data-i18n="booking_soon_title">Online Booking for your clients</h2>
                 <p class="section-subtitle" data-i18n="booking_soon_subtitle">Let your clients book themselves through
                     your own professional booking page. Save time and reduce back-and-forth messages.</p>
 
-                <div class="booking-preview-container">
-                    <div class="booking-preview-mockup">
-                        <div class="mockup-header"></div>
-                        <div class="mockup-body">
-                            <div class="mockup-line"></div>
-                            <div class="mockup-line short"></div>
-                            <div class="mockup-grid">
-                                <span></span><span></span><span></span>
-                                <span></span><span></span><span></span>
+                <div class="booking-slider" aria-label="Online booking screenshots">
+                    <div class="booking-slider-overflow">
+                        <div class="booking-slider-track">
+                            <div class="booking-slide">
+                                <img src="assets/onlineBooking1.png" alt="Step 1 – Select service" loading="lazy">
+                            </div>
+                            <div class="booking-slide">
+                                <img src="assets/onlineBooking2.png" alt="Step 2 – Pick date and time" loading="lazy">
+                            </div>
+                            <div class="booking-slide">
+                                <img src="assets/onlineBooking3.png" alt="Step 3 – Your details" loading="lazy">
+                            </div>
+                            <div class="booking-slide">
+                                <img src="assets/onlineBooking4.png" alt="Booking request sent" loading="lazy">
+                            </div>
+                            <div class="booking-slide">
+                                <img src="assets/onlineBooking5.png" alt="Manage booking requests in the app" loading="lazy">
                             </div>
                         </div>
+                    </div>
+                    <div class="booking-slider-dots" role="tablist">
+                        <button class="slider-dot active" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+                        <button class="slider-dot" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+                        <button class="slider-dot" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+                        <button class="slider-dot" role="tab" aria-label="Slide 4" aria-selected="false"></button>
+                        <button class="slider-dot" role="tab" aria-label="Slide 5" aria-selected="false"></button>
                     </div>
                 </div>
             </div>
@@ -516,6 +532,19 @@
                     <p data-i18n="feat8_p">Your next appointment on your iPhone lock screen via Live Activities — client
                         name, service, and
                         time, without even unlocking your phone.</p>
+                </div>
+
+                <div class="feature-card" data-animate>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="feat9_h3">Online Booking</h3>
+                    <p data-i18n="feat9_p">Share a booking link with your clients — they pick a service, date, and time.
+                        Requests land in your app, you approve with one tap. No double-bookings, no back-and-forth.</p>
                 </div>
             </div>
         </div>
@@ -885,6 +914,18 @@
                             The app tracks usage so both you and your client always know how many sessions remain in
                             their package.
                         </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">How does online booking
+                        work?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq6_a">You generate a booking link in the app and share it with your clients —
+                            via WhatsApp, SMS, social media, or anywhere you like. Clients open the link in their
+                            browser, choose a service, pick an available date and time, and submit their details. You
+                            receive the request in the app and confirm or reject it with one tap. Requires cloud sync to
+                            be enabled and a work schedule configured in Settings.</p>
                     </div>
                 </div>
 

@@ -266,3 +266,55 @@ document.getElementById('cookie-decline')?.addEventListener('click', () => {
     loadGA();
     setConsentMode(false);
 });
+
+// Booking Slider
+(function () {
+    const track = document.querySelector('.booking-slider-track');
+    if (!track) return;
+    const dots = document.querySelectorAll('.slider-dot');
+    const total = dots.length;
+    let current = 0;
+    let intervalId;
+
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+            d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        });
+    }
+
+    function startAuto() {
+        intervalId = setInterval(() => goTo(current + 1), 4000);
+    }
+
+    function stopAuto() {
+        clearInterval(intervalId);
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            stopAuto();
+            goTo(i);
+            startAuto();
+        });
+    });
+
+    const slider = document.querySelector('.booking-slider');
+    let touchStartX = 0;
+    slider.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) {
+            stopAuto();
+            goTo(dx < 0 ? current + 1 : current - 1);
+            startAuto();
+        }
+    }, { passive: true });
+
+    slider.addEventListener('mouseenter', stopAuto);
+    slider.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+})();
