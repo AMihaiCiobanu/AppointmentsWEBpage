@@ -68,6 +68,7 @@ const el = {
   step3: document.getElementById('step-3-content'),
   services: document.getElementById('services'),
   dateInput: document.getElementById('booking-date'),
+  dateDisplay: document.getElementById('booking-date-display'),
   workingHours: document.getElementById('working-hours'),
   slots: document.getElementById('slots'),
   slotsLoader: document.getElementById('slots-loader'),
@@ -546,6 +547,16 @@ function formatPrice(amount, currencyCode) {
   return `${formatted} ${symbol}`;
 }
 
+function updateDateDisplay() {
+  const val = el.dateInput.value;
+  if (!val) {
+    el.dateDisplay.textContent = '--/--/----';
+    return;
+  }
+  const [y, m, d] = val.split('-');
+  el.dateDisplay.textContent = `${d}/${m}/${y}`;
+}
+
 async function init() {
   // Ensure translations are loaded and applied
   if (window.applyLang && window.detectLang) {
@@ -568,6 +579,7 @@ async function init() {
     el.dateInput.min = getMinDateISO();
     el.dateInput.value = getMinDateISO();
     state.selectedDate = el.dateInput.value;
+    updateDateDisplay();
 
     // Trigger date picker when clicking anywhere on the input or wrapper
     el.dateInput.parentElement.addEventListener('click', () => {
@@ -580,6 +592,7 @@ async function init() {
 
     el.dateInput.addEventListener('change', async () => {
       state.selectedDate = el.dateInput.value;
+      updateDateDisplay();
       state.selectedSlotStart = null;
       state.selectedSlotEnd = null;
       await loadSlotsForSelectedDate();
