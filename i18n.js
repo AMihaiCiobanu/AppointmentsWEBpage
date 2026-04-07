@@ -53,7 +53,7 @@ const TRANSLATIONS = {
     booking_full_name: "Full Name",
     booking_full_name_placeholder: "e.g. John Doe",
     booking_phone_number: "Phone Number",
-    booking_phone_number_placeholder: "e.g. 0722 123 456",
+    booking_phone_number_placeholder: "e.g. 0722123456",
     booking_note: "Note (optional)",
     booking_note_placeholder: "Anything we should know?",
     booking_confirm: "Confirm Appointment",
@@ -361,7 +361,7 @@ const TRANSLATIONS = {
     booking_full_name: "Nume complet",
     booking_full_name_placeholder: "ex. Ion Popescu",
     booking_phone_number: "Număr de telefon",
-    booking_phone_number_placeholder: "ex. 0722 123 456",
+    booking_phone_number_placeholder: "ex. 0722123456",
     booking_note: "Notă (opțional)",
     booking_note_placeholder: "Orice detalii suplimentare?",
     booking_confirm: "Confirmă Programarea",
@@ -669,7 +669,7 @@ const TRANSLATIONS = {
     booking_full_name: "Nombre completo",
     booking_full_name_placeholder: "ej. Juan García",
     booking_phone_number: "Número de teléfono",
-    booking_phone_number_placeholder: "ej. 612 345 678",
+    booking_phone_number_placeholder: "ej. 612345678",
     booking_note: "Nota (opcional)",
     booking_note_placeholder: "¿Algo que debamos saber?",
     booking_confirm: "Confirmar Cita",
@@ -2472,7 +2472,7 @@ function detectLang() {
   try {
     const stored = localStorage.getItem('lang');
     if (stored && TRANSLATIONS[stored]) return stored;
-  } catch (_) {}
+  } catch (_) { }
   const nav = (navigator.language || '').slice(0, 2).toLowerCase();
   if (TRANSLATIONS[nav]) return nav;
   return 'en';
@@ -2537,7 +2537,7 @@ function applyLang(lang) {
     el.textContent = langShort[lang] || 'EN';
   });
 
-  try { localStorage.setItem('lang', lang); } catch (_) {}
+  try { localStorage.setItem('lang', lang); } catch (_) { }
 }
 
 // ─── Expose on window so module scripts (booking/app.js) can access ──────────
