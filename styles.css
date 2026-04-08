@@ -460,40 +460,62 @@ header.header-hidden {
 }
 
 @property --booking-angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   inherits: false;
   initial-value: 0turn;
 }
 
 @keyframes booking-border-spin {
-  to { --booking-angle: 1turn; }
+  to {
+    --booking-angle: 1turn;
+  }
 }
 
 .booking-teaser-card {
   background:
     linear-gradient(var(--surface), var(--surface)) padding-box,
-    conic-gradient(from var(--booking-angle), #d946ef, #7c3aed, #a78bfa, #d946ef) border-box;
+    conic-gradient(
+        from var(--booking-angle),
+        #d946ef,
+        #7c3aed,
+        #a78bfa,
+        #d946ef
+      )
+      border-box;
   border: 2px solid transparent;
   padding: 3.5rem 2rem;
   border-radius: var(--radius-lg);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05), 0 0 20px rgba(217, 70, 239, 0.15);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.05),
+    0 0 20px rgba(217, 70, 239, 0.15);
   position: relative;
   overflow: hidden;
   max-width: 900px;
   margin: 0 auto;
   animation: booking-border-spin 4s linear infinite;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .booking-teaser-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), 0 0 30px rgba(217, 70, 239, 0.25);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.08),
+    0 0 30px rgba(217, 70, 239, 0.25);
 }
 
 [data-theme="dark"] .booking-teaser-card {
   background:
     linear-gradient(var(--bg-alt), var(--bg-alt)) padding-box,
-    conic-gradient(from var(--booking-angle), #d946ef, #7c3aed, #a78bfa, #d946ef) border-box;
+    conic-gradient(
+        from var(--booking-angle),
+        #d946ef,
+        #7c3aed,
+        #a78bfa,
+        #d946ef
+      )
+      border-box;
 }
 
 .booking-preview-container {
@@ -537,7 +559,7 @@ header.header-hidden {
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .slider-dot {
@@ -548,7 +570,9 @@ header.header-hidden {
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .slider-dot.active {
