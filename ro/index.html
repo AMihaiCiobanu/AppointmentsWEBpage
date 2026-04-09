@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments & Reports | Appointments and finances for any professional</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="assets/appIcon.png">
+    <title>Programări &amp; Rapoarte | Programări și finanțe pentru orice profesionist</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href="/assets/appIcon.png">
 
     <!-- SEO -->
     <meta name="description"
-        content="Manage appointments, clients and finances in one app. Built for any professional who works by appointment — doctors, mechanics, trainers, beauticians and more. Available on Android.">
+        content="Gestionează programările, clienții și finanțele într-o singură aplicație. Creată pentru orice profesionist care lucrează cu programări — medici, mecanici, instructori, cosmeticieni și mulți alții. Disponibil pe Android.">
     <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://appointmentsapps.com/">
+    <link rel="canonical" href="https://appointmentsapps.com/ro/">
     <link rel="alternate" hreflang="x-default" href="https://appointmentsapps.com/">
     <link rel="alternate" hreflang="en" href="https://appointmentsapps.com/">
     <link rel="alternate" hreflang="ro" href="https://appointmentsapps.com/ro/">
@@ -31,7 +31,7 @@
     <meta property="og:description"
         content="Manage appointments, clients and finances in one app. Available on Android. Built for doctors, mechanics, trainers, beauticians and any appointment-based professional.">
     <meta property="og:image" content="https://appointmentsapps.com/assets/appIcon.png">
-    <meta property="og:url" content="https://appointmentsapps.com">
+    <meta property="og:url" content="https://appointmentsapps.com/ro/">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -74,6 +74,7 @@
         })();
     </script>
 
+<script>try{localStorage.setItem('lang','ro');}catch(_){}</script>
 </head>
 
 <body>
@@ -81,9 +82,9 @@
     <!-- Header -->
     <header class="home-header">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
+            <a href="/index.html" class="logo">
                 <div class="logo-icon">
-                    <img src="assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32"
+                    <img src="/assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32"
                         class="logo-img">
                 </div>
                 Appointments&Reports
@@ -94,8 +95,8 @@
 
                 <!-- Language selector -->
                 <div class="lang-selector" id="lang-selector">
-                    <button class="lang-toggle" id="lang-toggle" aria-label="Select language"
-                        data-i18n-aria-label="lang_selector_label">
+                    <button class="lang-toggle" id="lang-toggle" aria-label="Limbă"
+                        data-i18n-aria-label="Limbă">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
                             <circle cx="12" cy="12" r="10" />
@@ -130,21 +131,21 @@
                             <line x1="3" y1="12" x2="21" y2="12"></line>
                             <line x1="3" y1="18" x2="21" y2="18"></line>
                         </svg>
-                        <span data-i18n="nav_menu">Menu</span>
+                        <span data-i18n="nav_menu">Meniu</span>
                     </button>
                     <div class="nav-menu-dropdown" id="nav-menu-dropdown">
-                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">How it works</a>
-                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Features</a>
-                        <a href="#online-booking" class="nav-menu-item" data-i18n="nav_online_booking">Online Booking</a>
-                        <a href="#pricing" class="nav-menu-item" data-i18n="nav_pricing">Pricing</a>
-                        <a href="#faq" class="nav-menu-item" data-i18n="nav_faq">FAQ</a>
+                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">Cum funcționează</a>
+                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Funcționalități</a>
+                        <a href="#online-booking" class="nav-menu-item" data-i18n="nav_online_booking">Rezervări Online</a>
+                        <a href="#pricing" class="nav-menu-item" data-i18n="nav_pricing">Prețuri</a>
+                        <a href="#faq" class="nav-menu-item" data-i18n="nav_faq">Întrebări frecvente</a>
                         <a href="#demo" class="nav-menu-item" data-i18n="nav_contact">Contact</a>
                         <div class="nav-menu-mobile-only">
                             <div class="nav-menu-divider"></div>
                             <button type="button" class="nav-menu-theme-row" id="menu-theme-toggle"
                                 aria-label="Toggle theme">
                                 <span class="nav-menu-theme-icon-slot" aria-hidden="true"></span>
-                                <span class="nav-menu-control-label" data-i18n="nav_theme">Theme</span>
+                                <span class="nav-menu-control-label" data-i18n="nav_theme">Temă</span>
                             </button>
                             <div class="nav-menu-divider"></div>
                             <div class="nav-menu-lang-grid">
@@ -169,18 +170,14 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="hero-badge-row">
-                    <span class="badge" data-i18n="badge_android">Available on Android</span>
-                    <span class="badge" data-i18n="badge_free">Free to start</span>
+                    <span class="badge" data-i18n="badge_android">Disponibil pe Android</span>
+                    <span class="badge" data-i18n="badge_free">Gratuit pentru început</span>
                 </div>
 
-                <h1><span data-i18n="hero_h1_line1">Do you know how much you made last month?</span><br><span
-                        class="gradient-text" data-i18n="hero_h1_gradient">Most appointment
-                        professionals don't.</span></h1>
+                <h1><span data-i18n="hero_h1_line1">Știi cât ai câștigat luna trecută?</span><br><span
+                        class="gradient-text" data-i18n="hero_h1_gradient">Majoritatea profesioniștilor cu programări nu știu.</span></h1>
 
-                <p data-i18n="hero_p">Appointments & Reports tracks your schedule, clients, and finances automatically —
-                    so you always know
-                    exactly where your business stands. For barbers, doctors, mechanics, trainers, and anyone else who
-                    works by appointment.</p>
+                <p data-i18n="hero_p">Programări &amp; Rapoarte îți urmărește automat programul, clienții și finanțele — ca să știi mereu exact unde se află afacerea ta. Pentru frizeri, medici, mecanici, instructori și oricine lucrează pe bază de programări.</p>
 
                 <div class="hero-trust">
                     <span>
@@ -188,21 +185,21 @@
                             stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span data-i18n="hero_trust_1">No hidden fees</span>
+                        <span data-i18n="hero_trust_1">Fără taxe ascunse</span>
                     </span>
                     <span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span data-i18n="hero_trust_2">0% commission on bookings</span>
+                        <span data-i18n="hero_trust_2">0% comision pe rezervări</span>
                     </span>
                     <span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                             stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span data-i18n="hero_trust_3">Cancel anytime</span>
+                        <span data-i18n="hero_trust_3">Anulezi oricând</span>
                     </span>
                 </div>
 
@@ -217,17 +214,17 @@
                             <span>Google Play</span>
                         </div>
                     </a>
-                    <span class="hero-ios-note" data-i18n="hero_ios_note">iPhone & Mac — coming soon</span>
+                    <span class="hero-ios-note" data-i18n="hero_ios_note">iPhone &amp; Mac — în curând</span>
                 </div>
             </div>
 
             <div class="iphone-mockup">
                 <div class="screen">
-                    <img src="assets/appointmentDark.png" alt="App screenshot - Appointment calendar"
-                        data-i18n-alt="alt_calendar" class="iphone-screenshot theme-img-dark">
+                    <img src="/assets/appointmentDark.png" alt="Screenshot aplicație - Calendar programări"
+                        data-i18n-alt="Screenshot aplicație - Calendar programări" class="iphone-screenshot theme-img-dark">
                     <!-- TODO: add appointmentLight.png -->
-                    <img src="assets/appointmentDark.png" alt="App screenshot - Appointment calendar"
-                        data-i18n-alt="alt_calendar" class="iphone-screenshot theme-img-light">
+                    <img src="/assets/appointmentDark.png" alt="Screenshot aplicație - Calendar programări"
+                        data-i18n-alt="Screenshot aplicație - Calendar programări" class="iphone-screenshot theme-img-light">
                 </div>
             </div>
         </div>
@@ -239,19 +236,19 @@
             <div class="stats-grid">
                 <div class="stat-item" data-animate>
                     <div class="stat-number" data-count="8">0</div>
-                    <div class="stat-label" data-i18n="stat_label_languages">languages supported</div>
+                    <div class="stat-label" data-i18n="stat_label_languages">limbi suportate</div>
                 </div>
                 <div class="stat-item" data-animate>
                     <div class="stat-number" data-count="7">0</div>
-                    <div class="stat-label" data-i18n="stat_label_currencies">currencies</div>
+                    <div class="stat-label" data-i18n="stat_label_currencies">valute</div>
                 </div>
                 <div class="stat-item" data-animate>
                     <div class="stat-number" data-count="0">0</div>
-                    <div class="stat-label" data-i18n="stat_label_ads">ads, ever</div>
+                    <div class="stat-label" data-i18n="stat_label_ads">reclame, niciodată</div>
                 </div>
                 <div class="stat-item" data-animate>
                     <div class="stat-number" data-count="100" data-suffix="%">0%</div>
-                    <div class="stat-label" data-i18n="stat_label_secured">secured by Google</div>
+                    <div class="stat-label" data-i18n="stat_label_secured">securizat de Google</div>
                 </div>
             </div>
         </div>
@@ -260,11 +257,8 @@
     <!-- Pain section — 4 questions -->
     <section class="pain-section">
         <div class="container">
-            <p class="pain-intro" data-animate data-i18n="pain_intro">Most professionals who work by appointment run
-                their business by feel.
-            </p>
-            <h2 class="pain-title" data-animate data-i18n="pain_title">Four questions you should be able to answer — but
-                probably can't.</h2>
+            <p class="pain-intro" data-animate data-i18n="pain_intro">Majoritatea profesioniștilor care lucrează cu programări își conduc afacerea din instinct.</p>
+            <h2 class="pain-title" data-animate data-i18n="pain_title">Patru întrebări la care ar trebui să poți răspunde — dar probabil nu poți.</h2>
 
             <div class="pain-grid">
                 <div class="pain-card" data-animate>
@@ -278,8 +272,8 @@
                             <line x1="22" y1="11" x2="16" y2="11"></line>
                         </svg>
                     </div>
-                    <h3 data-i18n="pain_01_h3">How many no-shows did you have last month?</h3>
-                    <p data-i18n="pain_01_p">And how much revenue did those missed appointments actually cost you?</p>
+                    <h3 data-i18n="pain_01_h3">Câți clienți nu s-au prezentat luna trecută?</h3>
+                    <p data-i18n="pain_01_p">Și cât te-au costat de fapt acele programări pierdute?</p>
                     <div class="pain-blur-answer">€ <span>???</span></div>
                 </div>
 
@@ -292,9 +286,8 @@
                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="pain_02_h3">What was your net profit last month?</h3>
-                    <p data-i18n="pain_02_p">After rent, supplies, and all expenses — what did you actually take home?
-                    </p>
+                    <h3 data-i18n="pain_02_h3">Care a fost profitul tău net luna trecută?</h3>
+                    <p data-i18n="pain_02_p">După chirie, consumabile și toate cheltuielile — cât ai rămas efectiv în buzunar?</p>
                     <div class="pain-blur-answer">€ <span>???</span></div>
                 </div>
 
@@ -307,9 +300,8 @@
                             <polyline points="17 6 23 6 23 12"></polyline>
                         </svg>
                     </div>
-                    <h3 data-i18n="pain_03_h3">Are you earning more or less than 6 months ago?</h3>
-                    <p data-i18n="pain_03_p">Is your business growing? Shrinking? Staying flat? Do you actually know?
-                    </p>
+                    <h3 data-i18n="pain_03_h3">Câștigați mai mult sau mai puțin față de acum 6 luni?</h3>
+                    <p data-i18n="pain_03_p">Afacerea ta crește? Se micșorează? Stagnează? Chiar știi?</p>
                     <div class="pain-blur-answer">↑ ↓ <span>???</span></div>
                 </div>
 
@@ -323,16 +315,15 @@
                             </polygon>
                         </svg>
                     </div>
-                    <h3 data-i18n="pain_04_h3">Which client visits you the most?</h3>
-                    <p data-i18n="pain_04_p">Who are the top 5? Who always cancels? Who should you prioritize?</p>
+                    <h3 data-i18n="pain_04_h3">Care client te vizitează cel mai des?</h3>
+                    <p data-i18n="pain_04_p">Care sunt primii 5? Cine anulează mereu? Pe cine ar trebui să prioritizezi?</p>
                     <div class="pain-blur-answer"># <span>???</span></div>
                 </div>
             </div>
 
             <div class="pain-resolution" data-animate>
-                <p data-i18n="pain_resolution">Appointments &amp; Reports answers all of these. Every day,
-                    automatically, in seconds.</p>
-                <a href="#download" class="btn btn-accent" data-i18n="pain_cta">Start for free</a>
+                <p data-i18n="pain_resolution">Programări &amp; Rapoarte răspunde la toate acestea. În fiecare zi, automat, în câteva secunde.</p>
+                <a href="#download" class="btn btn-accent" data-i18n="pain_cta">Începe gratuit</a>
             </div>
         </div>
     </section>
@@ -341,28 +332,27 @@
     <section id="online-booking" class="section-padding bg-accent-light">
         <div class="container text-center">
             <div class="booking-teaser-card" data-animate>
-                <span class="badge-new" data-i18n="booking_soon_badge">NEW</span>
-                <h2 class="section-title" data-i18n="booking_soon_title">Online Booking for your clients</h2>
-                <p class="section-subtitle" data-i18n="booking_soon_subtitle">Let your clients book themselves through
-                    your own professional booking page. Save time and reduce back-and-forth messages.</p>
+                <span class="badge-new" data-i18n="booking_soon_badge">NOU</span>
+                <h2 class="section-title" data-i18n="booking_soon_title">Rezervări Online pentru clienții tăi</h2>
+                <p class="section-subtitle" data-i18n="booking_soon_subtitle">Disponibil acum pe Android. Trimite clienților tăi un link de programare — ei aleg serviciul, data și ora. Primești fiecare cerere în aplicație și o confirmi cu un singur tap. Fără suprapuneri, fără mesaje interminabile.</p>
 
                 <div class="booking-slider" aria-label="Online booking screenshots">
                     <div class="booking-slider-overflow">
                         <div class="booking-slider-track">
                             <div class="booking-slide">
-                                <img src="assets/onlineBooking1.png" alt="Step 1 – Select service" loading="lazy">
+                                <img src="/assets/onlineBooking1.png" alt="Step 1 – Select service" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="assets/onlineBooking2.png" alt="Step 2 – Pick date and time" loading="lazy">
+                                <img src="/assets/onlineBooking2.png" alt="Step 2 – Pick date and time" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="assets/onlineBooking3.png" alt="Step 3 – Your details" loading="lazy">
+                                <img src="/assets/onlineBooking3.png" alt="Step 3 – Your details" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="assets/onlineBooking4.png" alt="Booking request sent" loading="lazy">
+                                <img src="/assets/onlineBooking4.png" alt="Booking request sent" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="assets/onlineBooking5.png" alt="Manage booking requests in the app" loading="lazy">
+                                <img src="/assets/onlineBooking5.png" alt="Manage booking requests in the app" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -374,7 +364,7 @@
                         <button class="slider-dot" role="tab" aria-label="Slide 5" aria-selected="false"></button>
                     </div>
                 </div>
-                <a href="https://appointmentsapps.com/booking/?id=42e41a21-06fc-4fdd-b83a-41ebfe7b6369" target="_blank" rel="noopener noreferrer" class="btn btn-accent" data-i18n="booking_try_cta">Try it yourself</a>
+                <a href="https://appointmentsapps.com/booking/?id=42e41a21-06fc-4fdd-b83a-41ebfe7b6369" target="_blank" rel="noopener noreferrer" class="btn btn-accent" data-i18n="booking_try_cta">Încearcă și tu</a>
             </div>
         </div>
     </section>
@@ -382,30 +372,23 @@
     <!-- How it works -->
     <section id="how-it-works" class="section-padding bg-alt">
         <div class="container">
-            <h2 class="section-title" data-animate data-i18n="hiw_title">Up and running in minutes</h2>
-            <p class="section-subtitle" data-animate data-i18n="hiw_subtitle">No training. No complicated setup. Just
-                download and start.</p>
+            <h2 class="section-title" data-animate data-i18n="hiw_title">Gata de utilizare în câteva minute</h2>
+            <p class="section-subtitle" data-animate data-i18n="hiw_subtitle">Fără training. Fără configurare complicată. Descarcă și începe.</p>
             <div class="steps-grid">
                 <div class="step" data-animate>
                     <div class="step-number">1</div>
-                    <h3 data-i18n="step1_h3">Download and sign in</h3>
-                    <p data-i18n="step1_p">Get the app from Google Play. Sign in with your Google account in one tap —
-                        no password to
-                        create.</p>
+                    <h3 data-i18n="step1_h3">Descarcă și autentifică-te</h3>
+                    <p data-i18n="step1_p">Ia aplicația din Google Play. Autentifică-te cu contul tău Google dintr-o singură atingere — fără parolă de creat.</p>
                 </div>
                 <div class="step" data-animate>
                     <div class="step-number">2</div>
-                    <h3 data-i18n="step2_h3">Add your services and clients</h3>
-                    <p data-i18n="step2_p">Set up the services you offer with prices and durations. Import clients from
-                        your contacts in one
-                        tap.</p>
+                    <h3 data-i18n="step2_h3">Adaugă serviciile și clienții tăi</h3>
+                    <p data-i18n="step2_p">Configurează serviciile pe care le oferi cu prețuri și durate. Importă clienții din contactele tale dintr-o singură atingere.</p>
                 </div>
                 <div class="step" data-animate>
                     <div class="step-number">3</div>
-                    <h3 data-i18n="step3_h3">Book, track, and grow</h3>
-                    <p data-i18n="step3_p">Start booking appointments. Revenue is tracked automatically. Check your
-                        profit at any time, in
-                        seconds.</p>
+                    <h3 data-i18n="step3_h3">Rezervă, urmărește și crește</h3>
+                    <p data-i18n="step3_p">Începe să faci programări. Veniturile sunt urmărite automat. Verifică-ți profitul oricând, în câteva secunde.</p>
                 </div>
             </div>
         </div>
@@ -414,10 +397,8 @@
     <!-- Features -->
     <section id="features" class="section-padding bg-surface">
         <div class="container">
-            <h2 class="section-title" data-i18n="feat_title">Everything you need, built for how you actually work</h2>
-            <p class="section-subtitle" data-i18n-html="feat_subtitle">All your tools in one place — easy to reach even
-                when you're with a client. Sign
-                in instantly with <strong>Google</strong>, no passwords to remember.</p>
+            <h2 class="section-title" data-i18n="feat_title">Tot ce ai nevoie, construit pentru cum lucrezi tu cu adevărat</h2>
+            <p class="section-subtitle" data-i18n-html="feat_subtitle">Toate instrumentele tale într-un singur loc — ușor accesibile chiar și când ești cu un client. Autentifică-te instant cu <strong>Google</strong>, fără parole de memorat.</p>
 
             <div class="features-grid">
                 <div class="feature-card" data-animate>
@@ -430,10 +411,8 @@
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat1_h3">Smart appointment calendar</h3>
-                    <p data-i18n="feat1_p">See who's coming, when, and for what service. Suggests your next free slot
-                        automatically,
-                        prevents double-bookings, handles recurring days off and vacations.</p>
+                    <h3 data-i18n="feat1_h3">Calendar inteligent de programări</h3>
+                    <p data-i18n="feat1_p">Vezi cine vine, când și pentru ce serviciu. Sugerează automat următorul loc liber, previne dublurile, gestionează zilele libere recurente și concediile.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -446,10 +425,8 @@
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat2_h3">Full client history at a glance</h3>
-                    <p data-i18n="feat2_p">All contact info and visit history in one place. Add notes, flag unreliable
-                        clients, and get
-                        automatic birthday reminders so you never miss a personal touch.</p>
+                    <h3 data-i18n="feat2_h3">Istoricul complet al clientului dintr-o privire</h3>
+                    <p data-i18n="feat2_p">Toate datele de contact și istoricul vizitelor într-un singur loc. Adaugă note, marchează clienții nesiguri și primești remindere automate de ziua de naștere.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -460,10 +437,8 @@
                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat3_h3">Revenue tracked automatically</h3>
-                    <p data-i18n="feat3_p">Every appointment creates an income entry. Add expenses in one tap. Your
-                        daily profit is
-                        calculated instantly — no spreadsheets, no guessing.</p>
+                    <h3 data-i18n="feat3_h3">Venituri urmărite automat</h3>
+                    <p data-i18n="feat3_p">Fiecare programare creează automat o înregistrare de venit. Adaugă cheltuieli dintr-o atingere. Profitul zilnic este calculat instant — fără tabele Excel, fără estimări.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -473,10 +448,8 @@
                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat4_h3">4-mode calendar view</h3>
-                    <p data-i18n="feat4_p">Switch the same calendar between four views: availability, income, expenses,
-                        and profit. See your
-                        business performance day by day at a glance.</p>
+                    <h3 data-i18n="feat4_h3">Calendar cu 4 moduri de vizualizare</h3>
+                    <p data-i18n="feat4_p">Comută același calendar între patru vizualizări: disponibilitate, venituri, cheltuieli și profit. Vezi performanța afacerii tale zi de zi, dintr-o privire.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -486,10 +459,8 @@
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat5_h3">Confirmations via SMS & WhatsApp</h3>
-                    <p data-i18n="feat5_p">Send appointment confirmations in one tap. Templates ready to go — date,
-                        time, and your social
-                        links inserted automatically.</p>
+                    <h3 data-i18n="feat5_h3">Confirmări prin SMS &amp; WhatsApp</h3>
+                    <p data-i18n="feat5_p">Trimite confirmări de programare dintr-o atingere. Șabloane gata de utilizat — data, ora și linkurile tale sociale inserate automat.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -501,10 +472,8 @@
                             <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat6_h3">Client subscriptions & passes</h3>
-                    <p data-i18n="feat6_p">Offer session-based or monthly subscriptions. Each appointment deducts a
-                        session automatically —
-                        no manual counting, no guesswork.</p>
+                    <h3 data-i18n="feat6_h3">Abonamente și pachete pentru clienți</h3>
+                    <p data-i18n="feat6_p">Oferă abonamente pe ședințe sau lunare. Fiecare programare deduce automat o ședință — fără numărătoare manuală, fără confuzii.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -515,10 +484,8 @@
                             <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat7_h3">Smart reminders</h3>
-                    <p data-i18n="feat7_p">Set custom reminders for anything — follow-ups, stock orders, tasks. Choose
-                        date, time, and
-                        repeat pattern. Notifications arrive even when the app is closed.</p>
+                    <h3 data-i18n="feat7_h3">Remindere inteligente</h3>
+                    <p data-i18n="feat7_p">Setează remindere personalizate pentru orice — follow-up-uri, comenzi de stoc, sarcini. Alege data, ora și tiparul de repetare. Notificările sosesc chiar și când aplicația este închisă.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -529,10 +496,8 @@
                             <line x1="12" y1="18" x2="12.01" y2="18"></line>
                         </svg>
                     </div>
-                    <h3><span data-i18n="feat8_h3">Lock screen widget</span> <span class="tag-inline">iOS</span></h3>
-                    <p data-i18n="feat8_p">Your next appointment on your iPhone lock screen via Live Activities — client
-                        name, service, and
-                        time, without even unlocking your phone.</p>
+                    <h3><span data-i18n="feat8_h3">Widget pe ecranul de blocare</span> <span class="tag-inline">iOS</span></h3>
+                    <p data-i18n="feat8_p">Următoarea ta programare pe ecranul de blocare al iPhone-ului prin Live Activities — numele clientului, serviciul și ora, fără să deblochezi telefonul.</p>
                 </div>
 
                 <div class="feature-card" data-animate>
@@ -543,9 +508,8 @@
                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
                         </svg>
                     </div>
-                    <h3 data-i18n="feat9_h3">Online Booking</h3>
-                    <p data-i18n="feat9_p">Share a booking link with your clients — they pick a service, date, and time.
-                        Requests land in your app, you approve with one tap. No double-bookings, no back-and-forth.</p>
+                    <h3 data-i18n="feat9_h3">Rezervări Online</h3>
+                    <p data-i18n="feat9_p">Trimite un link de programare clienților tăi — aleg serviciul, data și ora. Cererile ajung în aplicație, tu confirmi cu un tap. Fără suprapuneri, fără mesaje interminabile.</p>
                 </div>
             </div>
         </div>
@@ -557,59 +521,45 @@
 
             <div class="split-section" data-animate>
                 <div class="split-content">
-                    <span class="section-eyebrow" data-i18n="reports_eyebrow">Financial reports</span>
-                    <h2 data-i18n="reports_h2">Know your numbers. Make better decisions.</h2>
-                    <p data-i18n-html="reports_p">The app works like a <strong>personal financial analyst</strong> for
-                        your business — without the
-                        cost or complexity.</p>
+                    <span class="section-eyebrow" data-i18n="reports_eyebrow">Rapoarte financiare</span>
+                    <h2 data-i18n="reports_h2">Cunoaște-ți cifrele. Ia decizii mai bune.</h2>
+                    <p data-i18n-html="reports_p">Aplicația funcționează ca un <strong>analist financiar personal</strong> pentru afacerea ta — fără costul și complexitatea unui consultant.</p>
                     <ul class="check-list">
-                        <li data-i18n="reports_li1">Monthly and yearly breakdown: revenue (estimated vs actual),
-                            expenses, and net profit — with
-                            comparisons vs. last month and the same month last year.</li>
-                        <li data-i18n="reports_li2">Track how many hours and days you've actually worked.</li>
-                        <li data-i18n="reports_li3">Identify your most valuable clients by visit frequency.</li>
-                        <li data-i18n="reports_li4">See exactly how many no-shows you've had and how much income they've
-                            cost you.</li>
+                        <li data-i18n="reports_li1">Defalcare lunară și anuală: venituri (estimate vs. reale), cheltuieli și profit net — cu comparații față de luna trecută și aceeași lună a anului trecut.</li>
+                        <li data-i18n="reports_li2">Urmărește câte ore și zile ai lucrat efectiv.</li>
+                        <li data-i18n="reports_li3">Identifică cei mai valoroși clienți după frecvența vizitelor.</li>
+                        <li data-i18n="reports_li4">Vezi exact câți clienți nu s-au prezentat și cât te-au costat.</li>
                     </ul>
                 </div>
                 <div class="iphone-mockup iphone-mockup-report">
                     <div class="screen">
-                        <img src="assets/reportMonthDark.png" alt="App screenshot - Monthly financial reports"
-                            data-i18n-alt="alt_reports" class="iphone-screenshot theme-img-dark" loading="lazy">
+                        <img src="/assets/reportMonthDark.png" alt="Screenshot aplicație - Rapoarte financiare lunare"
+                            data-i18n-alt="Screenshot aplicație - Rapoarte financiare lunare" class="iphone-screenshot theme-img-dark" loading="lazy">
                         <!-- TODO: add reportMonthLight.png -->
-                        <img src="assets/reportMonthLight.png" alt="App screenshot - Monthly financial reports"
-                            data-i18n-alt="alt_reports" class="iphone-screenshot theme-img-light" loading="lazy">
+                        <img src="/assets/reportMonthLight.png" alt="Screenshot aplicație - Rapoarte financiare lunare"
+                            data-i18n-alt="Screenshot aplicație - Rapoarte financiare lunare" class="iphone-screenshot theme-img-light" loading="lazy">
                     </div>
                 </div>
             </div>
 
             <div class="split-section reverse" data-animate>
                 <div class="split-content">
-                    <span class="section-eyebrow" data-i18n="security_eyebrow">Security & privacy</span>
-                    <h2 data-i18n="security_h2">Your data stays yours. Always.</h2>
-                    <p data-i18n="security_p">Your client list and financial records are sensitive. Everything is
-                        designed to give you complete
-                        peace of mind.</p>
+                    <span class="section-eyebrow" data-i18n="security_eyebrow">Securitate și confidențialitate</span>
+                    <h2 data-i18n="security_h2">Datele tale rămân ale tale. Întotdeauna.</h2>
+                    <p data-i18n="security_p">Lista de clienți și înregistrările financiare sunt sensibile. Totul este conceput să îți ofere liniște deplină.</p>
                     <ul class="check-list">
-                        <li data-i18n-html="security_li1"><strong>Face ID & Fingerprint:</strong> Nobody can access your
-                            reports or client list if you
-                            leave your phone on the table.</li>
-                        <li data-i18n-html="security_li2"><strong>Cloud backup & sync:</strong> Your data is
-                            automatically backed up. Export or import
-                            everything as a secure JSON file anytime.</li>
-                        <li data-i18n-html="security_li3"><strong>Fully localised:</strong> Available in English,
-                            Romanian, Spanish, Portuguese
-                            (Brazil), French, Italian, Bulgarian and Polish — with support for RON, EUR, GBP, USD, BRL,
-                            CHF and HUF.</li>
+                        <li data-i18n-html="security_li1"><strong>Face ID & Amprentă:</strong> Nimeni nu poate accesa rapoartele sau lista de clienți dacă îți lași telefonul pe masă.</li>
+                        <li data-i18n-html="security_li2"><strong>Backup și sincronizare în cloud:</strong> Datele tale sunt salvate automat. Exportă sau importă totul ca fișier JSON securizat oricând.</li>
+                        <li data-i18n-html="security_li3"><strong>Complet localizat:</strong> Disponibil în engleză, română, spaniolă, portugheză (Brazilia), franceză, italiană, bulgară și poloneză — cu suport pentru RON, EUR, GBP, USD, BRL, CHF și HUF.</li>
                     </ul>
                 </div>
                 <div class="iphone-mockup iphone-mockup-settings">
                     <div class="screen">
-                        <img src="assets/settingsDark.png" alt="App screenshot - Settings and Face ID"
-                            data-i18n-alt="alt_settings" class="iphone-screenshot theme-img-dark" loading="lazy">
+                        <img src="/assets/settingsDark.png" alt="Screenshot aplicație - Setări și Face ID"
+                            data-i18n-alt="Screenshot aplicație - Setări și Face ID" class="iphone-screenshot theme-img-dark" loading="lazy">
                         <!-- TODO: add settingsLight.png -->
-                        <img src="assets/settingsLight.png" alt="App screenshot - Settings and Face ID"
-                            data-i18n-alt="alt_settings" class="iphone-screenshot theme-img-light" loading="lazy">
+                        <img src="/assets/settingsLight.png" alt="Screenshot aplicație - Setări și Face ID"
+                            data-i18n-alt="Screenshot aplicație - Setări și Face ID" class="iphone-screenshot theme-img-light" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -621,26 +571,21 @@
     <section class="section-padding bg-surface devices-section">
         <div class="container devices-grid">
             <div class="devices-text">
-                <h2 class="section-title" data-i18n="devices_h2">Android now. iPhone, iPad & Mac coming soon.</h2>
-                <p class="section-subtitle" data-i18n="devices_p">The Android app is live on Google Play and works great
-                    on both phones and
-                    tablets. The native Apple experience is actively in development and awaiting Apple approval.</p>
+                <h2 class="section-title" data-i18n="devices_h2">Android acum. iPhone, iPad &amp; Mac în curând.</h2>
+                <p class="section-subtitle" data-i18n="devices_p">Aplicația Android este live pe Google Play și funcționează excelent pe telefoane și tablete. Experiența nativă Apple este în dezvoltare activă și așteaptă aprobarea Apple.</p>
                 <ul class="check-list">
-                    <li data-i18n="devices_li1">Android phones and tablets — available now on Google Play.</li>
-                    <li data-i18n="devices_li2">Cloud backup and sync keep your appointments and reports always safe.
-                    </li>
-                    <li data-i18n="devices_li3">Native iPhone, iPad and Mac experience coming — including Live
-                        Activities on your lock screen.
-                    </li>
+                    <li data-i18n="devices_li1">Telefoane și tablete Android — disponibil acum pe Google Play.</li>
+                    <li data-i18n="devices_li2">Backup-ul și sincronizarea în cloud îți păstrează programările și rapoartele mereu în siguranță.</li>
+                    <li data-i18n="devices_li3">Experiența nativă pentru iPhone, iPad și Mac vine în curând — inclusiv Live Activities pe ecranul de blocare.</li>
                 </ul>
             </div>
             <div class="devices-mockup">
                 <div class="tablet-mockup">
                     <div class="tablet-screen">
-                        <img src="assets/appointmentDarkTablet.png" alt="App on Android tablet"
-                            data-i18n-alt="alt_tablet" class="tablet-screenshot theme-img-dark" loading="lazy">
-                        <img src="assets/appointmentLightTablet.png" alt="App on Android tablet"
-                            data-i18n-alt="alt_tablet" class="tablet-screenshot theme-img-light" loading="lazy">
+                        <img src="/assets/appointmentDarkTablet.png" alt="Aplicație pe tabletă Android"
+                            data-i18n-alt="Aplicație pe tabletă Android" class="tablet-screenshot theme-img-dark" loading="lazy">
+                        <img src="/assets/appointmentLightTablet.png" alt="Aplicație pe tabletă Android"
+                            data-i18n-alt="Aplicație pe tabletă Android" class="tablet-screenshot theme-img-light" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -650,10 +595,8 @@
     <!-- Who it's for -->
     <section id="audience" class="section-padding bg-alt">
         <div class="container">
-            <h2 class="section-title" data-i18n="audience_h2">If you take appointments, this app is for you.</h2>
-            <p class="section-subtitle" data-i18n="audience_p">No matter the industry. If you work by appointment and
-                want to understand your
-                finances, this app was built for you.</p>
+            <h2 class="section-title" data-i18n="audience_h2">Dacă lucrezi cu programări, această aplicație este pentru tine.</h2>
+            <p class="section-subtitle" data-i18n="audience_p">Indiferent de industrie. Dacă lucrezi pe bază de programări și vrei să îți înțelegi finanțele, această aplicație a fost creată pentru tine.</p>
 
             <div class="tags-container" data-animate>
                 <span class="tag">Auto Service</span>
@@ -685,51 +628,42 @@
     <!-- Testimonials -->
     <section class="section-padding bg-surface">
         <div class="container">
-            <h2 class="section-title" data-animate data-i18n="test_h2">What professionals say</h2>
-            <p class="section-subtitle" data-animate data-i18n="test_p">Real feedback from people who use Appointments &
-                Reports every day.
-            </p>
+            <h2 class="section-title" data-animate data-i18n="test_h2">Ce spun profesioniștii</h2>
+            <p class="section-subtitle" data-animate data-i18n="test_p">Feedback real de la oameni care folosesc Programări &amp; Rapoarte în fiecare zi.</p>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote" data-i18n="test1_quote">I had no idea how many no-shows I was actually
-                        getting every month.
-                        After one month with the app, I saw the number and the money I was losing. Eye-opening.</p>
+                    <p class="testimonial-quote" data-i18n="test1_quote">Habar n-aveam câți clienți nu se prezintă în fiecare lună. După o lună cu aplicația, am văzut numărul și banii pe care îi pierdeam. Mi-a deschis ochii.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
                         <div class="testimonial-author">
                             <strong data-i18n="test1_author">Alex M.</strong>
-                            <span data-i18n="test1_role">Barbershop owner</span>
+                            <span data-i18n="test1_role">Proprietar frizerie</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote" data-i18n="test2_quote">I was using a paper diary and WhatsApp for
-                        years. Switched to this and
-                        in 3 days I had a complete picture of my monthly revenue. I wished I had started sooner.</p>
+                    <p class="testimonial-quote" data-i18n="test2_quote">Foloseam un agendă pe hârtie și WhatsApp de ani de zile. Am trecut la aplicație și în 3 zile aveam o imagine completă a veniturilor lunare. Mi-aș fi dorit să fi început mai devreme.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
                         <div class="testimonial-author">
                             <strong data-i18n="test2_author">Diana K.</strong>
-                            <span data-i18n="test2_role">Physiotherapist</span>
+                            <span data-i18n="test2_role">Fizioterapeut</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card" data-animate>
                     <div class="testimonial-quote-mark">"</div>
-                    <p class="testimonial-quote" data-i18n="test3_quote">The financial reports alone are worth it. I
-                        finally know which services
-                        are actually profitable and which ones I should drop. My income went up just by looking at the
-                        data.</p>
+                    <p class="testimonial-quote" data-i18n="test3_quote">Rapoartele financiare singure merită. Știu în sfârșit care servicii sunt cu adevărat profitabile și pe care ar trebui să le renunț. Venitul meu a crescut doar uitându-mă la date.</p>
                     <div class="testimonial-footer">
                         <div class="testimonial-stars">★★★★★</div>
                         <div class="testimonial-author">
                             <strong data-i18n="test3_author">Radu T.</strong>
-                            <span data-i18n="test3_role">Personal Trainer</span>
+                            <span data-i18n="test3_role">Antrenor personal</span>
                         </div>
                     </div>
                 </div>
@@ -740,33 +674,31 @@
     <!-- Pricing -->
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
-            <h2 class="section-title" data-animate data-i18n="pricing_h2">Simple, transparent pricing</h2>
-            <p class="section-subtitle" data-animate data-i18n="pricing_p">Start free for 7 days with everything
-                unlocked. Then choose what
-                fits you.</p>
+            <h2 class="section-title" data-animate data-i18n="pricing_h2">Prețuri simple și transparente</h2>
+            <p class="section-subtitle" data-animate data-i18n="pricing_p">Începe gratuit 7 zile cu totul deblocat. Apoi alege ce ți se potrivește.</p>
 
             <div class="pricing-grid">
 
                 <!-- Free plan -->
                 <div class="pricing-card" data-animate>
-                    <div class="pricing-plan-name" data-i18n="free_plan">Free</div>
+                    <div class="pricing-plan-name" data-i18n="free_plan">Gratuit</div>
                     <div class="pricing-price">
                         <span class="free-label" data-i18n="free_price">€0</span>
                     </div>
-                    <div class="pricing-trial" data-i18n="free_trial">Includes a 7-day free trial of Pro</div>
+                    <div class="pricing-trial" data-i18n="free_trial">Include 7 zile de probă gratuită Pro</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
-                        <li data-i18n="free_f1">Appointment scheduling & calendar</li>
-                        <li data-i18n="free_f2">Client management with full history</li>
-                        <li data-i18n="free_f3">Service management & subscriptions</li>
-                        <li data-i18n="free_f4">Birthday reminders</li>
-                        <li data-i18n="free_f5">SMS & WhatsApp confirmation messages</li>
-                        <li data-i18n="free_f6">Time off & vacation management</li>
-                        <li class="unavailable" data-i18n="free_f7">Financial reports</li>
-                        <li class="unavailable" data-i18n="free_f8">Cloud backup & sync</li>
-                        <li class="unavailable" data-i18n="free_f9">Custom reminders</li>
-                        <li class="unavailable" data-i18n="free_f10">Data export & import</li>
-                        <li class="unavailable" data-i18n="free_f11">Price list sharing</li>
+                        <li data-i18n="free_f1">Programări și calendar</li>
+                        <li data-i18n="free_f2">Gestionarea clienților cu istoric complet</li>
+                        <li data-i18n="free_f3">Gestionarea serviciilor și abonamentelor</li>
+                        <li data-i18n="free_f4">Remindere de ziua de naștere</li>
+                        <li data-i18n="free_f5">Mesaje de confirmare prin SMS &amp; WhatsApp</li>
+                        <li data-i18n="free_f6">Gestionarea zilelor libere și concediilor</li>
+                        <li class="unavailable" data-i18n="free_f7">Rapoarte financiare</li>
+                        <li class="unavailable" data-i18n="free_f8">Backup și sincronizare în cloud</li>
+                        <li class="unavailable" data-i18n="free_f9">Remindere personalizate</li>
+                        <li class="unavailable" data-i18n="free_f10">Export și import date</li>
+                        <li class="unavailable" data-i18n="free_f11">Partajarea listei de prețuri</li>
                     </ul>
                     <div class="flex-center">
                         <a href="https://play.google.com/store/apps/details?id=com.AmihaiCiobanu.appointmenstreports" class="google-play-badge">
@@ -784,25 +716,25 @@
 
                 <!-- Pro plan -->
                 <div class="pricing-card featured" data-animate>
-                    <div class="pricing-badge" data-i18n="pro_badge">Most popular</div>
+                    <div class="pricing-badge" data-i18n="pro_badge">Cel mai popular</div>
                     <div class="pricing-plan-name" data-i18n="pro_plan">Pro</div>
                     <div class="pricing-price">
-                        <span class="amount">€5.99</span><span class="period" data-i18n="pro_monthly">/month</span>
+                        <span class="amount">€5.99</span><span class="period" data-i18n="pro_monthly">/lună</span>
                     </div>
-                    <div class="pricing-trial"><span data-i18n="pro_yearly">or €60 / year</span> <span
-                            class="pricing-save-badge" data-i18n="pro_yearly_save">SAVE 17%</span>
-                        &nbsp;·&nbsp; <span data-i18n="pro_trial">7-day free trial</span></div>
+                    <div class="pricing-trial"><span data-i18n="pro_yearly">sau €60 / an</span> <span
+                            class="pricing-save-badge" data-i18n="pro_yearly_save">ECONOMISEȘTI 17%</span>
+                        &nbsp;·&nbsp; <span data-i18n="pro_trial">7 zile de probă gratuită</span></div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
-                        <li data-i18n="pro_f1">Everything in Free, plus:</li>
-                        <li data-i18n="pro_f2">Financial reports — monthly & yearly</li>
-                        <li data-i18n="pro_f3">Cloud backup & sync across devices</li>
-                        <li data-i18n="pro_f4">Custom reminders with notifications</li>
-                        <li data-i18n="pro_f5">Income & expense tracking</li>
-                        <li data-i18n="pro_f6">Data export & import</li>
-                        <li data-i18n="pro_f7">Price list & social media sharing</li>
-                        <li data-i18n="pro_f8">Profit, income & expenses calendar views</li>
-                        <li data-i18n="pro_f9">Top client rankings by visit frequency</li>
+                        <li data-i18n="pro_f1">Tot din Gratuit, plus:</li>
+                        <li data-i18n="pro_f2">Rapoarte financiare — lunare și anuale</li>
+                        <li data-i18n="pro_f3">Backup și sincronizare în cloud pe toate dispozitivele</li>
+                        <li data-i18n="pro_f4">Remindere personalizate cu notificări</li>
+                        <li data-i18n="pro_f5">Urmărirea veniturilor și cheltuielilor</li>
+                        <li data-i18n="pro_f6">Export și import date</li>
+                        <li data-i18n="pro_f7">Partajarea listei de prețuri și rețelelor sociale</li>
+                        <li data-i18n="pro_f8">Vizualizări calendar: profit, venituri și cheltuieli</li>
+                        <li data-i18n="pro_f9">Clasamentul clienților după frecvența vizitelor</li>
                     </ul>
                     <div class="flex-center">
                         <a href="https://play.google.com/store/apps/details?id=com.AmihaiCiobanu.appointmenstreports" class="google-play-badge">
@@ -820,9 +752,7 @@
 
             </div>
 
-            <p class="pricing-footer-note" data-i18n="pricing_footer">
-                No hidden fees &nbsp;·&nbsp; 0% commission on bookings &nbsp;·&nbsp; Cancel anytime
-            </p>
+            <p class="pricing-footer-note" data-i18n="pricing_footer">Fără taxe ascunse · 0% comision pe rezervări · Anulezi oricând</p>
 
         </div>
     </section>
@@ -831,16 +761,14 @@
     <section class="section-padding bg-surface">
         <div class="container">
             <div class="waitlist-card" data-animate>
-                <h2 data-i18n="waitlist_h2">Be the first to know when the iOS app launches</h2>
-                <p data-i18n="waitlist_p">Leave your email and we'll notify you the moment the iPhone & iPad app is live
-                    on the App Store.</p>
+                <h2 data-i18n="waitlist_h2">Fii primul care află când se lansează aplicația iOS</h2>
+                <p data-i18n="waitlist_p">Lasă-ți emailul și te vom anunța în momentul în care aplicația pentru iPhone &amp; iPad este live pe App Store.</p>
                 <form class="waitlist-form" action="https://formspree.io/f/xojkyrjn" method="POST">
-                    <input type="email" name="email" placeholder="your@email.com"
-                        data-i18n-placeholder="waitlist_placeholder" required autocomplete="email">
-                    <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">Notify me</button>
+                    <input type="email" name="email" placeholder="emailul@tau.com"
+                        data-i18n-placeholder="emailul@tau.com" required autocomplete="email">
+                    <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">Anunță-mă</button>
                 </form>
-                <p class="waitlist-privacy" data-i18n="waitlist_privacy">No spam. One email when we launch, that's it.
-                </p>
+                <p class="waitlist-privacy" data-i18n="waitlist_privacy">Fără spam. Un singur email la lansare, atât.</p>
             </div>
         </div>
     </section>
@@ -848,85 +776,50 @@
     <!-- FAQ -->
     <section id="faq" class="section-padding bg-alt">
         <div class="container">
-            <h2 class="section-title" data-i18n="faq_h2">Frequently asked questions</h2>
-            <p class="section-subtitle" data-i18n="faq_p">Learn more about how Appointments &amp; Reports works.</p>
+            <h2 class="section-title" data-i18n="faq_h2">Întrebări frecvente</h2>
+            <p class="section-subtitle" data-i18n="faq_p">Află mai multe despre cum funcționează Programări &amp; Rapoarte.</p>
 
             <div class="faq-container">
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">What devices is the app
-                        available on?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">Pe ce dispozitive este disponibilă aplicația?</button>
                     <div class="faq-answer">
-                        <p data-i18n-html="faq1_a">The <strong>Android</strong> app is available now on Google Play. The
-                            native version for
-                            <strong>iPhone, iPad and Mac</strong> is actively in development and is currently awaiting
-                            Apple approval — it will follow soon.
-                        </p>
+                        <p data-i18n-html="faq1_a">Aplicația <strong>Android</strong> este disponibilă acum pe Google Play. Versiunea nativă pentru <strong>iPhone, iPad și Mac</strong> este în dezvoltare activă și așteaptă aprobarea Apple — va urma în curând.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq2_q">Do I need an internet
-                        connection to use
-                        it?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq2_q">Am nevoie de conexiune la internet pentru a o folosi?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq2_a">No. Appointments & Reports is a native app — all your data is stored
-                            locally on your device.
-                            You can view, add, and edit appointments and reports even without an internet connection.
-                            Cloud sync kicks in automatically when you're back online.</p>
+                        <p data-i18n="faq2_a">Nu. Programări &amp; Rapoarte este o aplicație nativă — toate datele sunt stocate local pe dispozitivul tău. Poți vizualiza, adăuga și edita programări și rapoarte chiar și fără internet. Sincronizarea în cloud pornește automat când revii online.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq3_q">What type of business is it
-                        designed
-                        for?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq3_q">Pentru ce tip de afacere este concepută?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq3_a">Any professional or small business that works by appointment. This
-                            includes beauty and
-                            wellness (salons, barbershops, massage, tattoo), healthcare (doctors, dentists,
-                            physiotherapists, psychologists), fitness (personal trainers, yoga instructors), auto
-                            services, driving schools, private tutors, consultants, photographers — and many more. If
-                            you take appointments and want to understand your finances, this app is for you.</p>
+                        <p data-i18n="faq3_a">Orice profesionist sau afacere mică ce lucrează cu programări. Aceasta include frumusețe și wellness (saloane, frizerii, masaj, tatuaje), sănătate (medici, dentiști, fizioterapeuți, psihologi), fitness (antrenori personali, instructori de yoga), servicii auto, școli de șoferi, meditatori, consultanți, fotografi — și multe altele. Dacă lucrezi cu programări și vrei să îți înțelegi finanțele, aplicația este pentru tine.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq4_q">Is my data safe? Who can see
-                        it?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq4_q">Datele mele sunt în siguranță? Cine le poate vedea?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq4_a">Your data is stored locally on your device and backed up to your private
-                            Google account.
-                            Nobody else has access to your client list or financial records. Face ID and fingerprint
-                            lock prevent anyone from opening the app on your phone. You can export a full backup at any
-                            time and delete everything whenever you want.</p>
+                        <p data-i18n="faq4_a">Datele tale sunt stocate local pe dispozitiv și salvate în contul tău privat Google. Nimeni altcineva nu are acces la lista de clienți sau înregistrările financiare. Face ID și amprenta digitală împiedică oricine să deschidă aplicația pe telefonul tău. Poți exporta un backup complet oricând și șterge totul când dorești.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq5_q">Can I offer subscriptions or
-                        session passes to my
-                        clients?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq5_q">Pot oferi abonamente sau pachete de ședințe clienților mei?</button>
                     <div class="faq-answer">
-                        <p data-i18n-html="faq5_a">Yes. You can create client packages of two types:
-                            <strong>session-based</strong> (a bundle of
-                            sessions you sell to a client — each appointment linked to that package deducts one session
-                            automatically) or <strong>monthly</strong> (a flat price covering a full calendar month).
-                            The app tracks usage so both you and your client always know how many sessions remain in
-                            their package.
-                        </p>
+                        <p data-i18n-html="faq5_a">Da. Poți crea pachete pentru clienți de două tipuri: <strong>pe ședințe</strong> (un pachet de ședințe vândut unui client — fiecare programare legată de acel pachet deduce o ședință automat) sau <strong>lunar</strong> (un preț fix care acoperă o lună calendaristică completă). Aplicația urmărește utilizarea astfel încât atât tu cât și clientul să știți mereu câte ședințe rămân în pachet.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">How does online booking
-                        work?</button>
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">Cum funcționează rezervările online?</button>
                     <div class="faq-answer">
-                        <p data-i18n="faq6_a">You generate a booking link in the app and share it with your clients —
-                            via WhatsApp, SMS, social media, or anywhere you like. Clients open the link in their
-                            browser, choose a service, pick an available date and time, and submit their details. You
-                            receive the request in the app and confirm or reject it with one tap. Requires cloud sync to
-                            be enabled and a work schedule configured in Settings.</p>
+                        <p data-i18n="faq6_a">Generezi un link de programare în aplicație și îl trimiți clienților tăi — prin WhatsApp, SMS, rețele sociale sau oriunde dorești. Clienții deschid link-ul în browser, aleg un serviciu, selectează o dată și oră disponibilă și își trimit datele. Tu primești cererea în aplicație și o confirmi sau o respingi cu un singur tap. Necesită activarea sincronizării în cloud și configurarea unui program de lucru în Setări.</p>
                     </div>
                 </div>
 
@@ -946,18 +839,15 @@
                         <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
                 </div>
-                <h2 data-i18n="demo_h2">Want to see the app in action?</h2>
-                <p data-i18n="demo_p">I offer free online demo sessions where I walk you through everything — how to set
-                    up your services,
-                    book appointments, and read your reports. Send me an email and I'll get back to you within 24 hours
-                    to schedule a time that works for you.</p>
+                <h2 data-i18n="demo_h2">Vrei să vezi aplicația în acțiune?</h2>
+                <p data-i18n="demo_p">Ofer sesiuni de demonstrație online gratuite în care îți arăt tot — cum să configurezi serviciile, să faci programări și să citești rapoartele. Trimite-mi un email și îți voi răspunde în 24 de ore pentru a stabili o oră convenabilă.</p>
                 <div class="demo-offer-badges">
                     <span class="demo-badge">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        <span data-i18n="demo_badge1">100% free</span>
+                        <span data-i18n="demo_badge1">100% gratuit</span>
                     </span>
                     <span class="demo-badge">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -965,14 +855,14 @@
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
-                        <span data-i18n="demo_badge2">Reply within 24h</span>
+                        <span data-i18n="demo_badge2">Răspuns în 24h</span>
                     </span>
                     <span class="demo-badge">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
-                        <span data-i18n="demo_badge3">Personalised session</span>
+                        <span data-i18n="demo_badge3">Sesiune personalizată</span>
                     </span>
                 </div>
                 <a href="#" data-contact="demo" class="btn btn-primary demo-cta">
@@ -981,7 +871,7 @@
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    <span data-i18n="demo_cta">Request a free demo session</span>
+                    <span data-i18n="demo_cta">Solicită o sesiune demo gratuită</span>
                 </a>
             </div>
         </div>
@@ -991,16 +881,11 @@
     <section class="section-padding bg-alt">
         <div class="container">
             <div class="website-offer" data-animate>
-                <h2 data-i18n="website_h2">Don't have a website for your business yet? I can help.</h2>
-                <p data-i18n-html="website_p1">The app handles your internal organisation — but I can also help you
-                    build a simple <strong>business
-                        presentation page</strong>. A clean online space with your schedule, services, photos, links to
-                    Instagram/Facebook, and quick contact buttons.</p>
-                <p class="website-offer-tagline" data-i18n="website_p2">A modern, clean online presence that convinces
-                    clients before they even
-                    walk through your door.</p>
+                <h2 data-i18n="website_h2">Nu ai încă un site pentru afacerea ta? Te pot ajuta.</h2>
+                <p data-i18n-html="website_p1">Aplicația se ocupă de organizarea internă — dar te pot ajuta și să construiești o simplă <strong>pagină de prezentare a afacerii</strong>. Un spațiu online curat cu programul tău, servicii, poze, linkuri la Instagram/Facebook și butoane rapide de contact.</p>
+                <p class="website-offer-tagline" data-i18n="website_p2">O prezență online modernă și curată care convinge clienții înainte să intre pe ușa ta.</p>
 
-                <p class="website-examples-intro" data-i18n="website_examples">A few examples of sites we've built:</p>
+                <p class="website-examples-intro" data-i18n="website_examples">Câteva exemple de site-uri pe care le-am construit:</p>
                 <ul class="website-examples-list">
                     <li><a href="https://www.silviaskinstudio.co.uk" target="_blank" rel="noopener noreferrer">Silvia
                             Skin Studio</a> – skincare &amp; massage, UK</li>
@@ -1008,9 +893,7 @@
                             Drumețului</a> – traditional restaurant, Bucovina</li>
                 </ul>
 
-                <a href="#" data-contact="website" class="btn btn-secondary" data-i18n="website_cta">
-                    Get in touch and let's see what you need
-                </a>
+                <a href="#" data-contact="website" class="btn btn-secondary" data-i18n="website_cta">Ia legătura și să vedem ce ai nevoie</a>
             </div>
         </div>
     </section>
@@ -1018,10 +901,8 @@
     <!-- Final CTA -->
     <section id="download" class="final-cta">
         <div class="container">
-            <h2 data-i18n-html="cta_h2">Less chaos. More clarity.<br>Start free today.</h2>
-            <p data-i18n="cta_p">Join professionals across multiple countries who use Appointments & Reports every day.
-                Free to download,
-                no credit card required.</p>
+            <h2 data-i18n-html="cta_h2">Mai puțin haos. Mai multă claritate.<br>Începe gratuit astăzi.</h2>
+            <p data-i18n="cta_p">Alătură-te profesioniștilor din mai multe țări care folosesc Programări &amp; Rapoarte în fiecare zi. Gratuit de descărcat, fără card de credit.</p>
 
             <div class="cta-download-group">
                 <a href="https://play.google.com/store/apps/details?id=com.AmihaiCiobanu.appointmenstreports" class="google-play-badge btn-pulse cta-badge-main">
@@ -1034,7 +915,7 @@
                         <span>Google Play</span>
                     </div>
                 </a>
-                <div class="cta-wip-note" data-i18n="cta_wip">iPhone & Mac — Work in Progress</div>
+                <div class="cta-wip-note" data-i18n="cta_wip">iPhone &amp; Mac — În lucru</div>
             </div>
         </div>
     </section>
@@ -1053,18 +934,18 @@
                 </a>
             </div>
             <p>
-                <span data-i18n="footer_rights">&copy; 2026 Appointments &amp; Reports. All rights reserved.</span>
+                <span data-i18n="footer_rights">© 2026 Appointments &amp; Reports. Toate drepturile rezervate.</span>
                 &nbsp;|&nbsp;
-                <a href="privacy-policy-android.html" data-i18n="footer_privacy">Privacy Policy</a>
+                <a href="/privacy-policy-android.html" data-i18n="footer_privacy">Politică de confidențialitate</a>
                 &nbsp;|&nbsp;
-                <a href="terms.html" data-i18n="footer_terms">Terms &amp; Conditions</a>
+                <a href="/terms.html" data-i18n="footer_terms">Termeni și condiții</a>
             </p>
             <div class="footer-company-info">
                 <p><strong data-i18n="footer_company_name">SOFTAPPS S.R.L.</strong></p>
-                <p data-i18n="footer_company_address">Aleea Sucidava Nr. 2, Iași 700442, Romania</p>
+                <p data-i18n="footer_company_address">Aleea Sucidava Nr. 2, Iași 700442, România</p>
                 <p>
-                    <span data-i18n="footer_company_reg">Reg. Com.: xxxxx</span> | 
-                    <span data-i18n="footer_company_tax">CUI: xxxxx</span>
+                    <span data-i18n="footer_company_reg">Reg. Com.: J2026023970005</span> | 
+                    <span data-i18n="footer_company_tax">CUI: 54463640</span>
                 </p>
             </div>
         </div>
@@ -1080,17 +961,15 @@
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p data-i18n="cookie_p">We use analytics cookies to understand how visitors use this site and improve the
-            experience. You can decline
-            and the site works exactly the same.</p>
+        <p data-i18n="cookie_p">Folosim cookie-uri de analiză pentru a înțelege cum vizitatorii utilizează acest site și pentru a îmbunătăți experiența. Poți refuza și site-ul funcționează exact la fel.</p>
         <div class="cookie-actions">
-            <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Decline</button>
+            <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Refuz</button>
             <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie_accept">Accept</button>
         </div>
     </div>
 
-    <script src="i18n.js"></script>
-    <script src="script.js"></script>
+    <script src="/i18n.js"></script>
+    <script src="/script.js"></script>
 </body>
 
 </html>

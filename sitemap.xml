@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://appointmentsapps.com/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://appointmentsapps.com/privacy-policy-android.html</loc>
-        <changefreq>yearly</changefreq>
-        <priority>0.4</priority>
-    </url>
-    <url>
-        <loc>https://appointmentsapps.com/terms.html</loc>
-        <changefreq>yearly</changefreq>
-        <priority>0.4</priority>
-    </url>
+  <url><loc>https://appointmentsapps.com/</loc></url>
+  <url><loc>https://appointmentsapps.com/ro/</loc></url>
+  <url><loc>https://appointmentsapps.com/es/</loc></url>
+  <url><loc>https://appointmentsapps.com/fr/</loc></url>
+  <url><loc>https://appointmentsapps.com/it/</loc></url>
+  <url><loc>https://appointmentsapps.com/pt/</loc></url>
+  <url><loc>https://appointmentsapps.com/bg/</loc></url>
+  <url><loc>https://appointmentsapps.com/pl/</loc></url>
 </urlset>
