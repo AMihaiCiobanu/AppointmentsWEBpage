@@ -2547,6 +2547,9 @@ const TRANSLATIONS = {
 // ─── Language detection ───────────────────────────────────────────────────────
 
 function detectLang() {
+  // Path-based routing takes priority: /ro/, /es/, /it/ etc.
+  const pathLang = window.location.pathname.match(/^\/([a-z]{2})\//);
+  if (pathLang && TRANSLATIONS[pathLang[1]]) return pathLang[1];
   const urlParam = new URLSearchParams(window.location.search).get('lang');
   if (urlParam && TRANSLATIONS[urlParam]) return urlParam;
   try {
