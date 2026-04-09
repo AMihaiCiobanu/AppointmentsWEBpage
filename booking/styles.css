@@ -487,6 +487,40 @@ body {
   transform: rotate(45deg) translateX(-2px) translateY(2px);
 }
 
+.booking-footer {
+  text-align: center;
+  padding: 24px 16px;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.booking-footer a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
+.booking-footer-ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none !important;
+  margin-bottom: 8px;
+}
+
+.booking-consent-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.booking-consent-note a {
+  color: var(--muted);
+  text-decoration: underline;
+}
+
 /* Slots Loader */
 .slots-loader {
   display: flex;
