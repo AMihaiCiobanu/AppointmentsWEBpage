@@ -171,7 +171,7 @@
             <div class="hero-content">
                 <div class="hero-badge-row">
                     <span class="badge" data-i18n="badge_android">Disponibil pe Android</span>
-                    <span class="badge" data-i18n="badge_free">Gratuit pentru început</span>
+                    <span class="badge badge-free-forever" data-i18n="badge_free">Gratuit pentru totdeauna</span>
                 </div>
 
                 <h1><span data-i18n="hero_h1_line1">Știi cât ai câștigat luna trecută?</span><br><span
@@ -675,21 +675,22 @@
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="pricing_h2">Prețuri simple și transparente</h2>
-            <p class="section-subtitle" data-animate data-i18n="pricing_p">Începe gratuit 7 zile cu totul deblocat. Apoi alege ce ți se potrivește.</p>
+            <p class="section-subtitle" data-animate data-i18n="pricing_p">Planul Gratuit e al tău pentru totdeauna — fără card bancar, fără expirare. Noile instalări includ 7 zile de probă Pro cu tot deblocat.</p>
 
             <div class="pricing-grid">
 
                 <!-- Free plan -->
                 <div class="pricing-card" data-animate>
+                    <div class="pricing-forever-badge" data-i18n="free_forever_badge">Gratuit pentru totdeauna</div>
                     <div class="pricing-plan-name" data-i18n="free_plan">Gratuit</div>
                     <div class="pricing-price">
                         <span class="free-label" data-i18n="free_price">€0</span>
                     </div>
-                    <div class="pricing-trial" data-i18n="free_trial">Include 7 zile de probă gratuită Pro</div>
+                    <div class="pricing-trial" data-i18n="free_trial">Începi cu 7 zile Pro deblocat — fără card bancar</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
                         <li data-i18n="free_f1">Programări și calendar</li>
-                        <li data-i18n="free_f2">Gestionarea clienților cu istoric complet</li>
+                        <li data-i18n="free_f2">Gestionarea clienților</li>
                         <li data-i18n="free_f3">Gestionarea serviciilor și abonamentelor</li>
                         <li data-i18n="free_f4">Remindere de ziua de naștere</li>
                         <li data-i18n="free_f5">Mesaje de confirmare prin SMS &amp; WhatsApp</li>
@@ -752,6 +753,7 @@
 
             </div>
 
+            <p class="pricing-forever-note" data-i18n="pricing_forever_note">Planul Gratuit nu expiră niciodată — programările și clienții tăi sunt mereu ai tăi.</p>
             <p class="pricing-footer-note" data-i18n="pricing_footer">Fără taxe ascunse · 0% comision pe rezervări · Anulezi oricând</p>
 
         </div>
@@ -768,7 +770,7 @@
                         data-i18n-placeholder="emailul@tau.com" required autocomplete="email">
                     <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">Anunță-mă</button>
                 </form>
-                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Fără spam. Un singur email la lansare, atât.</p>
+                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Fără spam. Un singur email la lansare, atât. <a href='/privacy-policy-android.html' class='privacy-link'>Politică de confidențialitate</a></p>
             </div>
         </div>
     </section>
@@ -780,6 +782,13 @@
             <p class="section-subtitle" data-i18n="faq_p">Află mai multe despre cum funcționează Programări &amp; Rapoarte.</p>
 
             <div class="faq-container">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq_trial_q">Ce se întâmplă după cele 7 zile de probă?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_trial_a">Nu dispare nimic. După ce expiră proba Pro de 7 zile, aplicația trece automat pe planul Gratuit. Îți păstrezi toate programările, clienții și serviciile — pentru totdeauna, fără niciun cost. Planul Gratuit nu are dată de expirare și nu necesită nicio metodă de plată. Dacă decizi că vrei rapoarte financiare, backup în cloud sau celelalte funcții Pro, te poți abona oricând.</p>
+                    </div>
+                </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">Pe ce dispozitive este disponibilă aplicația?</button>
@@ -820,6 +829,13 @@
                     <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">Cum funcționează rezervările online?</button>
                     <div class="faq-answer">
                         <p data-i18n="faq6_a">Generezi un link de programare în aplicație și îl trimiți clienților tăi — prin WhatsApp, SMS, rețele sociale sau oriunde dorești. Clienții deschid link-ul în browser, aleg un serviciu, selectează o dată și oră disponibilă și își trimit datele. Tu primești cererea în aplicație și o confirmi sau o respingi cu un singur tap. Necesită activarea sincronizării în cloud și configurarea unui program de lucru în Setări.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq7_q">Pot exporta datele mele?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq7_a">Da. Din meniul aplicației poți exporta un backup complet al tuturor datelor ca fișier JSON oricând. Îl poți și importa înapoi — util când schimbi telefonul.</p>
                     </div>
                 </div>
 
@@ -944,7 +960,7 @@
                 <p><strong data-i18n="footer_company_name">SOFTAPPS S.R.L.</strong></p>
                 <p data-i18n="footer_company_address">Aleea Sucidava Nr. 2, Iași 700442, România</p>
                 <p>
-                    <span data-i18n="footer_company_reg">Reg. Com.: J2026023970005</span> | 
+                    <span data-i18n="footer_company_reg">Reg. Com.: J2026023970005</span> |
                     <span data-i18n="footer_company_tax">CUI: 54463640</span>
                 </p>
             </div>
@@ -961,7 +977,7 @@
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p data-i18n-html="cookie_p">Folosim cookie-uri de analiză pentru a înțelege cum vizitatorii utilizează acest site și pentru a îmbunătăți experiența. Poți refuza și site-ul funcționează exact la fel.</p>
+        <p data-i18n-html="cookie_p">Folosim cookie-uri de analiză pentru a înțelege cum vizitatorii utilizează acest site și pentru a îmbunătăți experiența. Poți refuza și site-ul funcționează exact la fel. <a href='/privacy-policy-android.html' class='privacy-link'>Politică de confidențialitate</a></p>
         <div class="cookie-actions">
             <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Refuz</button>
             <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie_accept">Accept</button>

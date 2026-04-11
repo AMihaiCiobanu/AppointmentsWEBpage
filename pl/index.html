@@ -171,7 +171,7 @@
             <div class="hero-content">
                 <div class="hero-badge-row">
                     <span class="badge" data-i18n="badge_android">Dostępne na Android</span>
-                    <span class="badge" data-i18n="badge_free">Zacznij za darmo</span>
+                    <span class="badge badge-free-forever" data-i18n="badge_free">Darmowy na zawsze</span>
                 </div>
 
                 <h1><span data-i18n="hero_h1_line1">Czy wiesz, ile zarobiłeś w zeszłym miesiącu?</span><br><span
@@ -675,21 +675,22 @@
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="pricing_h2">Prosta, przejrzysta cena</h2>
-            <p class="section-subtitle" data-animate data-i18n="pricing_p">Zacznij za darmo przez 7 dni z wszystkim odblokowanym. Potem wybierz to, co Ci odpowiada.</p>
+            <p class="section-subtitle" data-animate data-i18n="pricing_p">Plan Darmowy jest Twój na zawsze — bez karty, bez wygaśnięcia. Nowe instalacje zawierają 7-dniowy okres próbny Pro z wszystkim odblokowanym.</p>
 
             <div class="pricing-grid">
 
                 <!-- Free plan -->
                 <div class="pricing-card" data-animate>
+                    <div class="pricing-forever-badge" data-i18n="free_forever_badge">Darmowy na zawsze</div>
                     <div class="pricing-plan-name" data-i18n="free_plan">Darmowy</div>
                     <div class="pricing-price">
                         <span class="free-label" data-i18n="free_price">€0</span>
                     </div>
-                    <div class="pricing-trial" data-i18n="free_trial">Zawiera 7-dniowy darmowy okres próbny Pro</div>
+                    <div class="pricing-trial" data-i18n="free_trial">Zaczyna się z 7 dniami Pro odblokowanym — bez karty kredytowej</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
                         <li data-i18n="free_f1">Planowanie wizyt i kalendarz</li>
-                        <li data-i18n="free_f2">Zarządzanie klientami z pełną historią</li>
+                        <li data-i18n="free_f2">Zarządzanie klientami</li>
                         <li data-i18n="free_f3">Zarządzanie usługami i subskrypcjami</li>
                         <li data-i18n="free_f4">Przypomnienia o urodzinach</li>
                         <li data-i18n="free_f5">Wiadomości potwierdzające przez SMS i WhatsApp</li>
@@ -752,6 +753,7 @@
 
             </div>
 
+            <p class="pricing-forever-note" data-i18n="pricing_forever_note">Plan Darmowy nigdy nie wygasa — Twoje wizyty i klienci są zawsze Twoi.</p>
             <p class="pricing-footer-note" data-i18n="pricing_footer">Brak ukrytych opłat · 0% prowizji · Anuluj w dowolnym momencie</p>
 
         </div>
@@ -768,7 +770,7 @@
                         data-i18n-placeholder="twój@email.com" required autocomplete="email">
                     <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">Powiadom mnie</button>
                 </form>
-                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Bez spamu. Jeden e-mail przy starcie, tyle.</p>
+                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Bez spamu. Jeden e-mail przy starcie, tyle. <a href='/privacy-policy-android.html' class='privacy-link'>Polityka prywatności</a></p>
             </div>
         </div>
     </section>
@@ -780,6 +782,13 @@
             <p class="section-subtitle" data-i18n="faq_p">Dowiedz się więcej o tym, jak działa Appointments &amp; Reports.</p>
 
             <div class="faq-container">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq_trial_q">Co się dzieje po 7-dniowym okresie próbnym?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_trial_a">Nic nie znika. Gdy 7-dniowy okres próbny Pro się kończy, aplikacja automatycznie przełącza się na plan Darmowy. Zachowujesz wszystkie wizyty, klientów i usługi — na zawsze, bez żadnych kosztów. Plan Darmowy nie ma daty wygaśnięcia i nie wymaga metody płatności. Jeśli zdecydujesz, że chcesz raporty finansowe, kopię zapasową w chmurze lub inne funkcje Pro, możesz subskrybować w dowolnym momencie.</p>
+                    </div>
+                </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">Na jakich urządzeniach jest dostępna aplikacja?</button>
@@ -820,6 +829,13 @@
                     <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">Jak działają rezerwacje online?</button>
                     <div class="faq-answer">
                         <p data-i18n="faq6_a">Generujesz link do rezerwacji w aplikacji i udostępniasz go klientom — przez WhatsApp, SMS, media społecznościowe lub gdziekolwiek chcesz. Klienci otwierają link w przeglądarce, wybierają usługę, dostępną datę i godzinę, a następnie przesyłają swoje dane. Otrzymujesz zgłoszenie w aplikacji i potwierdzasz je lub odrzucasz jednym dotknięciem. Wymaga aktywnej synchronizacji z chmurą i skonfigurowanego harmonogramu pracy w Ustawieniach.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq7_q">Czy mogę eksportować swoje dane?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq7_a">Tak. Z menu aplikacji możesz wyeksportować pełną kopię zapasową wszystkich danych jako plik JSON w dowolnym momencie. Możesz go też zaimportować z powrotem — przydatne przy zmianie telefonu.</p>
                     </div>
                 </div>
 
@@ -961,7 +977,7 @@
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p data-i18n-html="cookie_p">Używamy analitycznych plików cookie, aby zrozumieć, jak odwiedzający korzystają z tej strony i poprawić jej działanie. Możesz odmówić — strona działa dokładnie tak samo.</p>
+        <p data-i18n-html="cookie_p">Używamy analitycznych plików cookie, aby zrozumieć, jak odwiedzający korzystają z tej strony i poprawić jej działanie. Możesz odmówić — strona działa dokładnie tak samo. <a href='/privacy-policy-android.html' class='privacy-link'>Polityka prywatności</a></p>
         <div class="cookie-actions">
             <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Odmów</button>
             <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie_accept">Akceptuj</button>

@@ -171,7 +171,7 @@
             <div class="hero-content">
                 <div class="hero-badge-row">
                     <span class="badge" data-i18n="badge_android">Disponible sur Android</span>
-                    <span class="badge" data-i18n="badge_free">Gratuit pour commencer</span>
+                    <span class="badge badge-free-forever" data-i18n="badge_free">Gratuit pour toujours</span>
                 </div>
 
                 <h1><span data-i18n="hero_h1_line1">Savez-vous combien vous avez gagné le mois dernier ?</span><br><span
@@ -675,21 +675,22 @@
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="pricing_h2">Tarifs simples et transparents</h2>
-            <p class="section-subtitle" data-animate data-i18n="pricing_p">Commencez gratuitement pendant 7 jours avec tout débloqué. Choisissez ensuite ce qui vous convient.</p>
+            <p class="section-subtitle" data-animate data-i18n="pricing_p">Le plan Gratuit est à vous pour toujours — sans carte, sans expiration. Les nouvelles installations incluent 7 jours d&#x27;essai Pro avec tout débloqué.</p>
 
             <div class="pricing-grid">
 
                 <!-- Free plan -->
                 <div class="pricing-card" data-animate>
+                    <div class="pricing-forever-badge" data-i18n="free_forever_badge">Gratuit pour toujours</div>
                     <div class="pricing-plan-name" data-i18n="free_plan">Gratuit</div>
                     <div class="pricing-price">
                         <span class="free-label" data-i18n="free_price">€0</span>
                     </div>
-                    <div class="pricing-trial" data-i18n="free_trial">Inclut un essai gratuit de 7 jours du Pro</div>
+                    <div class="pricing-trial" data-i18n="free_trial">Commence avec 7 jours de Pro débloqué — sans carte bancaire</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
                         <li data-i18n="free_f1">Prise de rendez-vous et agenda</li>
-                        <li data-i18n="free_f2">Gestion des clients avec historique complet</li>
+                        <li data-i18n="free_f2">Gestion des clients</li>
                         <li data-i18n="free_f3">Gestion des services et abonnements</li>
                         <li data-i18n="free_f4">Rappels d&#x27;anniversaire</li>
                         <li data-i18n="free_f5">Messages de confirmation par SMS &amp; WhatsApp</li>
@@ -752,6 +753,7 @@
 
             </div>
 
+            <p class="pricing-forever-note" data-i18n="pricing_forever_note">Le plan Gratuit n&#x27;expire jamais — vos rendez-vous et clients vous appartiennent toujours.</p>
             <p class="pricing-footer-note" data-i18n="pricing_footer">Aucun frais caché · 0% de commission sur les réservations · Annulez à tout moment</p>
 
         </div>
@@ -768,7 +770,7 @@
                         data-i18n-placeholder="votre@email.com" required autocomplete="email">
                     <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">M&#x27;avertir</button>
                 </form>
-                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Pas de spam. Un seul e-mail au lancement, c&#x27;est tout.</p>
+                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Pas de spam. Un seul e-mail au lancement, c'est tout. <a href='/privacy-policy-android.html' class='privacy-link'>Politique de confidentialité</a></p>
             </div>
         </div>
     </section>
@@ -780,6 +782,13 @@
             <p class="section-subtitle" data-i18n="faq_p">En savoir plus sur le fonctionnement d&#x27;Appointments &amp; Reports.</p>
 
             <div class="faq-container">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq_trial_q">Que se passe-t-il après les 7 jours d&#x27;essai ?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_trial_a">Rien ne disparaît. Lorsque l&#x27;essai Pro de 7 jours se termine, l&#x27;application passe automatiquement au plan Gratuit. Vous conservez tous vos rendez-vous, clients et services — pour toujours, sans frais. Le plan Gratuit n&#x27;a pas de date d&#x27;expiration et ne nécessite aucun moyen de paiement. Si vous décidez que vous voulez des rapports financiers, une sauvegarde cloud ou d&#x27;autres fonctionnalités Pro, vous pouvez vous abonner à tout moment.</p>
+                    </div>
+                </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">Sur quels appareils l&#x27;application est-elle disponible ?</button>
@@ -820,6 +829,13 @@
                     <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">Comment fonctionnent les réservations en ligne ?</button>
                     <div class="faq-answer">
                         <p data-i18n="faq6_a">Vous générez un lien de réservation dans l&#x27;app et le partagez avec vos clients — via WhatsApp, SMS, réseaux sociaux ou où vous voulez. Les clients ouvrent le lien dans leur navigateur, choisissent un service, sélectionnent une date et heure disponibles, et soumettent leurs coordonnées. Vous recevez la demande dans l&#x27;app et la confirmez ou la refusez en un tap. Nécessite l&#x27;activation de la synchronisation cloud et la configuration d&#x27;un horaire de travail dans les Paramètres.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq7_q">Puis-je exporter mes données ?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq7_a">Oui. Depuis le menu de l&#x27;application, vous pouvez exporter une sauvegarde complète de toutes vos données en tant que fichier JSON à tout moment. Vous pouvez également la réimporter — pratique lors d&#x27;un changement de téléphone.</p>
                     </div>
                 </div>
 
@@ -961,7 +977,7 @@
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p data-i18n-html="cookie_p">Nous utilisons des cookies analytiques pour comprendre comment les visiteurs utilisent ce site et améliorer l&#x27;expérience. Vous pouvez refuser et le site fonctionne exactement pareil.</p>
+        <p data-i18n-html="cookie_p">Nous utilisons des cookies analytiques pour comprendre comment les visiteurs utilisent ce site et améliorer l'expérience. Vous pouvez refuser et le site fonctionne exactement pareil. <a href='/privacy-policy-android.html' class='privacy-link'>Politique de confidentialité</a></p>
         <div class="cookie-actions">
             <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Refuser</button>
             <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie_accept">Accepter</button>

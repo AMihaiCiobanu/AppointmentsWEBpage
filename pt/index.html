@@ -171,7 +171,7 @@
             <div class="hero-content">
                 <div class="hero-badge-row">
                     <span class="badge" data-i18n="badge_android">Disponível no Android</span>
-                    <span class="badge" data-i18n="badge_free">Grátis para começar</span>
+                    <span class="badge badge-free-forever" data-i18n="badge_free">Sempre gratuito</span>
                 </div>
 
                 <h1><span data-i18n="hero_h1_line1">Você sabe quanto ganhou no mês passado?</span><br><span
@@ -675,21 +675,22 @@
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="pricing_h2">Preços simples e transparentes</h2>
-            <p class="section-subtitle" data-animate data-i18n="pricing_p">Comece grátis por 7 dias com tudo desbloqueado. Depois escolha o que melhor se encaixa para você.</p>
+            <p class="section-subtitle" data-animate data-i18n="pricing_p">O plano Gratuito é seu para sempre — sem cartão, sem prazo de validade. Novas instalações incluem 7 dias de teste Pro com tudo desbloqueado.</p>
 
             <div class="pricing-grid">
 
                 <!-- Free plan -->
                 <div class="pricing-card" data-animate>
+                    <div class="pricing-forever-badge" data-i18n="free_forever_badge">Sempre gratuito</div>
                     <div class="pricing-plan-name" data-i18n="free_plan">Grátis</div>
                     <div class="pricing-price">
                         <span class="free-label" data-i18n="free_price">€0</span>
                     </div>
-                    <div class="pricing-trial" data-i18n="free_trial">Inclui 7 dias de teste grátis do Pro</div>
+                    <div class="pricing-trial" data-i18n="free_trial">Começa com 7 dias de Pro desbloqueado — sem cartão de crédito</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
                         <li data-i18n="free_f1">Agendamentos e calendário</li>
-                        <li data-i18n="free_f2">Gestão de clientes com histórico completo</li>
+                        <li data-i18n="free_f2">Gestão de clientes</li>
                         <li data-i18n="free_f3">Gestão de serviços e assinaturas</li>
                         <li data-i18n="free_f4">Lembretes de aniversário</li>
                         <li data-i18n="free_f5">Mensagens de confirmação por SMS &amp; WhatsApp</li>
@@ -752,6 +753,7 @@
 
             </div>
 
+            <p class="pricing-forever-note" data-i18n="pricing_forever_note">O plano Gratuito nunca expira — seus agendamentos e clientes são sempre seus.</p>
             <p class="pricing-footer-note" data-i18n="pricing_footer">Sem taxas ocultas · 0% de comissão nas reservas · Cancele quando quiser</p>
 
         </div>
@@ -768,7 +770,7 @@
                         data-i18n-placeholder="seu@email.com" required autocomplete="email">
                     <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">Me avise</button>
                 </form>
-                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Sem spam. Um único e-mail no lançamento, só isso.</p>
+                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Sem spam. Um único e-mail no lançamento, só isso. <a href='/privacy-policy-android.html' class='privacy-link'>Política de privacidade</a></p>
             </div>
         </div>
     </section>
@@ -780,6 +782,13 @@
             <p class="section-subtitle" data-i18n="faq_p">Saiba mais sobre como o Appointments &amp; Reports funciona.</p>
 
             <div class="faq-container">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq_trial_q">O que acontece após os 7 dias de teste?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_trial_a">Nada desaparece. Quando o teste Pro de 7 dias termina, o app muda automaticamente para o plano Gratuito. Você mantém todos os seus agendamentos, clientes e serviços — para sempre, sem custo. O plano Gratuito não tem data de validade e não requer nenhum método de pagamento. Se decidir que quer relatórios financeiros, backup na nuvem ou outros recursos Pro, pode assinar a qualquer momento.</p>
+                    </div>
+                </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">Em quais dispositivos o app está disponível?</button>
@@ -820,6 +829,13 @@
                     <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">Como funcionam os agendamentos online?</button>
                     <div class="faq-answer">
                         <p data-i18n="faq6_a">Você gera um link de agendamento no app e compartilha com seus clientes — pelo WhatsApp, SMS, redes sociais ou onde quiser. Os clientes abrem o link no navegador, escolhem um serviço, selecionam uma data e horário disponíveis e enviam seus dados. Você recebe a solicitação no app e confirma ou recusa com um toque. Requer sincronização na nuvem ativa e um horário de trabalho configurado nas Configurações.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq7_q">Posso exportar meus dados?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq7_a">Sim. No menu do app você pode exportar um backup completo de todos os seus dados como arquivo JSON a qualquer momento. Você também pode importá-lo de volta — útil quando troca de celular.</p>
                     </div>
                 </div>
 
@@ -961,7 +977,7 @@
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p data-i18n-html="cookie_p">Usamos cookies analíticos para entender como os visitantes usam este site e melhorar a experiência. Você pode recusar e o site funciona exatamente igual.</p>
+        <p data-i18n-html="cookie_p">Usamos cookies analíticos para entender como os visitantes usam este site e melhorar a experiência. Você pode recusar e o site funciona exatamente igual. <a href='/privacy-policy-android.html' class='privacy-link'>Política de privacidade</a></p>
         <div class="cookie-actions">
             <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Recusar</button>
             <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie_accept">Aceitar</button>

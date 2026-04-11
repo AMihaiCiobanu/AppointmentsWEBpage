@@ -171,7 +171,7 @@
             <div class="hero-content">
                 <div class="hero-badge-row">
                     <span class="badge" data-i18n="badge_android">Достъпно за Android</span>
-                    <span class="badge" data-i18n="badge_free">Безплатно начало</span>
+                    <span class="badge badge-free-forever" data-i18n="badge_free">Безплатен завинаги</span>
                 </div>
 
                 <h1><span data-i18n="hero_h1_line1">Знаете ли колко сте спечелили миналия месец?</span><br><span
@@ -675,21 +675,22 @@
     <section id="pricing" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title" data-animate data-i18n="pricing_h2">Прости и прозрачни цени</h2>
-            <p class="section-subtitle" data-animate data-i18n="pricing_p">Започнете безплатно за 7 дни с всичко отключено. После изберете това, което ви подхожда.</p>
+            <p class="section-subtitle" data-animate data-i18n="pricing_p">Безплатният план е ваш завинаги — без карта, без срок. Новите инсталации включват 7-дневен пробен период Pro с всичко отключено.</p>
 
             <div class="pricing-grid">
 
                 <!-- Free plan -->
                 <div class="pricing-card" data-animate>
+                    <div class="pricing-forever-badge" data-i18n="free_forever_badge">Безплатен завинаги</div>
                     <div class="pricing-plan-name" data-i18n="free_plan">Безплатен</div>
                     <div class="pricing-price">
                         <span class="free-label" data-i18n="free_price">€0</span>
                     </div>
-                    <div class="pricing-trial" data-i18n="free_trial">Включва 7-дневен безплатен пробен период на Pro</div>
+                    <div class="pricing-trial" data-i18n="free_trial">Започвате с 7 дни Pro отключено — без кредитна карта</div>
                     <hr class="pricing-divider">
                     <ul class="pricing-features">
                         <li data-i18n="free_f1">Записване на часове и календар</li>
-                        <li data-i18n="free_f2">Управление на клиенти с пълна история</li>
+                        <li data-i18n="free_f2">Управление на клиенти</li>
                         <li data-i18n="free_f3">Управление на услуги и абонаменти</li>
                         <li data-i18n="free_f4">Напомняния за рождени дни</li>
                         <li data-i18n="free_f5">Потвърдителни съобщения по SMS и WhatsApp</li>
@@ -752,6 +753,7 @@
 
             </div>
 
+            <p class="pricing-forever-note" data-i18n="pricing_forever_note">Безплатният план никога не изтича — вашите срещи и клиенти са винаги ваши.</p>
             <p class="pricing-footer-note" data-i18n="pricing_footer">Без скрити такси · 0% комисиона · Откажи по всяко време</p>
 
         </div>
@@ -768,7 +770,7 @@
                         data-i18n-placeholder="вашият@имейл.com" required autocomplete="email">
                     <button type="submit" class="btn-waitlist" data-i18n="waitlist_btn">Уведоми ме</button>
                 </form>
-                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Без спам. Един имейл при излизане, само това.</p>
+                <p class="waitlist-privacy" data-i18n-html="waitlist_privacy">Без спам. Един имейл при излизане, само това. <a href='/privacy-policy-android.html' class='privacy-link'>Политика за поверителност</a></p>
             </div>
         </div>
     </section>
@@ -780,6 +782,13 @@
             <p class="section-subtitle" data-i18n="faq_p">Научете повече за това как работи Appointments &amp; Reports.</p>
 
             <div class="faq-container">
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq_trial_q">Какво се случва след 7-дневния пробен период?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq_trial_a">Нищо не изчезва. Когато пробният период Pro от 7 дни приключи, приложението автоматично преминава към Безплатния план. Запазвате всичките си срещи, клиенти и услуги — завинаги, без никакви разходи. Безплатният план няма дата на изтичане и не изисква метод на плащане. Ако решите, че искате финансови отчети, архивиране в облака или другите Pro функции, можете да се абонирате по всяко време.</p>
+                    </div>
+                </div>
 
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false" data-i18n="faq1_q">На кои устройства е достъпно приложението?</button>
@@ -820,6 +829,13 @@
                     <button class="faq-question" aria-expanded="false" data-i18n="faq6_q">Как работят онлайн резервациите?</button>
                     <div class="faq-answer">
                         <p data-i18n="faq6_a">Генерирате линк за резервация в приложението и го споделяте с клиентите си — чрез WhatsApp, SMS, социални мрежи или навсякъде другаде. Клиентите отварят линка в браузъра, избират услуга, свободна дата и час, и изпращат данните си. Получавате заявката в приложението и я потвърждавате или отхвърляте с едно докосване. Изисква активирана синхронизация с облака и конфигуриран работен график в Настройки.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" data-i18n="faq7_q">Мога ли да експортирам данните си?</button>
+                    <div class="faq-answer">
+                        <p data-i18n="faq7_a">Да. От менюто на приложението можете да експортирате пълен архив на всички данни като JSON файл по всяко време. Можете и да го импортирате обратно — удобно при смяна на телефон.</p>
                     </div>
                 </div>
 
@@ -961,7 +977,7 @@
 
     <!-- Cookie Banner -->
     <div id="cookie-banner" class="cookie-banner" style="display:none;">
-        <p data-i18n-html="cookie_p">Използваме аналитични бисквитки, за да разберем как посетителите използват сайта и да подобрим изживяването. Можете да откажете — сайтът работи абсолютно същото.</p>
+        <p data-i18n-html="cookie_p">Използваме аналитични бисквитки, за да разберем как посетителите използват сайта и да подобрим изживяването. Можете да откажете — сайтът работи абсолютно същото. <a href='/privacy-policy-android.html' class='privacy-link'>Политика за поверителност</a></p>
         <div class="cookie-actions">
             <button id="cookie-decline" class="btn btn-outline" data-i18n="cookie_decline">Откажи</button>
             <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie_accept">Приеми</button>
