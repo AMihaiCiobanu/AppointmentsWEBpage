@@ -16,6 +16,8 @@ import subprocess
 import json
 import re
 import html as html_lib
+import tempfile
+import os
 from pathlib import Path
 
 BASE_URL = 'https://appointmentsapps.com'
@@ -72,7 +74,14 @@ window.location = { search: '', pathname: '/' };
 """
     code = Path('i18n.js').read_text(encoding='utf-8')
     script = mock + code + "\nprocess.stdout.write(JSON.stringify(window.TRANSLATIONS));"
-    r = subprocess.run(['node', '-e', script], capture_output=True, text=True)
+    # Write to a temp file and run node on it — avoids E2BIG on large -e payloads.
+    with tempfile.NamedTemporaryFile('w', suffix='.js', delete=False, encoding='utf-8') as tf:
+        tf.write(script)
+        tmp_path = tf.name
+    try:
+        r = subprocess.run(['node', tmp_path], capture_output=True, text=True)
+    finally:
+        os.unlink(tmp_path)
     if r.returncode != 0:
         raise RuntimeError(f"Node.js failed:\n{r.stderr[:800]}")
     return json.loads(r.stdout)

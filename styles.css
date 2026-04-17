@@ -1191,10 +1191,7 @@ ul.check-list li::before {
 
 /* report screenshot now folosește același cadru .iphone-mockup + .iphone-screenshot ca în hero */
 
-/* ========== DISPOZITIVE APPLE (iPhone, iPad, Mac) ========== */
-.devices-section {
-  /* padding handled by .section-padding */
-}
+/* ========== DISPOZITIVE APPLE (iPhone, iPad, Mac) ========== *
 
 .devices-grid {
   display: grid;
@@ -1608,6 +1605,19 @@ footer {
 
 .footer-company-info p {
   margin: 0.2rem 0;
+}
+
+.footer-company-info a,
+.footer-company-contact a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.footer-company-info a:hover,
+.footer-company-contact a:hover {
+  color: var(--primary);
 }
 
 .footer-social {
