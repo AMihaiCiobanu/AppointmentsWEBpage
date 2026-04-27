@@ -8,6 +8,14 @@
     <meta name="description" content="The page you requested was not found on appointmentsapps.com.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://appointmentsapps.com/404.html">
+    <script>
+        (function () {
+            var path = window.location.pathname.replace(/\/+$/, '');
+            if (path === '/privacy-policy-android.html') {
+                window.location.replace('https://appointmentsapps.com/privacy-policy.html');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/appIcon.png">
 
@@ -107,7 +115,7 @@
             <p>
                 <span data-i18n="footer_rights">© 2026 Appointments &amp; Reports. All rights reserved.</span>
                 &nbsp;|&nbsp;
-                <a href="privacy-policy-android.html" data-i18n="footer_privacy">Privacy Policy</a>
+                <a href="https://appointmentsapps.com/privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
                 &nbsp;|&nbsp;
                 <a href="terms.html" data-i18n="footer_terms">Terms &amp; Conditions</a>
             </p>
