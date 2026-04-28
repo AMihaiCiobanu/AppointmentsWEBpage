@@ -339,10 +339,15 @@ p {
 
 .btn-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 1rem;
-  margin-top: 2rem;
+  margin: 2rem auto;
+  width: fit-content;
+  flex-direction: row;
+}
+
+.btn-group .google-play-badge {
+  justify-content: center;
 }
 
 /* ========== HEADER ========== */
@@ -434,9 +439,16 @@ header.header-hidden {
 
 .cta-download-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+
+  align-items: stretch;
   gap: 1rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-download-group .google-play-badge {
+  justify-content: center;
 }
 
 .cta-badge-main {
@@ -2143,11 +2155,6 @@ footer {
     max-width: 70%;
   }
 
-  .btn-group {
-    flex-direction: row;
-    align-items: center;
-  }
-
   .iphone-mockup {
     width: 320px;
     height: auto;
@@ -2590,6 +2597,84 @@ footer {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.45);
   margin-top: 1.25rem;
+}
+
+/* ========== iOS LAUNCH SECTION ========== */
+.ios-launch-card {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--accent-light) 0%,
+    var(--surface) 100%
+  );
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 60px rgba(37, 99, 235, 0.1);
+}
+
+.launch-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  background: var(--accent-light);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  border-radius: 20px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.ios-launch-card h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.ios-launch-card > p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.launch-video-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 320px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.launch-video {
+  width: 100%;
+  display: block;
+}
+
+.store-badges-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+[data-theme="dark"] .ios-launch-card {
+  background: linear-gradient(135deg, #0c1a2e 0%, #0f1f38 100%);
+  border-color: var(--accent);
+  box-shadow: 0 20px 60px rgba(88, 166, 255, 0.1);
+}
+
+[data-theme="dark"] .launch-eyebrow {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: rgba(88, 166, 255, 0.3);
 }
 
 /* ========== PAIN SECTION ========== */
