@@ -7,7 +7,7 @@ Run from project root:
 
 Output:
     /ro/index.html, /es/index.html, /fr/index.html, /it/index.html,
-    /pt/index.html, /bg/index.html, /pl/index.html
+    /pt/index.html, /bg/index.html, /pl/index.html, /tr/index.html
     /index.html  (English, hreflang fixed, canonical stays at /)
     /sitemap.xml
 """
@@ -32,6 +32,7 @@ LANGS = {
     'pt': {'hreflang': 'pt-BR', 'url': f'{BASE_URL}/pt/'},
     'bg': {'hreflang': 'bg',    'url': f'{BASE_URL}/bg/'},
     'pl': {'hreflang': 'pl',    'url': f'{BASE_URL}/pl/'},
+    'tr': {'hreflang': 'tr',    'url': f'{BASE_URL}/tr/'},
 }
 
 # Human-readable button labels (main dropdown)
@@ -44,12 +45,13 @@ LANG_LABELS = {
     'pt': '🇧🇷 Português',
     'bg': '🇧🇬 Български',
     'pl': '🇵🇱 Polski',
+    'tr': '🇹🇷 Türkçe',
 }
 
 # Short chip labels (mobile nav)
 LANG_CHIPS = {
     'en': 'EN', 'ro': 'RO', 'es': 'ES', 'fr': 'FR',
-    'it': 'IT', 'pt': 'PT', 'bg': 'BG', 'pl': 'PL',
+    'it': 'IT', 'pt': 'PT', 'bg': 'BG', 'pl': 'PL', 'tr': 'TR',
 }
 
 
