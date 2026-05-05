@@ -538,7 +538,8 @@ async function submitBooking(e) {
 }
 
 const CURRENCY_SYMBOLS = {
-  RON: 'lei', EUR: '€', GBP: '£', USD: '$', BRL: 'R$', CHF: 'Fr', HUF: 'Ft'
+  RON: 'lei', EUR: '€', GBP: '£', USD: '$', BRL: 'R$', CHF: 'Fr', HUF: 'Ft', INR: '₹', TRY: '₺',
+  SEK: 'kr', NOK: 'kr', DKK: 'kr', CZK: 'Kč', AED: 'د.إ'
 };
 
 function formatPrice(amount, currencyCode) {
