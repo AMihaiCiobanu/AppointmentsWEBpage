@@ -164,7 +164,7 @@
           <div style="margin-top: 16px;">
             <label class="field-label" for="client-phone" data-i18n="booking_phone_number">Phone Number</label>
             <input id="client-phone" class="input" type="tel" placeholder="07xx xxx xxx" data-i18n-placeholder="booking_phone_number_placeholder" required maxlength="20"
-              pattern="^[\+]?[0-9\s\-]{7,20}$"
+              pattern="^\+?[\d\s\-]{7,20}$"
               title="Please enter a valid phone number (min 7 digits, may include + or spaces)" />
             <p id="phone-error" class="error-msg hidden" data-i18n="booking_invalid_phone">Please enter a valid phone number.</p>
           </div>
@@ -190,6 +190,8 @@
       <button onclick="location.reload()" class="btn" style="max-width: 200px; margin-top: 32px;" data-i18n="booking_new">New Booking</button>
     </section>
   </main>
+
+  <div id="toast" class="toast hidden" role="alert" aria-live="assertive"></div>
 
   <footer class="booking-footer">
     <a href="https://www.instagram.com/appointmentsapp" target="_blank" rel="noopener noreferrer" class="booking-footer-ig" aria-label="Instagram">

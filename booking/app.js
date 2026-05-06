@@ -9,7 +9,6 @@ import {
   query,
   where,
   writeBatch,
-  setDoc,
   Timestamp,
   serverTimestamp
 } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
@@ -27,6 +26,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+
+
 
 // App Check — blocks non-browser clients (curl, scripts, bots) from accessing Firestore.
 // Replace RECAPTCHA_V3_SITE_KEY with the key from:
@@ -89,6 +90,18 @@ const el = {
   backTo1: document.getElementById('back-to-1'),
   backTo2: document.getElementById('back-to-2')
 };
+
+function showToast(message, durationMs = 4000) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.remove('hidden', 'fade-out');
+  clearTimeout(showToast._timer);
+  showToast._timer = setTimeout(() => {
+    toast.classList.add('fade-out');
+    setTimeout(() => toast.classList.add('hidden'), 400);
+  }, durationMs);
+}
 
 function showError(message) {
   el.loading.classList.add('hidden');
@@ -177,28 +190,30 @@ function parseLinkId() {
   return null;
 }
 
-const phoneRegex = /^[\+]?[0-9\s\-]{7,20}$/;
+const phoneRegex = /^\+?[\d\s\-]{7,20}$/;
+function isPhoneValid(phone) {
+  return phoneRegex.test(phone) && (phone.match(/\d/g) || []).length >= 7;
+}
 
 function updateValidation() {
-  // Step 2 validation
   el.toStep3.disabled = !state.selectedSlotStart;
 
-  // Step 3 validation
   const phoneValue = el.phone.value.trim();
-  const isPhoneValid = phoneRegex.test(phoneValue);
-  
-  // Show error only after some input length or if it was invalid before
+  const phoneOk = isPhoneValid(phoneValue);
   const phoneErrorEl = document.getElementById('phone-error');
   if (phoneValue.length > 5) {
-    phoneErrorEl.classList.toggle('hidden', isPhoneValid);
+    phoneErrorEl.classList.toggle('hidden', phoneOk);
   }
+
+  const nameValue = el.name.value.trim();
+  const nameOk = nameValue.length > 1 && /\p{L}/u.test(nameValue);
 
   const ok =
     !!state.selectedService &&
     !!state.selectedDate &&
     !!state.selectedSlotStart &&
-    el.name.value.trim().length > 1 &&
-    isPhoneValid;
+    nameOk &&
+    phoneOk;
   el.submit.disabled = !ok;
 }
 
@@ -237,29 +252,6 @@ async function loadLink() {
   return true;
 }
 
-async function loadServices() {
-  const servicesRef = collection(db, `users/${state.uid}/servicii`);
-  const snap = await getDocs(servicesRef);
-
-  state.services = snap.docs
-    .map(d => ({ id: d.id, ...d.data() }))
-    .filter(s => s.isDeleted !== true)
-    .map(s => ({
-      id: s.id,
-      name: s.nume || '',
-      durationMinutes: Number(s.durataMinute || 0),
-      price: Number(s.pret || 0)
-    }))
-    .filter(s => s.name && s.durationMinutes > 0)
-    .sort((a, b) => a.name.localeCompare(b.name));
-
-  if (state.services.length === 0) {
-    showError(t('booking_error_no_services'));
-    return;
-  }
-
-  renderServices();
-}
 
 function renderServices() {
   el.services.innerHTML = '';
@@ -460,8 +452,11 @@ async function loadSlotsForSelectedDate() {
 
     state.slots = slots;
     renderSlots();
+  } catch (err) {
+    state.slots = [];
+    renderSlots();
+    throw err;
   } finally {
-    // Hide loader and show slots (renderSlots handles empty state)
     el.slotsLoader.classList.add('hidden');
     el.slots.classList.remove('hidden');
   }
@@ -524,7 +519,6 @@ async function submitBooking(e) {
   const note = el.note.value.trim();
 
   const payload = {
-    id: crypto.randomUUID().toLowerCase(),
     uid: state.uid,
     clientName,
     clientPhone,
@@ -544,6 +538,22 @@ async function submitBooking(e) {
   el.submit.disabled = true;
   try {
     await getToken(appCheck, /* forceRefresh */ true);
+
+    // Re-fetch busy slots immediately before writing to catch concurrent bookings
+    const freshBusy = await loadBusySlots(state.selectedDate);
+    const conflict = freshBusy.some(b =>
+      slotOverlaps(state.selectedSlotStart, state.selectedSlotEnd, b.start, b.end)
+    );
+    if (conflict) {
+      slotsCache.delete(state.selectedDate);
+      state.selectedSlotStart = null;
+      state.selectedSlotEnd = null;
+      goToStep(2);
+      await loadSlotsForSelectedDate();
+      showToast(t('booking_error_slot_taken'));
+      return;
+    }
+
     const newId = crypto.randomUUID().toLowerCase();
     payload.id = newId;
     const batch = writeBatch(db);
@@ -559,8 +569,7 @@ async function submitBooking(e) {
     el.flow.classList.add('hidden');
     el.stepsContainer.classList.add('hidden');
     el.success.classList.remove('hidden');
-  } catch (err) {
-    console.error(err);
+  } catch {
     showError(t('booking_error_submit'));
   } finally {
     updateValidation();
@@ -594,11 +603,10 @@ async function init() {
   }
 
   try {
-    // App Check pre-warm runs in parallel with first Firestore read
-    const [ok] = await Promise.all([
-      loadLink(),
-      getToken(appCheck, false).catch(() => {})
-    ]);
+    // Fire App Check pre-warm without blocking — enforcement is off, don't wait on it
+    getToken(appCheck, false).catch(() => {});
+
+    const ok = await loadLink();
     if (!ok) return;
 
     // Parallel: fetch currency settings and services in one round trip
@@ -631,26 +639,31 @@ async function init() {
 
     renderServices();
 
-    el.dateInput.min = getMinDateISO();
-    el.dateInput.value = getMinDateISO();
-    state.selectedDate = el.dateInput.value;
+    const todayISO = getMinDateISO();
+    el.dateInput.min = todayISO;
+    el.dateInput.value = todayISO;
+    state.selectedDate = todayISO;
     updateDateDisplay();
 
-    // Trigger date picker when clicking anywhere on the input or wrapper
-    el.dateInput.parentElement.addEventListener('click', () => {
-      if ('showPicker' in HTMLInputElement.prototype) {
-        el.dateInput.showPicker();
-      } else {
-        el.dateInput.click();
-      }
-    });
+    const dateWrapper = el.dateInput.parentElement;
+    if (dateWrapper) {
+      dateWrapper.addEventListener('click', () => {
+        if ('showPicker' in HTMLInputElement.prototype) {
+          el.dateInput.showPicker();
+        } else {
+          el.dateInput.click();
+        }
+      });
+    }
 
     el.dateInput.addEventListener('change', async () => {
       state.selectedDate = el.dateInput.value;
       updateDateDisplay();
       state.selectedSlotStart = null;
       state.selectedSlotEnd = null;
-      await loadSlotsForSelectedDate();
+      try {
+        await loadSlotsForSelectedDate();
+      } catch { /* slots cleared by loadSlotsForSelectedDate's catch */ }
       updateValidation();
     });
 
@@ -678,7 +691,6 @@ async function init() {
     showFlow();
     updateValidation();
   } catch (err) {
-    console.error(err);
     if (err?.code === 'permission-denied') {
       showError(t('booking_error_link_disabled'));
     } else {
