@@ -8,12 +8,15 @@ import {
   getDocs,
   query,
   where,
-  addDoc,
+  writeBatch,
   setDoc,
   Timestamp,
   serverTimestamp
 } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
 
+// These keys are intentionally public — Firebase web config is always client-visible.
+// Security is enforced by Firestore Security Rules + App Check, not key secrecy.
+// Restrict the API key to your domain in Google Cloud Console → APIs & Services → Credentials.
 const firebaseConfig = {
   apiKey: 'AIzaSyDVcYMPg0lWd4tMxlfm5MLS8T6jtEXcoi8',
   authDomain: 'appointmentssync-c680f.firebaseapp.com',
@@ -34,6 +37,10 @@ const appCheck = initializeAppCheck(app, {
 });
 
 const db = getFirestore(app);
+
+let cachedBookingPublic = null;
+const slotsCache = new Map(); // key: dateISO, value: { timeOffRows, busySlots, fetchedAt }
+const SLOTS_CACHE_TTL_MS = 30_000;
 
 const state = {
   linkId: null,
@@ -87,7 +94,14 @@ function showError(message) {
   el.loading.classList.add('hidden');
   el.flow.classList.add('hidden');
   el.stepsContainer.classList.add('hidden');
-  el.error.innerHTML = `<p>${message}</p><p class="booking-error-contact">${t('booking_error_contact')}</p>`;
+  el.error.textContent = '';
+  const msgP = document.createElement('p');
+  msgP.textContent = message;
+  const contactP = document.createElement('p');
+  contactP.className = 'booking-error-contact';
+  contactP.textContent = t('booking_error_contact');
+  el.error.appendChild(msgP);
+  el.error.appendChild(contactP);
   el.error.classList.remove('hidden');
 }
 
@@ -294,11 +308,13 @@ function slotOverlaps(aStart, aEnd, bStart, bEnd) {
 }
 
 async function loadWorkingRange(dateISO) {
-  const setRef = doc(db, `users/${state.uid}/setari/bookingPublic`);
-  const snap = await getDoc(setRef);
-  if (!snap.exists()) return { start: 0, end: 0 };
+  if (!cachedBookingPublic) {
+    const snap = await getDoc(doc(db, `users/${state.uid}/setari/bookingPublic`));
+    cachedBookingPublic = snap.exists() ? snap.data() : {};
+  }
+  if (!cachedBookingPublic || !Object.keys(cachedBookingPublic).length) return { start: 0, end: 0 };
 
-  const set = snap.data();
+  const set = cachedBookingPublic;
   if (set.currency) state.currency = set.currency;
   const dow = localDateToWeekday(dateISO);
   const [startKey, endKey] = daySettingsKey(dow);
@@ -386,15 +402,30 @@ async function loadSlotsForSelectedDate() {
   el.slotsEmptyState.classList.add('hidden');
 
   try {
-    const { start, end } = await loadWorkingRange(state.selectedDate);
-    state.workingRange = { start, end };
+    const cached = slotsCache.get(state.selectedDate);
+    const isFresh = cached && (Date.now() - cached.fetchedAt < SLOTS_CACHE_TTL_MS);
+
+    let workingRange, timeOffRows, busySlotsFromDB;
+    if (isFresh) {
+      ({ workingRange, timeOffRows, busySlots: busySlotsFromDB } = cached);
+    } else {
+      [workingRange, timeOffRows, busySlotsFromDB] = await Promise.all([
+        loadWorkingRange(state.selectedDate),
+        loadTimeOffsForDate(state.selectedDate),
+        loadBusySlots(state.selectedDate)
+      ]);
+      slotsCache.set(state.selectedDate, { workingRange, timeOffRows, busySlots: busySlotsFromDB, fetchedAt: Date.now() });
+    }
+
+    state.workingRange = workingRange;
+    const { start, end } = workingRange;
+
     if (end <= start) {
       state.slots = [];
       renderSlots();
       return;
     }
 
-    const timeOffRows = await loadTimeOffsForDate(state.selectedDate);
     if (isFullDayTimeOff(timeOffRows)) {
       state.workingRange = { start: 0, end: 0 };
       state.slots = [];
@@ -402,10 +433,7 @@ async function loadSlotsForSelectedDate() {
       return;
     }
 
-    const busy = [
-      ...await loadBusySlots(state.selectedDate),
-      ...partialTimeOffBusySlots(timeOffRows)
-    ];
+    const busy = [...busySlotsFromDB, ...partialTimeOffBusySlots(timeOffRows)];
     const duration = state.selectedService.durationMinutes;
     const interval = 30;
 
@@ -518,14 +546,16 @@ async function submitBooking(e) {
     await getToken(appCheck, /* forceRefresh */ true);
     const newId = crypto.randomUUID().toLowerCase();
     payload.id = newId;
-    await setDoc(doc(db, `users/${state.uid}/pendingBookings`, newId), payload);
-    await setDoc(doc(db, `users/${state.uid}/sloturiOcupate`, newId), {
+    const batch = writeBatch(db);
+    batch.set(doc(db, `users/${state.uid}/pendingBookings`, newId), payload);
+    batch.set(doc(db, `users/${state.uid}/sloturiOcupate`, newId), {
       durataMinute: state.selectedService.durationMinutes,
       oraStart: Timestamp.fromDate(state.selectedSlotStart),
       linkId: state.linkId,
       isDeleted: false,
       updatedAt: serverTimestamp()
     });
+    await batch.commit();
     el.flow.classList.add('hidden');
     el.stepsContainer.classList.add('hidden');
     el.success.classList.remove('hidden');
@@ -559,23 +589,47 @@ function updateDateDisplay() {
 }
 
 async function init() {
-  // Ensure translations are loaded and applied
   if (window.applyLang && window.detectLang) {
     window.applyLang(window.detectLang());
   }
 
   try {
-    const ok = await loadLink();
+    // App Check pre-warm runs in parallel with first Firestore read
+    const [ok] = await Promise.all([
+      loadLink(),
+      getToken(appCheck, false).catch(() => {})
+    ]);
     if (!ok) return;
 
-    // Load currency before rendering services so prices show the correct symbol.
-    const bookingPublicSnap = await getDoc(doc(db, `users/${state.uid}/setari/bookingPublic`));
+    // Parallel: fetch currency settings and services in one round trip
+    const [bookingPublicSnap, servicesSnap] = await Promise.all([
+      getDoc(doc(db, `users/${state.uid}/setari/bookingPublic`)),
+      getDocs(collection(db, `users/${state.uid}/servicii`))
+    ]);
+
     if (bookingPublicSnap.exists()) {
-      const bpData = bookingPublicSnap.data();
-      if (bpData.currency) state.currency = bpData.currency;
+      cachedBookingPublic = bookingPublicSnap.data();
+      if (cachedBookingPublic.currency) state.currency = cachedBookingPublic.currency;
     }
 
-    await loadServices();
+    state.services = servicesSnap.docs
+      .map(d => ({ id: d.id, ...d.data() }))
+      .filter(s => s.isDeleted !== true)
+      .map(s => ({
+        id: s.id,
+        name: s.nume || '',
+        durationMinutes: Number(s.durataMinute || 0),
+        price: Number(s.pret || 0)
+      }))
+      .filter(s => s.name && s.durationMinutes > 0)
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    if (state.services.length === 0) {
+      showError(t('booking_error_no_services'));
+      return;
+    }
+
+    renderServices();
 
     el.dateInput.min = getMinDateISO();
     el.dateInput.value = getMinDateISO();
