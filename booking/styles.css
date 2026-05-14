@@ -260,8 +260,16 @@ body {
   font-size: 1.05rem;
 }
 
-.service-sub {
+.service-description {
   color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 6px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.service-sub {
+  color: var(--text);
   font-size: 0.9rem;
   margin-top: 6px;
   font-weight: 500;
@@ -598,7 +606,6 @@ body {
   }
 }
 
-
 .toast {
   position: fixed;
   bottom: 24px;
@@ -612,7 +619,7 @@ body {
   font-weight: 500;
   max-width: calc(100vw - 48px);
   text-align: center;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
   z-index: 1000;
   opacity: 1;
   transition: opacity 0.4s ease;

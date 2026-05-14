@@ -267,10 +267,18 @@ function renderServices() {
     durSpan.textContent = `${svc.durationMinutes} ${t('booking_minutes_suffix')}`;
     mainDiv.appendChild(nameSpan);
     mainDiv.appendChild(durSpan);
+    btn.appendChild(mainDiv);
+    if (svc.description) {
+      const descDiv = document.createElement('div');
+      descDiv.className = 'service-description';
+      descDiv.textContent = svc.description;
+      btn.appendChild(descDiv);
+    }
     const subDiv = document.createElement('div');
     subDiv.className = 'service-sub';
-    subDiv.textContent = svc.price > 0 ? formatPrice(svc.price, state.currency) : t('booking_price_in_app');
-    btn.appendChild(mainDiv);
+    if (svc.showPrice) {
+      subDiv.textContent = svc.price > 0 ? formatPrice(svc.price, state.currency) : t('booking_price_in_app');
+    }
     btn.appendChild(subDiv);
     btn.addEventListener('click', () => {
       state.selectedService = svc;
@@ -622,12 +630,14 @@ async function init() {
 
     state.services = servicesSnap.docs
       .map(d => ({ id: d.id, ...d.data() }))
-      .filter(s => s.isDeleted !== true)
+      .filter(s => s.isDeleted !== true && s.showService !== false)
       .map(s => ({
         id: s.id,
         name: s.nume || '',
         durationMinutes: Number(s.durataMinute || 0),
-        price: Number(s.pret || 0)
+        price: Number(s.pret || 0),
+        showPrice: s.showPrice !== false,
+        description: s.serviceDescription || ''
       }))
       .filter(s => s.name && s.durationMinutes > 0)
       .sort((a, b) => a.name.localeCompare(b.name));
