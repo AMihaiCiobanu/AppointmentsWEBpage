@@ -9,7 +9,7 @@
   <script>
     (function () {
       var saved;
-      try { saved = localStorage.getItem('theme'); } catch (_) {}
+      try { saved = localStorage.getItem('theme'); } catch (_) { }
       var theme = saved || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
     })();
@@ -57,6 +57,7 @@
             <button type="button" class="lang-option" data-lang="bg">🇧🇬 Български</button>
             <button type="button" class="lang-option" data-lang="pl">🇵🇱 Polski</button>
             <button type="button" class="lang-option" data-lang="tr">🇹🇷 Türkçe</button>
+            <button type="button" class="lang-option" data-lang="ru">🇷🇺 Русский</button>
           </div>
         </div>
 
@@ -87,6 +88,7 @@
                 <button type="button" class="lang-option nav-lang-chip" data-lang="bg">BG</button>
                 <button type="button" class="lang-option nav-lang-chip" data-lang="pl">PL</button>
                 <button type="button" class="lang-option nav-lang-chip" data-lang="tr">TR</button>
+                <button type="button" class="lang-option nav-lang-chip" data-lang="ru">RU</button>
               </div>
             </div>
           </div>
@@ -148,8 +150,10 @@
           </div>
         </div>
 
-        <button id="to-step-3" class="btn" style="margin-top: 24px;" disabled data-i18n="booking_continue">Continue</button>
-        <button id="back-to-1" type="button" class="btn-link" data-i18n="booking_back_services">Back to services</button>
+        <button id="to-step-3" class="btn" style="margin-top: 24px;" disabled
+          data-i18n="booking_continue">Continue</button>
+        <button id="back-to-1" type="button" class="btn-link" data-i18n="booking_back_services">Back to
+          services</button>
       </article>
 
       <!-- Step 3: Client Details -->
@@ -158,26 +162,33 @@
         <form id="booking-form">
           <div class="field-group">
             <label class="field-label" for="client-name" data-i18n="booking_full_name">Full Name</label>
-            <input id="client-name" class="input" type="text" placeholder="John Doe" data-i18n-placeholder="booking_full_name_placeholder" required maxlength="80" />
+            <input id="client-name" class="input" type="text" placeholder="John Doe"
+              data-i18n-placeholder="booking_full_name_placeholder" required maxlength="80" />
           </div>
 
           <div style="margin-top: 16px;">
             <label class="field-label" for="client-phone" data-i18n="booking_phone_number">Phone Number</label>
-            <input id="client-phone" class="input" type="tel" placeholder="07xx xxx xxx" data-i18n-placeholder="booking_phone_number_placeholder" required maxlength="20"
+            <input id="client-phone" class="input" type="tel" placeholder="07xx xxx xxx"
+              data-i18n-placeholder="booking_phone_number_placeholder" required maxlength="20"
               pattern="^\+?[\d\s\-]{7,20}$"
               title="Please enter a valid phone number (min 7 digits, may include + or spaces)" />
-            <p id="phone-error" class="error-msg hidden" data-i18n="booking_invalid_phone">Please enter a valid phone number.</p>
+            <p id="phone-error" class="error-msg hidden" data-i18n="booking_invalid_phone">Please enter a valid phone
+              number.</p>
           </div>
 
           <div style="margin-top: 16px;">
             <label class="field-label" for="client-note" data-i18n="booking_note">Note (optional)</label>
-            <textarea id="client-note" class="input" rows="3" placeholder="Anything we should know?" data-i18n-placeholder="booking_note_placeholder"
-              maxlength="250"></textarea>
+            <textarea id="client-note" class="input" rows="3" placeholder="Anything we should know?"
+              data-i18n-placeholder="booking_note_placeholder" maxlength="250"></textarea>
           </div>
 
-          <button id="submit-btn" class="btn" type="submit" disabled style="margin-top: 24px;" data-i18n="booking_confirm">Confirm Appointment</button>
-          <p class="booking-consent-note" data-i18n-html="booking_consent">By submitting, you agree that your details will be shared with the service provider. See <a href="https://appointmentsapps.com/terms.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>.</p>
-          <button id="back-to-2" type="button" class="btn-link" data-i18n="booking_back_time">Back to time selection</button>
+          <button id="submit-btn" class="btn" type="submit" disabled style="margin-top: 24px;"
+            data-i18n="booking_confirm">Confirm Appointment</button>
+          <p class="booking-consent-note" data-i18n-html="booking_consent">By submitting, you agree that your details
+            will be shared with the service provider. See <a href="https://appointmentsapps.com/terms.html"
+              target="_blank" rel="noopener">Terms &amp; Conditions</a>.</p>
+          <button id="back-to-2" type="button" class="btn-link" data-i18n="booking_back_time">Back to time
+            selection</button>
         </form>
       </article>
     </section>
@@ -185,24 +196,31 @@
     <section id="state-success" class="card state hidden" style="text-align: center; padding: 48px 24px;">
       <div class="state-success-icon">✓</div>
       <h2 style="justify-content: center;" data-i18n="booking_success_title">Request Sent!</h2>
-      <p style="color: var(--muted); font-size: 1.1rem;" data-i18n="booking_success_p">Your booking request was sent successfully. We will contact you
+      <p style="color: var(--muted); font-size: 1.1rem;" data-i18n="booking_success_p">Your booking request was sent
+        successfully. We will contact you
         shortly to confirm.</p>
-      <button onclick="location.reload()" class="btn" style="max-width: 200px; margin-top: 32px;" data-i18n="booking_new">New Booking</button>
+      <button onclick="location.reload()" class="btn" style="max-width: 200px; margin-top: 32px;"
+        data-i18n="booking_new">New Booking</button>
     </section>
   </main>
 
   <div id="toast" class="toast hidden" role="alert" aria-live="assertive"></div>
 
   <footer class="booking-footer">
-    <a href="https://www.instagram.com/appointmentsapp" target="_blank" rel="noopener noreferrer" class="booking-footer-ig" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <a href="https://www.instagram.com/appointmentsapp" target="_blank" rel="noopener noreferrer"
+      class="booking-footer-ig" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"
+        stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
         <circle cx="12" cy="12" r="4"></circle>
         <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"></circle>
       </svg>
       @appointmentsapp
     </a>
-    <p>© 2026 SOFTAPPS S.R.L. &nbsp;·&nbsp; <a href="https://appointmentsapps.com/terms.html" target="_blank" rel="noopener" data-i18n="footer_terms">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="https://appointmentsapps.com/privacy-policy.html" target="_blank" rel="noopener" data-i18n="footer_privacy">Privacy Policy</a></p>
+    <p>© 2026 SOFTAPPS S.R.L. &nbsp;·&nbsp; <a href="https://appointmentsapps.com/terms.html" target="_blank"
+        rel="noopener" data-i18n="footer_terms">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a
+        href="https://appointmentsapps.com/privacy-policy.html" target="_blank" rel="noopener"
+        data-i18n="footer_privacy">Privacy Policy</a></p>
   </footer>
 
   <script src="../i18n.js"></script>
