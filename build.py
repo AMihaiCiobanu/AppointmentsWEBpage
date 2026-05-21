@@ -33,6 +33,7 @@ LANGS = {
     'bg': {'hreflang': 'bg',    'url': f'{BASE_URL}/bg/'},
     'pl': {'hreflang': 'pl',    'url': f'{BASE_URL}/pl/'},
     'tr': {'hreflang': 'tr',    'url': f'{BASE_URL}/tr/'},
+    'ru': {'hreflang': 'ru',    'url': f'{BASE_URL}/ru/'},
 }
 
 # Human-readable button labels (main dropdown)
@@ -46,12 +47,13 @@ LANG_LABELS = {
     'bg': '🇧🇬 Български',
     'pl': '🇵🇱 Polski',
     'tr': '🇹🇷 Türkçe',
+    'ru': '🇷🇺 Русский',
 }
 
 # Short chip labels (mobile nav)
 LANG_CHIPS = {
     'en': 'EN', 'ro': 'RO', 'es': 'ES', 'fr': 'FR',
-    'it': 'IT', 'pt': 'PT', 'bg': 'BG', 'pl': 'PL', 'tr': 'TR',
+    'it': 'IT', 'pt': 'PT', 'bg': 'BG', 'pl': 'PL', 'tr': 'TR', 'ru': 'RU',
 }
 
 
