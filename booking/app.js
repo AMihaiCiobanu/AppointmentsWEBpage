@@ -587,7 +587,7 @@ async function submitBooking(e) {
 const CURRENCY_SYMBOLS = {
   RON: 'lei', EUR: '€', GBP: '£', USD: '$', BRL: 'R$', CHF: 'Fr', HUF: 'Ft', BGN: 'лв', PLN: 'zł',
   INR: '₹', TRY: '₺', SEK: 'kr', NOK: 'kr', DKK: 'kr', CZK: 'Kč', AED: 'د.إ',
-  RUB: '₽', KZT: '₸', KGS: 'с'
+  RUB: '₽', KZT: '₸', KGS: 'с', UZS: "so'm"
 };
 
 function formatPrice(amount, currencyCode) {
