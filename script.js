@@ -155,6 +155,54 @@ scrollTopBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+// Scroll progress bar
+(function () {
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    document.body.appendChild(bar);
+    let ticking = false;
+    function update() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = max > 0 ? window.scrollY / max : 0;
+        bar.style.transform = `scaleX(${progress})`;
+        scrollTopBtn?.style.setProperty('--scroll-progress', (progress * 100).toFixed(1) + '%');
+        ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+        }
+    }, { passive: true });
+    update();
+})();
+
+// Subtle 3D tilt on the hero phone — desktop pointers only
+(function () {
+    const hero = document.querySelector('.hero');
+    const screen = document.querySelector('.hero .iphone-mockup .screen');
+    if (!hero || !screen) return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const MAX_TILT = 7; // degrees
+
+    hero.addEventListener('mousemove', e => {
+        const rect = screen.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        const clamp = v => Math.max(-1.5, Math.min(1.5, v));
+        screen.style.transform =
+            `rotateY(${clamp(dx) * MAX_TILT}deg) rotateX(${-clamp(dy) * MAX_TILT}deg)`;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+        screen.style.transform = '';
+    });
+})();
+
 // Contact links — assemble mailto at runtime so the address isn't in plain HTML
 (function () {
     const u = atob('Y29udGFjdA==');   // contact

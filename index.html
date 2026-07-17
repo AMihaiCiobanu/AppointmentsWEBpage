@@ -604,9 +604,8 @@
                         <li data-i18n-html="security_li3"><strong>Fully localised:</strong> Available in English,
                             Romanian, Spanish, Portuguese
                             (Brazil), French, Italian, Bulgarian, Polish, Turkish and Russian — with support for RON,
-                            EUR, GBP,
-                            USD, BRL,
-                            CHF, HUF, BGN, PLN, INR, TRY, SEK, NOK, DKK, CZK, AED, RUB, KZT and KGS.</li>
+                            EUR, GBP, USD, BRL, CHF, HUF, BGN, PLN, INR, TRY, SEK, NOK, DKK, CZK, AED, RUB, KZT, KGS and
+                            UZS.</li>
                     </ul>
                 </div>
                 <div class="iphone-mockup iphone-mockup-settings">
@@ -788,13 +787,13 @@
                         <li data-i18n="free_f2">Client management with full history</li>
                         <li data-i18n="free_f3">Service management & subscriptions</li>
                         <li data-i18n="free_f4">Birthday reminders</li>
-                        <li data-i18n="free_f5">SMS & WhatsApp confirmation messages</li>
                         <li data-i18n="free_f6">Time off & vacation management</li>
                         <li class="unavailable" data-i18n="free_f7">Financial reports</li>
                         <li class="unavailable" data-i18n="free_f8">Cloud backup & sync</li>
                         <li class="unavailable" data-i18n="free_f9">Custom reminders</li>
                         <li class="unavailable" data-i18n="free_f10">Data export & import</li>
                         <li class="unavailable" data-i18n="free_f11">Price list sharing</li>
+                        <li class="unavailable" data-i18n="free_f5">SMS & WhatsApp confirmation messages</li>
                     </ul>
                     <div class="store-badges-row">
                         <a href="https://apps.apple.com/app/appointments-reports/id6763657782" class="google-play-badge"
@@ -843,6 +842,7 @@
                         <li data-i18n="pro_f7">Price list & social media sharing</li>
                         <li data-i18n="pro_f8">Profit, income & expenses calendar views</li>
                         <li data-i18n="pro_f9">Top client rankings by visit frequency</li>
+                        <li data-i18n="pro_f10">SMS & WhatsApp confirmation messages</li>
                     </ul>
                     <div class="store-badges-row">
                         <a href="https://apps.apple.com/app/appointments-reports/id6763657782" class="google-play-badge"
@@ -897,7 +897,8 @@
                         <p data-i18n-html="faq_trial_a">On both <strong>Android</strong> and <strong>iOS</strong>, you
                             start on the Free plan — no payment method, no expiry. When you subscribe to Pro, your first
                             7 days are free; you can cancel anytime within those 7 days under Google Play / App Store
-                            rules and you won't be charged. If you cancel or your subscription ends, the app simply stays
+                            rules and you won't be charged. If you cancel or your subscription ends, the app simply
+                            stays
                             on the Free plan — nothing disappears. You keep your appointments, clients, and services
                             forever, at no cost.</p>
                     </div>
@@ -1049,9 +1050,11 @@
                 <p class="website-examples-intro" data-i18n="website_examples">A few examples of sites we've built:</p>
                 <ul class="website-examples-list">
                     <li><a href="https://www.silviaskinstudio.co.uk" target="_blank" rel="noopener noreferrer">Silvia
-                            Skin Studio</a> – <span data-i18n="example_silvia_desc">skincare &amp; massage, UK</span></li>
+                            Skin Studio</a> – <span data-i18n="example_silvia_desc">skincare &amp; massage, UK</span>
+                    </li>
                     <li><a href="https://popasuldrumetuluibucovina.ro" target="_blank" rel="noopener noreferrer">Popasul
-                            Drumețului</a> – <span data-i18n="example_popasul_desc">traditional restaurant, Bucovina</span></li>
+                            Drumețului</a> – <span data-i18n="example_popasul_desc">traditional restaurant,
+                            Bucovina</span></li>
                 </ul>
 
                 <a href="https://softsapps.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"
@@ -1133,7 +1136,23 @@
             <p class="footer-madeby">
                 <a href="https://softsapps.com" target="_blank" rel="noopener" aria-label="Made by SoftApps">
                     <span class="madeby-label">Made by</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" role="img" aria-label="SoftApps"><defs><linearGradient id="saLogo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="0.5" stop-color="#7c3aed"/><stop offset="1" stop-color="#ec4899"/></linearGradient></defs><rect x="6" y="14" width="72" height="72" rx="20" fill="#0a0e1a"/><rect x="6" y="14" width="72" height="72" rx="20" fill="none" stroke="url(#saLogo)" stroke-width="2.5"/><path d="M56 38 C56 31 49 29 42 29 C34 29 28 32 28 39 C28 47 37 49 42 51 C47 53 56 55 56 63 C56 70 48 72 42 72 C35 72 28 70 28 62" fill="none" stroke="url(#saLogo)" stroke-width="8" stroke-linecap="round"/><text x="96" y="62" font-family="'Space Grotesk', system-ui, sans-serif" font-size="42" font-weight="700" fill="currentColor">Soft<tspan fill="url(#saLogo)">Apps</tspan></text></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 100" role="img" aria-label="SoftApps">
+                        <defs>
+                            <linearGradient id="saLogo" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#22d3ee" />
+                                <stop offset="0.5" stop-color="#7c3aed" />
+                                <stop offset="1" stop-color="#ec4899" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="6" y="14" width="72" height="72" rx="20" fill="#0a0e1a" />
+                        <rect x="6" y="14" width="72" height="72" rx="20" fill="none" stroke="url(#saLogo)"
+                            stroke-width="2.5" />
+                        <path
+                            d="M56 38 C56 31 49 29 42 29 C34 29 28 32 28 39 C28 47 37 49 42 51 C47 53 56 55 56 63 C56 70 48 72 42 72 C35 72 28 70 28 62"
+                            fill="none" stroke="url(#saLogo)" stroke-width="8" stroke-linecap="round" /><text x="96"
+                            y="62" font-family="'Space Grotesk', system-ui, sans-serif" font-size="42" font-weight="700"
+                            fill="currentColor">Soft<tspan fill="url(#saLogo)">Apps</tspan></text>
+                    </svg>
                 </a>
             </p>
         </div>
