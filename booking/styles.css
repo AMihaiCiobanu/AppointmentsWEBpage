@@ -14,6 +14,10 @@
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg:
     0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Service group headings, matching the Services screen in the apps: blue, purple, orange. */
+  --group-standard: #2563eb;
+  --group-subscription: #7c3aed;
+  --group-class: #ea580c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +33,9 @@
     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
     --shadow-lg:
       0 10px 15px -3px rgb(0 0 0 / 0.45), 0 4px 6px -4px rgb(0 0 0 / 0.35);
+    --group-standard: #58a6ff;
+    --group-subscription: #c084fc;
+    --group-class: #fb923c;
   }
 }
 
@@ -44,6 +51,9 @@
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
   --shadow-lg:
     0 10px 15px -3px rgb(0 0 0 / 0.45), 0 4px 6px -4px rgb(0 0 0 / 0.35);
+  --group-standard: #58a6ff;
+  --group-subscription: #c084fc;
+  --group-class: #fb923c;
 }
 
 * {
@@ -227,6 +237,45 @@ body {
 .service-list {
   display: grid;
   gap: 12px;
+}
+
+/* Group heading inside the service list. A grid child, so it spans the single column and the
+   list keeps its own gap. */
+.service-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--group-color, var(--muted));
+}
+
+/* A short rule in the same hue carries the colour across the row without shouting. */
+.service-group-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.25;
+}
+
+.service-group-standard {
+  --group-color: var(--group-standard);
+}
+
+.service-group-subscription {
+  --group-color: var(--group-subscription);
+}
+
+.service-group-class {
+  --group-color: var(--group-class);
+}
+
+.service-group-title:first-child {
+  margin-top: 0;
 }
 
 .service-btn {
@@ -424,6 +473,14 @@ body {
   -webkit-text-fill-color: #ffffff;
 }
 
+/* A full slot stays visible so the client can see why it is unavailable. */
+.slot-btn.full {
+  cursor: not-allowed;
+  opacity: 0.55;
+  border-style: dashed;
+  font-size: 0.78rem;
+}
+
 /* Buttons */
 .btn {
   width: 100%;
@@ -603,6 +660,18 @@ body {
 
   .slots {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 14px: at the desktop size a long service name wraps and drags the duration onto a second
+     line with it. */
+  .service-main,
+  .service-sub {
+    font-size: 0.875rem;
+  }
+
+  /* Only the name may wrap; the duration stays on one line next to it. */
+  .service-main span:last-child {
+    white-space: nowrap;
   }
 }
 

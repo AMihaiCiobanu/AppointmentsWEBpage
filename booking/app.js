@@ -41,6 +41,11 @@ const db = getFirestore(app);
 
 let cachedBookingPublic = null;
 const slotsCache = new Map(); // key: dateISO, value: { timeOffRows, busySlots, fetchedAt }
+// Class occurrences are fetched per service with an equality-only query (no composite index
+// needed) and filtered by day here.
+// Every upcoming class occurrence of this account, fetched once. Occurrences already held are
+// never transferred: a weekly class accumulates one document per week forever.
+let cachedUpcomingSessions = null; // { rows, fetchedAt }
 const SLOTS_CACHE_TTL_MS = 30_000;
 
 const state = {
@@ -53,6 +58,7 @@ const state = {
   selectedDate: null,
   selectedSlotStart: null,
   selectedSlotEnd: null,
+  selectedClassSessionId: '',
   workingRange: null,
   slots: [],
   currentStep: 1,
@@ -253,46 +259,75 @@ async function loadLink() {
 }
 
 
+// Same grouping, order and wording as the Services screen in the apps.
+const SERVICE_GROUPS = [
+  { labelKey: 'booking_group_standard', className: 'service-group-standard', match: s => !s.isClass && !s.isSubscription },
+  { labelKey: 'booking_group_subscriptions', className: 'service-group-subscription', match: s => s.isSubscription },
+  { labelKey: 'booking_group_classes', className: 'service-group-class', match: s => s.isClass }
+];
+
 function renderServices() {
   el.services.innerHTML = '';
-  for (const svc of state.services) {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = `service-btn ${state.selectedService?.id === svc.id ? 'active' : ''}`;
-    const mainDiv = document.createElement('div');
-    mainDiv.className = 'service-main';
-    const nameSpan = document.createElement('span');
-    nameSpan.textContent = svc.name;
-    const durSpan = document.createElement('span');
-    durSpan.textContent = `${svc.durationMinutes} ${t('booking_minutes_suffix')}`;
-    mainDiv.appendChild(nameSpan);
-    mainDiv.appendChild(durSpan);
-    btn.appendChild(mainDiv);
-    if (svc.description) {
-      const descDiv = document.createElement('div');
-      descDiv.className = 'service-description';
-      descDiv.textContent = svc.description;
-      btn.appendChild(descDiv);
+
+  const groups = SERVICE_GROUPS
+    .map(group => ({ ...group, items: state.services.filter(group.match) }))
+    .filter(group => group.items.length > 0);
+
+  // One heading above the whole list would be noise: label the groups only once the list is
+  // actually split into more than one.
+  const showHeadings = groups.length > 1;
+
+  for (const group of groups) {
+    if (showHeadings) {
+      const title = document.createElement('h3');
+      title.className = `service-group-title ${group.className}`;
+      title.textContent = t(group.labelKey);
+      el.services.appendChild(title);
     }
-    const subDiv = document.createElement('div');
-    subDiv.className = 'service-sub';
-    if (svc.showPrice) {
-      subDiv.textContent = svc.price > 0 ? formatPrice(svc.price, state.currency) : t('booking_price_in_app');
+    for (const svc of group.items) {
+      el.services.appendChild(createServiceButton(svc));
     }
-    btn.appendChild(subDiv);
-    btn.addEventListener('click', () => {
-      state.selectedService = svc;
-      state.selectedSlotStart = null;
-      state.selectedSlotEnd = null;
-      renderServices();
-      renderSlots();
-      void loadSlotsForSelectedDate();
-      updateValidation();
-      // Auto-advance to next step
-      setTimeout(() => goToStep(2), 300);
-    });
-    el.services.appendChild(btn);
   }
+}
+
+function createServiceButton(svc) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = `service-btn ${state.selectedService?.id === svc.id ? 'active' : ''}`;
+  const mainDiv = document.createElement('div');
+  mainDiv.className = 'service-main';
+  const nameSpan = document.createElement('span');
+  nameSpan.textContent = svc.name;
+  const durSpan = document.createElement('span');
+  durSpan.textContent = `${svc.durationMinutes} ${t('booking_minutes_suffix')}`;
+  mainDiv.appendChild(nameSpan);
+  mainDiv.appendChild(durSpan);
+  btn.appendChild(mainDiv);
+  if (svc.description) {
+    const descDiv = document.createElement('div');
+    descDiv.className = 'service-description';
+    descDiv.textContent = svc.description;
+    btn.appendChild(descDiv);
+  }
+  const subDiv = document.createElement('div');
+  subDiv.className = 'service-sub';
+  if (svc.showPrice) {
+    subDiv.textContent = svc.price > 0 ? formatPrice(svc.price, state.currency) : t('booking_price_in_app');
+  }
+  btn.appendChild(subDiv);
+  btn.addEventListener('click', () => {
+    state.selectedService = svc;
+    state.selectedSlotStart = null;
+    state.selectedSlotEnd = null;
+    state.selectedClassSessionId = '';
+    renderServices();
+    renderSlots();
+    void loadSlotsForSelectedDate();
+    updateValidation();
+    // Auto-advance to next step
+    setTimeout(() => goToStep(2), 300);
+  });
+  return btn;
 }
 
 function getMinDateISO() {
@@ -384,9 +419,88 @@ async function loadBusySlots(dateISO) {
       const duration = Number(row.durataMinute || 0);
       if (duration <= 0) return null;
       const endDate = new Date(startDate.getTime() + duration * 60000);
-      return { start: startDate, end: endDate };
+      return {
+        start: startDate,
+        end: endDate,
+        serviceId: row.serviceId || '',
+        classSessionId: row.classSessionId || '',
+        // Missing field means blocking: docs written before this release, and by older
+        // app versions, must keep holding their slot.
+        blocking: row.blocking !== false
+      };
     })
     .filter(Boolean);
+}
+
+// Docs that hold the slot for everybody (normal appointments, and the one doc a class
+// occurrence writes for its own window).
+function hardBusy(rows) {
+  return rows.filter(r => r.blocking);
+}
+
+// Docs that block nobody and only count towards a capacity.
+function capacityCounters(rows) {
+  return rows.filter(r => !r.blocking);
+}
+
+function countForClassSession(rows, sessionId) {
+  return capacityCounters(rows).filter(r => r.classSessionId === sessionId).length;
+}
+
+function countOverlappingForService(rows, serviceId, start, end) {
+  return capacityCounters(rows).filter(
+    r => r.serviceId === serviceId && slotOverlaps(start, end, r.start, r.end)
+  ).length;
+}
+
+function isFull(enrolled, maxPeople) {
+  return maxPeople > 0 && enrolled >= maxPeople;
+}
+
+async function loadUpcomingClassSessions() {
+  if (cachedUpcomingSessions && Date.now() - cachedUpcomingSessions.fetchedAt < SLOTS_CACHE_TTL_MS) {
+    return cachedUpcomingSessions.rows;
+  }
+
+  const dayStart = new Date();
+  dayStart.setHours(0, 0, 0, 0);
+
+  const colRef = collection(db, `users/${state.uid}/classSessions`);
+  // A range on one field only, so Firestore serves it from the automatic single-field index —
+  // an equality on serviceId plus this range would need a composite index to be configured.
+  // Filtering per service happens below, on a list that is already small.
+  const qy = query(colRef, where('startDate', '>=', Timestamp.fromDate(dayStart)));
+  const snap = await getDocs(qy);
+  const rows = snap.docs
+    .map(d => ({ id: d.id, ...d.data() }))
+    .filter(row => row.isDeleted !== true)
+    .map(row => {
+      const start = row.startDate?.toDate?.();
+      const end = row.endDate?.toDate?.();
+      if (!start || !end || end <= start) return null;
+      return {
+        id: row.id,
+        serviceId: row.serviceId || '',
+        start,
+        end,
+        maxPeople: Number(row.maxPeople || 0)
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.start - b.start);
+
+  cachedUpcomingSessions = { rows, fetchedAt: Date.now() };
+  return rows;
+}
+
+function sessionsForService(rows, serviceId) {
+  return rows.filter(row => row.serviceId === serviceId);
+}
+
+function sessionsOnDate(rows, dateISO) {
+  const dayStart = toDayBoundary(dateISO, false);
+  const dayEnd = toDayBoundary(dateISO, true);
+  return rows.filter(r => r.start >= dayStart && r.start <= dayEnd);
 }
 
 async function loadSlotsForSelectedDate() {
@@ -420,7 +534,7 @@ async function loadSlotsForSelectedDate() {
     state.workingRange = workingRange;
     const { start, end } = workingRange;
 
-    if (end <= start) {
+    if (end <= start && !state.selectedService.isClass) {
       state.slots = [];
       renderSlots();
       return;
@@ -433,13 +547,36 @@ async function loadSlotsForSelectedDate() {
       return;
     }
 
-    const busy = [...busySlotsFromDB, ...partialTimeOffBusySlots(timeOffRows)];
+    const now = new Date();
+
+    // A class is not a grid of slots: it runs when the owner scheduled it, and the only
+    // thing that can close it is its capacity. Overlapping appointments are the owner's
+    // business — hiding the class because of one would leave clients with nothing to book.
+    if (state.selectedService.isClass) {
+      const upcoming = sessionsForService(await loadUpcomingClassSessions(), state.selectedService.id);
+      const sessionRows = sessionsOnDate(upcoming, state.selectedDate);
+      state.slots = sessionRows
+        .filter(session => session.start > now)
+        .map(session => {
+          const enrolled = countForClassSession(busySlotsFromDB, session.id);
+          return {
+            startDate: session.start,
+            endDate: session.end,
+            classSessionId: session.id,
+            full: isFull(enrolled, session.maxPeople),
+            label: `${String(session.start.getHours()).padStart(2, '0')}:${String(session.start.getMinutes()).padStart(2, '0')}`
+          };
+        });
+      renderSlots();
+      return;
+    }
+
+    const busy = [...hardBusy(busySlotsFromDB), ...partialTimeOffBusySlots(timeOffRows)];
     const duration = state.selectedService.durationMinutes;
     const interval = 30;
 
     const [y, m, d] = state.selectedDate.split('-').map(Number);
     const dayBase = new Date(y, m - 1, d, 0, 0, 0, 0);
-    const now = new Date();
 
     const slots = [];
     for (let startMin = start; startMin + duration <= end; startMin += interval) {
@@ -449,13 +586,25 @@ async function loadSlotsForSelectedDate() {
       if (slotStart <= now) continue;
 
       const blocked = busy.some(b => slotOverlaps(slotStart, slotEnd, b.start, b.end));
-      if (!blocked) {
-        slots.push({
-          startDate: slotStart,
-          endDate: slotEnd,
-          label: `${String(slotStart.getHours()).padStart(2, '0')}:${String(slotStart.getMinutes()).padStart(2, '0')}`
-        });
+      if (blocked) continue;
+
+      // A service that does not hold the slot can still have a cap. The slot is shown as
+      // full rather than hidden, so the client can see why it is not available.
+      let full = false;
+      if (state.selectedService.maxPeople > 0) {
+        const taken = countOverlappingForService(
+          busySlotsFromDB, state.selectedService.id, slotStart, slotEnd
+        );
+        full = isFull(taken, state.selectedService.maxPeople);
       }
+
+      slots.push({
+        startDate: slotStart,
+        endDate: slotEnd,
+        classSessionId: '',
+        full,
+        label: `${String(slotStart.getHours()).padStart(2, '0')}:${String(slotStart.getMinutes()).padStart(2, '0')}`
+      });
     }
 
     state.slots = slots;
@@ -487,7 +636,15 @@ function renderSlots() {
     return;
   }
 
-  if (state.workingRange && state.workingRange.end > state.workingRange.start) {
+  // A class runs on its own schedule, so the day's working window says nothing about it.
+  if (state.selectedService.isClass) {
+    if (state.slots.length === 0) {
+      el.workingHours.textContent = t('booking_no_class_sessions');
+      el.workingHours.classList.remove('hidden');
+      el.slotsEmptyState.classList.remove('hidden');
+      return;
+    }
+  } else if (state.workingRange && state.workingRange.end > state.workingRange.start) {
     el.workingHours.textContent = `🕒 ${t('booking_working_hours')}: ${fmtHHmmFromMinutes(state.workingRange.start)} - ${fmtHHmmFromMinutes(state.workingRange.end)}`;
     el.workingHours.classList.remove('hidden');
   } else {
@@ -506,14 +663,22 @@ function renderSlots() {
     const btn = document.createElement('button');
     btn.type = 'button';
     const isActive = state.selectedSlotStart?.getTime?.() === slot.startDate.getTime();
-    btn.className = `slot-btn ${isActive ? 'active' : ''}`;
-    btn.textContent = slot.label;
-    btn.addEventListener('click', () => {
-      state.selectedSlotStart = slot.startDate;
-      state.selectedSlotEnd = slot.endDate;
-      renderSlots();
-      updateValidation();
-    });
+    // Full slots stay on the page, disabled: a missing slot looks like a mistake, a
+    // "Class Full" one explains itself.
+    btn.className = `slot-btn ${isActive ? 'active' : ''} ${slot.full ? 'full' : ''}`;
+    btn.disabled = !!slot.full;
+    btn.textContent = slot.full
+      ? `${slot.label} · ${state.selectedService.isClass ? t('booking_class_full') : t('booking_slot_full')}`
+      : slot.label;
+    if (!slot.full) {
+      btn.addEventListener('click', () => {
+        state.selectedSlotStart = slot.startDate;
+        state.selectedSlotEnd = slot.endDate;
+        state.selectedClassSessionId = slot.classSessionId || '';
+        renderSlots();
+        updateValidation();
+      });
+    }
     el.slots.appendChild(btn);
   }
 }
@@ -526,13 +691,22 @@ async function submitBooking(e) {
   const clientPhone = el.phone.value.trim();
   const note = el.note.value.trim();
 
+  const durationMinutes = Math.max(
+    1,
+    Math.round((state.selectedSlotEnd - state.selectedSlotStart) / 60000)
+  );
+  const classSessionId = state.selectedClassSessionId || '';
+
   const payload = {
     uid: state.uid,
     clientName,
     clientPhone,
     serviceId: state.selectedService.id,
     serviceName: state.selectedService.name,
-    serviceDuration: state.selectedService.durationMinutes,
+    // A class runs for as long as the owner scheduled it, which need not equal the
+    // service duration.
+    serviceDuration: state.selectedService.isClass ? durationMinutes : state.selectedService.durationMinutes,
+    classSessionId,
     startDate: Timestamp.fromDate(state.selectedSlotStart),
     endDate: Timestamp.fromDate(state.selectedSlotEnd),
     note: note || null,
@@ -547,15 +721,32 @@ async function submitBooking(e) {
   try {
     await getToken(appCheck, /* forceRefresh */ true);
 
-    // Re-fetch busy slots immediately before writing to catch concurrent bookings
+    // Re-fetch immediately before writing to catch concurrent bookings. A class checks its
+    // capacity instead of the wall clock — its own blocking doc would always "conflict".
     const freshBusy = await loadBusySlots(state.selectedDate);
-    const conflict = freshBusy.some(b =>
-      slotOverlaps(state.selectedSlotStart, state.selectedSlotEnd, b.start, b.end)
-    );
+    let conflict;
+    if (state.selectedService.isClass) {
+      const session = sessionsOnDate(sessionsForService(await loadUpcomingClassSessions(), state.selectedService.id), state.selectedDate)
+        .find(row => row.id === classSessionId);
+      conflict = !session || isFull(countForClassSession(freshBusy, classSessionId), session.maxPeople);
+    } else if (state.selectedService.maxPeople > 0) {
+      conflict = isFull(
+        countOverlappingForService(
+          freshBusy, state.selectedService.id, state.selectedSlotStart, state.selectedSlotEnd
+        ),
+        state.selectedService.maxPeople
+      );
+    } else {
+      conflict = hardBusy(freshBusy).some(b =>
+        slotOverlaps(state.selectedSlotStart, state.selectedSlotEnd, b.start, b.end)
+      );
+    }
     if (conflict) {
       slotsCache.delete(state.selectedDate);
+      cachedUpcomingSessions = null;
       state.selectedSlotStart = null;
       state.selectedSlotEnd = null;
+      state.selectedClassSessionId = '';
       goToStep(2);
       await loadSlotsForSelectedDate();
       showToast(t('booking_error_slot_taken'));
@@ -567,8 +758,13 @@ async function submitBooking(e) {
     const batch = writeBatch(db);
     batch.set(doc(db, `users/${state.uid}/pendingBookings`, newId), payload);
     batch.set(doc(db, `users/${state.uid}/sloturiOcupate`, newId), {
-      durataMinute: state.selectedService.durationMinutes,
+      durataMinute: payload.serviceDuration,
       oraStart: Timestamp.fromDate(state.selectedSlotStart),
+      serviceId: state.selectedService.id,
+      classSessionId,
+      // A class enrollment and a non-blocking service only count towards a capacity; the
+      // class window is already held by the occurrence's own doc.
+      blocking: !classSessionId && state.selectedService.occupiesSlot,
       linkId: state.linkId,
       isDeleted: false,
       updatedAt: serverTimestamp()
@@ -638,10 +834,27 @@ async function init() {
         durationMinutes: Number(s.durataMinute || 0),
         price: Number(s.pret || 0),
         showPrice: s.showPrice !== false,
-        description: s.serviceDescription || ''
+        description: s.serviceDescription || '',
+        isClass: s.tipServiciu === 'CLASS',
+        isSubscription: s.tipServiciu === 'SUBSCRIPTION',
+        // Missing means "holds the slot", so services written by older clients keep
+        // behaving exactly as before.
+        occupiesSlot: s.occupiesSlot !== false,
+        maxPeople: Number(s.maxPeople || 0)
       }))
       .filter(s => s.name && s.durationMinutes > 0)
       .sort((a, b) => a.name.localeCompare(b.name));
+
+    // A class whose whole series has already been held cannot be booked on any date, so it is
+    // not offered at all. The apps keep such a class in the owner's catalog for a while; here
+    // it would only be a dead end. A failed read leaves the list untouched rather than hiding
+    // classes that are perfectly bookable.
+    if (state.services.some(s => s.isClass)) {
+      try {
+        const bookable = new Set((await loadUpcomingClassSessions()).map(row => row.serviceId));
+        state.services = state.services.filter(s => !s.isClass || bookable.has(s.id));
+      } catch { /* keep every class listed */ }
+    }
 
     if (state.services.length === 0) {
       showError(t('booking_error_no_services'));
@@ -672,6 +885,7 @@ async function init() {
       updateDateDisplay();
       state.selectedSlotStart = null;
       state.selectedSlotEnd = null;
+      state.selectedClassSessionId = '';
       try {
         await loadSlotsForSelectedDate();
       } catch { /* slots cleared by loadSlotsForSelectedDate's catch */ }
