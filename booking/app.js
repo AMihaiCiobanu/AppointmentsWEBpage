@@ -316,26 +316,53 @@ function createServiceButton(svc) {
   }
   btn.appendChild(subDiv);
   btn.addEventListener('click', () => {
-    state.selectedService = svc;
-    state.selectedSlotStart = null;
-    state.selectedSlotEnd = null;
-    state.selectedClassSessionId = '';
-    renderServices();
-    renderSlots();
-    void loadSlotsForSelectedDate();
-    updateValidation();
-    // Auto-advance to next step
-    setTimeout(() => goToStep(2), 300);
+    void selectService(svc);
   });
   return btn;
 }
 
-function getMinDateISO() {
-  const now = new Date();
-  const yyyy = now.getFullYear();
-  const mm = String(now.getMonth() + 1).padStart(2, '0');
-  const dd = String(now.getDate()).padStart(2, '0');
+async function selectService(svc) {
+  state.selectedService = svc;
+  state.selectedSlotStart = null;
+  state.selectedSlotEnd = null;
+  state.selectedClassSessionId = '';
+  renderServices();
+  renderSlots();
+  updateValidation();
+  // Auto-advance to next step
+  setTimeout(() => goToStep(2), 300);
+
+  // A class runs on the owner's own schedule, so today is almost never the day it is held:
+  // move the date field to its next occurrence rather than showing an empty list. A failed
+  // read leaves the date where it was — the class is still bookable by picking the day.
+  if (svc.isClass) {
+    try {
+      const dateISO = firstUpcomingSessionDateISO(await loadUpcomingClassSessions(), svc.id);
+      // The client may have picked another service while the read was in flight.
+      if (dateISO && state.selectedService?.id === svc.id && dateISO !== state.selectedDate) {
+        state.selectedDate = dateISO;
+        el.dateInput.value = dateISO;
+        updateDateDisplay();
+      }
+    } catch { /* keep the current date */ }
+    if (state.selectedService?.id !== svc.id) return;
+  }
+
+  try {
+    await loadSlotsForSelectedDate();
+  } catch { /* slots cleared by loadSlotsForSelectedDate's catch */ }
+  updateValidation();
+}
+
+function toISODate(date) {
+  const yyyy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
   return `${yyyy}-${mm}-${dd}`;
+}
+
+function getMinDateISO() {
+  return toISODate(new Date());
 }
 
 function slotOverlaps(aStart, aEnd, bStart, bEnd) {
@@ -438,7 +465,8 @@ function hardBusy(rows) {
   return rows.filter(r => r.blocking);
 }
 
-// Docs that block nobody and only count towards a capacity.
+// Docs that block nobody else booking the SAME service, and only count towards a capacity.
+// They still hold the slot against every other service — see slotTakenBy.
 function capacityCounters(rows) {
   return rows.filter(r => !r.blocking);
 }
@@ -455,6 +483,17 @@ function countOverlappingForService(rows, serviceId, start, end) {
 
 function isFull(enrolled, maxPeople) {
   return maxPeople > 0 && enrolled >= maxPeople;
+}
+
+// Is this window unavailable for `serviceId`? Blocking documents take it from everybody.
+// A capacity counter takes it from everybody EXCEPT the service it was booked for: once a
+// non-blocking service holds an hour, that hour belongs to it, and only more clients of the
+// same service may share it (up to maxPeople). Booking a haircut into an hour already
+// running a group class of another service would double-book the professional.
+function slotTakenBy(rows, serviceId, start, end) {
+  const overlaps = r => slotOverlaps(start, end, r.start, r.end);
+  return hardBusy(rows).some(overlaps)
+    || capacityCounters(rows).some(r => r.serviceId !== serviceId && overlaps(r));
 }
 
 async function loadUpcomingClassSessions() {
@@ -495,6 +534,15 @@ async function loadUpcomingClassSessions() {
 
 function sessionsForService(rows, serviceId) {
   return rows.filter(row => row.serviceId === serviceId);
+}
+
+// The day the class actually runs next, so picking a class can move the date field there
+// instead of leaving the client on a today that holds nothing. Same `start > now` test the
+// slot builder uses, otherwise a class held earlier today would send them to an empty day.
+function firstUpcomingSessionDateISO(rows, serviceId) {
+  const now = new Date();
+  const next = sessionsForService(rows, serviceId).find(row => row.start > now);
+  return next ? toISODate(next.start) : null;
 }
 
 function sessionsOnDate(rows, dateISO) {
@@ -571,7 +619,7 @@ async function loadSlotsForSelectedDate() {
       return;
     }
 
-    const busy = [...hardBusy(busySlotsFromDB), ...partialTimeOffBusySlots(timeOffRows)];
+    const timeOffBusy = partialTimeOffBusySlots(timeOffRows);
     const duration = state.selectedService.durationMinutes;
     const interval = 30;
 
@@ -585,7 +633,8 @@ async function loadSlotsForSelectedDate() {
 
       if (slotStart <= now) continue;
 
-      const blocked = busy.some(b => slotOverlaps(slotStart, slotEnd, b.start, b.end));
+      const blocked = timeOffBusy.some(b => slotOverlaps(slotStart, slotEnd, b.start, b.end))
+        || slotTakenBy(busySlotsFromDB, state.selectedService.id, slotStart, slotEnd);
       if (blocked) continue;
 
       // A service that does not hold the slot can still have a cap. The slot is shown as
@@ -729,17 +778,15 @@ async function submitBooking(e) {
       const session = sessionsOnDate(sessionsForService(await loadUpcomingClassSessions(), state.selectedService.id), state.selectedDate)
         .find(row => row.id === classSessionId);
       conflict = !session || isFull(countForClassSession(freshBusy, classSessionId), session.maxPeople);
-    } else if (state.selectedService.maxPeople > 0) {
-      conflict = isFull(
+    } else {
+      conflict = slotTakenBy(
+        freshBusy, state.selectedService.id, state.selectedSlotStart, state.selectedSlotEnd
+      ) || (state.selectedService.maxPeople > 0 && isFull(
         countOverlappingForService(
           freshBusy, state.selectedService.id, state.selectedSlotStart, state.selectedSlotEnd
         ),
         state.selectedService.maxPeople
-      );
-    } else {
-      conflict = hardBusy(freshBusy).some(b =>
-        slotOverlaps(state.selectedSlotStart, state.selectedSlotEnd, b.start, b.end)
-      );
+      ));
     }
     if (conflict) {
       slotsCache.delete(state.selectedDate);
