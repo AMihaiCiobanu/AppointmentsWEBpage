@@ -138,9 +138,10 @@
                         <span data-i18n="nav_menu">Meniu</span>
                     </button>
                     <div class="nav-menu-dropdown" id="nav-menu-dropdown">
-                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">Cum funcționează</a>
-                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Funcționalități</a>
                         <a href="#online-booking" class="nav-menu-item" data-i18n="nav_online_booking">Rezervări Online</a>
+                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">Cum funcționează</a>
+                        <a href="#tour" class="nav-menu-item" data-i18n="nav_tour">Turul aplicației</a>
+                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Funcționalități</a>
                         <a href="#pricing" class="nav-menu-item" data-i18n="nav_pricing">Prețuri</a>
                         <a href="#faq" class="nav-menu-item" data-i18n="nav_faq">Întrebări frecvente</a>
                         <a href="#demo" class="nav-menu-item" data-i18n="nav_contact">Contact</a>
@@ -234,12 +235,35 @@
                 </div>
             </div>
 
-            <div class="iphone-mockup">
-                <div class="screen">
-                    <img src="/assets/appointmentDark.png" alt="Screenshot aplicație - Calendar programări"
-                        data-i18n-alt="Screenshot aplicație - Calendar programări" class="iphone-screenshot theme-img-dark">
-                    <img src="/assets/appointmentLight.png" alt="Screenshot aplicație - Calendar programări"
-                        data-i18n-alt="Screenshot aplicație - Calendar programări" class="iphone-screenshot theme-img-light">
+            <div class="hero-visual">
+                <div class="phone-frame hero-phone-back" aria-hidden="true">
+                    <img src="/assets/app/phone-report-year.jpg" alt="" width="660" height="1434">
+                </div>
+                <div class="iphone-mockup hero-phone-main">
+                    <div class="screen">
+                        <img src="/assets/app/phone-calendar.jpg" alt="Screenshot aplicație - Calendar programări"
+                            data-i18n-alt="Screenshot aplicație - Calendar programări" class="iphone-screenshot" width="660" height="1434">
+                    </div>
+                </div>
+                <div class="hero-float hero-float-1" aria-hidden="true">
+                    <span class="hero-float-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </span>
+                    <span data-i18n="hero_chip1">Cerere nouă de programare</span>
+                </div>
+                <div class="hero-float hero-float-2" aria-hidden="true">
+                    <span class="hero-float-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </span>
+                    <span data-i18n="hero_chip2">Profit mai mare decât luna trecută</span>
                 </div>
             </div>
         </div>
@@ -393,19 +417,176 @@
             <p class="section-subtitle" data-animate data-i18n="hiw_subtitle">Fără training. Fără configurare complicată. Descarcă și începe.</p>
             <div class="steps-grid">
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/welcomeDark.png" alt="Ecranul de bun venit al aplicației"
+                            data-i18n-alt="Ecranul de bun venit al aplicației" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">1</div>
                     <h3 data-i18n="step1_h3">Descarcă și autentifică-te</h3>
                     <p data-i18n="step1_p">Ia aplicația din Google Play sau App Store. Autentifică-te cu Google sau Apple dintr-o singură atingere — fără parolă de creat.</p>
                 </div>
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/addServiceStandardDark.png" alt="Adaugă un serviciu cu preț și durată"
+                            data-i18n-alt="Adaugă un serviciu cu preț și durată" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">2</div>
                     <h3 data-i18n="step2_h3">Adaugă serviciile și clienții tăi</h3>
                     <p data-i18n="step2_p">Configurează serviciile pe care le oferi cu prețuri și durate. Importă clienții din contactele tale dintr-o singură atingere.</p>
                 </div>
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/addAppointmentDark.png" alt="Creează o programare nouă"
+                            data-i18n-alt="Creează o programare nouă" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">3</div>
                     <h3 data-i18n="step3_h3">Rezervă, urmărește și crește</h3>
                     <p data-i18n="step3_p">Începe să faci programări. Veniturile sunt urmărite automat. Verifică-ți profitul oricând, în câteva secunde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App tour — real screenshots, one screen at a time -->
+    <section id="tour" class="section-padding bg-surface tour-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-eyebrow" data-i18n="tour_eyebrow">Din interiorul aplicației</span>
+            </div>
+            <h2 class="section-title" data-i18n="tour_h2">Fă un tur al aplicației, ecran cu ecran</h2>
+            <p class="section-subtitle" data-i18n="tour_p">Sunt capturi reale din aplicație — exact ce vei vedea pe telefon din prima zi.</p>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour1_eyebrow">Calendar</span>
+                    <h3 data-i18n="tour1_h3">Toată ziua ta pe un singur ecran</h3>
+                    <p data-i18n="tour1_p">Luna sus, programul de azi dedesubt. Culorile îți arată cât de aglomerată e fiecare zi înainte să apeși pe ea.</p>
+                    <ul class="calendar-legend">
+                        <li><span class="legend-dot green"></span><span data-i18n="tour1_leg_green">Mai ai timp liber</span></li>
+                        <li><span class="legend-dot red"></span><span data-i18n="tour1_leg_red">Aproape plin</span></li>
+                        <li><span class="legend-dot purple"></span><span data-i18n="tour1_leg_purple">Concediu</span>
+                        </li>
+                    </ul>
+                    <ul class="check-list">
+                        <li data-i18n="tour1_li1">Suni, trimiți SMS sau scrii pe WhatsApp unui client direct din programare.</li>
+                        <li data-i18n="tour1_li2">Pauzele, timpul personal și reminderele stau în aceeași listă cu programările.</li>
+                        <li data-i18n="tour1_li3">La clasele de grup vezi câte locuri sunt deja ocupate.</li>
+                        <li data-i18n="tour1_li4">Tu decizi când o zi devine roșie — îți setezi singur pragul de minute libere.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-calendar.jpg"
+                            alt="Ecranul de programări cu luna colorată și programul zilei"
+                            data-i18n-alt="Ecranul de programări cu luna colorată și programul zilei" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour2_eyebrow">Servicii</span>
+                    <h3 data-i18n="tour2_h3">Standard, abonament sau clasă — tu alegi</h3>
+                    <p data-i18n="tour2_p">Fiecare serviciu are prețul și durata lui, iar serviciile sunt grupate pe tipuri, ca lista să rămână ordonată.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour2_li1">Servicii standard pentru programări obișnuite.</li>
+                        <li data-i18n="tour2_li2">Abonamente — pachete de ședințe sau abonamente lunare care se scad singure.</li>
+                        <li data-i18n="tour2_li3">Clase de grup cu program propriu și număr limitat de locuri (Pro).</li>
+                        <li data-i18n="tour2_li4">Trimiți un serviciu sau toată lista de prețuri cu o singură atingere (Pro).</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-services.jpg"
+                            alt="Ecranul de servicii cu servicii standard, abonamente și clase"
+                            data-i18n-alt="Ecranul de servicii cu servicii standard, abonamente și clase" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour3_eyebrow">Clienți</span>
+                    <h3 data-i18n="tour3_h3">Îți cunoști fiecare client înainte să intre pe ușă</h3>
+                    <p data-i18n="tour3_p">Deschizi orice client și ai toată povestea — cât de des vine, cât a cheltuit și câte ședințe mai are pe abonament.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour3_li1">Vizite, total cheltuit, ultima vizită și anulări, chiar sus.</li>
+                        <li data-i18n="tour3_li2">„Revine cam la 21 de zile” — aplicația calculează singură ritmul fiecărui client.</li>
+                        <li data-i18n="tour3_li3">Abonamentele active, cu ședințele rămase și data de expirare, plus programările viitoare și cele trecute.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-client.jpg"
+                            alt="Profil de client cu vizite, total cheltuit și abonamente active"
+                            data-i18n-alt="Profil de client cu vizite, total cheltuit și abonamente active" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="tour4_eyebrow">Programări online</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
+                    <h3 data-i18n="tour4_h3">Cererile de programare ajung direct în aplicație</h3>
+                    <p data-i18n="tour4_p">Clienții se programează din linkul tău, dar tu ai controlul: aprobi sau respingi fiecare cerere cu o atingere.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour4_li1">Creezi mai multe linkuri de programare și le activezi sau dezactivezi oricând.</li>
+                        <li data-i18n="tour4_li2">Clienții văd doar intervalele libere, după programul tău de lucru.</li>
+                        <li data-i18n="tour4_li3">Faci un link privat pentru un singur client și îl dezactivezi după ce s-a programat.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-booking.jpg"
+                            alt="Ecranul de programări online cu linkuri și o cerere în așteptare"
+                            data-i18n-alt="Ecranul de programări online cu linkuri și o cerere în așteptare" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="tour5_eyebrow">Remindere</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
+                    <h3 data-i18n="tour5_h3">Facturi și sarcini pe care nu le mai uiți</h3>
+                    <p data-i18n="tour5_p">Adaugi un reminder cu dată și oră și alegi cât de des se repetă — zilnic, săptămânal, lunar sau anual.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour5_li1">Reminderele restante apar cu roșu în capul zilei până le bifezi.</li>
+                        <li data-i18n="tour5_li2">Perfect pentru chirie, curent, comenzi de materiale sau orice revine lunar.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-reminders.jpg"
+                            alt="Editarea unui reminder lunar pentru factura de curent"
+                            data-i18n-alt="Editarea unui reminder lunar pentru factura de curent" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour6_eyebrow">Setări</span>
+                    <h3 data-i18n="tour6_h3">Configurezi o dată, exact cum lucrezi</h3>
+                    <p data-i18n="tour6_p">Îi spui aplicației cum arată săptămâna ta, iar ea se ocupă de rest — de la intervalele libere la ținta lunară.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour6_li1">Program de lucru pentru fiecare zi a săptămânii, plus concediile.</li>
+                        <li data-i18n="tour6_li2">O țintă lunară de încasări — rapoartele arată cum se compară fiecare lună.</li>
+                        <li data-i18n="tour6_li3">Mesaje SMS și de confirmare personalizate, cu data și ora completate automat.</li>
+                        <li data-i18n="tour6_li4">Temă luminoasă, întunecată sau de sistem, 10 limbi și 20 de monede.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-settings.jpg"
+                            alt="Ecranul de setări cu aspect, limbă, monedă, concedii și program de lucru"
+                            data-i18n-alt="Ecranul de setări cu aspect, limbă, monedă, concedii și program de lucru" loading="lazy" width="660" height="1434">
+                    </div>
                 </div>
             </div>
         </div>
@@ -541,27 +722,51 @@
     <section id="reports" class="section-padding bg-alt">
         <div class="container">
 
-            <div class="split-section" data-animate>
-                <div class="split-content">
-                    <span class="section-eyebrow" data-i18n="reports_eyebrow">Rapoarte financiare</span>
+            <div class="reports-showcase">
+                <div class="reports-head" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="reports_eyebrow">Rapoarte financiare</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
                     <h2 data-i18n="reports_h2">Cunoaște-ți cifrele. Ia decizii mai bune.</h2>
                     <p data-i18n-html="reports_p">Aplicația funcționează ca un <strong>analist financiar personal</strong> pentru afacerea ta — fără costul și complexitatea unui consultant.</p>
-                    <ul class="check-list">
-                        <li data-i18n="reports_li1">Defalcare lunară și anuală: venituri (estimate vs. reale), cheltuieli și profit net — cu comparații față de luna trecută și aceeași lună a anului trecut.</li>
-                        <li data-i18n="reports_li2">Urmărește câte ore și zile ai lucrat efectiv.</li>
-                        <li data-i18n="reports_li3">Identifică cei mai valoroși clienți după frecvența vizitelor.</li>
-                        <li data-i18n="reports_li4">Vezi exact câți clienți nu s-au prezentat și cât te-au costat.</li>
-                    </ul>
                 </div>
-                <div class="iphone-mockup iphone-mockup-report">
-                    <div class="screen">
-                        <img src="/assets/reportMonthDark.png" alt="Screenshot aplicație - Rapoarte financiare lunare"
-                            data-i18n-alt="Screenshot aplicație - Rapoarte financiare lunare" class="iphone-screenshot theme-img-dark" loading="lazy">
-                        <!-- TODO: add reportMonthLight.png -->
-                        <img src="/assets/reportMonthLight.png" alt="Screenshot aplicație - Rapoarte financiare lunare"
-                            data-i18n-alt="Screenshot aplicație - Rapoarte financiare lunare" class="iphone-screenshot theme-img-light" loading="lazy">
-                    </div>
+
+                <div class="report-trio" data-animate>
+                    <figure class="report-shot side">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-months.jpg"
+                                alt="Raport lunar care compară fiecare lună cu cea anterioară și cu ținta"
+                                data-i18n-alt="Raport lunar care compară fiecare lună cu cea anterioară și cu ținta" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_months">Lună cu lună</figcaption>
+                    </figure>
+                    <figure class="report-shot center">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-year.jpg"
+                                alt="Raport anual cu încasări, cheltuieli, profit și graficul încasărilor"
+                                data-i18n-alt="Raport anual cu încasări, cheltuieli, profit și graficul încasărilor" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_year">Anul dintr-o privire</figcaption>
+                    </figure>
+                    <figure class="report-shot side">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-services.jpg"
+                                alt="Raport pe servicii, ordonate după încasări"
+                                data-i18n-alt="Raport pe servicii, ordonate după încasări" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_services">Top servicii</figcaption>
+                    </figure>
                 </div>
+
+                <ul class="check-list reports-list" data-animate>
+                    <li data-i18n="reports_li1">Defalcare lunară și anuală: venituri (estimate vs. reale), cheltuieli și profit net — cu comparații față de luna trecută și aceeași lună a anului trecut.</li>
+                    <li data-i18n="reports_li6">Îți setezi o țintă lunară și vezi dintr-o privire dacă fiecare lună a depășit-o.</li>
+                    <li data-i18n="reports_li5">Îți ordonezi serviciile după încasări sau după încasarea pe oră — și vezi care e cel mai productiv.</li>
+                    <li data-i18n="reports_li2">Urmărește câte ore și zile ai lucrat efectiv.</li>
+                    <li data-i18n="reports_li3">Identifică cei mai valoroși clienți după frecvența vizitelor.</li>
+                    <li data-i18n="reports_li4">Vezi exact câți clienți nu s-au prezentat și cât te-au costat.</li>
+                </ul>
             </div>
 
             <div class="split-section reverse" data-animate>
@@ -575,13 +780,10 @@
                         <li data-i18n-html="security_li3"><strong>Complet localizat:</strong> Disponibil în engleză, română, spaniolă, portugheză (Brazilia), franceză, italiană, bulgară, poloneză, turcă și rusă — cu suport pentru RON, EUR, GBP, USD, BRL, CHF, HUF, BGN, PLN, INR, TRY, SEK, NOK, DKK, CZK, AED, RUB, KZT, KGS și UZS.</li>
                     </ul>
                 </div>
-                <div class="iphone-mockup iphone-mockup-settings">
-                    <div class="screen">
-                        <img src="/assets/settingsDark.png" alt="Screenshot aplicație - Setări și Face ID"
-                            data-i18n-alt="Screenshot aplicație - Setări și Face ID" class="iphone-screenshot theme-img-dark" loading="lazy">
-                        <!-- TODO: add settingsLight.png -->
-                        <img src="/assets/settingsLight.png" alt="Screenshot aplicație - Setări și Face ID"
-                            data-i18n-alt="Screenshot aplicație - Setări și Face ID" class="iphone-screenshot theme-img-light" loading="lazy">
+                <div class="tour-visual">
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-settings-security.jpg" alt="Screenshot aplicație - Setări și Face ID"
+                            data-i18n-alt="Screenshot aplicație - Setări și Face ID" loading="lazy" width="660" height="1434">
                     </div>
                 </div>
             </div>
@@ -625,15 +827,39 @@
                     </a>
                 </div>
             </div>
-            <div class="devices-mockup">
+            <div class="devices-mockup ipad-showcase">
+                <div class="ipad-tabs" role="tablist" aria-label="iPad screens">
+                    <button type="button" class="ipad-tab active" role="tab" aria-selected="true"
+                        data-i18n="ipad_tab_calendar">Calendar</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_services">Servicii</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_reports">Rapoarte</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_booking">Programări online</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_clients">Clienți</button>
+                </div>
                 <div class="tablet-mockup">
                     <div class="tablet-screen">
-                        <img src="/assets/appointmentDarkTablet.png" alt="Aplicație pe tabletă Android"
-                            data-i18n-alt="Aplicație pe tabletă Android" class="tablet-screenshot theme-img-dark" loading="lazy">
-                        <img src="/assets/appointmentLightTablet.png" alt="Aplicație pe tabletă Android"
-                            data-i18n-alt="Aplicație pe tabletă Android" class="tablet-screenshot theme-img-light" loading="lazy">
+                        <img src="/assets/app/ipad-calendar.jpg" alt="iPad – calendarul de programări"
+                            data-i18n-alt="iPad – calendarul de programări" class="ipad-shot active" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-services.jpg" alt="iPad – lista de servicii"
+                            data-i18n-alt="iPad – lista de servicii" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-report.jpg" alt="iPad – raportul pe servicii"
+                            data-i18n-alt="iPad – raportul pe servicii" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-booking.jpg" alt="iPad – cererile de programare online"
+                            data-i18n-alt="iPad – cererile de programare online" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-client.jpg" alt="iPad – profilul unui client"
+                            data-i18n-alt="iPad – profilul unui client" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
                     </div>
                 </div>
+                <p class="ipad-caption" data-i18n="ipad_caption">Pe iPad ai trei coloane: meniul, lucrul tău și căutarea sau lista de clienți mereu la îndemână.</p>
             </div>
         </div>
     </section>
@@ -643,6 +869,39 @@
         <div class="container">
             <h2 class="section-title" data-i18n="audience_h2">Dacă lucrezi cu programări, această aplicație este pentru tine.</h2>
             <p class="section-subtitle" data-i18n="audience_p">Indiferent de industrie. Dacă lucrezi pe bază de programări și vrei să îți înțelegi finanțele, această aplicație a fost creată pentru tine.</p>
+
+            <div class="audience-gallery" data-animate>
+                <figure class="audience-card">
+                    <img src="/assets/professions/barber.jpg" alt="Frizer care tunde un client"
+                        data-i18n-alt="Frizer care tunde un client" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_barbershop">Frizerie</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/beauty.jpg" alt="Interior de salon de înfrumusețare"
+                        data-i18n-alt="Interior de salon de înfrumusețare" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_beauty_salon">Salon de Frumusețe</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/mechanic.jpg" alt="Mecanic lucrând la o mașină"
+                        data-i18n-alt="Mecanic lucrând la o mașină" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_auto_service">Service Auto</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/doctor.jpg" alt="Medic care folosește telefonul între consultații"
+                        data-i18n-alt="Medic care folosește telefonul între consultații" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_doctors_office">Cabinet Medical</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/trainer.jpg" alt="Antrenor personal cu un client"
+                        data-i18n-alt="Antrenor personal cu un client" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_personal_trainer">Personal Trainer</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/nails.jpg" alt="Lucrare de manichiură"
+                        data-i18n-alt="Lucrare de manichiură" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_nail_pedicure">Manichiură &amp; Pedichiură</figcaption>
+                </figure>
+            </div>
 
             <div class="tags-container" data-animate>
                 <span class="tag" data-i18n="tag_auto_service">Service Auto</span>

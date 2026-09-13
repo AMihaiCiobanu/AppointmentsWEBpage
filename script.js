@@ -366,3 +366,32 @@ document.getElementById('cookie-decline')?.addEventListener('click', () => {
 
     startAuto();
 })();
+
+// iPad screen tabs — cycles until the visitor picks a tab
+(function () {
+    const tabs = document.querySelectorAll('.ipad-tab');
+    const shots = document.querySelectorAll('.ipad-shot');
+    if (!tabs.length || tabs.length !== shots.length) return;
+    let current = 0;
+    let timer;
+
+    function show(index) {
+        current = index;
+        tabs.forEach((tab, i) => {
+            tab.classList.toggle('active', i === index);
+            tab.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        shots.forEach((shot, i) => shot.classList.toggle('active', i === index));
+    }
+
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+            clearInterval(timer);
+            show(i);
+        });
+    });
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        timer = setInterval(() => show((current + 1) % tabs.length), 5000);
+    }
+})();

@@ -138,9 +138,10 @@
                         <span data-i18n="nav_menu">Menu</span>
                     </button>
                     <div class="nav-menu-dropdown" id="nav-menu-dropdown">
-                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">Come funziona</a>
-                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Funzionalità</a>
                         <a href="#online-booking" class="nav-menu-item" data-i18n="nav_online_booking">Prenotazioni Online</a>
+                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">Come funziona</a>
+                        <a href="#tour" class="nav-menu-item" data-i18n="nav_tour">Tour dell&#x27;app</a>
+                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Funzionalità</a>
                         <a href="#pricing" class="nav-menu-item" data-i18n="nav_pricing">Prezzi</a>
                         <a href="#faq" class="nav-menu-item" data-i18n="nav_faq">Domande frequenti</a>
                         <a href="#demo" class="nav-menu-item" data-i18n="nav_contact">Contatti</a>
@@ -234,12 +235,35 @@
                 </div>
             </div>
 
-            <div class="iphone-mockup">
-                <div class="screen">
-                    <img src="/assets/appointmentDark.png" alt="Screenshot app - Calendario appuntamenti"
-                        data-i18n-alt="Screenshot app - Calendario appuntamenti" class="iphone-screenshot theme-img-dark">
-                    <img src="/assets/appointmentLight.png" alt="Screenshot app - Calendario appuntamenti"
-                        data-i18n-alt="Screenshot app - Calendario appuntamenti" class="iphone-screenshot theme-img-light">
+            <div class="hero-visual">
+                <div class="phone-frame hero-phone-back" aria-hidden="true">
+                    <img src="/assets/app/phone-report-year.jpg" alt="" width="660" height="1434">
+                </div>
+                <div class="iphone-mockup hero-phone-main">
+                    <div class="screen">
+                        <img src="/assets/app/phone-calendar.jpg" alt="Screenshot app - Calendario appuntamenti"
+                            data-i18n-alt="Screenshot app - Calendario appuntamenti" class="iphone-screenshot" width="660" height="1434">
+                    </div>
+                </div>
+                <div class="hero-float hero-float-1" aria-hidden="true">
+                    <span class="hero-float-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </span>
+                    <span data-i18n="hero_chip1">Nuova richiesta di prenotazione</span>
+                </div>
+                <div class="hero-float hero-float-2" aria-hidden="true">
+                    <span class="hero-float-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </span>
+                    <span data-i18n="hero_chip2">Profitto in crescita sul mese scorso</span>
                 </div>
             </div>
         </div>
@@ -393,19 +417,176 @@
             <p class="section-subtitle" data-animate data-i18n="hiw_subtitle">Nessuna formazione. Nessuna configurazione complicata. Scarica e inizia.</p>
             <div class="steps-grid">
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/welcomeDark.png" alt="Schermata di benvenuto dell&#x27;app"
+                            data-i18n-alt="Schermata di benvenuto dell&#x27;app" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">1</div>
                     <h3 data-i18n="step1_h3">Scarica e accedi</h3>
                     <p data-i18n="step1_p">Scarica l&#x27;app da Google Play o dall&#x27;App Store. Accedi con Google o Apple con un solo tocco — nessuna password da creare.</p>
                 </div>
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/addServiceStandardDark.png" alt="Aggiungi un servizio con prezzo e durata"
+                            data-i18n-alt="Aggiungi un servizio con prezzo e durata" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">2</div>
                     <h3 data-i18n="step2_h3">Aggiungi i tuoi servizi e clienti</h3>
                     <p data-i18n="step2_p">Configura i servizi che offri con prezzi e durate. Importa i clienti dai tuoi contatti in un solo tocco.</p>
                 </div>
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/addAppointmentDark.png" alt="Crea un nuovo appuntamento"
+                            data-i18n-alt="Crea un nuovo appuntamento" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">3</div>
                     <h3 data-i18n="step3_h3">Prenota, monitora e cresci</h3>
                     <p data-i18n="step3_p">Inizia a prendere appuntamenti. Le entrate vengono registrate automaticamente. Controlla il tuo profitto in qualsiasi momento, in pochi secondi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App tour — real screenshots, one screen at a time -->
+    <section id="tour" class="section-padding bg-surface tour-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-eyebrow" data-i18n="tour_eyebrow">Dentro l&#x27;app</span>
+            </div>
+            <h2 class="section-title" data-i18n="tour_h2">Fai un giro nell&#x27;app, schermata per schermata</h2>
+            <p class="section-subtitle" data-i18n="tour_p">Sono screenshot reali: esattamente quello che vedrai sul tuo telefono fin dal primo giorno.</p>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour1_eyebrow">Calendario</span>
+                    <h3 data-i18n="tour1_h3">Tutta la tua giornata in una sola schermata</h3>
+                    <p data-i18n="tour1_p">Il mese in alto, l&#x27;agenda di oggi sotto. I colori ti dicono quanto è piena ogni giornata prima ancora di aprirla.</p>
+                    <ul class="calendar-legend">
+                        <li><span class="legend-dot green"></span><span data-i18n="tour1_leg_green">C&#x27;è ancora tempo libero</span></li>
+                        <li><span class="legend-dot red"></span><span data-i18n="tour1_leg_red">Quasi pieno</span></li>
+                        <li><span class="legend-dot purple"></span><span data-i18n="tour1_leg_purple">Ferie</span>
+                        </li>
+                    </ul>
+                    <ul class="check-list">
+                        <li data-i18n="tour1_li1">Chiama, invia un SMS o scrivi su WhatsApp al cliente direttamente dall&#x27;appuntamento.</li>
+                        <li data-i18n="tour1_li2">Pause, tempo personale e promemoria nella stessa timeline dei tuoi appuntamenti.</li>
+                        <li data-i18n="tour1_li3">Le lezioni di gruppo mostrano quanti posti sono già occupati.</li>
+                        <li data-i18n="tour1_li4">Decidi tu quando un giorno diventa rosso: imposta la tua soglia di minuti liberi.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-calendar.jpg"
+                            alt="Schermata appuntamenti con il mese a colori e l&#x27;agenda del giorno"
+                            data-i18n-alt="Schermata appuntamenti con il mese a colori e l&#x27;agenda del giorno" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour2_eyebrow">Servizi</span>
+                    <h3 data-i18n="tour2_h3">Standard, abbonamento o lezione: scegli tu</h3>
+                    <p data-i18n="tour2_p">Ogni servizio ha il suo prezzo e la sua durata, e sono raggruppati per tipo così la lista resta ordinata.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour2_li1">Servizi standard per appuntamenti singoli.</li>
+                        <li data-i18n="tour2_li2">Abbonamenti: pacchetti di sedute o abbonamenti mensili che si scalano da soli.</li>
+                        <li data-i18n="tour2_li3">Lezioni di gruppo con orario proprio e posti limitati (Pro).</li>
+                        <li data-i18n="tour2_li4">Condividi un servizio o tutto il listino prezzi con un tocco (Pro).</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-services.jpg"
+                            alt="Schermata servizi con servizi standard, abbonamenti e lezioni"
+                            data-i18n-alt="Schermata servizi con servizi standard, abbonamenti e lezioni" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour3_eyebrow">Clienti</span>
+                    <h3 data-i18n="tour3_h3">Conosci ogni cliente prima che entri dalla porta</h3>
+                    <p data-i18n="tour3_p">Apri un cliente e hai tutta la storia: quanto spesso viene, quanto ha speso e quante sedute gli restano nel pacchetto.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour3_li1">Visite, totale speso, ultima visita e cancellazioni in cima.</li>
+                        <li data-i18n="tour3_li2">«Torna circa ogni 21 giorni»: l&#x27;app calcola per te il ritmo di ogni cliente.</li>
+                        <li data-i18n="tour3_li3">Pacchetti attivi con sedute rimanenti e data di scadenza, più appuntamenti futuri e passati.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-client.jpg"
+                            alt="Profilo cliente con visite, totale speso e abbonamenti attivi"
+                            data-i18n-alt="Profilo cliente con visite, totale speso e abbonamenti attivi" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="tour4_eyebrow">Prenotazione online</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
+                    <h3 data-i18n="tour4_h3">Le richieste di prenotazione arrivano direttamente nell&#x27;app</h3>
+                    <p data-i18n="tour4_p">I clienti prenotano dal tuo link, ma il controllo resta tuo: approva o rifiuta ogni richiesta con un tocco.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour4_li1">Crea più link di prenotazione e attiva o disattiva ciascuno quando vuoi.</li>
+                        <li data-i18n="tour4_li2">I clienti vedono solo gli orari liberi, in base al tuo orario di lavoro.</li>
+                        <li data-i18n="tour4_li3">Crea un link privato per un solo cliente e disattivalo dopo che ha prenotato.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-booking.jpg"
+                            alt="Schermata prenotazioni online con link e una richiesta in attesa"
+                            data-i18n-alt="Schermata prenotazioni online con link e una richiesta in attesa" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="tour5_eyebrow">Promemoria</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
+                    <h3 data-i18n="tour5_h3">Bollette e impegni, mai più dimenticati</h3>
+                    <p data-i18n="tour5_p">Aggiungi un promemoria con data e ora e scegli ogni quanto si ripete: ogni giorno, settimana, mese o anno.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour5_li1">I promemoria scaduti compaiono in rosso in cima alla giornata finché non li spunti.</li>
+                        <li data-i18n="tour5_li2">Perfetto per affitto, luce, ordini di materiali o qualsiasi cosa si ripeta ogni mese.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-reminders.jpg"
+                            alt="Modifica di un promemoria mensile per la bolletta della luce"
+                            data-i18n-alt="Modifica di un promemoria mensile per la bolletta della luce" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour6_eyebrow">Impostazioni</span>
+                    <h3 data-i18n="tour6_h3">Configuri una volta, come lavori tu</h3>
+                    <p data-i18n="tour6_p">Dì all&#x27;app com&#x27;è la tua settimana e al resto pensa lei, dagli orari liberi al tuo obiettivo mensile.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour6_li1">Orario di lavoro per ogni giorno della settimana, più le tue ferie.</li>
+                        <li data-i18n="tour6_li2">Un obiettivo di incasso mensile: i report mostrano come va ogni mese.</li>
+                        <li data-i18n="tour6_li3">Messaggi SMS e di conferma personalizzati, con data e ora inserite in automatico.</li>
+                        <li data-i18n="tour6_li4">Aspetto chiaro, scuro o di sistema, 10 lingue e 20 valute.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-settings.jpg"
+                            alt="Schermata impostazioni con aspetto, lingua, valuta, ferie e orario di lavoro"
+                            data-i18n-alt="Schermata impostazioni con aspetto, lingua, valuta, ferie e orario di lavoro" loading="lazy" width="660" height="1434">
+                    </div>
                 </div>
             </div>
         </div>
@@ -541,27 +722,51 @@
     <section id="reports" class="section-padding bg-alt">
         <div class="container">
 
-            <div class="split-section" data-animate>
-                <div class="split-content">
-                    <span class="section-eyebrow" data-i18n="reports_eyebrow">Report finanziari</span>
+            <div class="reports-showcase">
+                <div class="reports-head" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="reports_eyebrow">Report finanziari</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
                     <h2 data-i18n="reports_h2">Conosci i tuoi numeri. Prendi decisioni migliori.</h2>
                     <p data-i18n-html="reports_p">L'app funziona come un <strong>analista finanziario personale</strong> per la tua attività — senza costi né complessità.</p>
-                    <ul class="check-list">
-                        <li data-i18n="reports_li1">Riepilogo mensile e annuale: entrate (stimate vs. reali), spese e profitto netto — con confronti rispetto al mese precedente e allo stesso mese dell&#x27;anno scorso.</li>
-                        <li data-i18n="reports_li2">Tieni traccia di quante ore e giorni hai effettivamente lavorato.</li>
-                        <li data-i18n="reports_li3">Identifica i tuoi migliori clienti per frequenza delle visite.</li>
-                        <li data-i18n="reports_li4">Vedi esattamente quante assenze hai avuto e quanto ti sono costate in termini di entrate.</li>
-                    </ul>
                 </div>
-                <div class="iphone-mockup iphone-mockup-report">
-                    <div class="screen">
-                        <img src="/assets/reportMonthDark.png" alt="Screenshot app - Report finanziari mensili"
-                            data-i18n-alt="Screenshot app - Report finanziari mensili" class="iphone-screenshot theme-img-dark" loading="lazy">
-                        <!-- TODO: add reportMonthLight.png -->
-                        <img src="/assets/reportMonthLight.png" alt="Screenshot app - Report finanziari mensili"
-                            data-i18n-alt="Screenshot app - Report finanziari mensili" class="iphone-screenshot theme-img-light" loading="lazy">
-                    </div>
+
+                <div class="report-trio" data-animate>
+                    <figure class="report-shot side">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-months.jpg"
+                                alt="Report mensile che confronta ogni mese con il precedente e con l&#x27;obiettivo"
+                                data-i18n-alt="Report mensile che confronta ogni mese con il precedente e con l&#x27;obiettivo" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_months">Mese per mese</figcaption>
+                    </figure>
+                    <figure class="report-shot center">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-year.jpg"
+                                alt="Report annuale con entrate, spese, profitto e grafico dell&#x27;andamento"
+                                data-i18n-alt="Report annuale con entrate, spese, profitto e grafico dell&#x27;andamento" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_year">Il tuo anno a colpo d&#x27;occhio</figcaption>
+                    </figure>
+                    <figure class="report-shot side">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-services.jpg"
+                                alt="Report dei servizi ordinati per incasso"
+                                data-i18n-alt="Report dei servizi ordinati per incasso" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_services">Servizi top</figcaption>
+                    </figure>
                 </div>
+
+                <ul class="check-list reports-list" data-animate>
+                    <li data-i18n="reports_li1">Riepilogo mensile e annuale: entrate (stimate vs. reali), spese e profitto netto — con confronti rispetto al mese precedente e allo stesso mese dell&#x27;anno scorso.</li>
+                    <li data-i18n="reports_li6">Imposta un obiettivo mensile e vedi a colpo d&#x27;occhio se ogni mese l&#x27;ha superato.</li>
+                    <li data-i18n="reports_li5">Ordina i servizi per incasso o per incasso orario, e scopri qual è il più produttivo.</li>
+                    <li data-i18n="reports_li2">Tieni traccia di quante ore e giorni hai effettivamente lavorato.</li>
+                    <li data-i18n="reports_li3">Identifica i tuoi migliori clienti per frequenza delle visite.</li>
+                    <li data-i18n="reports_li4">Vedi esattamente quante assenze hai avuto e quanto ti sono costate in termini di entrate.</li>
+                </ul>
             </div>
 
             <div class="split-section reverse" data-animate>
@@ -575,13 +780,10 @@
                         <li data-i18n-html="security_li3"><strong>Completamente localizzato:</strong> Disponibile in inglese, rumeno, spagnolo, portoghese (Brasile), francese, italiano, bulgaro, polacco, turco e russo — con supporto per RON, EUR, GBP, USD, BRL, CHF, HUF, BGN, PLN, INR, TRY, SEK, NOK, DKK, CZK, AED, RUB, KZT, KGS e UZS.</li>
                     </ul>
                 </div>
-                <div class="iphone-mockup iphone-mockup-settings">
-                    <div class="screen">
-                        <img src="/assets/settingsDark.png" alt="Screenshot app - Impostazioni e Face ID"
-                            data-i18n-alt="Screenshot app - Impostazioni e Face ID" class="iphone-screenshot theme-img-dark" loading="lazy">
-                        <!-- TODO: add settingsLight.png -->
-                        <img src="/assets/settingsLight.png" alt="Screenshot app - Impostazioni e Face ID"
-                            data-i18n-alt="Screenshot app - Impostazioni e Face ID" class="iphone-screenshot theme-img-light" loading="lazy">
+                <div class="tour-visual">
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-settings-security.jpg" alt="Screenshot app - Impostazioni e Face ID"
+                            data-i18n-alt="Screenshot app - Impostazioni e Face ID" loading="lazy" width="660" height="1434">
                     </div>
                 </div>
             </div>
@@ -625,15 +827,39 @@
                     </a>
                 </div>
             </div>
-            <div class="devices-mockup">
+            <div class="devices-mockup ipad-showcase">
+                <div class="ipad-tabs" role="tablist" aria-label="iPad screens">
+                    <button type="button" class="ipad-tab active" role="tab" aria-selected="true"
+                        data-i18n="ipad_tab_calendar">Calendario</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_services">Servizi</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_reports">Report</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_booking">Prenotazioni</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_clients">Clienti</button>
+                </div>
                 <div class="tablet-mockup">
                     <div class="tablet-screen">
-                        <img src="/assets/appointmentDarkTablet.png" alt="App su tablet Android"
-                            data-i18n-alt="App su tablet Android" class="tablet-screenshot theme-img-dark" loading="lazy">
-                        <img src="/assets/appointmentLightTablet.png" alt="App su tablet Android"
-                            data-i18n-alt="App su tablet Android" class="tablet-screenshot theme-img-light" loading="lazy">
+                        <img src="/assets/app/ipad-calendar.jpg" alt="iPad – calendario appuntamenti"
+                            data-i18n-alt="iPad – calendario appuntamenti" class="ipad-shot active" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-services.jpg" alt="iPad – elenco servizi"
+                            data-i18n-alt="iPad – elenco servizi" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-report.jpg" alt="iPad – report dei servizi"
+                            data-i18n-alt="iPad – report dei servizi" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-booking.jpg" alt="iPad – richieste di prenotazione online"
+                            data-i18n-alt="iPad – richieste di prenotazione online" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-client.jpg" alt="iPad – profilo cliente"
+                            data-i18n-alt="iPad – profilo cliente" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
                     </div>
                 </div>
+                <p class="ipad-caption" data-i18n="ipad_caption">Su iPad hai tre colonne: il menu, il tuo lavoro e la ricerca o l&#x27;elenco clienti sempre a portata di mano.</p>
             </div>
         </div>
     </section>
@@ -643,6 +869,39 @@
         <div class="container">
             <h2 class="section-title" data-i18n="audience_h2">Se lavori su appuntamento, questa app è per te.</h2>
             <p class="section-subtitle" data-i18n="audience_p">Qualunque sia il settore. Se lavori su appuntamento e vuoi capire le tue finanze, questa app è stata creata per te.</p>
+
+            <div class="audience-gallery" data-animate>
+                <figure class="audience-card">
+                    <img src="/assets/professions/barber.jpg" alt="Barbiere che taglia i capelli a un cliente"
+                        data-i18n-alt="Barbiere che taglia i capelli a un cliente" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_barbershop">Barbiere</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/beauty.jpg" alt="Interno di un salone di bellezza"
+                        data-i18n-alt="Interno di un salone di bellezza" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_beauty_salon">Salone di Bellezza</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/mechanic.jpg" alt="Meccanico al lavoro su un&#x27;auto"
+                        data-i18n-alt="Meccanico al lavoro su un&#x27;auto" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_auto_service">Officina Auto</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/doctor.jpg" alt="Medico che usa il telefono tra una visita e l&#x27;altra"
+                        data-i18n-alt="Medico che usa il telefono tra una visita e l&#x27;altra" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_doctors_office">Studio Medico</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/trainer.jpg" alt="Personal trainer con un cliente"
+                        data-i18n-alt="Personal trainer con un cliente" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_personal_trainer">Personal Trainer</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/nails.jpg" alt="Lavoro di manicure"
+                        data-i18n-alt="Lavoro di manicure" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_nail_pedicure">Manicure &amp; Pedicure</figcaption>
+                </figure>
+            </div>
 
             <div class="tags-container" data-animate>
                 <span class="tag" data-i18n="tag_auto_service">Officina Auto</span>

@@ -138,9 +138,10 @@
                         <span data-i18n="nav_menu">Меню</span>
                     </button>
                     <div class="nav-menu-dropdown" id="nav-menu-dropdown">
-                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">Как это работает</a>
-                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Возможности</a>
                         <a href="#online-booking" class="nav-menu-item" data-i18n="nav_online_booking">Онлайн-запись</a>
+                        <a href="#how-it-works" class="nav-menu-item" data-i18n="nav_how_it_works">Как это работает</a>
+                        <a href="#tour" class="nav-menu-item" data-i18n="nav_tour">Обзор приложения</a>
+                        <a href="#features" class="nav-menu-item" data-i18n="nav_features">Возможности</a>
                         <a href="#pricing" class="nav-menu-item" data-i18n="nav_pricing">Цены</a>
                         <a href="#faq" class="nav-menu-item" data-i18n="nav_faq">Вопросы</a>
                         <a href="#demo" class="nav-menu-item" data-i18n="nav_contact">Контакты</a>
@@ -234,12 +235,35 @@
                 </div>
             </div>
 
-            <div class="iphone-mockup">
-                <div class="screen">
-                    <img src="/assets/appointmentDark.png" alt="Скриншот — Календарь записей"
-                        data-i18n-alt="Скриншот — Календарь записей" class="iphone-screenshot theme-img-dark">
-                    <img src="/assets/appointmentLight.png" alt="Скриншот — Календарь записей"
-                        data-i18n-alt="Скриншот — Календарь записей" class="iphone-screenshot theme-img-light">
+            <div class="hero-visual">
+                <div class="phone-frame hero-phone-back" aria-hidden="true">
+                    <img src="/assets/app/phone-report-year.jpg" alt="" width="660" height="1434">
+                </div>
+                <div class="iphone-mockup hero-phone-main">
+                    <div class="screen">
+                        <img src="/assets/app/phone-calendar.jpg" alt="Скриншот — Календарь записей"
+                            data-i18n-alt="Скриншот — Календарь записей" class="iphone-screenshot" width="660" height="1434">
+                    </div>
+                </div>
+                <div class="hero-float hero-float-1" aria-hidden="true">
+                    <span class="hero-float-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                    </span>
+                    <span data-i18n="hero_chip1">Новая заявка на запись</span>
+                </div>
+                <div class="hero-float hero-float-2" aria-hidden="true">
+                    <span class="hero-float-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </span>
+                    <span data-i18n="hero_chip2">Прибыль выше, чем в прошлом месяце</span>
                 </div>
             </div>
         </div>
@@ -393,19 +417,176 @@
             <p class="section-subtitle" data-animate data-i18n="hiw_subtitle">Никакого обучения. Никакой сложной настройки. Скачайте и начните.</p>
             <div class="steps-grid">
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/welcomeDark.png" alt="Экран приветствия приложения"
+                            data-i18n-alt="Экран приветствия приложения" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">1</div>
                     <h3 data-i18n="step1_h3">Скачайте и войдите</h3>
                     <p data-i18n="step1_p">Получите приложение в Google Play или App Store. Войдите через Google или Apple одним нажатием — никаких паролей.</p>
                 </div>
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/addServiceStandardDark.png" alt="Добавьте услугу с ценой и длительностью"
+                            data-i18n-alt="Добавьте услугу с ценой и длительностью" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">2</div>
                     <h3 data-i18n="step2_h3">Добавьте услуги и клиентов</h3>
                     <p data-i18n="step2_p">Настройте предлагаемые услуги с ценами и продолжительностью. Импортируйте клиентов из контактов одним нажатием.</p>
                 </div>
                 <div class="step" data-animate>
+                    <div class="step-shot">
+                        <img src="/assets/addAppointmentDark.png" alt="Создайте новую запись"
+                            data-i18n-alt="Создайте новую запись" loading="lazy" width="1198" height="2531">
+                    </div>
                     <div class="step-number">3</div>
                     <h3 data-i18n="step3_h3">Записывайте, отслеживайте, развивайтесь</h3>
                     <p data-i18n="step3_p">Начните принимать записи. Доходы отслеживаются автоматически. Проверьте прибыль в любой момент за секунды.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App tour — real screenshots, one screen at a time -->
+    <section id="tour" class="section-padding bg-surface tour-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-eyebrow" data-i18n="tour_eyebrow">Внутри приложения</span>
+            </div>
+            <h2 class="section-title" data-i18n="tour_h2">Посмотрите приложение экран за экраном</h2>
+            <p class="section-subtitle" data-i18n="tour_p">Это настоящие скриншоты — именно то, что вы увидите на своём телефоне с первого дня.</p>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour1_eyebrow">Календарь</span>
+                    <h3 data-i18n="tour1_h3">Весь ваш день на одном экране</h3>
+                    <p data-i18n="tour1_p">Месяц сверху, расписание на сегодня снизу. Цвета показывают, насколько загружен каждый день, ещё до того, как вы его откроете.</p>
+                    <ul class="calendar-legend">
+                        <li><span class="legend-dot green"></span><span data-i18n="tour1_leg_green">Есть свободное время</span></li>
+                        <li><span class="legend-dot red"></span><span data-i18n="tour1_leg_red">Почти всё занято</span></li>
+                        <li><span class="legend-dot purple"></span><span data-i18n="tour1_leg_purple">Отпуск</span>
+                        </li>
+                    </ul>
+                    <ul class="check-list">
+                        <li data-i18n="tour1_li1">Звоните, пишите SMS или в WhatsApp клиенту прямо из записи.</li>
+                        <li data-i18n="tour1_li2">Перерывы, личное время и напоминания — на той же ленте, что и ваши записи.</li>
+                        <li data-i18n="tour1_li3">Групповые занятия показывают, сколько мест уже занято.</li>
+                        <li data-i18n="tour1_li4">Вы сами решаете, когда день становится красным: задайте свой порог свободных минут.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-calendar.jpg"
+                            alt="Экран записей с цветным месяцем и расписанием на день"
+                            data-i18n-alt="Экран записей с цветным месяцем и расписанием на день" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour2_eyebrow">Услуги</span>
+                    <h3 data-i18n="tour2_h3">Обычная услуга, абонемент или занятие — выбирать вам</h3>
+                    <p data-i18n="tour2_p">У каждой услуги своя цена и длительность, а услуги сгруппированы по типу, чтобы список оставался аккуратным.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour2_li1">Обычные услуги для разовых записей.</li>
+                        <li data-i18n="tour2_li2">Абонементы — пакеты посещений или месячные абонементы, которые списываются сами.</li>
+                        <li data-i18n="tour2_li3">Групповые занятия со своим расписанием и ограниченным числом мест (Pro).</li>
+                        <li data-i18n="tour2_li4">Отправьте одну услугу или весь прайс-лист одним касанием (Pro).</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-services.jpg"
+                            alt="Экран услуг с обычными услугами, абонементами и занятиями"
+                            data-i18n-alt="Экран услуг с обычными услугами, абонементами и занятиями" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour3_eyebrow">Клиенты</span>
+                    <h3 data-i18n="tour3_h3">Знайте каждого клиента ещё до того, как он войдёт</h3>
+                    <p data-i18n="tour3_p">Откройте любого клиента — и вся история перед вами: как часто приходит, сколько потратил и сколько посещений осталось в абонементе.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour3_li1">Визиты, общая сумма, последний визит и отмены — в самом верху.</li>
+                        <li data-i18n="tour3_li2">«Приходит примерно раз в 21 день» — приложение само рассчитывает ритм каждого клиента.</li>
+                        <li data-i18n="tour3_li3">Активные абонементы с оставшимися посещениями и сроком действия, а также будущие и прошлые записи.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-client.jpg"
+                            alt="Профиль клиента с визитами, общей суммой и активными абонементами"
+                            data-i18n-alt="Профиль клиента с визитами, общей суммой и активными абонементами" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="tour4_eyebrow">Онлайн-запись</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
+                    <h3 data-i18n="tour4_h3">Заявки на запись приходят прямо в приложение</h3>
+                    <p data-i18n="tour4_p">Клиенты записываются по вашей ссылке, но решаете вы: одобряйте или отклоняйте каждую заявку одним касанием.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour4_li1">Создавайте несколько ссылок для записи и включайте или выключайте каждую, когда захотите.</li>
+                        <li data-i18n="tour4_li2">Клиенты видят только свободное время — по вашему рабочему графику.</li>
+                        <li data-i18n="tour4_li3">Сделайте личную ссылку для одного клиента и отключите её после записи.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-booking.jpg"
+                            alt="Экран онлайн-записи со ссылками и ожидающей заявкой"
+                            data-i18n-alt="Экран онлайн-записи со ссылками и ожидающей заявкой" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row">
+                <div class="split-content" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="tour5_eyebrow">Напоминания</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
+                    <h3 data-i18n="tour5_h3">Счета и дела больше не забываются</h3>
+                    <p data-i18n="tour5_p">Добавьте напоминание с датой и временем и выберите повтор — ежедневно, еженедельно, ежемесячно или ежегодно.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour5_li1">Просроченные напоминания горят красным в начале дня, пока вы их не отметите.</li>
+                        <li data-i18n="tour5_li2">Идеально для аренды, электричества, заказа материалов и всего, что повторяется каждый месяц.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-reminders.jpg"
+                            alt="Редактирование ежемесячного напоминания о счёте за электричество"
+                            data-i18n-alt="Редактирование ежемесячного напоминания о счёте за электричество" loading="lazy" width="660" height="1434">
+                    </div>
+                </div>
+            </div>
+
+            <div class="split-section tour-row reverse">
+                <div class="split-content" data-animate>
+                    <span class="section-eyebrow" data-i18n="tour6_eyebrow">Настройки</span>
+                    <h3 data-i18n="tour6_h3">Настройте один раз — под свой ритм работы</h3>
+                    <p data-i18n="tour6_p">Расскажите приложению, как устроена ваша неделя, а остальное оно возьмёт на себя — от свободных окон до месячной цели.</p>
+                    <ul class="check-list">
+                        <li data-i18n="tour6_li1">Рабочие часы для каждого дня недели, а также ваши отпуска.</li>
+                        <li data-i18n="tour6_li2">Месячная цель по доходу — отчёты показывают, как идёт каждый месяц.</li>
+                        <li data-i18n="tour6_li3">Свои тексты SMS и подтверждений с автоматической подстановкой даты и времени.</li>
+                        <li data-i18n="tour6_li4">Светлая, тёмная или системная тема, 10 языков и 20 валют.</li>
+                    </ul>
+                </div>
+                <div class="tour-visual" data-animate>
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-settings.jpg"
+                            alt="Экран настроек: оформление, язык, валюта, отпуска и рабочий график"
+                            data-i18n-alt="Экран настроек: оформление, язык, валюта, отпуска и рабочий график" loading="lazy" width="660" height="1434">
+                    </div>
                 </div>
             </div>
         </div>
@@ -541,27 +722,51 @@
     <section id="reports" class="section-padding bg-alt">
         <div class="container">
 
-            <div class="split-section" data-animate>
-                <div class="split-content">
-                    <span class="section-eyebrow" data-i18n="reports_eyebrow">Финансовые отчёты</span>
+            <div class="reports-showcase">
+                <div class="reports-head" data-animate>
+                    <div class="tour-eyebrow-row">
+                        <span class="section-eyebrow" data-i18n="reports_eyebrow">Финансовые отчёты</span>
+                        <span class="pro-pill">Pro</span>
+                    </div>
                     <h2 data-i18n="reports_h2">Знайте свои цифры. Принимайте лучшие решения.</h2>
                     <p data-i18n-html="reports_p">Приложение работает как <strong>личный финансовый аналитик</strong> вашего бизнеса — без затрат и сложности.</p>
-                    <ul class="check-list">
-                        <li data-i18n="reports_li1">Ежемесячная и ежегодная сводка: доход (расчётный и фактический), расходы и чистая прибыль — в сравнении с прошлым месяцем и прошлым годом.</li>
-                        <li data-i18n="reports_li2">Отслеживайте, сколько часов и дней вы действительно работали.</li>
-                        <li data-i18n="reports_li3">Определяйте самых ценных клиентов по частоте посещений.</li>
-                        <li data-i18n="reports_li4">Смотрите точное количество пропущенных записей и потерянный доход.</li>
-                    </ul>
                 </div>
-                <div class="iphone-mockup iphone-mockup-report">
-                    <div class="screen">
-                        <img src="/assets/reportMonthDark.png" alt="Скриншот — Ежемесячные финансовые отчёты"
-                            data-i18n-alt="Скриншот — Ежемесячные финансовые отчёты" class="iphone-screenshot theme-img-dark" loading="lazy">
-                        <!-- TODO: add reportMonthLight.png -->
-                        <img src="/assets/reportMonthLight.png" alt="Скриншот — Ежемесячные финансовые отчёты"
-                            data-i18n-alt="Скриншот — Ежемесячные финансовые отчёты" class="iphone-screenshot theme-img-light" loading="lazy">
-                    </div>
+
+                <div class="report-trio" data-animate>
+                    <figure class="report-shot side">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-months.jpg"
+                                alt="Месячный отчёт, сравнивающий каждый месяц с предыдущим и с целью"
+                                data-i18n-alt="Месячный отчёт, сравнивающий каждый месяц с предыдущим и с целью" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_months">Месяц за месяцем</figcaption>
+                    </figure>
+                    <figure class="report-shot center">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-year.jpg"
+                                alt="Годовой отчёт с доходами, расходами, прибылью и графиком дохода"
+                                data-i18n-alt="Годовой отчёт с доходами, расходами, прибылью и графиком дохода" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_year">Весь год одним взглядом</figcaption>
+                    </figure>
+                    <figure class="report-shot side">
+                        <div class="phone-frame">
+                            <img src="/assets/app/phone-report-services.jpg"
+                                alt="Отчёт по услугам, отсортированным по доходу"
+                                data-i18n-alt="Отчёт по услугам, отсортированным по доходу" loading="lazy" width="660" height="1434">
+                        </div>
+                        <figcaption data-i18n="rep_cap_services">Топ услуг</figcaption>
+                    </figure>
                 </div>
+
+                <ul class="check-list reports-list" data-animate>
+                    <li data-i18n="reports_li1">Ежемесячная и ежегодная сводка: доход (расчётный и фактический), расходы и чистая прибыль — в сравнении с прошлым месяцем и прошлым годом.</li>
+                    <li data-i18n="reports_li6">Задайте месячную цель и сразу увидите, превысил ли её каждый месяц.</li>
+                    <li data-i18n="reports_li5">Сортируйте услуги по доходу или по доходу в час — и смотрите, какая самая выгодная.</li>
+                    <li data-i18n="reports_li2">Отслеживайте, сколько часов и дней вы действительно работали.</li>
+                    <li data-i18n="reports_li3">Определяйте самых ценных клиентов по частоте посещений.</li>
+                    <li data-i18n="reports_li4">Смотрите точное количество пропущенных записей и потерянный доход.</li>
+                </ul>
             </div>
 
             <div class="split-section reverse" data-animate>
@@ -575,13 +780,10 @@
                         <li data-i18n-html="security_li3"><strong>Полная локализация:</strong> Английский, румынский, испанский, португальский (Бразилия), французский, итальянский, болгарский, польский, турецкий и русский — с поддержкой RON, EUR, GBP, USD, BRL, CHF, HUF, BGN, PLN, INR, TRY, SEK, NOK, DKK, CZK, AED, RUB, KZT, KGS и UZS.</li>
                     </ul>
                 </div>
-                <div class="iphone-mockup iphone-mockup-settings">
-                    <div class="screen">
-                        <img src="/assets/settingsDark.png" alt="Скриншот — Настройки и Face ID"
-                            data-i18n-alt="Скриншот — Настройки и Face ID" class="iphone-screenshot theme-img-dark" loading="lazy">
-                        <!-- TODO: add settingsLight.png -->
-                        <img src="/assets/settingsLight.png" alt="Скриншот — Настройки и Face ID"
-                            data-i18n-alt="Скриншот — Настройки и Face ID" class="iphone-screenshot theme-img-light" loading="lazy">
+                <div class="tour-visual">
+                    <div class="phone-frame">
+                        <img src="/assets/app/phone-settings-security.jpg" alt="Скриншот — Настройки и Face ID"
+                            data-i18n-alt="Скриншот — Настройки и Face ID" loading="lazy" width="660" height="1434">
                     </div>
                 </div>
             </div>
@@ -625,15 +827,39 @@
                     </a>
                 </div>
             </div>
-            <div class="devices-mockup">
+            <div class="devices-mockup ipad-showcase">
+                <div class="ipad-tabs" role="tablist" aria-label="iPad screens">
+                    <button type="button" class="ipad-tab active" role="tab" aria-selected="true"
+                        data-i18n="ipad_tab_calendar">Календарь</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_services">Услуги</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_reports">Отчёты</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_booking">Онлайн-запись</button>
+                    <button type="button" class="ipad-tab" role="tab" aria-selected="false"
+                        data-i18n="ipad_tab_clients">Клиенты</button>
+                </div>
                 <div class="tablet-mockup">
                     <div class="tablet-screen">
-                        <img src="/assets/appointmentDarkTablet.png" alt="Приложение для Android-планшета"
-                            data-i18n-alt="Приложение для Android-планшета" class="tablet-screenshot theme-img-dark" loading="lazy">
-                        <img src="/assets/appointmentLightTablet.png" alt="Приложение для Android-планшета"
-                            data-i18n-alt="Приложение для Android-планшета" class="tablet-screenshot theme-img-light" loading="lazy">
+                        <img src="/assets/app/ipad-calendar.jpg" alt="iPad – календарь записей"
+                            data-i18n-alt="iPad – календарь записей" class="ipad-shot active" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-services.jpg" alt="iPad – список услуг"
+                            data-i18n-alt="iPad – список услуг" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-report.jpg" alt="iPad – отчёт по услугам"
+                            data-i18n-alt="iPad – отчёт по услугам" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-booking.jpg" alt="iPad – заявки онлайн-записи"
+                            data-i18n-alt="iPad – заявки онлайн-записи" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
+                        <img src="/assets/app/ipad-client.jpg" alt="iPad – профиль клиента"
+                            data-i18n-alt="iPad – профиль клиента" class="ipad-shot" loading="lazy" width="1600"
+                            height="1199">
                     </div>
                 </div>
+                <p class="ipad-caption" data-i18n="ipad_caption">На iPad у вас три колонки: меню, ваша работа и поиск или список клиентов всегда под рукой.</p>
             </div>
         </div>
     </section>
@@ -643,6 +869,39 @@
         <div class="container">
             <h2 class="section-title" data-i18n="audience_h2">Если вы работаете по записи — это приложение для вас.</h2>
             <p class="section-subtitle" data-i18n="audience_p">Неважно, в какой сфере. Если вы работаете по записи и хотите понимать свои финансы — это приложение создано для вас.</p>
+
+            <div class="audience-gallery" data-animate>
+                <figure class="audience-card">
+                    <img src="/assets/professions/barber.jpg" alt="Барбер стрижёт клиента"
+                        data-i18n-alt="Барбер стрижёт клиента" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_barbershop">Барбершоп</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/beauty.jpg" alt="Интерьер салона красоты"
+                        data-i18n-alt="Интерьер салона красоты" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_beauty_salon">Салон красоты</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/mechanic.jpg" alt="Механик работает с автомобилем"
+                        data-i18n-alt="Механик работает с автомобилем" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_auto_service">Автосервис</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/doctor.jpg" alt="Врач пользуется телефоном между приёмами"
+                        data-i18n-alt="Врач пользуется телефоном между приёмами" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_doctors_office">Медицинский кабинет</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/trainer.jpg" alt="Персональный тренер с клиентом"
+                        data-i18n-alt="Персональный тренер с клиентом" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_personal_trainer">Персональный тренер</figcaption>
+                </figure>
+                <figure class="audience-card">
+                    <img src="/assets/professions/nails.jpg" alt="Маникюр"
+                        data-i18n-alt="Маникюр" loading="lazy" width="600" height="800">
+                    <figcaption data-i18n="tag_nail_pedicure">Маникюр &amp; Педикюр</figcaption>
+                </figure>
+            </div>
 
             <div class="tags-container" data-animate>
                 <span class="tag" data-i18n="tag_auto_service">Автосервис</span>
