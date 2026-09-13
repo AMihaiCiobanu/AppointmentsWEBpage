@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:wght@400;500;600&family=Karla:wght@400;500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #faf6f0; color: #241c16; font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: Petrona, Georgia, "Times New Roman", serif; font-weight: 500; margin: 0; line-height: 1.14; letter-spacing: -0.012em; }
+    p { margin: 0; line-height: 1.65; }
+    a { color: #b45231; text-decoration: none; }
+    a:hover { color: #8f3e23; }
+  </style>
+</helmet>
