@@ -162,13 +162,13 @@
         <form id="booking-form">
           <div class="field-group">
             <label class="field-label" for="client-name" data-i18n="booking_full_name">Full Name</label>
-            <input id="client-name" class="input" type="text" placeholder="John Doe"
+            <input id="client-name" class="input" type="text" name="name" autocomplete="name" placeholder="John Doe"
               data-i18n-placeholder="booking_full_name_placeholder" required maxlength="80" />
           </div>
 
           <div style="margin-top: 16px;">
             <label class="field-label" for="client-phone" data-i18n="booking_phone_number">Phone Number</label>
-            <input id="client-phone" class="input" type="tel" placeholder="07xx xxx xxx"
+            <input id="client-phone" class="input" type="tel" name="tel" autocomplete="tel" placeholder="07xx xxx xxx"
               data-i18n-placeholder="booking_phone_number_placeholder" required maxlength="20"
               pattern="^\+?[\d\s\-]{7,20}$"
               title="Please enter a valid phone number (min 7 digits, may include + or spaces)" />
