@@ -962,6 +962,12 @@ async function init() {
     await loadSlotsForSelectedDate();
     showFlow();
     updateValidation();
+
+    // ?service=<id> opens straight on the calendar for that service (used when another page
+    // lists the services itself). An unknown or no-longer-bookable id keeps the service list.
+    const preselectedId = new URL(window.location.href).searchParams.get('service');
+    const preselected = preselectedId && state.services.find(s => s.id === preselectedId);
+    if (preselected) await selectService(preselected);
   } catch (err) {
     if (err?.code === 'permission-denied') {
       showError(t('booking_error_link_disabled'));

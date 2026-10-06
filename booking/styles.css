@@ -728,3 +728,22 @@ body {
 .toast.fade-out {
   opacity: 0;
 }
+
+/* Embedded in a host page (?embed=1): no site chrome, tighter spacing. */
+html.embedded .booking-top-header,
+html.embedded .booking-footer {
+  display: none;
+}
+
+html.embedded body {
+  min-height: 0;
+}
+
+html.embedded .container {
+  padding: 20px 16px 28px;
+}
+
+/* The host dialog already carries a title. */
+html.embedded .header {
+  display: none;
+}

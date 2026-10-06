@@ -8,13 +8,18 @@
   <meta name="robots" content="noindex,nofollow" />
   <script>
     (function () {
+      var params = new URLSearchParams(window.location.search);
       var saved;
       try { saved = localStorage.getItem('theme'); } catch (_) { }
-      var theme = saved || 'dark';
+      // A host page embedding the booking flow passes its own theme so the two match.
+      var requested = params.get('theme');
+      var theme = requested === 'light' || requested === 'dark' ? requested : saved || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      // embed=1: shown inside another site's dialog, so drop our own header and footer.
+      if (params.get('embed') === '1') document.documentElement.classList.add('embedded');
     })();
   </script>
-  <link rel="stylesheet" href="./styles.css?v=2" />
+  <link rel="stylesheet" href="./styles.css?v=3" />
   <link rel="stylesheet" href="./header-bar.css" />
 </head>
 
