@@ -124,12 +124,19 @@ function showError(message) {
   el.error.classList.remove('hidden');
 }
 
-function showFlow() {
+function showFlow(step = 1) {
   el.loading.classList.add('hidden');
   el.error.classList.add('hidden');
   el.flow.classList.remove('hidden');
   el.stepsContainer.classList.remove('hidden');
-  goToStep(1);
+  goToStep(step);
+}
+
+// Embedded (embed=1): tell the host page the first screen is ready, so it can keep its own
+// loader up until then instead of showing the flow while it is still settling.
+function notifyHostReady() {
+  if (window.parent === window) return;
+  window.parent.postMessage({ type: 'booking-ready' }, '*');
 }
 
 function goToStep(step) {
@@ -959,21 +966,27 @@ async function init() {
       });
     });
 
-    await loadSlotsForSelectedDate();
-    showFlow();
-    updateValidation();
-
     // ?service=<id> opens straight on the calendar for that service (used when another page
-    // lists the services itself). An unknown or no-longer-bookable id keeps the service list.
+    // lists the services itself), without showing the service list first. An unknown or
+    // no-longer-bookable id keeps the service list.
     const preselectedId = new URL(window.location.href).searchParams.get('service');
     const preselected = preselectedId && state.services.find(s => s.id === preselectedId);
-    if (preselected) await selectService(preselected);
+    if (preselected) {
+      await selectService(preselected);
+      showFlow(2);
+    } else {
+      await loadSlotsForSelectedDate();
+      showFlow();
+    }
+    updateValidation();
   } catch (err) {
     if (err?.code === 'permission-denied') {
       showError(t('booking_error_link_disabled'));
     } else {
       showError(t('booking_error_load'));
     }
+  } finally {
+    notifyHostReady();
   }
 }
 
