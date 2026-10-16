@@ -4123,3 +4123,15 @@ footer {
     padding: 4.5rem 0;
   }
 }
+
+/* Demo pages list under "See a live example" */
+.own-site-demos { margin-top: 28px; }
+.own-site-demos-title { margin: 0 0 10px; font-weight: 700; font-size: 0.95rem; }
+.own-site-demos ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.own-site-demos a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border-radius: 999px;
+    border: 1px solid var(--border, rgba(0, 0, 0, 0.12)); background: var(--surface, #fff); color: inherit;
+    font-size: 0.92rem; font-weight: 600; text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.own-site-demos a:hover { border-color: currentColor; transform: translateY(-1px); }
+.own-site-demos li:first-child a { background: var(--accent, #5b3df5); border-color: transparent; color: #fff; }
