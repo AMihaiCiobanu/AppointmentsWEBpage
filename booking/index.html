@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title id="booking-doc-title" data-i18n="booking_doc_title">Online booking | Appointments & Reports</title>
   <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Book an appointment online: pick a service, a free time slot and send your request in under a minute." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Online booking | Appointments & Reports" />
+  <meta property="og:description" content="Pick a service and a free time slot, then send your booking request." />
+  <meta property="og:image" content="https://appointmentsapps.com/assets/appIcon.png" />
+  <link rel="icon" type="image/png" href="../assets/appIcon.png" />
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
@@ -20,7 +26,7 @@
     })();
   </script>
   <link rel="stylesheet" href="./styles.css?v=3" />
-  <link rel="stylesheet" href="./header-bar.css" />
+  <link rel="stylesheet" href="./header-bar.css?v=2" />
 </head>
 
 <body>
@@ -29,7 +35,7 @@
     <div class="container nav-container">
       <a href="../" class="logo">
         <span class="logo-icon">
-          <img src="../assets/appIcon.png" alt="" width="32" height="32" class="logo-img">
+          <img src="../assets/app/logo-96.png" alt="" width="32" height="32" class="logo-img">
         </span>
         Appointments&Reports
       </a>
@@ -38,8 +44,8 @@
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button>
 
         <div class="lang-selector" id="lang-selector">
-          <button class="lang-toggle" id="lang-toggle" aria-label="Select language"
-            data-i18n-aria-label="lang_selector_label">
+          <button class="lang-toggle" id="lang-toggle">
+            <span class="sr-only" data-i18n="lang_selector_label">Language</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" width="16" height="16">
               <circle cx="12" cy="12" r="10" />
@@ -67,7 +73,7 @@
         </div>
 
         <div class="nav-menu" id="nav-menu">
-          <button type="button" class="lang-toggle" id="nav-menu-toggle" aria-label="Navigation menu">
+          <button type="button" class="lang-toggle" id="nav-menu-toggle">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" width="16" height="16">
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -78,7 +84,7 @@
           </button>
           <div class="nav-menu-dropdown" id="nav-menu-dropdown">
             <div class="nav-menu-mobile-only">
-              <button type="button" class="nav-menu-theme-row" id="menu-theme-toggle" aria-label="Toggle theme">
+              <button type="button" class="nav-menu-theme-row" id="menu-theme-toggle">
                 <span class="nav-menu-theme-icon-slot" aria-hidden="true"></span>
                 <span class="nav-menu-control-label" data-i18n="nav_theme">Theme</span>
               </button>
@@ -212,7 +218,7 @@
 
   <footer class="booking-footer">
     <a href="https://www.instagram.com/appointmentsapp" target="_blank" rel="noopener noreferrer"
-      class="booking-footer-ig" aria-label="Instagram">
+      class="booking-footer-ig" aria-label="Instagram @appointmentsapp">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"
         stroke-linecap="round" stroke-linejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -249,7 +255,7 @@
     </p>
   </footer>
 
-  <script src="../i18n.js"></script>
+  <script src="./i18n-booking.js?v=1"></script>
   <script src="../script.js"></script>
   <script type="module" src="./app.js?v=3"></script>
 </body>

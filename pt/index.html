@@ -86,7 +86,7 @@
         <div class="container nav-container">
             <a href="/index.html" class="logo">
                 <div class="logo-icon">
-                    <img src="/assets/appIcon.png" alt="Appointments & Reports icon" width="32" height="32"
+                    <img src="/assets/app/logo-96.png" alt="Appointments & Reports icon" width="32" height="32"
                         class="logo-img">
                 </div>
                 Appointments&Reports
@@ -97,8 +97,8 @@
 
                 <!-- Language selector -->
                 <div class="lang-selector" id="lang-selector">
-                    <button class="lang-toggle" id="lang-toggle" aria-label="Idioma"
-                        data-i18n-aria-label="Idioma">
+                    <button class="lang-toggle" id="lang-toggle">
+                        <span class="sr-only" data-i18n="lang_selector_label">Idioma</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
                             <circle cx="12" cy="12" r="10" />
@@ -106,7 +106,7 @@
                             <path
                                 d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                         </svg>
-                        <span id="lang-btn-label">EN</span>
+                        <span id="lang-btn-label">PT</span>
                         <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12">
                             <polyline points="6 9 12 15 18 9" />
@@ -128,7 +128,7 @@
 
                 <!-- Nav menu dropdown -->
                 <div class="nav-menu" id="nav-menu">
-                    <button class="lang-toggle" id="nav-menu-toggle" aria-label="Navigation menu">
+                    <button class="lang-toggle" id="nav-menu-toggle">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
                             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -147,8 +147,7 @@
                         <a href="#demo" class="nav-menu-item" data-i18n="nav_contact">Contato</a>
                         <div class="nav-menu-mobile-only">
                             <div class="nav-menu-divider"></div>
-                            <button type="button" class="nav-menu-theme-row" id="menu-theme-toggle"
-                                aria-label="Toggle theme">
+                            <button type="button" class="nav-menu-theme-row" id="menu-theme-toggle">
                                 <span class="nav-menu-theme-icon-slot" aria-hidden="true"></span>
                                 <span class="nav-menu-control-label" data-i18n="nav_theme">Tema</span>
                             </button>
@@ -237,7 +236,7 @@
 
             <div class="hero-visual">
                 <div class="phone-frame hero-phone-back" aria-hidden="true">
-                    <img src="/assets/app/phone-report-year.jpg" alt="" width="660" height="1434">
+                    <img src="/assets/app/phone-report-year.jpg" alt="" width="660" height="1434" loading="lazy">
                 </div>
                 <div class="iphone-mockup hero-phone-main">
                     <div class="screen">
@@ -467,19 +466,19 @@
                     <div class="booking-slider-overflow">
                         <div class="booking-slider-track">
                             <div class="booking-slide">
-                                <img src="/assets/onlineBooking1.png" alt="Step 1 – Select service" loading="lazy">
+                                <img src="/assets/app/booking-step1.webp" width="678" height="1434" alt="Step 1 – Select service" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="/assets/onlineBooking2.png" alt="Step 2 – Pick date and time" loading="lazy">
+                                <img src="/assets/app/booking-step2.webp" width="678" height="1434" alt="Step 2 – Pick date and time" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="/assets/onlineBooking3.png" alt="Step 3 – Your details" loading="lazy">
+                                <img src="/assets/app/booking-step3.webp" width="678" height="1434" alt="Step 3 – Your details" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="/assets/onlineBooking4.png" alt="Booking request sent" loading="lazy">
+                                <img src="/assets/app/booking-step4.webp" width="678" height="1434" alt="Booking request sent" loading="lazy">
                             </div>
                             <div class="booking-slide">
-                                <img src="/assets/onlineBooking5.png" alt="Manage booking requests in the app"
+                                <img src="/assets/app/booking-step5.webp" width="678" height="1434" alt="Manage booking requests in the app"
                                     loading="lazy">
                             </div>
                         </div>
@@ -820,7 +819,8 @@
                     <p data-i18n-html="reports_p">O app funciona como um <strong>analista financeiro pessoal</strong> para o seu negócio — sem o custo nem a complexidade.</p>
                 </div>
 
-                <div class="report-trio" data-animate>
+                <div class="report-trio" data-animate tabindex="0" role="region" aria-label="Capturas dos relatórios"
+                    data-i18n-aria-label="Capturas dos relatórios">
                     <figure class="report-shot side">
                         <div class="phone-frame">
                             <img src="/assets/app/phone-report-months.jpg"
@@ -1389,7 +1389,7 @@
         <div class="container">
             <div class="footer-social">
                 <a href="https://www.instagram.com/appointmentsapp?igsh=MXB1bHJ5cW4wenQzNw%3D%3D" target="_blank"
-                    rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">
+                    rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram @appointmentsapp">
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
                         stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -1459,8 +1459,28 @@
         </div>
     </div>
 
-    <script src="/i18n.js"></script>
     <script src="/script.js"></script>
+    <!-- Translations (500 KB) are needed at once only when the visitor's language differs from
+         the page's; otherwise they load after the page, just for the language switcher. -->
+    <script>
+        (function () {
+            var langs = ['en', 'ro', 'es', 'fr', 'it', 'pt', 'bg', 'pl', 'tr', 'ru'];
+            var path = location.pathname.match(/^\/([a-z]{2})\//);
+            var want = path && path[1];
+            try {
+                want = want || new URLSearchParams(location.search).get('lang') || localStorage.getItem('lang');
+            } catch (_) { }
+            want = want || (navigator.language || '').slice(0, 2).toLowerCase();
+            if (langs.indexOf(want) < 0) want = 'en';
+            function load() {
+                var s = document.createElement('script');
+                s.src = '/i18n.js';
+                document.body.appendChild(s);
+            }
+            if (want !== document.documentElement.lang.slice(0, 2)) load();
+            else window.addEventListener('load', function () { setTimeout(load, 1500); });
+        })();
+    </script>
 </body>
 
 </html>

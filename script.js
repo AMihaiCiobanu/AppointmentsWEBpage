@@ -18,7 +18,7 @@ function applyTheme(theme) {
         const slot = menuThemeToggle.querySelector('.nav-menu-theme-icon-slot');
         if (slot) slot.innerHTML = iconHtml;
         else menuThemeToggle.innerHTML = iconHtml;
-        menuThemeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        // Accessible name comes from the visible "Theme" label inside the button.
     }
 }
 
