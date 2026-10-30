@@ -163,6 +163,14 @@ def update_head_full(html: str, lang: str, t: dict) -> str:
         html = re.sub(r'<title>[^<]*</title>',
                       f'<title>{html_lib.escape(t["page_title"])}</title>', html)
 
+    # og:title / twitter:title
+    if 'page_title' in t:
+        html = re.sub(
+            r'(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(")',
+            lambda m: m.group(1) + html_lib.escape(t['page_title']) + m.group(2),
+            html,
+        )
+
     # meta description
     if 'meta_description' in t:
         html = re.sub(
