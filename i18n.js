@@ -493,6 +493,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Massage & spa",
     ownsite_demo_tattoo: "Tattoo studio",
     ownsite_demo_duo: "Salon with two specialists",
+    ownsite_demo_parallax: "Hair salon with scroll effects",
   },
 
   ro: {
@@ -988,6 +989,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Masaj și spa",
     ownsite_demo_tattoo: "Studio de tatuaje",
     ownsite_demo_duo: "Salon cu doi specialiști",
+    ownsite_demo_parallax: "Salon de coafură cu efecte la derulare",
   },
 
   es: {
@@ -1478,6 +1480,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Masajes y spa",
     ownsite_demo_tattoo: "Estudio de tatuajes",
     ownsite_demo_duo: "Salón con dos especialistas",
+    ownsite_demo_parallax: "Peluquería con efectos al desplazarse",
   },
 
   fr: {
@@ -1968,6 +1971,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Massage et spa",
     ownsite_demo_tattoo: "Studio de tatouage",
     ownsite_demo_duo: "Salon avec deux spécialistes",
+    ownsite_demo_parallax: "Salon de coiffure avec effets au défilement",
   },
 
   it: {
@@ -2459,6 +2463,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Massaggi e spa",
     ownsite_demo_tattoo: "Studio di tatuaggi",
     ownsite_demo_duo: "Salone con due specialisti",
+    ownsite_demo_parallax: "Parrucchiere con effetti allo scorrimento",
   },
 
   pt: {
@@ -2949,6 +2954,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Massagem e spa",
     ownsite_demo_tattoo: "Estúdio de tatuagem",
     ownsite_demo_duo: "Salão com duas especialistas",
+    ownsite_demo_parallax: "Salão de cabeleireiro com efeitos ao rolar",
   },
 
   bg: {
@@ -3439,6 +3445,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Масаж и спа",
     ownsite_demo_tattoo: "Тату студио",
     ownsite_demo_duo: "Салон с двама специалисти",
+    ownsite_demo_parallax: "Фризьорски салон с ефекти при скролване",
   },
 
   pl: {
@@ -3929,6 +3936,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Masaż i spa",
     ownsite_demo_tattoo: "Studio tatuażu",
     ownsite_demo_duo: "Salon z dwoma specjalistami",
+    ownsite_demo_parallax: "Salon fryzjerski z efektami przy przewijaniu",
   },
 
   tr: {
@@ -4419,6 +4427,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Masaj ve spa",
     ownsite_demo_tattoo: "Dövme stüdyosu",
     ownsite_demo_duo: "İki uzmanlı salon",
+    ownsite_demo_parallax: "Kaydırma efektli kuaför salonu",
   },
   ru: {
     nav_how_it_works: "Как это работает",
@@ -4908,6 +4917,7 @@ const TRANSLATIONS = {
     ownsite_demo_spa: "Массаж и спа",
     ownsite_demo_tattoo: "Тату-студия",
     ownsite_demo_duo: "Салон с двумя мастерами",
+    ownsite_demo_parallax: "Парикмахерская с эффектами при прокрутке",
   },
 };
 
