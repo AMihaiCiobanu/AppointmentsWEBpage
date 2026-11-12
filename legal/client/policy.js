@@ -24,6 +24,7 @@
   function fail() {
     document.querySelectorAll('article[data-lang]').forEach(function (a) { a.hidden = true; });
     document.querySelector('.error').hidden = false;
+    document.documentElement.classList.add('ready');
   }
 
   if (!/^[a-z0-9-]+$/.test(id)) { fail(); return; }
@@ -46,13 +47,16 @@
       var phone = (get(data, 'contact.phone') || '').replace(/[^\d+]/g, '');
       document.querySelectorAll('[data-href="mailto"]').forEach(function (a) { a.href = 'mailto:' + email; });
       document.querySelectorAll('[data-href="tel"]').forEach(function (a) { a.href = 'tel:' + phone; });
-      if (/^https:\/\//.test(data.site || '')) {
-        document.querySelectorAll('[data-href="site"]').forEach(function (a) { a.href = data.site; });
+      // Back link: the client's site, or the local preview the visitor came from.
+      var back = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?\//.test(document.referrer) ? document.referrer : data.site;
+      if (/^https?:\/\//.test(back || '')) {
+        document.querySelectorAll('[data-href="site"]').forEach(function (a) { a.href = back; });
         document.querySelector('.back').hidden = false;
       }
 
       var lang = params.get('lang') || data.lang || 'ro';
       showLang(lang === 'en' ? 'en' : 'ro');
+      document.documentElement.classList.add('ready');
     })
     .catch(fail);
 

@@ -68,6 +68,10 @@
   });
 
   document.querySelectorAll('[data-client-legal]').forEach(function (box) {
+    // Point the policy link at the same server this script came from (local preview stays local).
+    box.querySelectorAll('a[href^="https://appointmentsapps.com/legal/"]').forEach(function (a) {
+      a.href = origin + a.getAttribute('href').slice('https://appointmentsapps.com'.length);
+    });
     var id = (box.getAttribute('data-client-legal') || '').toLowerCase();
     if (!/^[a-z0-9-]+$/.test(id)) return;
     fetch(origin + '/legal/clients/' + id + '.json', { cache: 'no-cache' })

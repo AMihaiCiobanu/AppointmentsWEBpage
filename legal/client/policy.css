@@ -41,4 +41,6 @@ a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-ra
 .back { margin: 0; }
 .back a { display: inline-block; padding: 8px 0; }
 [data-switch] { display: inline-block; padding: 8px 0; }
+/* Hidden (but laid out) until policy.js has filled the business data: no layout shift. */
+html:not(.ready) article, html:not(.ready) [data-title] { visibility: hidden; }
 .error { padding: 16px; border: 1px solid var(--line); border-radius: 8px; }

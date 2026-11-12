@@ -9,7 +9,7 @@
   <meta name="robots" content="noindex, follow">
   <meta property="og:image" content="https://appointmentsapps.com/assets/appIcon.png">
   <link rel="icon" type="image/png" href="/assets/appIcon.png">
-  <link rel="stylesheet" href="policy.css?v=1">
+  <link rel="stylesheet" href="policy.css?v=2">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
             <span data-f="company.cui"></span></span><span data-if="company.regCom">, Nr. Reg. Com.
             <span data-f="company.regCom"></span></span><span data-if="company.address">, cu sediul în
             <span data-f="company.address"></span></span></span>.</p>
-      <p>Contact: <span data-if="contact.email"><a data-href="mailto" href="#"><span data-f="contact.email"></span></a></span><span
+      <p data-if="contact">Contact: <span data-if="contact.email"><a data-href="mailto" href="#"><span data-f="contact.email"></span></a></span><span
           data-if="contact.phone"> · <a data-href="tel" href="#"><span data-f="contact.phone"></span></a></span>.</p>
       <p>Pagina și programarea online sunt oferite prin aplicația Appointments &amp; Reports, a SOFTAPPS S.R.L.
         (CUI 54463640), care prelucrează datele doar în numele operatorului, ca persoană împuternicită.</p>
@@ -104,7 +104,7 @@
             <span data-f="company.cui"></span></span><span data-if="company.regCom">, registration no.
             <span data-f="company.regCom"></span></span><span data-if="company.address">, registered at
             <span data-f="company.address"></span></span></span>.</p>
-      <p>Contact: <span data-if="contact.email"><a data-href="mailto" href="#"><span data-f="contact.email"></span></a></span><span
+      <p data-if="contact">Contact: <span data-if="contact.email"><a data-href="mailto" href="#"><span data-f="contact.email"></span></a></span><span
           data-if="contact.phone"> · <a data-href="tel" href="#"><span data-f="contact.phone"></span></a></span>.</p>
       <p>The page and online booking run on the Appointments &amp; Reports app by SOFTAPPS S.R.L. (company ID 54463640),
         which processes the data only on the controller's behalf, as a processor.</p>
@@ -166,7 +166,7 @@
       <span lang="en">We could not find the business for this policy.</span>
     </p>
   </main>
-  <script src="policy.js?v=1"></script>
+  <script src="policy.js?v=3"></script>
 </body>
 
 </html>

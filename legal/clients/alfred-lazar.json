@@ -1,0 +1,24 @@
+{
+  "name": "Alfred Lazar",
+  "site": "https://amihaiciobanu.github.io/alfred-lazar/",
+  "lang": "ro",
+  "country": "RO",
+  "company": {
+    "legalName": "[Denumirea firmei]",
+    "form": "",
+    "cui": "[cod fiscal]",
+    "regCom": "[J…]",
+    "address": "[sediul social]"
+  },
+  "contact": {
+    "email": "[email-ul tău]",
+    "phone": "[telefonul tău]"
+  },
+  "features": {
+    "map": true,
+    "recaptcha": false,
+    "social": true,
+    "healthData": true
+  },
+  "updated": "2026-11-12"
+}
