@@ -4,7 +4,7 @@
 //    This reads /legal/clients/<id>.json and, only when the company details are filled
 //    in, adds them and (for Romanian businesses) the ANPC SAL link.
 // 2. Map on click: an element with data-map-src (and data-map-title) holding a
-//    [data-map-load] button is replaced by the Google Maps iframe only when pressed,
+//    [data-map-load] button gets the Google Maps iframe in place of its content only when pressed,
 //    so Google gets nothing before the visitor asks for the map.
 (function () {
   var script = document.currentScript;
@@ -61,7 +61,9 @@
       allowfullscreen: '',
       referrerpolicy: 'strict-origin-when-cross-origin'
     });
-    box.replaceWith(frame);
+    // Keep the box (its size and rounded frame) and put the map inside it.
+    box.removeAttribute('data-map-src');
+    box.replaceChildren(frame);
     frame.focus();
   });
 
