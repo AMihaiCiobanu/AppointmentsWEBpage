@@ -1,0 +1,24 @@
+{
+  "name": "Business name as shown on the page",
+  "site": "https://<slug>.appointmentsapps.com/",
+  "lang": "ro",
+  "country": "RO",
+  "company": {
+    "legalName": "",
+    "form": "",
+    "cui": "",
+    "regCom": "",
+    "address": ""
+  },
+  "contact": {
+    "email": "",
+    "phone": ""
+  },
+  "features": {
+    "map": true,
+    "recaptcha": true,
+    "social": true,
+    "healthData": false
+  },
+  "updated": "YYYY-MM-DD"
+}

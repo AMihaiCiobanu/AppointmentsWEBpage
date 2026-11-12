@@ -1,0 +1,24 @@
+{
+  "name": "Nails by Clemi",
+  "site": "https://nailsbyclemi.appointmentsapps.com/",
+  "lang": "ro",
+  "country": "RO",
+  "company": {
+    "legalName": "NAILSBYCLEMI",
+    "form": "S.R.L.",
+    "cui": "43614195",
+    "regCom": "J2021000267228",
+    "address": "Iași"
+  },
+  "contact": {
+    "email": "clemy089@gmail.com",
+    "phone": "+40 746 782 405"
+  },
+  "features": {
+    "map": true,
+    "recaptcha": true,
+    "social": true,
+    "healthData": false
+  },
+  "updated": "2026-11-12"
+}
