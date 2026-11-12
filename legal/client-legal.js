@@ -32,7 +32,7 @@
 
     if (data.country === 'RO') {
       var a = el('a', {
-        href: 'https://www.anpc.ro/sal',
+        href: 'https://reclamatiisal.anpc.ro',
         target: '_blank',
         rel: 'noopener',
         'class': 'client-legal-anpc'
@@ -40,11 +40,14 @@
       var img = el('img', {
         src: origin + '/legal/assets/anpc-sal.png',
         alt: 'ANPC – Soluționarea alternativă a litigiilor',
-        width: '201',
+        width: '250',
         height: '50',
         loading: 'lazy'
       });
-      // Official "pictograma SAL online" from anpc.ro/sal (201x50); text link if it fails to load.
+      // Ordinul ANPC 449/2022 (as amended by Ordinul 270/2026): 250 x 50 px, linking to reclamatiisal.anpc.ro.
+      // The official image is 201 x 50, so it sits centred in a white 250 x 50 box instead of being stretched.
+      img.style.cssText = 'display:block;width:250px;max-width:100%;height:50px;object-fit:contain;background:#fff;border-radius:4px';
+      // Text link if the image fails to load.
       img.onerror = function () { a.textContent = 'ANPC – Soluționarea alternativă a litigiilor (SAL)'; };
       a.appendChild(img);
       box.appendChild(a);
